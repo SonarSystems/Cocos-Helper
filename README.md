@@ -21,6 +21,12 @@ Future Frameworks Planned
 * Flurry<br />
 * Everyplay<br />
 
+Requirements
+------------------------------------------
+* Cocos2d-x C++
+* Mac and Xcode for iOS development
+* Eclipse for Android development
+
 Usage
 ------------------------------------------
 Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
