@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center" >
+    
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bannerSpace"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textTestInfo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:gravity="center"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="testingModeWithAds"
+                android:text="Testing Mode: With ads" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="testingModeWithoutAds"
+                android:text="Testing Mode: Without ads" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="testingModeDisable"
+                android:text="Testing mode: Disable" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="parallaxModeDefault"
+                android:text="Parallax Mode: Enable" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="parallaxModeDisable"
+                android:text="Parallax Mode: Disable" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/button1"
+                android:onClick="showFullscreen"
+                android:text="Show fullscreen" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="loadFullscreen"
+                android:text="Load fullscreen" 
+                android:background="@drawable/button1"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showLoadedFullscreen"
+                android:text="Show loaded fullscreen" 
+                android:background="@drawable/button1"/>
+
+            
+            
+            <Button
+                android:id="@+id/buttonBanner"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showBanner"
+                android:text="Show banner" 
+                android:background="@drawable/button2"/>
+            
+            <Button
+                android:id="@+id/buttonHideBanner"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/button2"
+                android:onClick="hideBanner"
+                android:text="Hide banner" />
+
+            <Button
+                android:id="@+id/buttonBannerCustomSize"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showBannerCustomSize"
+                android:text="Show banner with custom size" 
+                android:background="@drawable/button2"/>
+            
+            <Button
+                android:id="@+id/showAbsoluteBannerOnTop"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showAbsoluteBannerOnTop"
+                android:text="Show banner with internal layout on top" 
+                android:background="@drawable/button2"/>
+            
+            <Button
+                android:id="@+id/showAbsoluteBannerOnBottom"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showAbsoluteBannerOnBottom"
+                android:text="Show banner with internal layout on bottom" 
+                android:background="@drawable/button2"/>
+
+            <Button
+                android:id="@+id/hideAbsoluteBanner"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="hideAbsoluteBanner"
+                android:text="Hide banner with internal layout" 
+                android:background="@drawable/button2"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="openAdLink"
+                android:text="Open ad link" 
+                android:background="@drawable/button3"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="loadAdLink"
+                android:text="Load ad link" 
+                android:background="@drawable/button3"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="openLoadedAdLink"
+                android:text="Open loaded ad link" 
+                android:background="@drawable/button3"/>
+            
+            
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showPopup"
+                android:text="Show popup" 
+                android:background="@drawable/button4"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="loadPopup"
+                android:text="Load popup" 
+                android:background="@drawable/button4"/>
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="showLoadedPopup"
+                android:text="Show loaded popup" 
+                android:background="@drawable/button4"/>
+            
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="printEnvironmentInformation"
+                android:text="Print env info" />
+            
+            <Button
+                android:id="@+id/buttonChangeActivity"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="changeActivity"
+                android:text="Change activity" />
+            
+            <Button
+                android:id="@+id/buttonOpenGLActivity"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="openGLActivity"
+                android:text="OpenGL activity" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="changeThread"
+                android:text="Change thread" />
+            
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:onClick="closeApplication"
+                android:text="Close application" />
+            
+        </LinearLayout>
+    </ScrollView>
+    
+    <LinearLayout
+        android:id="@+id/bannerCustomSize"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="false"
+        android:gravity="center_horizontal" 
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>
