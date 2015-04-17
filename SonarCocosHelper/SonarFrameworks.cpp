@@ -381,6 +381,8 @@ void iAds::hideiAdBanner( )
 #endif
 }
 
+// NOT WORKING ATM
+/*
 void Everyplay::setup( )
 {
 #if SCH_IS_EVERYPLAY_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
@@ -408,4 +410,4 @@ void Everyplay::playLastVideoRecording( )
     IOSCPPHelper::playLastEveryplayVideoRecording( );
 #endif
 }
-
+*/

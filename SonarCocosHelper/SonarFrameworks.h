@@ -110,14 +110,15 @@ namespace SonarCocosHelper
         static void resetPlayerAchievements( );
     };
     
-    class Everyplay
+    // NOT WORKING ATM
+    /*class Everyplay
     {
     public:
         static void setup( );
         static void showEveryplay( );
         static void record( );
         static void playLastVideoRecording( );
-    };
+    };*/
 }
 
 #endif
