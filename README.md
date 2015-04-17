@@ -27,24 +27,24 @@ Not only are we simplifying the implementation of external frameworks but we hav
 * Setting Up<br />
 	-Android : http://bit.ly/1GTldD7<br />
 	-iOS : http://bit.ly/1NX9kAj<br />
-*Google Play Services<br />
+* Google Play Services<br />
 	-Android : http://bit.ly/1Im8Mx1<br />
-*Facebook<br />
+* Facebook<br />
 	-Android : http://bit.ly/1yB6rhQ<br />
 	-iOS : http://bit.ly/1ONilc2<br />
-*Twitter<br />
+* Twitter<br />
 	-Android : http://bit.ly/1PXFbPP<br />
 	-iOS : http://bit.ly/1ONilc2<br />
-*AdMob<br />
+* AdMob<br />
 	-Android : http://bit.ly/1cCmqC2<br />
 	-iOS : http://bit.ly/1yB6wBZ<br />
-*iAds<br />
+* iAds<br />
 	-iOS : http://bit.ly/1CTrzvQ<br />
-*RevMob<br />
+* RevMob<br />
 	-Android : http://bit.ly/1zoF84R<br />
 	-iOS : http://bit.ly/1Jb8OrD<br />
-*Chartboost<br />
+* Chartboost<br />
 	-Android : http://bit.ly/1DqYk5Y<br />
 	-iOS : http://bit.ly/1PXFydd<br />
-*Gamecenter<br />
+* Gamecenter<br />
 	-iOS : http://bit.ly/1ONj3WG<br />
