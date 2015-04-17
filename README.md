@@ -4,22 +4,22 @@ Sonar Cocos Helper is designed to help simply the process of implementing extern
 
 External Frameworks Supported in v1.00.01
 ------------------------------------------
-*Google Play Services (Android)<br />
-*Facebook (iOS and Android)<br />
-*Twitter (iOS and Android)<br />
-*AdMob (iOS and Android)<br />
-*iAds (iOS)<br />
-*RevMob (iOS and Android)<br />
-*Chartboost (iOS and Android)<br />
-*Gamecenter (iOS)<br />
+* Google Play Services (Android)<br />
+* Facebook (iOS and Android)<br />
+* Twitter (iOS and Android)<br />
+* AdMob (iOS and Android)<br />
+* iAds (iOS)<br />
+* RevMob (iOS and Android)<br />
+* Chartboost (iOS and Android)<br />
+* Gamecenter (iOS)<br />
 
 Future Frameworks Planned
 ------------------------------------------
-*GameAnalytics<br />
-*Google Analytics<br />
-*Tap Colony<br />
-*Flurry<br />
-*Everyplay<br />
+* GameAnalytics<br />
+* Google Analytics<br />
+* Tap Colony<br />
+* Flurry<br />
+* Everyplay<br />
 
 Usage
 ------------------------------------------
