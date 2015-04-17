@@ -23,8 +23,8 @@ Future Frameworks Planned
 
 Usage
 ------------------------------------------
-Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:
-*Setting Up<br />
+Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
+* Setting Up<br />
 	-Android : http://bit.ly/1GTldD7<br />
 	-iOS : http://bit.ly/1NX9kAj<br />
 *Google Play Services<br />
