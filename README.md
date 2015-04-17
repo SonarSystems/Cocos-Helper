@@ -25,26 +25,26 @@ Usage
 ------------------------------------------
 Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
 * Setting Up<br />
-	-Android : http://bit.ly/1GTldD7<br />
-	-iOS : http://bit.ly/1NX9kAj<br />
+	- Android : http://bit.ly/1GTldD7<br />
+	- iOS : http://bit.ly/1NX9kAj<br />
 * Google Play Services<br />
-	-Android : http://bit.ly/1Im8Mx1<br />
+	- Android : http://bit.ly/1Im8Mx1<br />
 * Facebook<br />
-	-Android : http://bit.ly/1yB6rhQ<br />
-	-iOS : http://bit.ly/1ONilc2<br />
+	- Android : http://bit.ly/1yB6rhQ<br />
+	- iOS : http://bit.ly/1ONilc2<br />
 * Twitter<br />
-	-Android : http://bit.ly/1PXFbPP<br />
-	-iOS : http://bit.ly/1ONilc2<br />
+	- Android : http://bit.ly/1PXFbPP<br />
+	- iOS : http://bit.ly/1ONilc2<br />
 * AdMob<br />
-	-Android : http://bit.ly/1cCmqC2<br />
-	-iOS : http://bit.ly/1yB6wBZ<br />
+	- Android : http://bit.ly/1cCmqC2<br />
+	- iOS : http://bit.ly/1yB6wBZ<br />
 * iAds<br />
-	-iOS : http://bit.ly/1CTrzvQ<br />
+	- iOS : http://bit.ly/1CTrzvQ<br />
 * RevMob<br />
-	-Android : http://bit.ly/1zoF84R<br />
-	-iOS : http://bit.ly/1Jb8OrD<br />
+	- Android : http://bit.ly/1zoF84R<br />
+	- iOS : http://bit.ly/1Jb8OrD<br />
 * Chartboost<br />
-	-Android : http://bit.ly/1DqYk5Y<br />
-	-iOS : http://bit.ly/1PXFydd<br />
+	- Android : http://bit.ly/1DqYk5Y<br />
+	- iOS : http://bit.ly/1PXFydd<br />
 * Gamecenter<br />
-	-iOS : http://bit.ly/1ONj3WG<br />
+	- iOS : http://bit.ly/1ONj3WG<br />
