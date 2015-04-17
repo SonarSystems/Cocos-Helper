@@ -4,7 +4,7 @@ Sonar Cocos Helper is designed to help simply the process of implementing extern
 
 External Frameworks Supported in v1.00.01
 ------------------------------------------
-*Google Play Services (Android)
+*Google Play Services (Android)<br />
 *Facebook (iOS and Android)
 *Twitter (iOS and Android)
 *AdMob (iOS and Android)
