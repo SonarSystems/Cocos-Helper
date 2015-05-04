@@ -370,17 +370,18 @@ SCHEmptyProtocol
     };
 }
 
--( void )gameCenterSubmitScore:( int ) scoreNumber: ( NSString * )leaderboardID
+-( void )gameCenterSubmitScore:( int )scoreNumber andLeaderboard:( NSString * )leaderboardID
 {
     if ( !self.gameCenterEnabled || self.leaderboardIdentifier == nil )
     { return; }
     
-    GKScore *s = [[[GKScore alloc] initWithCategory:leaderboardID] autorelease];
+    GKScore *s = [[[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID] autorelease];
     s.value = scoreNumber;
-    [s reportScoreWithCompletionHandler:^( NSError *error )
-    {
+    
+    [GKScore reportScores:@[s] withCompletionHandler:^(NSError *error) {
         if ( error != nil)
         { NSLog( @"%@", [error localizedDescription] ); }
+ 
     }];
 }
 
@@ -411,7 +412,7 @@ SCHEmptyProtocol
     [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
 }
 
--( void )gameCenterUnlockAchievement:( NSString* ) achievementID: ( float ) percent
+-( void )gameCenterUnlockAchievement:( NSString* )achievementID andPercentage: ( float )percent
 {
     [GKAchievement loadAchievementsWithCompletionHandler:^( NSArray *achievements, NSError *error )
     {
@@ -428,7 +429,7 @@ SCHEmptyProtocol
         GKAchievement *achievementToSend = [[GKAchievement alloc] initWithIdentifier:achievementID];
         achievementToSend.percentComplete = percent;
         achievementToSend.showsCompletionBanner = YES;
-        [achievementToSend reportAchievementWithCompletionHandler:NULL];
+        [GKAchievement reportAchievements:@[achievementToSend] withCompletionHandler:NULL];
     }];
 }
 

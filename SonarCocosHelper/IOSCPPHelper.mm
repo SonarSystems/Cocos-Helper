@@ -117,12 +117,13 @@ void IOSCPPHelper::gameCenterShowAchievements( )
 
 void IOSCPPHelper::gameCenterSubmitScore( int scoreNumber, __String leaderboardID )
 {
-    [[IOSHelper instance] gameCenterSubmitScore:scoreNumber: [NSString stringWithCString:leaderboardID.getCString( ) encoding:NSUTF8StringEncoding]];
+    [[IOSHelper instance] gameCenterSubmitScore:scoreNumber
+                                 andLeaderboard:[NSString stringWithCString:leaderboardID.getCString( ) encoding:NSUTF8StringEncoding]];
 }
 
 void IOSCPPHelper::gameCenterUnlockAchievement( __String achievementID, float percent )
 {
-    [[IOSHelper instance] gameCenterUnlockAchievement:[NSString stringWithCString:achievementID.getCString( ) encoding:NSUTF8StringEncoding]:percent];
+    [[IOSHelper instance] gameCenterUnlockAchievement:[NSString stringWithCString:achievementID.getCString( ) encoding:NSUTF8StringEncoding] andPercentage:percent];
 }
 
 void IOSCPPHelper::gameCenterResetPlayerAchievements( )
