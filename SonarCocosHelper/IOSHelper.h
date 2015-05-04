@@ -137,8 +137,8 @@ SCHEmptyProtocol
 -( void )gameCenterLogin;
 -( void )gameCenterShowLeaderboard;
 -( void )gameCenterShowAchievements;
--( void )gameCenterSubmitScore:( int ) scoreNumber: ( NSString * )leaderboardID;
--( void )gameCenterUnlockAchievement:( NSString * ) achievementID: ( float ) percent;
+-( void )gameCenterSubmitScore:( int )scoreNumber andLeaderboard: ( NSString * )leaderboardID;
+-( void )gameCenterUnlockAchievement:( NSString * )achievementID andPercentage:( float )percent;
 -( void )gameCenterResetPlayerAchievements;
 #endif
 
