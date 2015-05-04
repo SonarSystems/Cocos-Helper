@@ -1,8 +1,8 @@
-# Sonar Cocos Helper v1.00.01
+# Sonar Cocos Helper v1.00.02
 
 Sonar Cocos Helper is designed to help simply the process of implementing external frameworks. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this.
 
-External Frameworks Supported in v1.00.01
+External Frameworks Supported in v1.00.02
 ------------------------------------------
 * Google Play Services (Android)<br />
 * Facebook (iOS and Android)<br />
