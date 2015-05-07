@@ -72,6 +72,19 @@ namespace SonarCocosHelper
         static void showFullscreenAd( );
 
     };
+    
+    class Mopub
+    {
+    public:
+        static void showMopubBannerAd();
+        static void hideMopubBannerAd();
+        
+        static void requestLaunchFullscreenAd( );
+        static void showLaunchFullscreenAd( );
+        
+        static void requestEndlevelFullscreenAd( );
+        static void showEndlevelFullscreenAd( );
+    };
 
     class iAds
     {

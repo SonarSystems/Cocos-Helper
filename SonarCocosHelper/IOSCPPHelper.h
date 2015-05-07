@@ -69,6 +69,17 @@ public:
     static void hideAdMobBanner( );
     static void showAdMobFullscreenAd( );
 #endif
+
+#if SCH_IS_MOPUB_ENABLED == true
+    static void showMopubBanner( );
+    static void hideMopubBanner( );
+    
+    static void requestFullscreenAd( );
+    static void showLaunchFullscreenAd( );
+    
+    static void requestEndLevelFullscreenAd( );
+    static void showEndLevelFullscreenAd ( );
+#endif
     
 #if SCH_IS_EVERYPLAY_ENABLED == true
     static void setupEveryplay( );

@@ -41,6 +41,11 @@
     #import <Everyplay/Everyplay.h>
 #endif
 
+#if SCH_IS_MOPUB_ENABLED == true
+    #import <MPAdView.h>
+    #import <MPInterstitialAdController.h>
+#endif
+
 @protocol SCHEmptyProtocol
 @end
 
@@ -65,6 +70,11 @@ SCHEmptyProtocol
 
 #if SCH_IS_EVERYPLAY_ENABLED == true
 , EveryplayDelegate
+#endif
+
+#if SCH_IS_MOPUB_ENABLED == true
+, MPAdViewDelegate
+, MPInterstitialAdControllerDelegate
 #endif
 >
 {
@@ -91,7 +101,18 @@ SCHEmptyProtocol
     BOOL isAdMobFullscreenLoaded;
     BOOL isAdMobBannerDisplayed;
 #endif
+    
+#if SCH_IS_MOPUB_ENABLED == true
+    BOOL isMopubBannerDisplayed;
+#endif
+   
 }
+
+#if SCH_IS_MOPUB_ENABLED == true
+@property (nonatomic, strong) MPAdView *adView;
+@property (nonatomic, strong) MPInterstitialAdController *interstitialLaunch;
+@property (nonatomic, strong) MPInterstitialAdController *interstitialEndlevel;
+#endif
 
 @property (nonatomic, strong) UIPopoverController *popover;
 
@@ -147,6 +168,17 @@ SCHEmptyProtocol
 -( void )showAdMobBanner:( int ) position;
 -( void )hideAdMobBanner;
 -( void )showAdMobFullscreenAd;
+#endif
+
+#if SCH_IS_MOPUB_ENABLED == true
+- ( void )showMopubBanner;
+- ( void )hideMopubBanner;
+
+- ( void )requestLaunchFullscreenAd;
+- ( void )showLaunchFullscreenAd;
+
+- ( void )requestEndLevelFullscreenAd;
+- ( void )showEndLevelFullscreenAd;
 #endif
 
 #if SCH_IS_EVERYPLAY_ENABLED == true
