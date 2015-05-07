@@ -122,6 +122,10 @@ SCHEmptyProtocol
     [self requestAdMobFullscreenAd];
 #endif
     
+#if SCH_IS_MOPUB_ENABLED == true
+    isMopubBannerDisplayed = false;
+#endif
+    
 #if SCH_IS_EVERYPLAY_ENABLED == true
     [self setupEveryplay];
 #endif
@@ -182,6 +186,8 @@ SCHEmptyProtocol
     [self hideiAdBanner];
 }
 #endif
+
+#pragma mark - REVMOB
 
 #if SCH_IS_REVMOB_ENABLED == true
 // display RevMob banner
@@ -258,6 +264,8 @@ SCHEmptyProtocol
 }
 #endif
 
+#pragma mark - CHARTBOOST
+
 #if SCH_IS_CHARTBOOST_ENABLED == true
 // show a Chartboost interstitial ad
 -( void )showChartboostFullScreenAd
@@ -332,6 +340,8 @@ SCHEmptyProtocol
 }
 #endif
 
+#pragma mark - GAME_CENTER
+
 #if SCH_IS_GAME_CENTER_ENABLED == true
 -( void )gameCenterLogin
 {
@@ -387,15 +397,23 @@ SCHEmptyProtocol
 
 -( void )gameCenterShowLeaderboard
 {
-    // Init the following view controller object.
-    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
     
-    // Set self as its delegate.
-    gcViewController.gameCenterDelegate = self;
-    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
-    //gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
-    
-    [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
+    if (_gameCenterEnabled) {
+        
+        // Init the following view controller object.
+        GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+        
+        // Set self as its delegate.
+        gcViewController.gameCenterDelegate = self;
+        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        //gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
+        
+        [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
+ 
+    } else {
+        
+        [self gameCenterLogin];
+    }
 }
 
 -( void )gameCenterViewControllerDidFinish:( GKGameCenterViewController * )gameCenterViewController
@@ -436,6 +454,8 @@ SCHEmptyProtocol
 -( void )gameCenterResetPlayerAchievements
 { [GKAchievement resetAchievementsWithCompletionHandler: NULL]; }
 #endif
+
+#pragma mark - ADMOB
 
 #if SCH_IS_AD_MOB_ENABLED == true
 -( void )showAdMobBanner:( int ) position
@@ -495,6 +515,83 @@ SCHEmptyProtocol
 { isAdMobFullscreenLoaded = true; }
 
 #endif
+
+#pragma mark - MOPUB
+
+#if SCH_IS_MOPUB_ENABLED == true
+
+// Banner Ad
+- ( void )showMopubBanner {
+
+    if ( !isMopubBannerDisplayed ) {
+        
+        self.adView = [[MPAdView alloc] initWithAdUnitId:SCH_MOPUB_BANNER_AD_UNIT size:MOPUB_BANNER_SIZE];
+        self.adView.delegate = self;
+        
+        self.adView.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        self.adView.frame = CGRectMake((view.bounds.size.width - MOPUB_BANNER_SIZE.width) / 2,
+                                       0,
+                                       MOPUB_BANNER_SIZE.width,
+                                       MOPUB_BANNER_SIZE.height);
+        
+        [appController.viewController.view addSubview:self.adView];
+        
+
+        [self.adView loadAd];
+        
+        isMopubBannerDisplayed = true;
+    }
+}
+
+- ( void )hideMopubBanner {
+    
+    [self.adView removeFromSuperview];
+    isMopubBannerDisplayed = false;
+}
+
+- (UIViewController *)viewControllerForPresentingModalView {
+    
+    return appController.viewController;
+}
+
+// Interstitial Ad
+
+- ( void )requestLaunchFullscreenAd {
+
+    self.interstitialLaunch = [MPInterstitialAdController
+                         interstitialAdControllerForAdUnitId:SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT];
+    
+    [self.interstitialLaunch loadAd];
+}
+
+- ( void )showLaunchFullscreenAd {
+
+    if (self.interstitialLaunch.ready) {
+        
+        [self.interstitialLaunch showFromViewController:appController.viewController];
+    }
+}
+
+- ( void )requestEndLevelFullscreenAd {
+    
+    self.interstitialEndlevel = [MPInterstitialAdController
+                               interstitialAdControllerForAdUnitId:SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT];
+    
+    [self.interstitialEndlevel loadAd];
+}
+
+- ( void )showEndLevelFullscreenAd {
+    
+    if (self.interstitialEndlevel.ready) {
+        
+        [self.interstitialEndlevel showFromViewController:appController.viewController];
+    }
+}
+
+#endif
+
+#pragma mark - EVERYPLAY
 
 #if SCH_IS_EVERYPLAY_ENABLED == true
 -( void )setupEveryplay

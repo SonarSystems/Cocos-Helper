@@ -149,6 +149,41 @@ void IOSCPPHelper::showAdMobFullscreenAd( )
 }
 #endif
 
+#if SCH_IS_MOPUB_ENABLED == true
+void IOSCPPHelper::showMopubBanner( ) {
+
+    [[IOSHelper instance] showMopubBanner];
+}
+
+void IOSCPPHelper::hideMopubBanner( ) {
+   
+    [[IOSHelper instance] hideMopubBanner];
+}
+
+void IOSCPPHelper::requestFullscreenAd( ) {
+   
+    [[IOSHelper instance] requestLaunchFullscreenAd];
+}
+
+void IOSCPPHelper::showLaunchFullscreenAd( ) {
+    
+    [[IOSHelper instance] showLaunchFullscreenAd];
+}
+
+void IOSCPPHelper::requestEndLevelFullscreenAd( ) {
+    
+    [[IOSHelper instance] requestEndLevelFullscreenAd];
+ 
+}
+
+void IOSCPPHelper::showEndLevelFullscreenAd( ) {
+   
+    [[IOSHelper instance] showEndLevelFullscreenAd];
+}
+
+#endif
+
+
 #if SCH_IS_EVERYPLAY_ENABLED == true
 void IOSCPPHelper::setupEveryplay( )
 {

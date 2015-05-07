@@ -25,6 +25,12 @@
 #define SCH_IS_GAME_CENTER_ENABLED false // Social.framework, GameKit.framework
 //#define SCH_IS_EVERYPLAY_ENABLED false // AdSupport (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, AssetsLibrary.framework, AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreImage (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, CoreMedia.framework, CoreVideo.framework, Foundation.framework, MessageUI.framework, MobileCoreServices.framework, OpenGLES.framework, QuartzCore.framework, Security.framework, Social (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, StoreKit.framework, SystemConfiguration.framework, Twitter (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, UIKit.framework
 
+#define SCH_IS_MOPUB_ENABLED true // AdSupport.framework,CoreGraphics.framework,CoreLocation.framework,CoreTelephony.framework,EventKit.framework,EventKitUI.framework,Foundation.framework,MediaPlayer.framework,QuartzCore.framework,StoreKit.framework†,SystemConfiguration.framework,UIKit.framework
+
+#define SCH_MOPUB_BANNER_AD_UNIT @""
+#define SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT @""
+#define SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT @""
+
 #define SCH_CHARTBOOST_APP_ID @""
 #define SCH_CHARTBOOST_APP_SIGNATURE @""
 
