@@ -24,7 +24,6 @@ Future Plans
 * Kiip<br />
 * TapJoy<br />
 * InMobi<br />
-
 * Upgrade to Cocos2d-JS<br />
 
 Requirements
