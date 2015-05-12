@@ -17,16 +17,9 @@
 #include "IOSCPPHelper.h"
 #import "IOSHelper.h"
 
-/*bool IOSCPPHelper::init( )
-{
-    [[IOSHelper instance] init];
-    
-    return true;
-}*/
 
 void IOSCPPHelper::Setup( )
 {
-//    [[IOSHelper instance] init];
     [[IOSHelper instance] initialise];
 }
 
@@ -205,4 +198,43 @@ void IOSCPPHelper::playLastEveryplayVideoRecording( )
 }
 #endif
 
+void IOSCPPHelper::voidTestMethod1( )
+{
+    [[IOSHelper instance] voidTestMethod1];
+}
+
+void IOSCPPHelper::voidTestMethod2( )
+{
+    [[IOSHelper instance] voidTestMethod2];
+}
+
+bool IOSCPPHelper::boolTestMethod1( )
+{
+    return [[IOSHelper instance] boolTestMethod1];
+}
+
+bool IOSCPPHelper::boolTestMethod2( )
+{
+    return [[IOSHelper instance] boolTestMethod2];
+}
+
+int IOSCPPHelper::intTestMethod1( )
+{
+    return [[IOSHelper instance] intTestMethod1];
+}
+
+int IOSCPPHelper::intTestMethod2( )
+{
+    return [[IOSHelper instance] intTestMethod2];
+}
+
+float IOSCPPHelper::floatTestMethod1( )
+{
+    return [[IOSHelper instance] floatTestMethod1];
+}
+
+float IOSCPPHelper::floatTestMethod2( )
+{
+    return [[IOSHelper instance] floatTestMethod2];
+}
 

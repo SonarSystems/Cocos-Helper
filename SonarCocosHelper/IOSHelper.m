@@ -579,22 +579,21 @@ SCHEmptyProtocol
 #if SCH_IS_MOPUB_ENABLED == true
 
 // Banner Ad
-- ( void )showMopubBanner {
-
-    if ( !isMopubBannerDisplayed ) {
-        
+-( void )showMopubBanner
+{
+    if ( !isMopubBannerDisplayed )
+    {
         self.adView = [[MPAdView alloc] initWithAdUnitId:SCH_MOPUB_BANNER_AD_UNIT size:MOPUB_BANNER_SIZE];
         self.adView.delegate = self;
         
         self.adView.translatesAutoresizingMaskIntoConstraints = NO;
         
-        self.adView.frame = CGRectMake((view.bounds.size.width - MOPUB_BANNER_SIZE.width) / 2,
+        self.adView.frame = CGRectMake( ( view.bounds.size.width - MOPUB_BANNER_SIZE.width ) / 2,
                                        0,
                                        MOPUB_BANNER_SIZE.width,
-                                       MOPUB_BANNER_SIZE.height);
+                                       MOPUB_BANNER_SIZE.height );
         
         [appController.viewController.view addSubview:self.adView];
-        
 
         [self.adView loadAd];
         
@@ -602,47 +601,46 @@ SCHEmptyProtocol
     }
 }
 
-- ( void )hideMopubBanner {
-    
+-( void )hideMopubBanner
+{
     [self.adView removeFromSuperview];
     isMopubBannerDisplayed = false;
 }
 
-- (UIViewController *)viewControllerForPresentingModalView {
-    
+-( UIViewController * )viewControllerForPresentingModalView
+{
     return appController.viewController;
 }
 
 // Interstitial Ad
 
-- ( void )requestLaunchFullscreenAd {
+-( void )requestLaunchFullscreenAd
+{
 
-    self.interstitialLaunch = [MPInterstitialAdController
-                         interstitialAdControllerForAdUnitId:SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT];
+    self.interstitialLaunch = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT];
     
     [self.interstitialLaunch loadAd];
 }
 
-- ( void )showLaunchFullscreenAd {
-
-    if (self.interstitialLaunch.ready) {
-        
+-( void )showLaunchFullscreenAd
+{
+    if ( self.interstitialLaunch.ready )
+    {
         [self.interstitialLaunch showFromViewController:appController.viewController];
     }
 }
 
-- ( void )requestEndLevelFullscreenAd {
-    
-    self.interstitialEndlevel = [MPInterstitialAdController
-                               interstitialAdControllerForAdUnitId:SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT];
+-( void )requestEndLevelFullscreenAd
+{
+    self.interstitialEndlevel = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT];
     
     [self.interstitialEndlevel loadAd];
 }
 
-- ( void )showEndLevelFullscreenAd {
-    
-    if (self.interstitialEndlevel.ready) {
-        
+-( void )showEndLevelFullscreenAd
+{
+    if ( self.interstitialEndlevel.ready )
+    {
         [self.interstitialEndlevel showFromViewController:appController.viewController];
     }
 }
@@ -679,5 +677,45 @@ SCHEmptyProtocol
 -( void )playLastEveryplayVideoRecording
 { [[Everyplay sharedInstance] playLastRecording]; }
 #endif
+
+-( void )voidTestMethod1;
+{
+    
+}
+
+-( void )voidTestMethod2
+{
+    
+}
+
+-( bool )boolTestMethod1
+{
+    
+}
+
+-( bool )boolTestMethod2
+{
+    
+}
+
+-( int )intTestMethod1
+{
+    
+}
+
+-( int )intTestMethod2
+{
+    
+}
+
+-( float )floatTestMethod1
+{
+    
+}
+
+-( float )floatTestMethod2
+{
+    
+}
 
 @end

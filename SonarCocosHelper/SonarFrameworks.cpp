@@ -467,6 +467,70 @@ void iAds::hideiAdBanner( )
 #endif
 }
 
+void TESTCLASS::voidTestMethod1( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    IOSCPPHelper::voidTestMethod1( );
+#endif
+}
+
+void TESTCLASS::voidTestMethod2( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    IOSCPPHelper::voidTestMethod2( );
+#endif
+}
+
+bool TESTCLASS::boolTestMethod1( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    return IOSCPPHelper::boolTestMethod1( );
+#endif
+}
+
+bool TESTCLASS::boolTestMethod2( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    return IOSCPPHelper::boolTestMethod2( );
+#endif
+}
+
+int TESTCLASS::intTestMethod1( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    return IOSCPPHelper::intTestMethod1( );
+#endif
+}
+
+int TESTCLASS::intTestMethod2( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    return IOSCPPHelper::intTestMethod2( );
+#endif
+}
+
+float TESTCLASS::floatTestMethod1( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    return IOSCPPHelper::floatTestMethod1( );
+#endif
+}
+
+float TESTCLASS::floatTestMethod2( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    return IOSCPPHelper::floatTestMethod2( );
+#endif
+}
+
 // NOT WORKING ATM
 /*
 void Everyplay::setup( )

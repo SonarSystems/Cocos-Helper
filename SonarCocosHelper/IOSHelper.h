@@ -123,10 +123,10 @@ SCHEmptyProtocol
 -( void )initialise;
 
 #if SCH_IS_iADS_ENABLED == true
--( void )showiAdBanner;
+//-( void )showiAdBanner;
 -( void )showiAdBanner:( int ) position;
--( void )hideiAdBanner:( int ) position;
--( void )hideiAdBannerPermanently:( int ) position;
+-( void )hideiAdBanner;
+-( void )hideiAdBannerPermanently;
 #endif
 
 #if SCH_IS_REVMOB_ENABLED == true
@@ -141,11 +141,6 @@ SCHEmptyProtocol
 -( void )showChartboostMoreApps;
 -( void )showChartboostVideoAd;
 #endif
-
-//-( void )showBannerWithDelay:( int ) position:( float ) delay; // not done yet
-//-( void )showFullScreenAdWithDelay:( float ) delay; // not done yet
-//-( void )showMoreAppsWithDelay:( float ) delay; // not done yet
-///-( void )showVideoAdWithDelay:( float ) delay; // not done yet
 
 #if SCH_IS_SOCIAL_ENABLED == true
 -( void )shareViaFacebook: ( NSString * ) message: ( NSString * ) imagePath;
@@ -166,7 +161,6 @@ SCHEmptyProtocol
 #endif
 
 #if SCH_IS_AD_MOB_ENABLED == true
-//-( void )showAdMobBanner;
 -( void )showAdMobBanner:( int ) position;
 -( void )hideAdMobBanner:( int ) position;
 -( void )showAdMobFullscreenAd;
@@ -189,5 +183,14 @@ SCHEmptyProtocol
 -( void )recordEveryplayVideo;
 -( void )playLastEveryplayVideoRecording;
 #endif
+
+-( void )voidTestMethod1;
+-( void )voidTestMethod2;
+-( bool )boolTestMethod1;
+-( bool )boolTestMethod2;
+-( int )intTestMethod1;
+-( int )intTestMethod2;
+-( float )floatTestMethod1;
+-( float )floatTestMethod2;
 
 @end
