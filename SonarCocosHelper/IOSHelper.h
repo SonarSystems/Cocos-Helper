@@ -107,6 +107,13 @@ SCHEmptyProtocol
 #if SCH_IS_MOPUB_ENABLED == true
     BOOL isMopubBannerDisplayed;
 #endif
+<<<<<<< HEAD
+=======
+    
+#if SCH_IS_MOPUB_ENABLED == true
+    BOOL isMopubBannerDisplayed;
+#endif
+>>>>>>> origin/master
    
 }
 
