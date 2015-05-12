@@ -1,8 +1,8 @@
-# Sonar Cocos Helper v1.02.00
+# Sonar Cocos Helper v1.03.00
 
 Sonar Cocos Helper is designed to help simply the process of implementing external frameworks. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this.
 
-External Frameworks Supported in v1.02.00
+External Frameworks Supported in v1.03.00
 ------------------------------------------
 * Google Play Services (Android)<br />
 * Facebook (iOS and Android)<br />
@@ -14,13 +14,18 @@ External Frameworks Supported in v1.02.00
 * Gamecenter (iOS)<br />
 * MoPub (iOS)<br />
 
-Future Frameworks Planned
+Future Plans
 ------------------------------------------
-* GameAnalytics<br />
 * Google Analytics<br />
-* Tap Colony<br />
+* MoPub Android<br />
+* GameAnalytics<br />
 * Flurry<br />
 * Everyplay<br />
+* Kiip<br />
+* TapJoy<br />
+* InMobi<br />
+
+* Upgrade to Cocos2d-JS<br />
 
 Requirements
 ------------------------------------------
