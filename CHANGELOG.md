@@ -16,7 +16,7 @@ e - minor bug fix<br />
 [UPDATE] - feature updated<br />
 [FIX] - bug fixed<br />
 
-## [1.02.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.00.10) (7th May 2015)
+## [1.02.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.02.00) (7th May 2015)
 
 - [NEW] AdMob now supports 2 simultaneous ad banners (top and bottom) on iOS and Android
 
