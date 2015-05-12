@@ -186,7 +186,7 @@ void GameCenter::resetPlayerAchievements( )
 				"FacebookSignIn",
 				CLASS_NAME);
 	#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-		//Do Your Shizzle Frahaan
+		//TODO
 	#endif
 }*/
 
@@ -222,6 +222,79 @@ void Twitter::Tweet(const char* tweet,const char* title, const char *imagePath)
         #endif
 	#endif
 }
+
+void Mopub::showMopubBannerAd()
+{
+    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_MOPUB_ENABLED == true
+            IOSCPPHelper::showMopubBanner();
+        #endif
+    #endif
+ 
+}
+
+void Mopub::hideMopubBannerAd()
+{
+    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_MOPUB_ENABLED == true
+    IOSCPPHelper::hideMopubBanner();
+        #endif
+    #endif
+ 
+}
+
+void Mopub::requestLaunchFullscreenAd( )
+{
+    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_MOPUB_ENABLED == true
+            IOSCPPHelper::requestFullscreenAd();
+        #endif
+    #endif
+    
+}
+
+void Mopub::showLaunchFullscreenAd( )
+{
+    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_MOPUB_ENABLED == true
+            IOSCPPHelper::showLaunchFullscreenAd();
+        #endif
+    #endif
+ 
+}
+
+void Mopub::requestEndlevelFullscreenAd()
+{
+    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_MOPUB_ENABLED == true
+            IOSCPPHelper::requestEndLevelFullscreenAd();
+        #endif
+    #endif
+ 
+}
+
+void Mopub::showEndlevelFullscreenAd( )
+{
+    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_MOPUB_ENABLED == true
+            IOSCPPHelper::showEndLevelFullscreenAd();
+        #endif
+    #endif
+ 
+}
+
 
 void AdMob::showBannerAd()
 {
@@ -259,7 +332,21 @@ void AdMob::hideBannerAd()
 			CLASS_NAME);
     #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         #if SCH_IS_AD_MOB_ENABLED == true
-            IOSCPPHelper::hideAdMobBanner( );
+            IOSCPPHelper::hideAdMobBanner( eBoth );
+        #endif
+	#endif
+}
+
+void AdMob::hideBannerAd( int position )
+{
+	#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+		return JniHelpers::jniCommonVoidCall(
+			"HideBannerAd",
+			CLASS_NAME,
+			position);
+    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        #if SCH_IS_AD_MOB_ENABLED == true
+            IOSCPPHelper::hideAdMobBanner( position );
         #endif
 	#endif
 }
@@ -369,7 +456,6 @@ void iAds::showiAdBanner( )
 void iAds::showiAdBanner( int position )
 {
 #if SCH_IS_iADS_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-    CCLOG("%i", position);
     IOSCPPHelper::showiAdBanner( position );
 #endif
 }

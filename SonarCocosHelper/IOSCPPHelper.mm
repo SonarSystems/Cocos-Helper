@@ -55,7 +55,6 @@ void IOSCPPHelper::showRevMobPopupAd( )
 #if SCH_IS_iADS_ENABLED == true
 void IOSCPPHelper::showiAdBanner( int position )
 {
-    NSLog(@"eee%i", position);
     [[IOSHelper instance] showiAdBanner:position];
 }
 
@@ -117,12 +116,13 @@ void IOSCPPHelper::gameCenterShowAchievements( )
 
 void IOSCPPHelper::gameCenterSubmitScore( int scoreNumber, __String leaderboardID )
 {
-    [[IOSHelper instance] gameCenterSubmitScore:scoreNumber: [NSString stringWithCString:leaderboardID.getCString( ) encoding:NSUTF8StringEncoding]];
+    [[IOSHelper instance] gameCenterSubmitScore:scoreNumber
+                                 andLeaderboard:[NSString stringWithCString:leaderboardID.getCString( ) encoding:NSUTF8StringEncoding]];
 }
 
 void IOSCPPHelper::gameCenterUnlockAchievement( __String achievementID, float percent )
 {
-    [[IOSHelper instance] gameCenterUnlockAchievement:[NSString stringWithCString:achievementID.getCString( ) encoding:NSUTF8StringEncoding]:percent];
+    [[IOSHelper instance] gameCenterUnlockAchievement:[NSString stringWithCString:achievementID.getCString( ) encoding:NSUTF8StringEncoding] andPercentage:percent];
 }
 
 void IOSCPPHelper::gameCenterResetPlayerAchievements( )
@@ -137,9 +137,9 @@ void IOSCPPHelper::showAdMobBanner( int position )
     [[IOSHelper instance] showAdMobBanner:position];
 }
 
-void IOSCPPHelper::hideAdMobBanner( )
+void IOSCPPHelper::hideAdMobBanner( int position )
 {
-    [[IOSHelper instance] hideAdMobBanner];
+    [[IOSHelper instance] hideAdMobBanner:position];
 }
 
 void IOSCPPHelper::showAdMobFullscreenAd( )
@@ -147,6 +147,41 @@ void IOSCPPHelper::showAdMobFullscreenAd( )
     [[IOSHelper instance] showAdMobFullscreenAd];
 }
 #endif
+
+#if SCH_IS_MOPUB_ENABLED == true
+void IOSCPPHelper::showMopubBanner( ) {
+
+    [[IOSHelper instance] showMopubBanner];
+}
+
+void IOSCPPHelper::hideMopubBanner( ) {
+   
+    [[IOSHelper instance] hideMopubBanner];
+}
+
+void IOSCPPHelper::requestFullscreenAd( ) {
+   
+    [[IOSHelper instance] requestLaunchFullscreenAd];
+}
+
+void IOSCPPHelper::showLaunchFullscreenAd( ) {
+    
+    [[IOSHelper instance] showLaunchFullscreenAd];
+}
+
+void IOSCPPHelper::requestEndLevelFullscreenAd( ) {
+    
+    [[IOSHelper instance] requestEndLevelFullscreenAd];
+ 
+}
+
+void IOSCPPHelper::showEndLevelFullscreenAd( ) {
+   
+    [[IOSHelper instance] showEndLevelFullscreenAd];
+}
+
+#endif
+
 
 #if SCH_IS_EVERYPLAY_ENABLED == true
 void IOSCPPHelper::setupEveryplay( )

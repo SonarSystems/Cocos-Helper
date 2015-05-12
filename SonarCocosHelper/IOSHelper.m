@@ -70,12 +70,6 @@ SCHEmptyProtocol
 // initialise the Network Framework to setup external frameworks
 -( void )initialise
 {
-    isBannerVisible = false;
-    isBannerLoaded = false;
-    isBannerToBeShown = false;
-    
-    bannerPosition = ADBANNERPOSITION_TOP;
-    
     appController = ( AppController * )[[UIApplication sharedApplication] delegate];
     view = appController.viewController.view;
     
@@ -103,6 +97,12 @@ SCHEmptyProtocol
 #endif
     
 #if SCH_IS_iADS_ENABLED == true
+    isBannerVisible = false;
+    isBannerLoaded = false;
+    isBannerToBeShown = false;
+    
+    bannerPosition = ADBANNERPOSITION_TOP;
+    
     adView = [[ADBannerView alloc] initWithFrame:CGRectZero];
     adView.frame = CGRectMake( 0, view.frame.size.height * 2, adView.frame.size.width, adView.frame.size.height );
     
@@ -117,9 +117,14 @@ SCHEmptyProtocol
     
 #if SCH_IS_AD_MOB_ENABLED == true
     isAdMobFullscreenLoaded = false;
-    isAdMobBannerDisplayed = false;
+    isAdMobTopBannerDisplayed = false;
+    isAdMobBottomBannerDisplayed = false;
     
     [self requestAdMobFullscreenAd];
+#endif
+    
+#if SCH_IS_MOPUB_ENABLED == true
+    isMopubBannerDisplayed = false;
 #endif
     
 #if SCH_IS_EVERYPLAY_ENABLED == true
@@ -133,7 +138,7 @@ SCHEmptyProtocol
 {
     isBannerToBeShown = true;
     bannerPosition = position;
-
+    
     if ( !isBannerVisible && isBannerLoaded )
     {
         // check where the ad is to be positioned
@@ -182,6 +187,8 @@ SCHEmptyProtocol
     [self hideiAdBanner];
 }
 #endif
+
+#pragma mark - REVMOB
 
 #if SCH_IS_REVMOB_ENABLED == true
 // display RevMob banner
@@ -258,6 +265,8 @@ SCHEmptyProtocol
 }
 #endif
 
+#pragma mark - CHARTBOOST
+
 #if SCH_IS_CHARTBOOST_ENABLED == true
 // show a Chartboost interstitial ad
 -( void )showChartboostFullScreenAd
@@ -332,6 +341,8 @@ SCHEmptyProtocol
 }
 #endif
 
+#pragma mark - GAME_CENTER
+
 #if SCH_IS_GAME_CENTER_ENABLED == true
 -( void )gameCenterLogin
 {
@@ -370,31 +381,40 @@ SCHEmptyProtocol
     };
 }
 
--( void )gameCenterSubmitScore:( int ) scoreNumber: ( NSString * )leaderboardID
+-( void )gameCenterSubmitScore:( int )scoreNumber andLeaderboard:( NSString * )leaderboardID
 {
     if ( !self.gameCenterEnabled || self.leaderboardIdentifier == nil )
     { return; }
     
-    GKScore *s = [[[GKScore alloc] initWithCategory:leaderboardID] autorelease];
+    GKScore *s = [[[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID] autorelease];
     s.value = scoreNumber;
-    [s reportScoreWithCompletionHandler:^( NSError *error )
-    {
+    
+    [GKScore reportScores:@[s] withCompletionHandler:^(NSError *error) {
         if ( error != nil)
         { NSLog( @"%@", [error localizedDescription] ); }
+ 
     }];
 }
 
 -( void )gameCenterShowLeaderboard
 {
-    // Init the following view controller object.
-    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
     
-    // Set self as its delegate.
-    gcViewController.gameCenterDelegate = self;
-    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
-    //gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
-    
-    [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
+    if (_gameCenterEnabled) {
+        
+        // Init the following view controller object.
+        GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+        
+        // Set self as its delegate.
+        gcViewController.gameCenterDelegate = self;
+        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        //gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
+        
+        [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
+ 
+    } else {
+        
+        [self gameCenterLogin];
+    }
 }
 
 -( void )gameCenterViewControllerDidFinish:( GKGameCenterViewController * )gameCenterViewController
@@ -411,7 +431,7 @@ SCHEmptyProtocol
     [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
 }
 
--( void )gameCenterUnlockAchievement:( NSString* ) achievementID: ( float ) percent
+-( void )gameCenterUnlockAchievement:( NSString* )achievementID andPercentage: ( float )percent
 {
     [GKAchievement loadAchievementsWithCompletionHandler:^( NSArray *achievements, NSError *error )
     {
@@ -428,7 +448,7 @@ SCHEmptyProtocol
         GKAchievement *achievementToSend = [[GKAchievement alloc] initWithIdentifier:achievementID];
         achievementToSend.percentComplete = percent;
         achievementToSend.showsCompletionBanner = YES;
-        [achievementToSend reportAchievementWithCompletionHandler:NULL];
+        [GKAchievement reportAchievements:@[achievementToSend] withCompletionHandler:NULL];
     }];
 }
 
@@ -436,38 +456,97 @@ SCHEmptyProtocol
 { [GKAchievement resetAchievementsWithCompletionHandler: NULL]; }
 #endif
 
+#pragma mark - ADMOB
+
 #if SCH_IS_AD_MOB_ENABLED == true
 -( void )showAdMobBanner:( int ) position
 {
-    if ( !isAdMobBannerDisplayed )
+    if ( !isAdMobTopBannerDisplayed && ADBANNERPOSITION_TOP == position )
     {
-        adMobBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-        adMobBanner.adUnitID = SCH_AD_MOB_BANNER_AD_UNIT_ID;
-        adMobBanner.rootViewController = appController.viewController;
+        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
+        adMobTopBanner.rootViewController = appController.viewController;
         GADRequest *request = [GADRequest request];
         request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
-        [adMobBanner loadRequest:request];
-        [appController.viewController.view addSubview:adMobBanner];
-        adMobBanner.translatesAutoresizingMaskIntoConstraints = NO;
-        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
+        [adMobTopBanner loadRequest:request];
+        [appController.viewController.view addSubview:adMobTopBanner];
+        adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
-        if ( ADBANNERPOSITION_TOP == position )
-        {
-            [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBanner attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTop multiplier:1. constant:0]];
-        }
-        else
-        {
-            [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBanner attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeBottom multiplier:1. constant:0]];
-        }
+            [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTop multiplier:1. constant:0]];
+            
+            isAdMobTopBannerDisplayed = true;
         
-        isAdMobBannerDisplayed = true;
+    }
+    else if ( !isAdMobBottomBannerDisplayed && ADBANNERPOSITION_BOTTOM == position )
+    {
+        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
+        adMobBottomBanner.rootViewController = appController.viewController;
+        GADRequest *request = [GADRequest request];
+        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+        [adMobBottomBanner loadRequest:request];
+        [appController.viewController.view addSubview:adMobBottomBanner];
+        adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBottomBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
+        
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBottomBanner attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeBottom multiplier:1. constant:0]];
+        
+        isAdMobBottomBannerDisplayed = true;
+    }
+    else if ( ADBANNERPOSITION_BOTH == position )
+    {
+        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
+        adMobTopBanner.rootViewController = appController.viewController;
+        GADRequest *request = [GADRequest request];
+        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+        [adMobTopBanner loadRequest:request];
+        [appController.viewController.view addSubview:adMobTopBanner];
+        adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
+        
+        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
+        adMobBottomBanner.rootViewController = appController.viewController;
+        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+        [adMobBottomBanner loadRequest:request];
+        [appController.viewController.view addSubview:adMobBottomBanner];
+        adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBottomBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
+        
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTop multiplier:1. constant:0]];
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBottomBanner attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeBottom multiplier:1. constant:0]];
+        
+        isAdMobTopBannerDisplayed = true;
+        isAdMobBottomBannerDisplayed = true;
     }
 }
 
--( void )hideAdMobBanner
+-( void )hideAdMobBanner:( int ) position
 {
-    [adMobBanner removeFromSuperview];
-    isAdMobBannerDisplayed = false;
+    switch ( position )
+    {
+        case ADBANNERPOSITION_BOTTOM:
+            [adMobBottomBanner removeFromSuperview];
+            isAdMobBottomBannerDisplayed = false;
+            
+            break;
+            
+        case ADBANNERPOSITION_TOP:
+            [adMobTopBanner removeFromSuperview];
+            isAdMobTopBannerDisplayed = false;
+            
+            break;
+            
+        case ADBANNERPOSITION_BOTH:
+            [adMobBottomBanner removeFromSuperview];
+            isAdMobBottomBannerDisplayed = false;
+            [adMobTopBanner removeFromSuperview];
+            isAdMobTopBannerDisplayed = false;
+            
+            break;
+    }
 }
 
 -( void )showAdMobFullscreenAd
@@ -494,6 +573,83 @@ SCHEmptyProtocol
 { isAdMobFullscreenLoaded = true; }
 
 #endif
+
+#pragma mark - MOPUB
+
+#if SCH_IS_MOPUB_ENABLED == true
+
+// Banner Ad
+- ( void )showMopubBanner {
+
+    if ( !isMopubBannerDisplayed ) {
+        
+        self.adView = [[MPAdView alloc] initWithAdUnitId:SCH_MOPUB_BANNER_AD_UNIT size:MOPUB_BANNER_SIZE];
+        self.adView.delegate = self;
+        
+        self.adView.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        self.adView.frame = CGRectMake((view.bounds.size.width - MOPUB_BANNER_SIZE.width) / 2,
+                                       0,
+                                       MOPUB_BANNER_SIZE.width,
+                                       MOPUB_BANNER_SIZE.height);
+        
+        [appController.viewController.view addSubview:self.adView];
+        
+
+        [self.adView loadAd];
+        
+        isMopubBannerDisplayed = true;
+    }
+}
+
+- ( void )hideMopubBanner {
+    
+    [self.adView removeFromSuperview];
+    isMopubBannerDisplayed = false;
+}
+
+- (UIViewController *)viewControllerForPresentingModalView {
+    
+    return appController.viewController;
+}
+
+// Interstitial Ad
+
+- ( void )requestLaunchFullscreenAd {
+
+    self.interstitialLaunch = [MPInterstitialAdController
+                         interstitialAdControllerForAdUnitId:SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT];
+    
+    [self.interstitialLaunch loadAd];
+}
+
+- ( void )showLaunchFullscreenAd {
+
+    if (self.interstitialLaunch.ready) {
+        
+        [self.interstitialLaunch showFromViewController:appController.viewController];
+    }
+}
+
+- ( void )requestEndLevelFullscreenAd {
+    
+    self.interstitialEndlevel = [MPInterstitialAdController
+                               interstitialAdControllerForAdUnitId:SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT];
+    
+    [self.interstitialEndlevel loadAd];
+}
+
+- ( void )showEndLevelFullscreenAd {
+    
+    if (self.interstitialEndlevel.ready) {
+        
+        [self.interstitialEndlevel showFromViewController:appController.viewController];
+    }
+}
+
+#endif
+
+#pragma mark - EVERYPLAY
 
 #if SCH_IS_EVERYPLAY_ENABLED == true
 -( void )setupEveryplay

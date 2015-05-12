@@ -527,6 +527,14 @@ public class SonarFrameworkFunctions
 		}
 	}
 	
+	public static void HideBannerAd(int position)
+	{
+		if(SonarFrameworkSettings.USE_ADMOB)
+		{
+			admob.HideBannerAd(position);
+		}
+	}
+	
 	public static void ShowFullscreenAdAM()
 	{
 		Log.v("GAZ", "CALLED");	

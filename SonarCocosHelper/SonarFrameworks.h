@@ -27,7 +27,7 @@
 
 namespace SonarCocosHelper
 {
-	enum AdBannerPosition{ eBottom, eTop };
+	enum AdBannerPosition{ eBottom, eTop, eBoth };
 
     class GooglePlayServices
     {
@@ -67,15 +67,30 @@ namespace SonarCocosHelper
     {
     public:
         static void showBannerAd();
-        static void showBannerAd(int position);
+        static void showBannerAd( int position );
         static void hideBannerAd();
+        static void hideBannerAd( int position );
         static void showFullscreenAd( );
 
+    };
+    
+    class Mopub
+    {
+    public:
+        static void showMopubBannerAd();
+        static void hideMopubBannerAd();
+        
+        static void requestLaunchFullscreenAd( );
+        static void showLaunchFullscreenAd( );
+        
+        static void requestEndlevelFullscreenAd( );
+        static void showEndlevelFullscreenAd( );
     };
 
     class iAds
     {
     public:
+        /* show a iAd banner on the top of the screen */
         static void showiAdBanner( );
         static void showiAdBanner( int position );
         static void hideiAdBanner( );

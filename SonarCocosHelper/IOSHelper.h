@@ -41,6 +41,11 @@
     #import <Everyplay/Everyplay.h>
 #endif
 
+#if SCH_IS_MOPUB_ENABLED == true
+    #import <MPAdView.h>
+    #import <MPInterstitialAdController.h>
+#endif
+
 @protocol SCHEmptyProtocol
 @end
 
@@ -66,6 +71,11 @@ SCHEmptyProtocol
 #if SCH_IS_EVERYPLAY_ENABLED == true
 , EveryplayDelegate
 #endif
+
+#if SCH_IS_MOPUB_ENABLED == true
+, MPAdViewDelegate
+, MPInterstitialAdControllerDelegate
+#endif
 >
 {
     AppController *appController;
@@ -73,13 +83,13 @@ SCHEmptyProtocol
     
 #if SCH_IS_iADS_ENABLED == true
     ADBannerView *adView;
-#endif
     
     BOOL isBannerVisible;
     BOOL isBannerLoaded;
     BOOL isBannerToBeShown;
     
     int bannerPosition;
+#endif
     
 #if SCH_IS_REVMOB_ENABLED == true
     BOOL isRevMobInitialised;
@@ -87,11 +97,24 @@ SCHEmptyProtocol
     
 #if SCH_IS_AD_MOB_ENABLED == true
     GADInterstitial *adMobInterstitial;
-    GADBannerView *adMobBanner;
+    GADBannerView *adMobBottomBanner;
+    GADBannerView *adMobTopBanner;
     BOOL isAdMobFullscreenLoaded;
-    BOOL isAdMobBannerDisplayed;
+    BOOL isAdMobBottomBannerDisplayed;
+    BOOL isAdMobTopBannerDisplayed;
 #endif
+    
+#if SCH_IS_MOPUB_ENABLED == true
+    BOOL isMopubBannerDisplayed;
+#endif
+   
 }
+
+#if SCH_IS_MOPUB_ENABLED == true
+@property (nonatomic, strong) MPAdView *adView;
+@property (nonatomic, strong) MPInterstitialAdController *interstitialLaunch;
+@property (nonatomic, strong) MPInterstitialAdController *interstitialEndlevel;
+#endif
 
 @property (nonatomic, strong) UIPopoverController *popover;
 
@@ -102,8 +125,8 @@ SCHEmptyProtocol
 #if SCH_IS_iADS_ENABLED == true
 -( void )showiAdBanner;
 -( void )showiAdBanner:( int ) position;
--( void )hideiAdBanner;
--( void )hideiAdBannerPermanently;
+-( void )hideiAdBanner:( int ) position;
+-( void )hideiAdBannerPermanently:( int ) position;
 #endif
 
 #if SCH_IS_REVMOB_ENABLED == true
@@ -137,16 +160,27 @@ SCHEmptyProtocol
 -( void )gameCenterLogin;
 -( void )gameCenterShowLeaderboard;
 -( void )gameCenterShowAchievements;
--( void )gameCenterSubmitScore:( int ) scoreNumber: ( NSString * )leaderboardID;
--( void )gameCenterUnlockAchievement:( NSString * ) achievementID: ( float ) percent;
+-( void )gameCenterSubmitScore:( int )scoreNumber andLeaderboard: ( NSString * )leaderboardID;
+-( void )gameCenterUnlockAchievement:( NSString * )achievementID andPercentage:( float )percent;
 -( void )gameCenterResetPlayerAchievements;
 #endif
 
 #if SCH_IS_AD_MOB_ENABLED == true
--( void )showAdMobBanner;
+//-( void )showAdMobBanner;
 -( void )showAdMobBanner:( int ) position;
--( void )hideAdMobBanner;
+-( void )hideAdMobBanner:( int ) position;
 -( void )showAdMobFullscreenAd;
+#endif
+
+#if SCH_IS_MOPUB_ENABLED == true
+- ( void )showMopubBanner;
+- ( void )hideMopubBanner;
+
+- ( void )requestLaunchFullscreenAd;
+- ( void )showLaunchFullscreenAd;
+
+- ( void )requestEndLevelFullscreenAd;
+- ( void )showEndLevelFullscreenAd;
 #endif
 
 #if SCH_IS_EVERYPLAY_ENABLED == true

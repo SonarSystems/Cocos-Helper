@@ -145,6 +145,11 @@ public class Framework
 		
 	}
 	
+	public void HideBannerAd(int position)
+	{
+		
+	}
+	
 	public void ShowPopUpAd()
 	{
 		
