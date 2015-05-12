@@ -32,6 +32,6 @@ e - minor bug fix<br />
 
 - [NEW] Initial release
 
-## [1.00.00] (17th April 2015)
+## 1.00.00 (17th April 2015)
 
 - [NEW] Initial GitHub commit
