@@ -275,48 +275,7 @@ namespace SonarCocosHelper
          */
         static void resetPlayerAchievements( );
     };
-    
-    /** ONLY TO BE USED FOR TESTING NEW FEATURES WITHOUT CREATING NEW CLASS'S */
-    class TESTCLASS
-    {
-    public:
-        /**
-         * Cocos Helper test (void return value) method 1 for testing new features without creating a new class
-         */
-        static void voidTestMethod1( );
-        /**
-         * Cocos Helper test (void return value) method 2 for testing new features without creating a new class
-         */
-        static void voidTestMethod2( );
-        
-        /**
-         * Cocos Helper test (boolean return value) method 1 for testing new features without creating a new class
-         */
-        static bool boolTestMethod1( );
-        /**
-         * Cocos Helper test (boolean return value) method 2 for testing new features without creating a new class
-         */
-        static bool boolTestMethod2( );
-        
-        /**
-         * Cocos Helper test (integer return value) method 1 for testing new features without creating a new class
-         */
-        static int intTestMethod1( );
-        /**
-         * Cocos Helper test (integer return value) method 2 for testing new features without creating a new class
-         */
-        static int intTestMethod2( );
-        
-        /**
-         * Cocos Helper test (integer return value) method 1 for testing new features without creating a new class
-         */
-        static float floatTestMethod1( );
-        /**
-         * Cocos Helper test (integer return value) method 2 for testing new features without creating a new class
-         */
-        static float floatTestMethod2( );
-    };
-    
+
     // NOT WORKING ATM
     /*class Everyplay
     {

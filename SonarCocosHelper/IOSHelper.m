@@ -678,44 +678,4 @@ SCHEmptyProtocol
 { [[Everyplay sharedInstance] playLastRecording]; }
 #endif
 
--( void )voidTestMethod1;
-{
-    
-}
-
--( void )voidTestMethod2
-{
-    
-}
-
--( bool )boolTestMethod1
-{
-    
-}
-
--( bool )boolTestMethod2
-{
-    
-}
-
--( int )intTestMethod1
-{
-    
-}
-
--( int )intTestMethod2
-{
-    
-}
-
--( float )floatTestMethod1
-{
-    
-}
-
--( float )floatTestMethod2
-{
-    
-}
-
 @end

@@ -88,15 +88,6 @@ public:
     static void playLastEveryplayVideoRecording( );
 #endif
     
-    static void voidTestMethod1( );
-    static void voidTestMethod2( );
-    static bool boolTestMethod1( );
-    static bool boolTestMethod2( );
-    static int intTestMethod1( );
-    static int intTestMethod2( );
-    static float floatTestMethod1( );
-    static float floatTestMethod2( );
-    
 };
 
 #endif /* defined(__SNF__IOSCPPHelper__) */
