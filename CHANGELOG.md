@@ -15,6 +15,11 @@ e - minor bug fix<br />
 [NEW] - new feature added<br />
 [UPDATE] - feature updated<br />
 [FIX] - bug fixed<br />
+[REMOVE] - functionality removed<br />
+
+## [1.04.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.04.00) (13th May 2015)
+
+- [REMOVE] test methods for testing new features without creating a new class
 
 ## [1.03.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.03.00) (12th May 2015)
 
