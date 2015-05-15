@@ -4,7 +4,7 @@
 
 ###aa.bc.de
 
-aa - major website redesign or many changes since previous <strong>aa</strong> version<br />
+aa - major redesign or many changes since previous <strong>aa</strong> version<br />
 b - major feature addition<br />
 c - minor feature addition<br />
 d - major bug fix<br />
