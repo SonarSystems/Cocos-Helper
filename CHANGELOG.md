@@ -4,7 +4,7 @@
 
 ###aa.bc.de
 
-aa - major website redesign or many changes since previous <strong>aa</strong> version<br />
+aa - major redesign or many changes since previous <strong>aa</strong> version<br />
 b - major feature addition<br />
 c - minor feature addition<br />
 d - major bug fix<br />
@@ -15,6 +15,11 @@ e - minor bug fix<br />
 [NEW] - new feature added<br />
 [UPDATE] - feature updated<br />
 [FIX] - bug fixed<br />
+[REMOVE] - functionality removed<br />
+
+## [1.04.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.04.00) (13th May 2015)
+
+- [REMOVE] test methods for testing new features without creating a new class
 
 ## [1.10.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.10.00) (19th May 2015)
 
