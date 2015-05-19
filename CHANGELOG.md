@@ -17,14 +17,14 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
-## [1.04.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.04.00) (13th May 2015)
-
-- [REMOVE] test methods for testing new features without creating a new class
-
 ## [1.10.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.10.00) (19th May 2015)
 
 - [NEW] MoPub Android
 - [NEW] Google Analytics iOS and Android
+- 
+## [1.04.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.04.00) (13th May 2015)
+
+- [REMOVE] test methods for testing new features without creating a new class
 
 ## [1.03.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.03.00) (12th May 2015)
 
