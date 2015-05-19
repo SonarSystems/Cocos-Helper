@@ -74,11 +74,7 @@ public:
     static void showMopubBanner( );
     static void hideMopubBanner( );
     
-    static void requestFullscreenAd( );
-    static void showLaunchFullscreenAd( );
-    
-    static void requestEndLevelFullscreenAd( );
-    static void showEndLevelFullscreenAd ( );
+    static void showMoPubFullscreenAd( );
 #endif
     
 #if SCH_IS_EVERYPLAY_ENABLED == true
@@ -86,6 +82,12 @@ public:
     static void showEveryplay( );
     static void recordEveryplayVideo( );
     static void playLastEveryplayVideoRecording( );
+#endif
+    
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    static void setGAScreenName( __String screenName );
+    static void setGADispatchInterval( int dispatchInterval );
+    static void sendGAEvent( __String category, __String action, __String label );
 #endif
     
 };

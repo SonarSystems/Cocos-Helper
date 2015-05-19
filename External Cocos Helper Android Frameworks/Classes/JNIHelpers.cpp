@@ -70,7 +70,8 @@ void JniHelpers::jniCommonVoidCall	(const char* methodName, const char* classPat
     }
 #endif
 }
-void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath, const char* arg0) {
+void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath, const char* arg0)
+{
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     cocos2d::JniMethodInfo minfo;
 
@@ -80,12 +81,13 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 	{
 		jstring stringArg0 = minfo.env->NewStringUTF(arg0);
 
-        minfo.env->CallStaticIntMethod(minfo.classID, minfo.methodID, stringArg0);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, stringArg0);
 
 		minfo.env->DeleteLocalRef(stringArg0);
     }
 #endif
 }
+
 
 void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath, const char* arg0, const char* arg1, const char* arg2, const char* arg3, const char* arg4)
 {
@@ -96,7 +98,6 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 
     if (isHave)
 	{
-    	cocos2d::CCLog("YES!!!!!");
 		jstring stringArg0 = minfo.env->NewStringUTF(arg0);
 		jstring stringArg1 = minfo.env->NewStringUTF(arg1);
 		jstring stringArg2 = minfo.env->NewStringUTF(arg2);
@@ -113,10 +114,7 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 		minfo.env->DeleteLocalRef(stringArg4);
 
     }
-    else
-    {
-    	cocos2d::CCLog("FUCK");
-    }
+
 #endif
 }
 
@@ -138,7 +136,8 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 #endif
 }
 
-void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath, const char* arg0, long score) {
+void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath, const char* arg0, long score)
+{
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     cocos2d::JniMethodInfo minfo;
 
@@ -152,6 +151,32 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
         minfo.env->CallStaticIntMethod(minfo.classID, minfo.methodID, stringArg0, scoreArg1);
 
 		minfo.env->DeleteLocalRef(stringArg0);
+
+    }
+#endif
+}
+
+void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath, const char* arg0, const char* arg1, const char* arg2, long value)
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    cocos2d::JniMethodInfo minfo;
+
+    bool isHave = cocos2d::JniHelper::getStaticMethodInfo(minfo, classPath, methodName, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V");
+
+    if (isHave)
+	{
+		jstring stringArg0 = minfo.env->NewStringUTF(arg0);
+		jstring stringArg1 = minfo.env->NewStringUTF(arg1);
+		jstring stringArg2 = minfo.env->NewStringUTF(arg2);
+
+
+
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, stringArg0, stringArg1, stringArg2, value);
+
+		minfo.env->DeleteLocalRef(stringArg0);
+		minfo.env->DeleteLocalRef(stringArg1);
+		minfo.env->DeleteLocalRef(stringArg2);
+
 
     }
 #endif
@@ -192,14 +217,10 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath) {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     cocos2d::JniMethodInfo minfo;
-    cocos2d::CCLog("1");
     bool isHave = cocos2d::JniHelper::getStaticMethodInfo(minfo,classPath,methodName, "()V");
-    cocos2d::CCLog("2");
     if (isHave) 
 	{
-    	cocos2d::CCLog("3");
         minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID);
-        cocos2d::CCLog("4");
     }
 #endif
 }

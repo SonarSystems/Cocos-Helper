@@ -223,10 +223,13 @@ void Twitter::Tweet(const char* tweet,const char* title, const char *imagePath)
 	#endif
 }
 
-void Mopub::showMopubBannerAd()
+void Mopub::showBannerAd()
 {
     #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
+        return JniHelpers::jniCommonVoidCall(
+                                         "ShowBannerAdMP",
+                                         CLASS_NAME
+                                         );
     #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         #if SCH_IS_MOPUB_ENABLED == true
             IOSCPPHelper::showMopubBanner();
@@ -235,66 +238,35 @@ void Mopub::showMopubBannerAd()
  
 }
 
-void Mopub::hideMopubBannerAd()
+void Mopub::hideBannerAd()
 {
     #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        
+        return JniHelpers::jniCommonVoidCall(
+                                         "HideBannerAdMP",
+                                         CLASS_NAME
+                                         );
     #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         #if SCH_IS_MOPUB_ENABLED == true
-    IOSCPPHelper::hideMopubBanner();
+            IOSCPPHelper::hideMopubBanner();
         #endif
     #endif
  
 }
 
-void Mopub::requestLaunchFullscreenAd( )
+void Mopub::showFullscreenAd( )
 {
     #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        
+        return JniHelpers::jniCommonVoidCall(
+                                         "ShowFullscreenAdMP",
+                                         CLASS_NAME
+                                         );
     #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         #if SCH_IS_MOPUB_ENABLED == true
-            IOSCPPHelper::requestFullscreenAd();
-        #endif
-    #endif
-    
-}
-
-void Mopub::showLaunchFullscreenAd( )
-{
-    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        
-    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_MOPUB_ENABLED == true
-            IOSCPPHelper::showLaunchFullscreenAd();
+            IOSCPPHelper::showMoPubFullscreenAd();
         #endif
     #endif
  
 }
-
-void Mopub::requestEndlevelFullscreenAd()
-{
-    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        
-    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_MOPUB_ENABLED == true
-            IOSCPPHelper::requestEndLevelFullscreenAd();
-        #endif
-    #endif
- 
-}
-
-void Mopub::showEndlevelFullscreenAd( )
-{
-    #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        
-    #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_MOPUB_ENABLED == true
-            IOSCPPHelper::showEndLevelFullscreenAd();
-        #endif
-    #endif
- 
-}
-
 
 void AdMob::showBannerAd()
 {
@@ -464,6 +436,52 @@ void iAds::hideiAdBanner( )
 {
 #if SCH_IS_iADS_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::hideiAdBanner( );
+#endif
+}
+
+void GoogleAnalytics::setScreenName( cocos2d::__String screenName )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall(
+                                         "SetGAScreenName",
+                                         CLASS_NAME,
+                                         screenName.getCString());
+
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+        IOSCPPHelper::setGAScreenName( screenName );
+    #endif
+#endif
+}
+
+void GoogleAnalytics::setDispatchInterval( int dispatchInterval )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall(
+                                         "SetGADispatchInterval",
+                                         CLASS_NAME,
+                                         dispatchInterval);
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+        IOSCPPHelper::setGADispatchInterval( dispatchInterval );
+    #endif
+#endif
+}
+
+void GoogleAnalytics::sendEvent( cocos2d::__String category, cocos2d::__String action, cocos2d::__String label, long value )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall(
+                                         "SendGAEvent",
+                                         CLASS_NAME,
+                                         category.getCString(),
+                                         action.getCString(),
+                                         label.getCString(),
+                                         value);
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+        IOSCPPHelper::sendGAEvent( category, action, label );
+    #endif
 #endif
 }
 

@@ -24,12 +24,11 @@
 #define SCH_IS_SOCIAL_ENABLED false // Social.framework
 #define SCH_IS_GAME_CENTER_ENABLED false // Social.framework, GameKit.framework
 //#define SCH_IS_EVERYPLAY_ENABLED false // AdSupport (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, AssetsLibrary.framework, AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreImage (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, CoreMedia.framework, CoreVideo.framework, Foundation.framework, MessageUI.framework, MobileCoreServices.framework, OpenGLES.framework, QuartzCore.framework, Security.framework, Social (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, StoreKit.framework, SystemConfiguration.framework, Twitter (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, UIKit.framework
-
-#define SCH_IS_MOPUB_ENABLED false // AdSupport.framework,CoreGraphics.framework,CoreLocation.framework,CoreTelephony.framework,EventKit.framework,EventKitUI.framework,Foundation.framework,MediaPlayer.framework,QuartzCore.framework,StoreKit.framework†,SystemConfiguration.framework,UIKit.framework
+#define SCH_IS_MOPUB_ENABLED false // AdSupport.framework, CoreGraphics.framework, CoreLocation.framework, CoreTelephony.framework, EventKit.framework, EventKitUI.framework, Foundation.framework, MediaPlayer.framework, QuartzCore.framework, StoreKit.framework†, SystemConfiguration.framework, UIKit.framework
+#define SCH_IS_GOOGLE_ANALYTICS_ENABLED false // CoreData.framework, SystemConfiguration.framework, libz.dylib, libsqlite3.dylib, libGoogleAnalyticsServices.a, libAdIdAccess.a, AdSupport.framework, iAd.framework
 
 #define SCH_MOPUB_BANNER_AD_UNIT @""
-#define SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT @""
-#define SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT @""
+#define SCH_MOPUB_INTERSTITIAL_AD_UNIT @""
 
 #define SCH_CHARTBOOST_APP_ID @""
 #define SCH_CHARTBOOST_APP_SIGNATURE @""
@@ -40,6 +39,8 @@
 #define SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID @""
 #define SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID @""
 #define SCH_AD_MOB_TEST_DEVICE @""
+
+#define SCH_GOOGLE_ANALYTICS_TRACKING_ID @""
 
 //#define SCH_EVERYPLAY_CLIENT_ID @""
 //#define SCH_EVERYPLAY_CLIENT_SECRET @""

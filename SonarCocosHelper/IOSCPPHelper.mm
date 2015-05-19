@@ -142,37 +142,20 @@ void IOSCPPHelper::showAdMobFullscreenAd( )
 #endif
 
 #if SCH_IS_MOPUB_ENABLED == true
-void IOSCPPHelper::showMopubBanner( ) {
-
+void IOSCPPHelper::showMopubBanner( )
+{
     [[IOSHelper instance] showMopubBanner];
 }
 
-void IOSCPPHelper::hideMopubBanner( ) {
-   
+void IOSCPPHelper::hideMopubBanner( )
+{
     [[IOSHelper instance] hideMopubBanner];
 }
 
-void IOSCPPHelper::requestFullscreenAd( ) {
-   
-    [[IOSHelper instance] requestLaunchFullscreenAd];
+void IOSCPPHelper::showMoPubFullscreenAd( )
+{
+    [[IOSHelper instance] showMoPubFullscreenAd];
 }
-
-void IOSCPPHelper::showLaunchFullscreenAd( ) {
-    
-    [[IOSHelper instance] showLaunchFullscreenAd];
-}
-
-void IOSCPPHelper::requestEndLevelFullscreenAd( ) {
-    
-    [[IOSHelper instance] requestEndLevelFullscreenAd];
- 
-}
-
-void IOSCPPHelper::showEndLevelFullscreenAd( ) {
-   
-    [[IOSHelper instance] showEndLevelFullscreenAd];
-}
-
 #endif
 
 
@@ -195,6 +178,23 @@ void IOSCPPHelper::recordEveryplayVideo( )
 void IOSCPPHelper::playLastEveryplayVideoRecording( )
 {
     [[IOSHelper instance] playLastEveryplayVideoRecording];
+}
+#endif
+
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+void IOSCPPHelper::setGAScreenName( __String screenName )
+{
+    [[IOSHelper instance] setGAScreenName:[NSString stringWithCString:screenName.getCString( ) encoding:NSUTF8StringEncoding]];
+}
+
+void IOSCPPHelper::setGADispatchInterval( int dispatchInterval )
+{
+    [[IOSHelper instance] setGADispatchInterval:dispatchInterval];
+}
+
+void IOSCPPHelper::sendGAEvent( __String category, __String action, __String label )
+{
+    [[IOSHelper instance] sendGAEvent:[NSString stringWithCString:category.getCString( ) encoding:NSUTF8StringEncoding]: [NSString stringWithCString:action.getCString( ) encoding:NSUTF8StringEncoding]: [NSString stringWithCString:label.getCString( ) encoding:NSUTF8StringEncoding]];
 }
 #endif
 

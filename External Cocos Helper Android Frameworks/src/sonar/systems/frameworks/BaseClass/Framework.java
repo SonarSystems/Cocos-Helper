@@ -1,5 +1,6 @@
 package sonar.systems.frameworks.BaseClass;
 
+import sonar.systems.framework.SonarFrameworkSettings;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -157,7 +158,7 @@ public class Framework
 	
 	public void ShowVideoAd()
 	{
-		Log.v("CHARTBOOST", "CALLING EMPTY FUNCTION");
+		
 	}
 	//END REVMOB
 	
@@ -180,4 +181,21 @@ public class Framework
 		
 	}
 	//
+	
+	//GOOGLE ANALYTICS
+	public void SetGAScreenName(String screenName)
+	{
+		
+	}
+	
+	public  void SetGADispatchInterval(int dispatchInterval)
+	{
+		
+	}
+	
+	public  void SendGAEvent(final String category, final String action, final String label, long value)
+	{
+		
+	}
+	//END GOOGLE ANALYTICS
 }

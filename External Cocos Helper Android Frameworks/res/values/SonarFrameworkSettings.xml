@@ -22,8 +22,8 @@
 	
 	<!-- AdMob -->
 		<string name="admob_test_device_id">000000000000000000000</string> <!-- SET TO YOUR TEST DEVICE ID FOR TESTING -->
-		<string name="admob_banner_top_id">ca-app-pub-00000000000000000000/000000000000</string> <!-- SET TO YOUR ADMOB BANNER ID -->
-		<string name="admob_banner_bottom_id">ca-app-pub-0000000000000000/000000000000</string> <!-- SET TO YOUR ADMOB BANNER ID -->
+		<string name="admob_banner_top_id">ca-app-pub-000000000000/00000000000000</string> <!-- SET TO YOUR ADMOB BANNER ID -->
+		<string name="admob_banner_bottom_id">ca-app-pub-00000000000000/00000000000</string> <!-- SET TO YOUR ADMOB BANNER ID -->
 		<string name="admob_interstitial_id">ca-app-pub-0000000000000000/0000000000</string> <!-- SET TO YOUR ADMOB INTERSTITIAL ID -->
 	<!-- AdMob End -->
 	
@@ -40,4 +40,14 @@
 		<string name="game_analytics_secret_key">00000000000000000000000000000000000</string> <!-- SET TO YOUR GAME ANALYTICS SECRET KEY-->
 		<string name="game_analytics_game_key">00000000000000000000000000000</string> <!-- SET TO YOUR GAME ANALYTICS GAME KEY-->
 	<!-- Game Analytics API -->
+	
+	<!-- Google Analytics API -->
+		<string name="google_analytics_tracking_id">UA-0000000000</string>
+	<!-- Google Analytics API -->
+	
+	<!-- MoPub -->
+		<string name="mopub_banner_id">00000000000000000000</string>
+		<string name="mopub_fullscreen_id">00000000000000000000000</string>
+	<!-- MoPub -->
+	
 </resources>

@@ -2,6 +2,8 @@ package sonar.systems.framework;
 
 import java.lang.reflect.InvocationTargetException;
 
+import com.google.android.gms.internal.ga;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +24,10 @@ public class SonarFrameworkFunctions
 	private static final int REQUEST_LEADERBOARD = 10002;
 	//Google Play Services
 	
+	//Google Analytics
+	private static Framework googleAnalytics = null;
+	//Google Analytics
+	
 	//RevMob
 	private static Framework revmob = null;
 	//RevMob
@@ -41,6 +47,10 @@ public class SonarFrameworkFunctions
 	//Chartboost
 	private static Framework chartboost = null;
 	//Chartboost
+	
+	//MoPub
+	private static Framework mopub = null;
+	//MoPub
 	
 
 	public SonarFrameworkFunctions(Context app) throws ClassNotFoundException
@@ -80,6 +90,39 @@ public class SonarFrameworkFunctions
 			googlePlayServices = new Framework(); // empty object
 		}
 		//END GOOGLE PLAY SERVICES
+		
+		Log.v("TESTTESTTEST", "FINISHED1");
+		//GOOGLE ANALYTICS
+		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
+		{
+
+				try {
+					googleAnalytics = (Framework) Class.forName("sonar.systems.frameworks.GoogleAnalyticsAPI.GoogleAnalyticsAPI").getConstructor().newInstance();
+					googleAnalytics.SetActivity(((SonarFrameworkActivity)app));
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NoSuchMethodException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Log.v("TESTTESTTEST", "FINISHED1");
+		}
+		else 
+		{
+			googleAnalytics = new Framework(); // empty object
+			Log.v("TESTTESTTEST", "FINISHED2");
+		}
+		//END GOOGLE ANALYTICS
 		
 		//REVMOB
 		if(SonarFrameworkSettings.USE_REVMOB)
@@ -230,6 +273,36 @@ public class SonarFrameworkFunctions
 			chartboost = new Framework(); // empty object
 		}
 		//END CHARTBOOST
+		
+		//MOPUB
+		if(SonarFrameworkSettings.USE_MOPUB)
+		{
+			
+			try {
+				mopub = (Framework) Class.forName("sonar.systems.frameworks.MoPub.MoPubAds").getConstructor().newInstance();
+				mopub.SetActivity(((SonarFrameworkActivity)app));
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else 
+		{
+			mopub = new Framework(); // empty object
+		}
+		//END MOPUB
 		
 	}
 	
@@ -536,8 +609,7 @@ public class SonarFrameworkFunctions
 	}
 	
 	public static void ShowFullscreenAdAM()
-	{
-		Log.v("GAZ", "CALLED");	
+	{	
 		if(SonarFrameworkSettings.USE_ADMOB)
 		{
 			admob.ShowFullscreenAd();
@@ -562,6 +634,59 @@ public class SonarFrameworkFunctions
 		}
 	}
 	//End Chartboost Functions
+	
+	//Chartboost Functions
+	public static void ShowBannerAdMP()
+	{
+		if(SonarFrameworkSettings.USE_MOPUB)
+		{
+			mopub.ShowBannerAd();
+		}
+	}
+	
+	public static void HideBannerAdMP()
+	{
+		if(SonarFrameworkSettings.USE_MOPUB)
+		{
+			mopub.HideBannerAd();
+		}
+	}
+	
+	public static void ShowFullscreenAdMP()
+	{
+		if(SonarFrameworkSettings.USE_MOPUB)
+		{
+			mopub.ShowFullscreenAd();
+		}
+	}
+	//End Chartboost Functions
+	
+	//Google Analytics Functions
+	
+	public static void SetGAScreenName(final String screenName)
+	{
+		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
+		{
+			googleAnalytics.SetGAScreenName(screenName);
+		}
+	}
+	
+	public static void SetGADispatchInterval(int dispatchInterval)
+	{
+		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
+		{
+			googleAnalytics.SetGADispatchInterval(dispatchInterval);
+		}
+	}
+	
+	public static void SendGAEvent(final String category, final String action, final String label, long value)
+	{
+		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
+		{
+			googleAnalytics.SendGAEvent(category,action,label,value);
+		}
+	}
+	//End Google Analytics Functions
 	
 	//Activity Functions OnStart/OnStop/onActivityResult
 	public void onStart() 
@@ -749,6 +874,11 @@ public class SonarFrameworkFunctions
 	    {
 	    	 chartboost.onDestroy();
 	    }
+		
+		if(SonarFrameworkSettings.USE_MOPUB)
+		{
+			mopub.onDestroy();
+		}
 	}
 	
 	public boolean onBackPressed() 

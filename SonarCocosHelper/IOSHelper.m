@@ -73,6 +73,25 @@ SCHEmptyProtocol
     appController = ( AppController * )[[UIApplication sharedApplication] delegate];
     view = appController.viewController.view;
     
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = SCH_GOOGLE_ANALYTICS_DEFAULT_DISPATCH_TIME;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:SCH_GOOGLE_ANALYTICS_TRACKING_ID];
+    
+    tracker = [[GAI sharedInstance] defaultTracker];
+    
+    // Enable IDFA collection.
+    tracker.allowIDFACollection = YES;
+#endif
+
 #if SCH_IS_REVMOB_ENABLED == true
     isRevMobInitialised = false;
 #endif
@@ -389,7 +408,8 @@ SCHEmptyProtocol
     GKScore *s = [[[GKScore alloc] initWithLeaderboardIdentifier:leaderboardID] autorelease];
     s.value = scoreNumber;
     
-    [GKScore reportScores:@[s] withCompletionHandler:^(NSError *error) {
+    [GKScore reportScores:@[s] withCompletionHandler:^(NSError *error)
+    {
         if ( error != nil)
         { NSLog( @"%@", [error localizedDescription] ); }
  
@@ -398,9 +418,8 @@ SCHEmptyProtocol
 
 -( void )gameCenterShowLeaderboard
 {
-    
-    if (_gameCenterEnabled) {
-        
+    if ( _gameCenterEnabled )
+    {
         // Init the following view controller object.
         GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
         
@@ -410,9 +429,9 @@ SCHEmptyProtocol
         //gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
         
         [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
- 
-    } else {
-        
+    }
+    else
+    {
         [self gameCenterLogin];
     }
 }
@@ -473,9 +492,9 @@ SCHEmptyProtocol
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
-            [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTop multiplier:1. constant:0]];
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeTop multiplier:1. constant:0]];
             
-            isAdMobTopBannerDisplayed = true;
+        isAdMobTopBannerDisplayed = true;
         
     }
     else if ( !isAdMobBottomBannerDisplayed && ADBANNERPOSITION_BOTTOM == position )
@@ -583,19 +602,19 @@ SCHEmptyProtocol
 {
     if ( !isMopubBannerDisplayed )
     {
-        self.adView = [[MPAdView alloc] initWithAdUnitId:SCH_MOPUB_BANNER_AD_UNIT size:MOPUB_BANNER_SIZE];
-        self.adView.delegate = self;
+        self.moPubAdView = [[MPAdView alloc] initWithAdUnitId:SCH_MOPUB_BANNER_AD_UNIT size:MOPUB_BANNER_SIZE];
+        self.moPubAdView.delegate = self;
         
-        self.adView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.moPubAdView.translatesAutoresizingMaskIntoConstraints = NO;
         
-        self.adView.frame = CGRectMake( ( view.bounds.size.width - MOPUB_BANNER_SIZE.width ) / 2,
+        self.moPubAdView.frame = CGRectMake( ( view.bounds.size.width - MOPUB_BANNER_SIZE.width ) / 2,
                                        0,
                                        MOPUB_BANNER_SIZE.width,
                                        MOPUB_BANNER_SIZE.height );
         
-        [appController.viewController.view addSubview:self.adView];
+        [appController.viewController.view addSubview:self.moPubAdView];
 
-        [self.adView loadAd];
+        [self.moPubAdView loadAd];
         
         isMopubBannerDisplayed = true;
     }
@@ -603,7 +622,7 @@ SCHEmptyProtocol
 
 -( void )hideMopubBanner
 {
-    [self.adView removeFromSuperview];
+    [self.moPubAdView removeFromSuperview];
     isMopubBannerDisplayed = false;
 }
 
@@ -613,36 +632,12 @@ SCHEmptyProtocol
 }
 
 // Interstitial Ad
-
--( void )requestLaunchFullscreenAd
+-( void )showMoPubFullscreenAd
 {
-
-    self.interstitialLaunch = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_LAUNCH_INTERSTITIAL_AD_UNIT];
+    self.moPubinterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_INTERSTITIAL_AD_UNIT];
+    [self.moPubinterstitial loadAd];
     
-    [self.interstitialLaunch loadAd];
-}
-
--( void )showLaunchFullscreenAd
-{
-    if ( self.interstitialLaunch.ready )
-    {
-        [self.interstitialLaunch showFromViewController:appController.viewController];
-    }
-}
-
--( void )requestEndLevelFullscreenAd
-{
-    self.interstitialEndlevel = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_ENDLEVEL_INTERSTITIAL_AD_UNIT];
-    
-    [self.interstitialEndlevel loadAd];
-}
-
--( void )showEndLevelFullscreenAd
-{
-    if ( self.interstitialEndlevel.ready )
-    {
-        [self.interstitialEndlevel showFromViewController:appController.viewController];
-    }
+    [self.moPubinterstitial showFromViewController:appController.viewController];
 }
 
 #endif
@@ -676,6 +671,27 @@ SCHEmptyProtocol
 
 -( void )playLastEveryplayVideoRecording
 { [[Everyplay sharedInstance] playLastRecording]; }
+#endif
+
+#pragma mark - GOOGLE_ANALYTICS
+
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+-( void )setGAScreenName:( NSString * )screenString
+{
+    [tracker set:kGAIScreenName value:screenString];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+}
+
+-( void )setGADispatchInterval:( int )dispatchInterval
+{ [GAI sharedInstance].dispatchInterval = dispatchInterval; }
+
+-( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label
+{
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category     // Event category (required)
+                                                          action:action  // Event action (required)
+                                                           label:label          // Event label
+                                                           value:nil] build]];    // Event value
+}
 #endif
 
 @end

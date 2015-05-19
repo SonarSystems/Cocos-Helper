@@ -46,6 +46,20 @@
     #import <MPInterstitialAdController.h>
 #endif
 
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    #import <GAI.h>
+    #import <GAIDictionaryBuilder.h>
+    #import <GAIEcommerceProduct.h>
+    #import <GAIEcommerceProductAction.h>
+    #import <GAIEcommercePromotion.h>
+    #import <GAIFields.h>
+    #import <GAILogger.h>
+    #import <GAITrackedViewController.h>
+    #import <GAITracker.h>
+    #import <GAIEcommerceFields.h>
+    #import <GAITrackedViewController.h>
+#endif
+
 @protocol SCHEmptyProtocol
 @end
 
@@ -81,6 +95,10 @@ SCHEmptyProtocol
     AppController *appController;
     UIView *view;
     
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    id<GAITracker> tracker;
+#endif
+    
 #if SCH_IS_iADS_ENABLED == true
     ADBannerView *adView;
     
@@ -111,9 +129,8 @@ SCHEmptyProtocol
 }
 
 #if SCH_IS_MOPUB_ENABLED == true
-@property (nonatomic, strong) MPAdView *adView;
-@property (nonatomic, strong) MPInterstitialAdController *interstitialLaunch;
-@property (nonatomic, strong) MPInterstitialAdController *interstitialEndlevel;
+@property (nonatomic, strong) MPAdView *moPubAdView;
+@property (nonatomic, strong) MPInterstitialAdController *moPubinterstitial;
 #endif
 
 @property (nonatomic, strong) UIPopoverController *popover;
@@ -143,14 +160,14 @@ SCHEmptyProtocol
 #endif
 
 #if SCH_IS_SOCIAL_ENABLED == true
--( void )shareViaFacebook: ( NSString * ) message: ( NSString * ) imagePath;
--( void )shareViaTwitter: ( NSString * ) message: ( NSString * ) imagePath;
+-( void )shareViaFacebook:( NSString * ) message: ( NSString * ) imagePath;
+-( void )shareViaTwitter:( NSString * ) message: ( NSString * ) imagePath;
 -( void )shareWithString:( NSString *) message: ( NSString * ) imagePath;
 #endif
 
 #if SCH_IS_GAME_CENTER_ENABLED == true
-@property (nonatomic) BOOL gameCenterEnabled;
-@property (nonatomic, copy) NSString *leaderboardIdentifier;
+@property ( nonatomic ) BOOL gameCenterEnabled;
+@property ( nonatomic, copy ) NSString *leaderboardIdentifier;
 
 -( void )gameCenterLogin;
 -( void )gameCenterShowLeaderboard;
@@ -170,11 +187,7 @@ SCHEmptyProtocol
 - ( void )showMopubBanner;
 - ( void )hideMopubBanner;
 
-- ( void )requestLaunchFullscreenAd;
-- ( void )showLaunchFullscreenAd;
-
-- ( void )requestEndLevelFullscreenAd;
-- ( void )showEndLevelFullscreenAd;
+- ( void )showMoPubFullscreenAd;
 #endif
 
 #if SCH_IS_EVERYPLAY_ENABLED == true
@@ -182,6 +195,12 @@ SCHEmptyProtocol
 -( void )showEveryplay;
 -( void )recordEveryplayVideo;
 -( void )playLastEveryplayVideoRecording;
+#endif
+
+#if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+-( void )setGAScreenName:( NSString * )screenString;
+-( void )setGADispatchInterval:( int )dispatchInterval;
+-( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label;
 #endif
 
 @end

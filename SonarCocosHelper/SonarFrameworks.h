@@ -156,29 +156,16 @@ namespace SonarCocosHelper
         /**
          * Show a banner ad
          */
-        static void showMopubBannerAd( );
+        static void showBannerAd( );
         /**
          * Hide the banner ad
          */
-        static void hideMopubBannerAd( );
+        static void hideBannerAd( );
         
         /**
-         * Request game start fullscreen interstitial ad
+         * Show fullscreen interstitial ad
          */
-        static void requestLaunchFullscreenAd( );
-        /**
-         * Show game start fullscreen interstitial ad
-         */
-        static void showLaunchFullscreenAd( );
-        
-        /**
-         * Request end level fullscreen interstitial ad
-         */
-        static void requestEndlevelFullscreenAd( );
-        /**
-         * Show end level fullscreen interstitial ad
-         */
-        static void showEndlevelFullscreenAd( );
+        static void showFullscreenAd( );
     };
 
     class iAds
@@ -274,6 +261,29 @@ namespace SonarCocosHelper
          * Reset all player achievements (cannot be undone)
          */
         static void resetPlayerAchievements( );
+    };
+    
+    class GoogleAnalytics
+    {
+    public:
+        /**
+         * Set the screen name
+         * @param screenName string to set for the screen
+         */
+        static void setScreenName( cocos2d::__String screenName );
+        /**
+         * Set dispatch interval (frequency of which data is submitted to the server)
+         * @param dispatchInterval submit frequency
+         */
+        static void setDispatchInterval( int dispatchInterval );
+        /**
+         * Set a custom event
+         * @param category (required) a string of what the event category is
+         * @param action (required) a string of what the action performed is
+         * @param label (optional) a string of what the label for the action is
+         * @param label (optional, only for Android not iOS) a value of the event that has occurred
+         */
+        static void sendEvent( cocos2d::__String category, cocos2d::__String action, cocos2d::__String label, long value );
     };
 
     // NOT WORKING ATM

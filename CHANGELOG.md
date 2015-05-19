@@ -16,6 +16,11 @@ e - minor bug fix<br />
 [UPDATE] - feature updated<br />
 [FIX] - bug fixed<br />
 
+## [1.10.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.10.00) (19th May 2015)
+
+- [NEW] MoPub Android
+- [NEW] Google Analytics iOS and Android
+
 ## [1.03.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.03.00) (12th May 2015)
 
 - [UPDATE] added intellisense commenting to SonarFrameworks.h
