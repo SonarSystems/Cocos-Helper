@@ -58,3 +58,5 @@ Not only are we simplifying the implementation of external frameworks but we hav
 	- iOS : http://bit.ly/1PXFydd<br />
 * Gamecenter<br />
 	- iOS : http://bit.ly/1ONj3WG<br />
+* Google Analytics<br />
+	- iOS : http://bit.ly/1HGdJkI<br />
