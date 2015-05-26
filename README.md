@@ -17,13 +17,16 @@ External Frameworks Supported in v1.10.00
 
 Future Plans
 ------------------------------------------
+* Port to Cocos2d-JS (in progress)<br />
+* Push Notifications<br />
+* In App Purchases<br />
+* UI<br />
 * GameAnalytics<br />
 * Flurry<br />
 * Everyplay<br />
 * Kiip<br />
 * TapJoy<br />
 * InMobi<br />
-* Port to Cocos2d-JS<br />
 
 Requirements
 ------------------------------------------
