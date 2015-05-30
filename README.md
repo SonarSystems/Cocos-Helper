@@ -38,29 +38,32 @@ Usage
 ------------------------------------------
 Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
 * Setting Up<br />
-	- Android : http://bit.ly/1GTldD7<br />
-	- iOS : http://bit.ly/1NX9kAj<br />
+	- Android : http://bit.ly/1FTnD31<br />
+	- iOS : http://bit.ly/1GLOKxM<br />
 * Google Play Services<br />
-	- Android : http://bit.ly/1Im8Mx1<br />
+	- Android : http://bit.ly/1FTmWGY<br />
 * Facebook<br />
-	- Android : http://bit.ly/1yB6rhQ<br />
-	- iOS : http://bit.ly/1ONilc2<br />
+	- Android : http://bit.ly/1J9JLZx<br />
+	- iOS : http://bit.ly/1LPOYnv<br />
 * Twitter<br />
-	- Android : http://bit.ly/1PXFbPP<br />
-	- iOS : http://bit.ly/1ONilc2<br />
+	- Android : http://bit.ly/1J9JKVE<br />
+	- iOS : http://bit.ly/1LPOYnv<br />
 * AdMob<br />
-	- Android : http://bit.ly/1cCmqC2<br />
-	- iOS : http://bit.ly/1yB6wBZ<br />
+	- Android : http://bit.ly/1KEbRMW<br />
+	- iOS : http://bit.ly/1FTnzjR<br />
 * iAds<br />
-	- iOS : http://bit.ly/1CTrzvQ<br />
+	- iOS : http://bit.ly/1FgpeLK<br />
 * RevMob<br />
-	- Android : http://bit.ly/1zoF84R<br />
-	- iOS : http://bit.ly/1Jb8OrD<br />
+	- Android : http://bit.ly/1FKieds<br />
+	- iOS : http://bit.ly/1AAr5PV<br />
 * Chartboost<br />
-	- Android : http://bit.ly/1DqYk5Y<br />
-	- iOS : http://bit.ly/1PXFydd<br />
+	- Android : http://bit.ly/1FTn2OQ<br />
+	- iOS : http://bit.ly/1eGpf60<br />
 * Gamecenter<br />
-	- iOS : http://bit.ly/1ONj3WG<br />
+	- iOS : http://bit.ly/1Fle4WR<br />
 * Google Analytics<br />
-	- iOS : http://bit.ly/1HGdJkI<br />
-	- Android : http://bit.ly/1Rjvlr7<br />
+	- Android : http://bit.ly/1FgoXIy<br />
+	- iOS : http://bit.ly/1KuJfT8<br />
+* MoPub<br />
+	- Android : coming soon<br />
+	- iOS : http://bit.ly/1Bwm060<br />
