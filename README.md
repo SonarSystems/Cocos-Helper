@@ -33,7 +33,7 @@ Requirements
 * Mac and Xcode for iOS development
 * Eclipse for Android development (Windows, Mac or Linux)
 
-Usage
+Usage - C++
 ------------------------------------------
 Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
 * Setting Up<br />
@@ -66,3 +66,5 @@ Not only are we simplifying the implementation of external frameworks but we hav
 * MoPub<br />
 	- Android : coming soon<br />
 	- iOS : http://bit.ly/1Bwm060<br />
+
+Usage videos for Cocos2d-JS coming very soon
