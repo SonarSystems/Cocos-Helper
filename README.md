@@ -64,7 +64,7 @@ Not only are we simplifying the implementation of external frameworks but we hav
 	- Android : http://bit.ly/1FgoXIy<br />
 	- iOS : http://bit.ly/1KuJfT8<br />
 * MoPub<br />
-	- Android : coming soon<br />
+	- Android : http://bit.ly/1GkQ645<br />
 	- iOS : http://bit.ly/1Bwm060<br />
 
 Usage videos for Cocos2d-JS coming very soon
