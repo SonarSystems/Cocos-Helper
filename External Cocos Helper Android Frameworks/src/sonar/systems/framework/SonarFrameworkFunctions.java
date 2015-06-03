@@ -678,7 +678,7 @@ public class SonarFrameworkFunctions
 		}
 	}
 	
-	public static void SendGAEvent(final String category, final String action, final String label, long value)
+	public static void SendGAEvent(final String category, final String action, final String label, int value)
 	{
 		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
 		{

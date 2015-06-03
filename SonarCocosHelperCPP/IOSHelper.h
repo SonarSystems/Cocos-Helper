@@ -94,6 +94,7 @@ SCHEmptyProtocol
 {
     AppController *appController;
     UIView *view;
+    RootViewController *localViewController;
     
 #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
     id<GAITracker> tracker;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="cocoshelper.jstutorials"
+      package="test.js.framework"
       android:versionCode="1"
       android:versionName="1.0"
       android:installLocation="auto"
@@ -12,24 +12,36 @@
     <application android:label="@string/app_name"
                  android:icon="@drawable/icon">
 					 
-        <!-- Tell Cocos2dxActivity the name of our .so -->
+        <!-- Tell Cocos2dxActivity the name of our .so JS VERSION 
         <meta-data android:name="android.app.lib_name"
-	              android:value="cocos2djs" />
+	              android:value="cocos2djs" /> -->
+			 
+		<!-- Tell Cocos2dxActivity the name of our .so CPP VERSION -->
+		<meta-data android:name="android.app.lib_name"
+	              android:value="cocos2dcpp" /> 
 
-        <!-- Required for Google Play Services -->
+        <!-- Required for Google Play Services 
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"
             android:value="@string/google_play_game_app_id" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version" />-->
         <!-- End here requirement for Google Play Services -->
         
+        <!-- Use for C++ -->
         <activity android:name="org.cocos2dx.cpp.AppActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="orientation">
+                  
+        <!-- Use for JavaScript -->
+        <!--<activity android:name="org.cocos2dx.javascript.AppActivity"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation">-->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +58,7 @@
     	</activity>-->
         <!-- End here requirement for RevMob -->
         
-        <!-- Required for Facebook
+        <!-- Required for Facebook 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity android:name="com.facebook.LoginActivity" />
 		<provider android:authorities="com.facebook.app.NativeAppCallContentProvider1577252912516398"
@@ -61,11 +73,11 @@
 	
         <!-- End here requirement for AdMob -->
         
-        <!-- Required for MoPub
+        <!-- Required for MoPub 
         <activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
   		<activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
   		<activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation|screenSize"/>
-  		<activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation|screenSize"/> -->
+  		<activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>-->
         <!-- End here requirement for MoPub -->
         
     </application>

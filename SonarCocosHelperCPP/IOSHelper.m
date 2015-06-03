@@ -69,9 +69,16 @@ SCHEmptyProtocol
 
 // initialise the Network Framework to setup external frameworks
 -( void )initialise
-{
+{    
     appController = ( AppController * )[[UIApplication sharedApplication] delegate];
+    
+#if COCOS2D_JAVASCRIPT
+    localViewController = appController->viewController;
+    view = appController->viewController.view;
+#else
+    localViewController = appController.viewController;
     view = appController.viewController.view;
+#endif
     
 #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
     // Optional: automatically send uncaught exceptions to Google Analytics.
@@ -144,6 +151,9 @@ SCHEmptyProtocol
     
 #if SCH_IS_MOPUB_ENABLED == true
     isMopubBannerDisplayed = false;
+    
+    self.moPubinterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_INTERSTITIAL_AD_UNIT];
+    [self.moPubinterstitial loadAd];
 #endif
     
 #if SCH_IS_EVERYPLAY_ENABLED == true
@@ -161,7 +171,7 @@ SCHEmptyProtocol
     if ( !isBannerVisible && isBannerLoaded )
     {
         // check where the ad is to be positioned
-        if ( position == ADBANNERPOSITION_TOP )
+        if ( bannerPosition == ADBANNERPOSITION_TOP )
         { adView.frame = CGRectMake( 0, 0, adView.frame.size.width, adView.frame.size.height ); }
         else
         { adView.frame = CGRectMake( 0, view.frame.size.height - adView.frame.size.height, adView.frame.size.width, adView.frame.size.height ); }
@@ -315,9 +325,10 @@ SCHEmptyProtocol
     [slVC setInitialText:message];
     slVC.completionHandler = ^( SLComposeViewControllerResult result )
     {
-        [appController.viewController dismissViewControllerAnimated:YES completion:NULL];
+        [localViewController dismissViewControllerAnimated:YES completion:NULL];
     };
-    [appController.viewController presentViewController:slVC animated:YES completion:NULL];
+    
+    [localViewController presentViewController:slVC animated:YES completion:NULL];
 }
 
 // share to twitter (requires the message to be sent and the image path, both of which can be empty strings)
@@ -328,14 +339,15 @@ SCHEmptyProtocol
     [slVC setInitialText:message];
     slVC.completionHandler = ^( SLComposeViewControllerResult result )
     {
-        [appController.viewController dismissViewControllerAnimated:YES completion:NULL];
+        [localViewController dismissViewControllerAnimated:YES completion:NULL];
     };
-    [appController.viewController presentViewController:slVC animated:YES completion:NULL];
+
+    [localViewController presentViewController:slVC animated:YES completion:NULL];
 }
 
 -( void )shareWithString:( NSString *) message: ( NSString * ) imagePath
 {
-    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:imagePath]];
+    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:imagePath]];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[message, imagePath] applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop];
     
@@ -350,12 +362,12 @@ SCHEmptyProtocol
         self.popover = [[UIPopoverController alloc] initWithContentViewController:activityVC];
         self.popover.popoverContentSize = CGSizeMake(600., 400.);
         self.popover.delegate = self;
-        CGRect bounds = appController.viewController.view.bounds;
-        [self.popover presentPopoverFromRect:CGRectMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds), 10, 10) inView:appController.viewController.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        CGRect bounds = localViewController.view.bounds;
+        [self.popover presentPopoverFromRect:CGRectMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds), 10, 10) inView:localViewController.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else
     {
-        [appController.viewController presentViewController:activityVC animated:YES completion:nil];
+        [localViewController presentViewController:activityVC animated:YES completion:nil];
     }
 }
 #endif
@@ -371,7 +383,7 @@ SCHEmptyProtocol
     {
         if ( viewController != nil )
         {
-            [appController.viewController presentViewController:viewController animated:YES completion:nil];
+            [localViewController presentViewController:viewController animated:YES completion:nil];
         }
         else
         {
@@ -428,7 +440,7 @@ SCHEmptyProtocol
         gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
         //gcViewController.leaderboardIdentifier = _leaderboardIdentifier;
         
-        [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
+        [localViewController presentViewController:gcViewController animated:YES completion:nil];
     }
     else
     {
@@ -447,7 +459,7 @@ SCHEmptyProtocol
     
     gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
     
-    [appController.viewController presentViewController:gcViewController animated:YES completion:nil];
+    [localViewController presentViewController:gcViewController animated:YES completion:nil];
 }
 
 -( void )gameCenterUnlockAchievement:( NSString* )achievementID andPercentage: ( float )percent
@@ -484,11 +496,11 @@ SCHEmptyProtocol
     {
         adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
-        adMobTopBanner.rootViewController = appController.viewController;
+        adMobTopBanner.rootViewController = localViewController;
         GADRequest *request = [GADRequest request];
         request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobTopBanner loadRequest:request];
-        [appController.viewController.view addSubview:adMobTopBanner];
+        [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
@@ -501,11 +513,11 @@ SCHEmptyProtocol
     {
         adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
-        adMobBottomBanner.rootViewController = appController.viewController;
+        adMobBottomBanner.rootViewController = localViewController;
         GADRequest *request = [GADRequest request];
         request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobBottomBanner loadRequest:request];
-        [appController.viewController.view addSubview:adMobBottomBanner];
+        [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBottomBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
@@ -517,20 +529,20 @@ SCHEmptyProtocol
     {
         adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
-        adMobTopBanner.rootViewController = appController.viewController;
+        adMobTopBanner.rootViewController = localViewController;
         GADRequest *request = [GADRequest request];
         request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobTopBanner loadRequest:request];
-        [appController.viewController.view addSubview:adMobTopBanner];
+        [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
         adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
-        adMobBottomBanner.rootViewController = appController.viewController;
+        adMobBottomBanner.rootViewController = localViewController;
         request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobBottomBanner loadRequest:request];
-        [appController.viewController.view addSubview:adMobBottomBanner];
+        [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobBottomBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
@@ -572,7 +584,7 @@ SCHEmptyProtocol
 {
     if ( isAdMobFullscreenLoaded )
     {
-        [adMobInterstitial presentFromRootViewController:appController.viewController];
+        [adMobInterstitial presentFromRootViewController:localViewController];
         
         [self requestAdMobFullscreenAd];
     }
@@ -612,7 +624,7 @@ SCHEmptyProtocol
                                        MOPUB_BANNER_SIZE.width,
                                        MOPUB_BANNER_SIZE.height );
         
-        [appController.viewController.view addSubview:self.moPubAdView];
+        [localViewController.view addSubview:self.moPubAdView];
 
         [self.moPubAdView loadAd];
         
@@ -628,16 +640,13 @@ SCHEmptyProtocol
 
 -( UIViewController * )viewControllerForPresentingModalView
 {
-    return appController.viewController;
+    return localViewController;
 }
 
 // Interstitial Ad
 -( void )showMoPubFullscreenAd
 {
-    self.moPubinterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:SCH_MOPUB_INTERSTITIAL_AD_UNIT];
-    [self.moPubinterstitial loadAd];
-    
-    [self.moPubinterstitial showFromViewController:appController.viewController];
+    [self.moPubinterstitial showFromViewController:localViewController];
 }
 
 #endif
