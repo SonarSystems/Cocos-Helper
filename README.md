@@ -12,14 +12,14 @@ External Frameworks Supported in v1.20.00
 * RevMob (iOS and Android)<br />
 * Chartboost (iOS and Android)<br />
 * Gamecenter (iOS)<br />
-* MoPub (iOS and Android)<br />
 * Google Analytics (iOS and Android)<br />
+* MoPub (iOS and Android)<br />
 
 Future Plans
 ------------------------------------------
+* UI<br />
 * Push Notifications<br />
 * In-App Purchases<br />
-* UI<br />
 * GameAnalytics<br />
 * Flurry<br />
 * Everyplay<br />
