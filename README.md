@@ -77,35 +77,35 @@ Usage - Cocos2d-x C++
 Usage - Cocos2d-JS
 ------------------------------------------
 * Setting Up<br />
-	- Android : http://bit.ly/1FTnD31<br />
-	- iOS : http://bit.ly/1GLOKxM<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * Google Play Services<br />
-	- Android : http://bit.ly/1FTmWGY<br />
+	- Android : coming soon<br />
 * Facebook<br />
-	- Android : http://bit.ly/1J9JLZx<br />
-	- iOS : http://bit.ly/1LPOYnv<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * Twitter<br />
-	- Android : http://bit.ly/1J9JKVE<br />
-	- iOS : http://bit.ly/1LPOYnv<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * AdMob<br />
-	- Android : http://bit.ly/1KEbRMW<br />
-	- iOS : http://bit.ly/1FTnzjR<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * iAds<br />
-	- iOS : http://bit.ly/1FgpeLK<br />
+	- iOS : coming soon<br />
 * RevMob<br />
-	- Android : http://bit.ly/1FKieds<br />
-	- iOS : http://bit.ly/1AAr5PV<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * Chartboost<br />
-	- Android : http://bit.ly/1FTn2OQ<br />
-	- iOS : http://bit.ly/1eGpf60<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * Gamecenter<br />
-	- iOS : http://bit.ly/1Fle4WR<br />
+	- iOS : coming soon<br />
 * Google Analytics<br />
-	- Android : http://bit.ly/1FgoXIy<br />
-	- iOS : http://bit.ly/1KuJfT8<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * MoPub<br />
-	- Android : http://bit.ly/1GkQ645<br />
-	- iOS : http://bit.ly/1Bwm060<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 * Vungle<br />
 	- Android : coming soon<br />
 	- iOS : coming soon<br />
