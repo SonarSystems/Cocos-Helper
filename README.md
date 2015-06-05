@@ -1,6 +1,6 @@
 # Sonar Cocos Helper v1.20.00
 
-Sonar Cocos Helper is designed to help simply the process of implementing external frameworks. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this.
+Sonar Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this.
 
 External Frameworks Supported in v1.20.00
 ------------------------------------------
@@ -29,13 +29,14 @@ Future Plans
 
 Requirements
 ------------------------------------------
-* Cocos2d-x C++
+* Cocos2d-x C++ or Cocos2d-JS any version
 * Mac and Xcode for iOS development
 * Eclipse for Android development (Windows, Mac or Linux)
 
-Usage - C++
-------------------------------------------
 Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
+
+Usage - Cocos2d-x C++
+------------------------------------------
 * Setting Up<br />
 	- Android : http://bit.ly/1FTnD31<br />
 	- iOS : http://bit.ly/1GLOKxM<br />
@@ -66,5 +67,48 @@ Not only are we simplifying the implementation of external frameworks but we hav
 * MoPub<br />
 	- Android : http://bit.ly/1GkQ645<br />
 	- iOS : http://bit.ly/1Bwm060<br />
+* Vungle<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
+* AdColony<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
 
-Usage videos for Cocos2d-JS coming very soon
+Usage - Cocos2d-JS
+------------------------------------------
+* Setting Up<br />
+	- Android : http://bit.ly/1FTnD31<br />
+	- iOS : http://bit.ly/1GLOKxM<br />
+* Google Play Services<br />
+	- Android : http://bit.ly/1FTmWGY<br />
+* Facebook<br />
+	- Android : http://bit.ly/1J9JLZx<br />
+	- iOS : http://bit.ly/1LPOYnv<br />
+* Twitter<br />
+	- Android : http://bit.ly/1J9JKVE<br />
+	- iOS : http://bit.ly/1LPOYnv<br />
+* AdMob<br />
+	- Android : http://bit.ly/1KEbRMW<br />
+	- iOS : http://bit.ly/1FTnzjR<br />
+* iAds<br />
+	- iOS : http://bit.ly/1FgpeLK<br />
+* RevMob<br />
+	- Android : http://bit.ly/1FKieds<br />
+	- iOS : http://bit.ly/1AAr5PV<br />
+* Chartboost<br />
+	- Android : http://bit.ly/1FTn2OQ<br />
+	- iOS : http://bit.ly/1eGpf60<br />
+* Gamecenter<br />
+	- iOS : http://bit.ly/1Fle4WR<br />
+* Google Analytics<br />
+	- Android : http://bit.ly/1FgoXIy<br />
+	- iOS : http://bit.ly/1KuJfT8<br />
+* MoPub<br />
+	- Android : http://bit.ly/1GkQ645<br />
+	- iOS : http://bit.ly/1Bwm060<br />
+* Vungle<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
+* AdColony<br />
+	- Android : coming soon<br />
+	- iOS : coming soon<br />
