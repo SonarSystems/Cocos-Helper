@@ -17,6 +17,8 @@ External Frameworks Supported in v1.20.00
 
 Future Plans
 ------------------------------------------
+* Vungle<br />
+* AdColony<br />
 * UI<br />
 * Push Notifications<br />
 * In-App Purchases<br />
