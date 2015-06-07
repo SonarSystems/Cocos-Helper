@@ -82,7 +82,7 @@ Usage - Cocos2d-JS
 ------------------------------------------
 * Setting Up<br />
 	- Android : coming soon<br />
-	- iOS : coming soon<br />
+	- iOS : http://bit.ly/1Kia9Qn<br />
 * Google Play Services<br />
 	- Android : coming soon<br />
 * Facebook<br />
