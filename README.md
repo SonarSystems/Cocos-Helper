@@ -17,19 +17,20 @@ External Frameworks Supported in v1.20.00
 
 Future Plans
 ------------------------------------------
-* Vungle<br />
-* AdColony<br />
-* UI<br />
-* Flurry<br />
-* Push Notifications<br />
-* In-App Purchases<br />
-* GameAnalytics<br />
-* Everyplay<br />
-* Kiip<br />
-* TapJoy<br />
-* InMobi<br />
+* Vungle
+* AdColony
+* UI
+* Flurry
+* Push Notifications
+* In-App Purchases
+* GameAnalytics
+* Everyplay
+* Kiip
+* TapJoy
+* InMobi
 * Leadbolt
 * Airpush
+* WeChat
 
 Requirements
 ------------------------------------------
