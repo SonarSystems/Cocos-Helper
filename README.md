@@ -20,14 +20,16 @@ Future Plans
 * Vungle<br />
 * AdColony<br />
 * UI<br />
+* Flurry<br />
 * Push Notifications<br />
 * In-App Purchases<br />
 * GameAnalytics<br />
-* Flurry<br />
 * Everyplay<br />
 * Kiip<br />
 * TapJoy<br />
 * InMobi<br />
+* Leadbolt
+* Airpush
 
 Requirements
 ------------------------------------------
