@@ -17,6 +17,12 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.30.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.30.00) (8th June June 2015)
+
+- [NEW] Vungle (iOS and Android)
+- [NEW] AdColony (iOS and Android)
+- [FIX] Bug fixes
+
 ## [1.20.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.20.00) (3rd June 2015)
 
 - [NEW] Cocos2d-JS Port
