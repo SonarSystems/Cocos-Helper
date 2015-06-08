@@ -32,6 +32,13 @@ Future Plans
 * Airpush
 * WeChat
 
+Potential UI Plugin Features
+------------------------------------------
+* Virtual onscreen Joystick
+* Audio Toggle
+* Pause popup
+* <strong><i>suggestions would are very welcome</i></strong>
+
 Requirements
 ------------------------------------------
 * Cocos2d-x C++ or Cocos2d-JS any version
