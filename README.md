@@ -49,9 +49,9 @@ Not only are we simplifying the implementation of external frameworks but we hav
 
 Usage - Cocos2d-x C++
 ------------------------------------------
-* Setting Up<br />
-	- Android : http://bit.ly/1FTnD31<br />
-	- iOS : http://bit.ly/1GLOKxM<br />
+* Setting Up
+	- Android : http://bit.ly/1FTnD31
+	- iOS : http://bit.ly/1GLOKxM
 * Google Play Services<br />
 	- Android : http://bit.ly/1FTmWGY<br />
 * Facebook<br />
