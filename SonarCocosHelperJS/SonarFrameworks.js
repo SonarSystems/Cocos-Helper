@@ -21,19 +21,19 @@ var CLASS_PATH = "sonar/systems/framework/SonarFrameworkFunctions";
 
 SonarCocosHelper.AdBannerPosition = { eBottom: 0, eTop: 1, eBoth: 2 };
 
-SonarCocosHelper.IOS = function () { }; // tested by Frahaan
+SonarCocosHelper.IOS = function () { };
 SonarCocosHelper.GooglePlayServices = function () { };
-SonarCocosHelper.Facebook = function () { }; // tested by Frahaan
-SonarCocosHelper.Twitter = function () { }; // tested by Frahaan
-SonarCocosHelper.AdMob = function () { }; // tested by Frahaan
-SonarCocosHelper.Mopub = function () { }; // tested by Frahaan
-SonarCocosHelper.iAds = function () { }; // tested by Frahaan
-SonarCocosHelper.RevMob = function () { }; // tested by Frahaan
-SonarCocosHelper.Chartboost = function () { }; // tested by Frahaan
-SonarCocosHelper.GameCenter = function () { }; // tested by Frahaan
-SonarCocosHelper.GoogleAnalytics = function () { }; // tested by Frahaan
-SonarCocosHelper.AdColony = function () { }; // tested by Frahaan
-SonarCocosHelper.Vungle = function () { }; // tested by Frahaan
+SonarCocosHelper.Facebook = function () { };
+SonarCocosHelper.Twitter = function () { };
+SonarCocosHelper.AdMob = function () { };
+SonarCocosHelper.Mopub = function () { };
+SonarCocosHelper.iAds = function () { };
+SonarCocosHelper.RevMob = function () { };
+SonarCocosHelper.Chartboost = function () { };
+SonarCocosHelper.GameCenter = function () { };
+SonarCocosHelper.GoogleAnalytics = function () { };
+SonarCocosHelper.AdColony = function () { };
+SonarCocosHelper.Vungle = function () { };
 
 /**
  * Check if the user is signed in
