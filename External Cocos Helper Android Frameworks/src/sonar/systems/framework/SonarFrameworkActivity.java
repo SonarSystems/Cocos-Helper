@@ -2,10 +2,7 @@ package sonar.systems.framework;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
@@ -36,9 +33,13 @@ public class SonarFrameworkActivity extends Cocos2dxActivity
 			{e1.printStackTrace();}
 		
 		if(cocosVersion == "cocos2djs")
-			{System.loadLibrary("cocos2djs");}
-		else
-			{System.loadLibrary("cocos2dcpp");}
+		{ 
+			System.loadLibrary("cocos2djs");
+		}
+		else if (cocosVersion == "cocos2dcpp")
+		{
+			System.loadLibrary("cocos2dcpp");
+		}
 		
 		super.onCreate(b);
 		
@@ -115,7 +116,6 @@ public class SonarFrameworkActivity extends Cocos2dxActivity
 	//Cocos2d-x
 	/*static 
 	{
-
 			
 	}*/
 }

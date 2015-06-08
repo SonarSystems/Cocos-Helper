@@ -160,6 +160,11 @@ public class Framework
 	{
 		
 	}
+	
+	public void ShowVideoAd(boolean condition)
+	{
+		
+	}
 	//END REVMOB
 	
 	//FACEBOOK

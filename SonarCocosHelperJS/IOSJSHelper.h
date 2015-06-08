@@ -81,4 +81,12 @@
 +( void )sendGAEvent:( NSString * ) category andAction: ( NSString * ) action andLabel: ( NSString * ) label;
 #endif
 
+#if SCH_IS_ADCOLONY_ENABLED == true
++( void )showVideoAC:( NSNumber * )withPreOp andPostOp: ( NSNumber * ) withPostOp;
+#endif
+
+#if SCH_IS_VUNGLE_ENABLED == true
++( void )showVideoVungle:( NSNumber * )isIncentivised;
+#endif
+
 @end

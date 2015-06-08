@@ -22,13 +22,11 @@
 
 using namespace cocos2d;
 
-class IOSCPPHelper //: public SNFNetworkHelper
+class IOSCPPHelper
 {
 private:
     
-public:
-    //virtual bool init( );
-    
+public:    
     static void Setup( );
 
 #if SCH_IS_SOCIAL_ENABLED == true
@@ -88,6 +86,14 @@ public:
     static void setGAScreenName( __String screenName );
     static void setGADispatchInterval( int dispatchInterval );
     static void sendGAEvent( __String category, __String action, __String label );
+#endif
+
+#if SCH_IS_ADCOLONY_ENABLED == true
+    static void showVideoAC( bool withPreOp, bool withPostOp );
+#endif
+    
+#if SCH_IS_VUNGLE_ENABLED == true
+    static void showVideoVungle( bool isIncentivised );
 #endif
     
 };

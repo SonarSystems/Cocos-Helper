@@ -60,6 +60,14 @@
     #import <GAITrackedViewController.h>
 #endif
 
+ #if SCH_IS_ADCOLONY_ENABLED == true
+    #import <AdColony/AdColony.h>
+#endif
+
+#if SCH_IS_VUNGLE_ENABLED == true
+    #import <VungleSDK/VungleSDK.h>
+#endif
+
 @protocol SCHEmptyProtocol
 @end
 
@@ -89,6 +97,14 @@ SCHEmptyProtocol
 #if SCH_IS_MOPUB_ENABLED == true
 , MPAdViewDelegate
 , MPInterstitialAdControllerDelegate
+#endif
+
+#if SCH_IS_ADCOLONY_ENABLED == true
+, AdColonyDelegate
+#endif
+
+#if SCH_IS_VUNGLE_ENABLED == true
+, VungleSDKDelegate
 #endif
 >
 {
@@ -202,6 +218,17 @@ SCHEmptyProtocol
 -( void )setGAScreenName:( NSString * )screenString;
 -( void )setGADispatchInterval:( int )dispatchInterval;
 -( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label;
+#endif
+
+#if SCH_IS_ADCOLONY_ENABLED == true
+-( void )showV4VCAC:( BOOL ) withPreOP andPostOp: ( BOOL ) withPostOp;
+-( void )onAdColonyV4VCReward:( BOOL )success currencyName:( NSString * )currencyName currencyAmount:( int )amount inZone:( NSString * )zoneID;
+#endif
+
+#if SCH_IS_VUNGLE_ENABLED == true
+-( void )showV4VCV:( BOOL )isIncentivised;
+-( void )vungleSDKwillCloseAdWithViewInfo:( NSDictionary * )viewInfo willPresentProductSheet:( BOOL )willPresentProductSheet;
+-( void )vungleSDKwillShowAd;
 #endif
 
 @end

@@ -2,6 +2,7 @@ package sonar.systems.framework;
 
 import java.lang.reflect.InvocationTargetException;
 
+import com.google.android.gms.internal.ga;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -51,6 +52,13 @@ public class SonarFrameworkFunctions
 	private static Framework mopub = null;
 	//MoPub
 	
+    //Adcolony
+    private static Framework adcolony = null;
+    //Adcolony
+    
+    //Vungle
+    private static Framework vungle = null;
+    //Vungle
 
 	public SonarFrameworkFunctions(Context app) throws ClassNotFoundException
 	{
@@ -90,7 +98,6 @@ public class SonarFrameworkFunctions
 		}
 		//END GOOGLE PLAY SERVICES
 		
-		Log.v("TESTTESTTEST", "FINISHED1");
 		//GOOGLE ANALYTICS
 		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
 		{
@@ -114,12 +121,10 @@ public class SonarFrameworkFunctions
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				Log.v("TESTTESTTEST", "FINISHED1");
 		}
 		else 
 		{
 			googleAnalytics = new Framework(); // empty object
-			Log.v("TESTTESTTEST", "FINISHED2");
 		}
 		//END GOOGLE ANALYTICS
 		
@@ -302,6 +307,66 @@ public class SonarFrameworkFunctions
 			mopub = new Framework(); // empty object
 		}
 		//END MOPUB
+        
+        //ADCOLONY
+        if(SonarFrameworkSettings.USE_ADCOLONY)
+        {
+            
+            try {
+                adcolony = (Framework) Class.forName("sonar.systems.frameworks.AdColony.AdColonyAds").getConstructor().newInstance();
+                adcolony.SetActivity(((SonarFrameworkActivity)app));
+            } catch (InstantiationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        else 
+        {
+            adcolony = new Framework(); // empty object
+        }
+        //END ADCOLONY
+        
+        //VUNGLE
+        if(SonarFrameworkSettings.USE_VUNGLE)
+        {
+            
+            try {
+                vungle = (Framework) Class.forName("sonar.systems.frameworks.Vungle.VungleAds").getConstructor().newInstance();
+                vungle.SetActivity(((SonarFrameworkActivity)app));
+            } catch (InstantiationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            vungle = new Framework(); // empty object
+        }
+        //END VUNGLE
 		
 	}
 	
@@ -634,7 +699,7 @@ public class SonarFrameworkFunctions
 	}
 	//End Chartboost Functions
 	
-	//Chartboost Functions
+	//Mopub Functions
 	public static void ShowBannerAdMP()
 	{
 		if(SonarFrameworkSettings.USE_MOPUB)
@@ -658,7 +723,27 @@ public class SonarFrameworkFunctions
 			mopub.ShowFullscreenAd();
 		}
 	}
-	//End Chartboost Functions
+	//End Mopub Functions
+    
+    //Adcolony Functions
+    public static void ShowRewardedVideoAdAC()
+    {
+        if(SonarFrameworkSettings.USE_ADCOLONY)
+        {
+            adcolony.ShowVideoAd();
+        }
+    }
+    //End Adcolony Functions
+    
+    //Vungle Functions
+    public static void ShowRewardedVideoAdV(boolean isIncentivised)
+    {
+        if(SonarFrameworkSettings.USE_VUNGLE)
+        {
+            vungle.ShowVideoAd(isIncentivised);
+        }
+    }
+    //End Vungle Functions
 	
 	//Google Analytics Functions
 	
@@ -678,7 +763,7 @@ public class SonarFrameworkFunctions
 		}
 	}
 	
-	public static void SendGAEvent(final String category, final String action, final String label, int value)
+	public static void SendGAEvent(final String category, final String action, final String label, long value)
 	{
 		if(SonarFrameworkSettings.USE_GOOGLE_ANALYTICS)
 		{
@@ -803,6 +888,16 @@ public class SonarFrameworkFunctions
 		 {
 			 chartboost.onCreate(b);
 		 }
+        
+        if(SonarFrameworkSettings.USE_ADCOLONY)
+        {
+            adcolony.onCreate(b);
+        }
+        
+        if(SonarFrameworkSettings.USE_VUNGLE)
+        {
+            vungle.onCreate(b);
+        }
 		
 	}
 	
@@ -828,6 +923,16 @@ public class SonarFrameworkFunctions
 	    {
 	    	 chartboost.onResume();
 	    }
+        
+        if(SonarFrameworkSettings.USE_ADCOLONY)
+        {
+            adcolony.onResume();
+        }
+        
+        if(SonarFrameworkSettings.USE_VUNGLE)
+        {
+            vungle.onResume();
+        }
 
 	}
 	
@@ -855,6 +960,16 @@ public class SonarFrameworkFunctions
 	    {
 	    	 chartboost.onPause();
 	    }
+        
+        if(SonarFrameworkSettings.USE_ADCOLONY)
+        {
+            adcolony.onPause();
+        }
+        
+        if(SonarFrameworkSettings.USE_VUNGLE)
+        {
+            vungle.onPause();
+        }
 	}
 
 	public void onDestroy() 

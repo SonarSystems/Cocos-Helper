@@ -198,3 +198,17 @@ void IOSCPPHelper::sendGAEvent( __String category, __String action, __String lab
 }
 #endif
 
+#if SCH_IS_ADCOLONY_ENABLED == true
+void IOSCPPHelper::showVideoAC( bool withPreOp, bool withPostOp )
+{
+    [[IOSHelper instance] showV4VCAC: withPreOp andPostOp: withPostOp];
+}
+#endif
+
+#if SCH_IS_VUNGLE_ENABLED == true
+void IOSCPPHelper::showVideoVungle( bool isIncentivised )
+{
+    [[IOSHelper instance] showV4VCV: isIncentivised];
+}
+#endif
+

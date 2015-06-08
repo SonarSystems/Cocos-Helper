@@ -286,6 +286,27 @@ namespace SonarCocosHelper
         static void sendEvent( cocos2d::__String category, cocos2d::__String action, cocos2d::__String label, long value );
     };
 
+    class AdColony
+    {
+    public:
+        /**
+         * Show ad
+         * @param withPreOp (required), show optional popup before the ad is shown
+         * @param withPostOp (required), show optional popup after the ad is shown
+         */
+        static void showVideoAC ( bool withPreOp, bool withPostOp );
+    };
+    
+    class Vungle
+    {
+    public:
+        /**
+         * Show ad
+         * @param isIncentivised (required) true is a reward video ad, false is a regular video ad
+         */
+        static void ShowVideoVungle( bool isIncentivised );
+    };
+
     // NOT WORKING ATM
     /*class Everyplay
     {

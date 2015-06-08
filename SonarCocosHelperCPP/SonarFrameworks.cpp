@@ -485,6 +485,33 @@ void GoogleAnalytics::sendEvent( cocos2d::__String category, cocos2d::__String a
 #endif
 }
 
+void AdColony::showVideoAC (bool withPreOp, bool withPostOp)
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall(
+                                         "ShowRewardedVideoAdAC",
+                                         CLASS_NAME);
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_ADCOLONY_ENABLED == true
+        IOSCPPHelper::showVideoAC( withPreOp, withPostOp );
+    #endif
+#endif
+}
+
+void Vungle::ShowVideoVungle( bool isIncentivised )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall(
+                                         "ShowRewardedVideoAdV",
+                                         CLASS_NAME,
+                                         isIncentivised);
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_VUNGLE_ENABLED == true
+        IOSCPPHelper::showVideoVungle( isIncentivised );
+    #endif
+#endif
+}
+
 // NOT WORKING ATM
 /*
 void Everyplay::setup( )

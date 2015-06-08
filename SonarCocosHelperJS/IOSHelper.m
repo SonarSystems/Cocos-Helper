@@ -17,6 +17,7 @@
 #import "IOSHelper.h"
 #import "AppController.h"
 #import "RootViewController.h"
+//#import "IOSResults.h"
 
 #if SCH_IS_CHARTBOOST_ENABLED == true
     #import <Chartboost/CBNewsfeed.h>
@@ -158,6 +159,24 @@ SCHEmptyProtocol
     
 #if SCH_IS_EVERYPLAY_ENABLED == true
     [self setupEveryplay];
+#endif
+
+#if SCH_IS_ADCOLONY_ENABLED == true
+    [AdColony configureWithAppID: SCH_ADCOLONY_APP_ID
+                         zoneIDs: @[ SCH_ADCOLONY_ZONE_ID ]
+                        delegate: self
+                         logging: YES];
+#endif
+    
+#if SCH_IS_VUNGLE_ENABLED == true
+    NSString* appID = SCH_VUNGLE_ID;
+    VungleSDK *sdk = [VungleSDK sharedSDK];
+    
+    // start vungle publisher library
+    [sdk startWithAppId:appID];
+    
+    [[VungleSDK sharedSDK] setLoggingEnabled:YES];
+    [[VungleSDK sharedSDK] setDelegate:self];
 #endif
 }
 
@@ -700,6 +719,57 @@ SCHEmptyProtocol
                                                           action:action  // Event action (required)
                                                            label:label          // Event label
                                                            value:nil] build]];    // Event value
+}
+#endif
+
+#pragma mark - AD_COLONY
+     
+#if SCH_IS_ADCOLONY_ENABLED == true
+-( void )showV4VCAC:( BOOL ) withPreOP andPostOp: ( BOOL ) withPostOp
+{
+    [AdColony playVideoAdForZone:SCH_ADCOLONY_ZONE_ID
+                    withDelegate:nil
+                withV4VCPrePopup:withPreOP
+                andV4VCPostPopup:withPostOp];
+}
+
+- ( void ) onAdColonyV4VCReward:( BOOL )success currencyName:( NSString * )currencyName currencyAmount:( int )amount inZone:( NSString * )zoneID
+{
+    //[IOSResults videoWasViewedAdcolony:success];
+}
+#endif
+
+#pragma mark - VUNGLE
+
+#if SCH_IS_VUNGLE_ENABLED == true
+-( void )showV4VCV:( BOOL )isIncentivised
+{
+    VungleSDK *sdk = [VungleSDK sharedSDK];
+    
+    // Dict to set custom ad options
+    NSDictionary *options = @{VunglePlayAdOptionKeyIncentivized: @(isIncentivised)};
+    
+    NSError *error;
+
+    [sdk playAd:localViewController withOptions:options error:&error];
+    if ( error )
+    {
+        NSLog( @"Error encountered playing ad: %@", error );
+    }
+}
+
+-( void )vungleSDKwillCloseAdWithViewInfo:( NSDictionary * )viewInfo willPresentProductSheet:( BOOL )willPresentProductSheet
+{
+    NSLog( viewInfo[@"completedView"] ? @"true" : @"false" );
+    
+    //[IOSResults videoWasViewedVungle:viewInfo[@"completedView"]];
+}
+
+-( void )vungleSDKwillShowAd
+{
+    NSLog( @"An ad is about to be played!" );
+    
+    //[IOSResults vungleSDKwillShowAd];
 }
 #endif
 

@@ -32,6 +32,8 @@ SonarCocosHelper.RevMob = function () { }; // tested by Frahaan
 SonarCocosHelper.Chartboost = function () { }; // tested by Frahaan
 SonarCocosHelper.GameCenter = function () { }; // tested by Frahaan
 SonarCocosHelper.GoogleAnalytics = function () { }; // tested by Frahaan
+SonarCocosHelper.AdColony = function () { }; // tested by Frahaan
+SonarCocosHelper.Vungle = function () { }; // tested by Frahaan
 
 /**
  * Check if the user is signed in
@@ -586,12 +588,36 @@ SonarCocosHelper.GoogleAnalytics.setDispatchInterval = function ( dispatchInterv
  */
 SonarCocosHelper.GoogleAnalytics.sendEvent = function (category, action, label, value)
 {
-	if ( cc.sys.os == cc.sys.OS_ANDROID )
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
-          jsb.reflection.callStaticMethod(CLASS_PATH, "SendGAEvent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", category, action, label, value);
+        jsb.reflection.callStaticMethod(CLASS_PATH, "SendGAEvent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", category, action, label, value);
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-       jsb.reflection.callStaticMethod( "IOSJSHelper", "sendGAEvent:andAction:andLabel:", category, action, label );
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendGAEvent:andAction:andLabel:", category, action, label );
+    }
+}
+
+SonarCocosHelper.AdColony.showVideoAC = function ( withPreOp, withPostOp )
+{
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+        jsb.reflection.callStaticMethod(CLASS_PATH, "ShowRewardedVideoAdAC", "()V", withPreOp, withPostOp);
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "showVideoAC:andPostOp:", withPreOp, withPostOp );
+    }
+}
+
+SonarCocosHelper.Vungle.ShowVideoVungle = function ( isIncentivised )
+{
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+         jsb.reflection.callStaticMethod(CLASS_PATH, "ShowRewardedVideoAdV", "(Z)V", isIncentivised);
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "showVideoVungle:", isIncentivised );
     }
 }

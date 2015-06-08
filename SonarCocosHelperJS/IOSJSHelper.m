@@ -201,4 +201,18 @@
 }
 #endif
 
+#if SCH_IS_ADCOLONY_ENABLED == true
++( void )showVideoAC:( NSNumber * )withPreOp andPostOp: ( NSNumber * ) withPostOp
+{
+    [[IOSHelper instance] showV4VCAC:withPreOp.intValue andPostOp: withPostOp.intValue];
+}
+#endif
+
+#if SCH_IS_VUNGLE_ENABLED == true
++( void )showVideoVungle:( NSNumber * )isIncentivised
+{
+    [[IOSHelper instance] showV4VCV:isIncentivised.intValue];
+}
+#endif
+
 @end

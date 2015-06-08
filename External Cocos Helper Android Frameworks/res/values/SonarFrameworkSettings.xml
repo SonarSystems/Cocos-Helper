@@ -24,12 +24,12 @@
 		<string name="admob_test_device_id">000000000000000000000</string> <!-- SET TO YOUR TEST DEVICE ID FOR TESTING -->
 		<string name="admob_banner_top_id">ca-app-pub-000000000000/00000000000000</string> <!-- SET TO YOUR ADMOB BANNER ID -->
 		<string name="admob_banner_bottom_id">ca-app-pub-00000000000000/00000000000</string> <!-- SET TO YOUR ADMOB BANNER ID -->
-		<string name="admob_interstitial_id">ca-app-pub-0000000000000000/0000000000</string> <!-- SET TO YOUR ADMOB INTERSTITIAL ID -->
+		<string name="admob_interstitial_id">ca-app-pub-00000000000000/00000000000</string> <!-- SET TO YOUR ADMOB INTERSTITIAL ID -->
 	<!-- AdMob End -->
 	
 	 <!-- Chartboost -->
-		<string name="chartboost_app_id">00000000000000000</string> <!-- SET TO YOUR CHARTBOOST APP ID -->
-		<string name="chartboost_app_signature">00000000000000000000000000000000000</string> <!-- SET TO YOUR CHARTBOOST APP SIGNATURE -->
+		<string name="chartboost_app_id">000000000000000000000000000</string> <!-- SET TO YOUR CHARTBOOST APP ID -->
+		<string name="chartboost_app_signature">0000000000000000000000000000000000000</string> <!-- SET TO YOUR CHARTBOOST APP SIGNATURE -->
 	<!-- Chartboost End -->
 	
 	 <!-- Revmob -->
@@ -49,5 +49,14 @@
 		<string name="mopub_banner_id">00000000000000000000</string>
 		<string name="mopub_fullscreen_id">00000000000000000000000</string>
 	<!-- MoPub -->
+    
+    <!-- AdColony -->
+    <string name="adcolony_app_id">00000000000000000</string>
+    <string name="adcolony_zone_id">000000000000000000000000000</string>
+    <!-- AdColony -->
+    
+    <!-- Vungle -->
+    <string name="vungle_app_id">00000000000000000000000000000</string>
+    <!-- Vungle -->
 	
 </resources>
