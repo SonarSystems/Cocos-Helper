@@ -95,10 +95,10 @@ Usage - Cocos2d-JS
 	- Android : coming soon<br />
 * Facebook<br />
 	- Android : coming soon<br />
-	- iOS : coming soon<br />
+	- iOS : http://bit.ly/1FEcShA<br />
 * Twitter<br />
 	- Android : coming soon<br />
-	- iOS : coming soon<br />
+	- iOS : http://bit.ly/1FEcShA<br />
 * AdMob<br />
 	- Android : coming soon<br />
 	- iOS : coming soon<br />
@@ -122,5 +122,5 @@ Usage - Cocos2d-JS
 	- Android : coming soon<br />
 	- iOS : coming soon<br />
 * AdColony<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
+	- Android : coming soon
+	- iOS : coming soon
