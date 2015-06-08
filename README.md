@@ -52,75 +52,75 @@ Usage - Cocos2d-x C++
 * Setting Up
 	- Android : http://bit.ly/1FTnD31
 	- iOS : http://bit.ly/1GLOKxM
-* Google Play Services<br />
-	- Android : http://bit.ly/1FTmWGY<br />
-* Facebook<br />
-	- Android : http://bit.ly/1J9JLZx<br />
-	- iOS : http://bit.ly/1LPOYnv<br />
-* Twitter<br />
-	- Android : http://bit.ly/1J9JKVE<br />
-	- iOS : http://bit.ly/1LPOYnv<br />
-* AdMob<br />
-	- Android : http://bit.ly/1KEbRMW<br />
-	- iOS : http://bit.ly/1FTnzjR<br />
-* iAds<br />
-	- iOS : http://bit.ly/1FgpeLK<br />
-* RevMob<br />
-	- Android : http://bit.ly/1FKieds<br />
-	- iOS : http://bit.ly/1AAr5PV<br />
-* Chartboost<br />
-	- Android : http://bit.ly/1FTn2OQ<br />
-	- iOS : http://bit.ly/1eGpf60<br />
-* Gamecenter<br />
-	- iOS : http://bit.ly/1Fle4WR<br />
-* Google Analytics<br />
-	- Android : http://bit.ly/1FgoXIy<br />
-	- iOS : http://bit.ly/1KuJfT8<br />
-* MoPub<br />
-	- Android : http://bit.ly/1GkQ645<br />
-	- iOS : http://bit.ly/1Bwm060<br />
-* Vungle<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* AdColony<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
+* Google Play Services
+	- Android : http://bit.ly/1FTmWGY
+* Facebook
+	- Android : http://bit.ly/1J9JLZx
+	- iOS : http://bit.ly/1LPOYnv
+* Twitter
+	- Android : http://bit.ly/1J9JKVE
+	- iOS : http://bit.ly/1LPOYnv
+* AdMob
+	- Android : http://bit.ly/1KEbRMW
+	- iOS : http://bit.ly/1FTnzjR
+* iAds
+	- iOS : http://bit.ly/1FgpeLK
+* RevMob
+	- Android : http://bit.ly/1FKieds
+	- iOS : http://bit.ly/1AAr5PV
+* Chartboost
+	- Android : http://bit.ly/1FTn2OQ
+	- iOS : http://bit.ly/1eGpf60
+* Gamecenter
+	- iOS : http://bit.ly/1Fle4WR
+* Google Analytics
+	- Android : http://bit.ly/1FgoXIy
+	- iOS : http://bit.ly/1KuJfT8
+* MoPub
+	- Android : http://bit.ly/1GkQ645
+	- iOS : http://bit.ly/1Bwm060
+* Vungle
+	- Android : coming soon
+	- iOS : coming soon
+* AdColony
+	- Android : coming soon
+	- iOS : coming soon
 
 Usage - Cocos2d-JS
 ------------------------------------------
-* Setting Up<br />
-	- Android : coming soon<br />
-	- iOS : http://bit.ly/1Kia9Qn<br />
-* Google Play Services<br />
-	- Android : coming soon<br />
-* Facebook<br />
-	- Android : coming soon<br />
-	- iOS : http://bit.ly/1FEcShA<br />
-* Twitter<br />
-	- Android : coming soon<br />
-	- iOS : http://bit.ly/1FEcShA<br />
-* AdMob<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* iAds<br />
-	- iOS : coming soon<br />
-* RevMob<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* Chartboost<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* Gamecenter<br />
-	- iOS : coming soon<br />
-* Google Analytics<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* MoPub<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* Vungle<br />
-	- Android : coming soon<br />
-	- iOS : coming soon<br />
-* AdColony<br />
+* Setting Up
+	- Android : coming soon
+	- iOS : http://bit.ly/1Kia9Qn
+* Google Play Services
+	- Android : coming soon
+* Facebook
+	- Android : coming soon
+	- iOS : http://bit.ly/1FEcShA
+* Twitter
+	- Android : coming soon
+	- iOS : http://bit.ly/1FEcShA
+* AdMob
+	- Android : coming soon
+	- iOS : coming soon
+* iAds
+	- iOS : coming soon
+* RevMob
+	- Android : coming soon
+	- iOS : coming soon
+* Chartboost
+	- Android : coming soon
+	- iOS : coming soon
+* Gamecenter
+	- iOS : coming soon
+* Google Analytics
+	- Android : coming soon
+	- iOS : coming soon
+* MoPub
+	- Android : coming soon
+	- iOS : coming soon
+* Vungle
+	- Android : coming soon
+	- iOS : coming soon
+* AdColony
 	- Android : coming soon
 	- iOS : coming soon
