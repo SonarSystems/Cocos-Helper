@@ -39,6 +39,7 @@ Potential UI Plugin Features
 * Virtual onscreen Joystick
 * Audio Toggle
 * Pause popup
+* Rate popup
 * <strong><i>suggestions are very welcome</i></strong>
 
 Requirements
