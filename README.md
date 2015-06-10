@@ -19,8 +19,6 @@ External Frameworks Supported in v1.30.00
 
 Future Plans
 ------------------------------------------
-* Vungle
-* AdColony
 * UI
 * Flurry
 * Push Notifications
