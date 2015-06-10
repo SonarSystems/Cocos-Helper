@@ -109,7 +109,7 @@ Usage - Cocos2d-JS
 	- iOS : coming soon
 * RevMob
 	- Android : coming soon
-	- iOS : coming soon
+	- iOS : http://bit.ly/1dvWicl
 * Chartboost
 	- Android : coming soon
 	- iOS : coming soon
