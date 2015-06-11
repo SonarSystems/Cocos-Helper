@@ -81,27 +81,27 @@ Usage - Cocos2d-x C++
 	- Android : http://bit.ly/1GkQ645
 	- iOS : http://bit.ly/1Bwm060
 * Vungle
-	- Android : coming soon
-	- iOS : coming soon
+	- Android : http://bit.ly/1B4Ofym
+	- iOS : http://bit.ly/1F5swAV
 * AdColony
-	- Android : coming soon
-	- iOS : coming soon
+	- Android : http://bit.ly/1JHthYX
+	- iOS : http://bit.ly/1JFelJm
 
 Usage - Cocos2d-JS
 ------------------------------------------
 * Setting Up
-	- Android : coming soon
+	- Android : http://bit.ly/1Td21EI
 	- iOS : http://bit.ly/1Kia9Qn
 * Google Play Services
 	- Android : coming soon
 * Facebook
-	- Android : coming soon
+	- Android : http://bit.ly/1GgQopl
 	- iOS : http://bit.ly/1FEcShA
 * Twitter
-	- Android : coming soon
+	- Android : http://bit.ly/1JMbvlO
 	- iOS : http://bit.ly/1FEcShA
 * AdMob
-	- Android : coming soon
+	- Android : http://bit.ly/1QOkMKy
 	- iOS : http://bit.ly/1KUGQ4z
 * iAds
 	- iOS : coming soon
@@ -110,7 +110,7 @@ Usage - Cocos2d-JS
 	- iOS : http://bit.ly/1dvWicl
 * Chartboost
 	- Android : coming soon
-	- iOS : coming soon
+	- iOS : http://bit.ly/1f4xHMB
 * Gamecenter
 	- iOS : coming soon
 * Google Analytics
