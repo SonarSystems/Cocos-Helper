@@ -104,7 +104,7 @@ Usage - Cocos2d-JS
 	- Android : http://bit.ly/1QOkMKy
 	- iOS : http://bit.ly/1KUGQ4z
 * iAds
-	- iOS : coming soon
+	- iOS : http://bit.ly/1Qr62X9
 * RevMob
 	- Android : coming soon
 	- iOS : http://bit.ly/1dvWicl
