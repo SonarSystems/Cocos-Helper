@@ -112,7 +112,7 @@ Usage - Cocos2d-JS
 	- Android : coming soon
 	- iOS : http://bit.ly/1f4xHMB
 * Gamecenter
-	- iOS : coming soon
+	- iOS : http://bit.ly/1BaOCXQ
 * Google Analytics
 	- Android : coming soon
 	- iOS : coming soon
