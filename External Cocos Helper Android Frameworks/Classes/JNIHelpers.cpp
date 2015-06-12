@@ -128,7 +128,7 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 	{
 		jstring stringArg0 = minfo.env->NewStringUTF(arg0);
 
-        minfo.env->CallStaticIntMethod(minfo.classID, minfo.methodID, stringArg0, looping);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, stringArg0, looping);
 
 		minfo.env->DeleteLocalRef(stringArg0);
 
@@ -148,7 +148,7 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 		jstring stringArg0 = minfo.env->NewStringUTF(arg0);
         jlong scoreArg1    = score;
 
-        minfo.env->CallStaticIntMethod(minfo.classID, minfo.methodID, stringArg0, scoreArg1);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, stringArg0, scoreArg1);
 
 		minfo.env->DeleteLocalRef(stringArg0);
 
@@ -192,7 +192,7 @@ void JniHelpers::jniCommonVoidCall(const char* methodName, const char* classPath
 	{
 		jstring stringArg0 = minfo.env->NewStringUTF(arg0);
 
-        minfo.env->CallStaticIntMethod(minfo.classID, minfo.methodID, stringArg0, numSteps);
+        minfo.env->CallStaticVoidMethod(minfo.classID, minfo.methodID, stringArg0, numSteps);
 
 		minfo.env->DeleteLocalRef(stringArg0);
 
