@@ -11,7 +11,7 @@ External Frameworks Supported in v1.30.00
 * iAds (iOS)<br />
 * RevMob (iOS and Android)<br />
 * Chartboost (iOS and Android)<br />
-* Gamecenter (iOS)<br />
+* Game Center (iOS)<br />
 * Google Analytics (iOS and Android)<br />
 * MoPub (iOS and Android)<br />
 * Vungle (iOS and Android)
