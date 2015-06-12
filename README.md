@@ -72,7 +72,7 @@ Usage - Cocos2d-x C++
 * Chartboost
 	- Android : http://bit.ly/1FTn2OQ
 	- iOS : http://bit.ly/1eGpf60
-* Gamecenter
+* Game Center
 	- iOS : http://bit.ly/1Fle4WR
 * Google Analytics
 	- Android : http://bit.ly/1FgoXIy
@@ -111,7 +111,7 @@ Usage - Cocos2d-JS
 * Chartboost
 	- Android : coming soon
 	- iOS : http://bit.ly/1f4xHMB
-* Gamecenter
+* Game Center
 	- iOS : http://bit.ly/1BaOCXQ
 * Google Analytics
 	- Android : coming soon
