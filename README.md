@@ -115,7 +115,7 @@ Usage - Cocos2d-JS
 	- iOS : http://bit.ly/1BaOCXQ
 * Google Analytics
 	- Android : coming soon
-	- iOS : coming soon
+	- iOS : http://bit.ly/1cVWyRl
 * MoPub
 	- Android : coming soon
 	- iOS : http://bit.ly/1Bh5bBf
