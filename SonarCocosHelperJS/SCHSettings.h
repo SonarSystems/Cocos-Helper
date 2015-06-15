@@ -28,7 +28,7 @@
 // MOPUB also needs these Linker flags
 // -ObjC
 // -fobjc-arc to every MoPub file
-#define SCH_IS_GOOGLE_ANALYTICS_ENABLED false // CoreData.framework, SystemConfiguration.framework, libz.dylib, libsqlite3.dylib, libGoogleAnalyticsServices.a, libAdIdAccess.a, AdSupport.framework, iAd.framework
+#define SCH_IS_GOOGLE_ANALYTICS_ENABLED false // CoreData.framework, SystemConfiguration.framework, libz.dylib, libsqlite3.dylib, libGoogleAnalyticsServices.a, libAdIdAccess.a, AdSupport.framework, iAd.framework, GameController.framework
 #define SCH_IS_ADCOLONY_ENABLED false // AdColony.framework, AdSupport.framework (Set to Optional), AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreMedia.framework, CoreTelephony.framework, EventKit.framework, EventKitUI.framework, GameController.framework, libsqlite3.dylib, libz.1.2.5.dylib, MediaPlayer.framework, MessageUI.framework, QuartzCore.framework, Social.framework (Set to Optional), StoreKit.framework (Set to Optional), SystemConfiguration.framework, WebKit.framework (Set to Optional)
 // ADCOLONY also needs these Linker flags
 // -ObjC
