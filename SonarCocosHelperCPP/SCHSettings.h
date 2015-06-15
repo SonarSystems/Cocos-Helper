@@ -24,10 +24,10 @@
 #define SCH_IS_SOCIAL_ENABLED false // Social.framework
 #define SCH_IS_GAME_CENTER_ENABLED false // Social.framework, GameKit.framework
 //#define SCH_IS_EVERYPLAY_ENABLED false // AdSupport (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, AssetsLibrary.framework, AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreImage (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, CoreMedia.framework, CoreVideo.framework, Foundation.framework, MessageUI.framework, MobileCoreServices.framework, OpenGLES.framework, QuartzCore.framework, Security.framework, Social (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, StoreKit.framework, SystemConfiguration.framework, Twitter (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, UIKit.framework
-#define SCH_IS_MOPUB_ENABLED false // AdSupport.framework, CoreGraphics.framework, CoreLocation.framework, CoreTelephony.framework, EventKit.framework, EventKitUI.framework, Foundation.framework, MediaPlayer.framework, QuartzCore.framework, StoreKit.framework†, SystemConfiguration.framework, UIKit.framework
+#define SCH_IS_MOPUB_ENABLED true // AdSupport.framework, CoreGraphics.framework, CoreLocation.framework, CoreTelephony.framework, EventKit.framework, EventKitUI.framework, Foundation.framework, GameController.framework, GameKit.framework, MediaPlayer.framework, MessageUI.framework, QuartzCore.framework, StoreKit.framework†, SystemConfiguration.framework, UIKit.framework
 // MOPUB also needs these Linker flags
 // -ObjC
-// -fobjc-arc
+// -fobjc-arc to every MoPub file
 #define SCH_IS_GOOGLE_ANALYTICS_ENABLED false // CoreData.framework, SystemConfiguration.framework, libz.dylib, libsqlite3.dylib, libGoogleAnalyticsServices.a, libAdIdAccess.a, AdSupport.framework, iAd.framework
 #define SCH_IS_ADCOLONY_ENABLED false // AdColony.framework, AdSupport.framework (Set to Optional), AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreMedia.framework, CoreTelephony.framework, EventKit.framework, EventKitUI.framework, GameController.framework, libsqlite3.dylib, libz.1.2.5.dylib, MediaPlayer.framework, MessageUI.framework, QuartzCore.framework, Social.framework (Set to Optional), StoreKit.framework (Set to Optional), SystemConfiguration.framework, WebKit.framework (Set to Optional)
 // ADCOLONY also needs these Linker flags
