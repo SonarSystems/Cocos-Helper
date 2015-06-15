@@ -118,7 +118,7 @@ Usage - Cocos2d-JS
 	- iOS : coming soon
 * MoPub
 	- Android : coming soon
-	- iOS : coming soon
+	- iOS : http://bit.ly/1Bh5bBf
 * Vungle
 	- Android : coming soon
 	- iOS : coming soon
