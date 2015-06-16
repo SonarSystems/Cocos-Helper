@@ -124,4 +124,4 @@ Usage - Cocos2d-JS
 	- iOS : http://bit.ly/1GciHC5
 * AdColony
 	- Android : coming soon
-	- iOS : coming soon
+	- iOS : http://bit.ly/1J2Vb1u
