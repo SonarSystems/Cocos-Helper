@@ -491,7 +491,7 @@ SCHEmptyProtocol
         for ( GKAchievement *ach in achievements )
         {
             // achievement already unlocked
-            if( [ach.identifier isEqualToString:achievementID] )
+            if( [ach.identifier isEqualToString:achievementID] && ach.isCompleted )
             { return; }
         }
         
