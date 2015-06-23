@@ -31,6 +31,7 @@ Future Plans
 * Leadbolt
 * Airpush
 * WeChat
+* Game Controller
 
 Potential UI Plugin Features
 ------------------------------------------
