@@ -94,7 +94,7 @@ Usage - Cocos2d-JS
 	- Android : http://bit.ly/1Td21EI
 	- iOS : http://bit.ly/1Kia9Qn
 * Google Play Services
-	- Android : coming soon
+	- Android : http://bit.ly/1JvpgEy
 * Facebook
 	- Android : http://bit.ly/1GgQopl
 	- iOS : http://bit.ly/1FEcShA
@@ -115,14 +115,14 @@ Usage - Cocos2d-JS
 * Game Center
 	- iOS : http://bit.ly/1BaOCXQ
 * Google Analytics
-	- Android : coming soon
+	- Android : http://bit.ly/1U8dZjm
 	- iOS : http://bit.ly/1cVWyRl
 * MoPub
-	- Android : coming soon
+	- Android : http://bit.ly/1It8Rl6
 	- iOS : http://bit.ly/1Bh5bBf
 * Vungle
-	- Android : coming soon
+	- Android : http://bit.ly/1LDejDb
 	- iOS : http://bit.ly/1GciHC5
 * AdColony
-	- Android : coming soon
+	- Android : http://bit.ly/1C9FEuP
 	- iOS : http://bit.ly/1J2Vb1u
