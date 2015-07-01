@@ -2,6 +2,8 @@ package sonar.systems.framework;
 
 import java.lang.reflect.InvocationTargetException;
 
+import com.google.android.gms.internal.ga;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -454,6 +456,36 @@ public class SonarFrameworkFunctions
 		}
 
 	}
+	
+	public static void submitScore(final String leaderboardID, final int score)
+	{
+		if(SonarFrameworkSettings.USE_GOOGLE_PLAY_GAME_SERVICES)
+		{
+			((SonarFrameworkActivity) app).runOnUiThread(new Runnable() 
+			{
+	
+				@Override
+				public void run() 
+				{
+					if (isSignedIn()) 
+					{
+						Log.d("Google Play Services", "Submit score " + score + " to " + leaderboardID);
+						googlePlayServices.submitScore(leaderboardID,score);
+	
+					} 
+					else 
+					{
+						String message = app.getResources().getString(app.getResources().getIdentifier("fail_submit_score_leaderboard","string",app.getPackageName()));
+						message = message.replace("{score}", score + "");
+						message = message.replace("{leaderboardID}", leaderboardID);
+						displayAlert(message);
+
+					}
+				}
+			});
+		}
+
+	}
 
 	public static void unlockAchievement(final String achievementID) 
 	{
@@ -677,6 +709,23 @@ public class SonarFrameworkFunctions
 			admob.ShowFullscreenAd();
 		}
 	}
+	
+	public static void PreLoadFullscreenAdAM()
+	{	
+		if(SonarFrameworkSettings.USE_ADMOB)
+		{
+			admob.PreLoadFullscreenAd();
+		}
+	}
+	
+	public static void ShowPreLoadedFullscreenAdAM()
+	{	
+		if(SonarFrameworkSettings.USE_ADMOB)
+		{
+			admob.ShowPreLoadedFullscreenAd();
+		}
+	}
+	
 	//End AdMob Functions
 	
 	//Chartboost Functions
@@ -685,6 +734,22 @@ public class SonarFrameworkFunctions
 		if(SonarFrameworkSettings.USE_CHARTBOOST)
 		{
 			chartboost.ShowFullscreenAd();
+		}
+	}
+	
+	public static void PreLoadFullscreenAdCB()
+	{	
+		if(SonarFrameworkSettings.USE_CHARTBOOST)
+		{
+			chartboost.PreLoadFullscreenAd();
+		}
+	}
+	
+	public static void PreLoadVideoAdCB()
+	{	
+		if(SonarFrameworkSettings.USE_CHARTBOOST)
+		{
+			chartboost.PreLoadVideoAd();
 		}
 	}
 	

@@ -334,8 +334,34 @@ void AdMob::showFullscreenAd()
         IOSCPPHelper::showAdMobFullscreenAd( );
     #endif
 #endif
-
 }
+
+void AdMob::preLoadFullscreenAd()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+		return JniHelpers::jniCommonVoidCall(
+			"PreLoadFullscreenAdAM",
+			CLASS_NAME);
+   #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	#if SCH_IS_AD_MOB_ENABLED == true
+        //todo
+    #endif
+#endif
+}
+
+void AdMob::showPreLoadedFullscreenAd()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+		return JniHelpers::jniCommonVoidCall(
+			"ShowPreLoadedFullscreenAdAM",
+			CLASS_NAME);
+   #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	#if SCH_IS_AD_MOB_ENABLED == true
+        //todo
+    #endif
+#endif
+}
+
 void RevMob::showFullscreenAd()
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
@@ -392,6 +418,32 @@ void Chartboost::showFullscreenAd( )
     #if SCH_IS_CHARTBOOST_ENABLED == true
         IOSCPPHelper::showChartboostFullScreenAd( );
 	#endif
+#endif
+}
+
+void Chartboost::preLoadFullscreenAd()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+		return JniHelpers::jniCommonVoidCall(
+			"PreLoadFullscreenAdCB",
+			CLASS_NAME);
+   #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	#if SCH_IS_AD_MOB_ENABLED == true
+        //todo
+    #endif
+#endif
+}
+
+void Chartboost::preLoadVideoAd()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+		return JniHelpers::jniCommonVoidCall(
+			"PreLoadVideoAdCB",
+			CLASS_NAME);
+   #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	#if SCH_IS_AD_MOB_ENABLED == true
+        //todo
+    #endif
 #endif
 }
 

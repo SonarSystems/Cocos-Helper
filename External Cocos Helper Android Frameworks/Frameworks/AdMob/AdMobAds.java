@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -36,6 +37,10 @@ public class AdMobAds extends Framework
 	private final int BOTTOM = 0;
 	private final int TOP = 1;
 	private final int BOTH = 2;
+	
+	public static native void FullscreenAdPreloaded(boolean result);
+	
+	private boolean preLoadCalled = false;
 	
 	public AdMobAds()
 	{
@@ -104,7 +109,17 @@ public class AdMobAds extends Framework
 	    {
 	          public void onAdLoaded()
 	          {
-	        	  LoadFullscreenAd();
+	        	  if(preLoadCalled)
+	        	  {
+	        		  FullscreenAdPreloaded(true);
+	        	  }
+	        	  else
+	        	  {
+	        		  LoadFullscreenAd();
+	        	  }
+	        	  
+	        	  preLoadCalled = false;
+	        	  
 	          }
 	    });
 	    
@@ -437,5 +452,47 @@ public class AdMobAds extends Framework
 		}
 	}
 	
+	@Override
+	public void PreLoadFullscreenAd()
+	{
+		if(interstitial != null) 
+		{
+			activity.runOnUiThread(new Runnable()
+		    {
+	
+			     @Override
+			     public void run()
+			     {
+			    	// Create ad request.
+			 	    AdRequest adRequest = new AdRequest.Builder()
+			 	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+			 		.addTestDevice("HASH_DEVICE_ID")
+			 		.addTestDevice(test_device_id).build();
+
+			 	    // Begin loading your interstitial.
+			 	    interstitial.loadAd(adRequest);
+			 	    preLoadCalled = true;
+			     }
+		     });
+		}
+	}
+	
+	@Override
+	public void ShowPreLoadedFullscreenAd()
+	{
+		if(interstitial != null) 
+		{
+			activity.runOnUiThread(new Runnable()
+		     {
+	
+			     @Override
+			     public void run()
+			     {
+			    	 if(interstitial.isLoaded())
+			    		 interstitial.show();
+			     }
+		     });
+		}
+	}
 
 }

@@ -145,9 +145,17 @@ namespace SonarCocosHelper
          */
         static void hideBannerAd( int position );
         /**
-         * Show a fullscreen interstitial ad
+         * Load and then Shows a fullscreen interstitial ad
          */
         static void showFullscreenAd( );
+        /**
+		 * preload a fullscreen interstitial ad
+		 */
+        static void preLoadFullscreenAd();
+        /**
+		 * shows the preloaded fullscreen interstitial ad
+		 */
+		static void showPreLoadedFullscreenAd();
     };
     
     class Mopub
@@ -215,6 +223,14 @@ namespace SonarCocosHelper
          * Show a fullscreen interstitial ad
          */
         static void showFullscreenAd( );
+        /**
+		 * preload a fullscreen interstitial ad
+		 */
+		static void preLoadFullscreenAd();
+		/**
+		 * preload a video ad
+		 */
+		static void preLoadVideoAd();
         /**
          * Show a fullscreen video ad
          */

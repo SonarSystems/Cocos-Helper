@@ -131,6 +131,16 @@ public class Framework
 		
 	}
 	
+	public void PreLoadFullscreenAd()
+	{
+		
+	}
+	
+	public void ShowPreLoadedFullscreenAd()
+	{
+		
+	}
+	
 	public void ShowBannerAd()
 	{
 		
@@ -162,6 +172,11 @@ public class Framework
 	}
 	
 	public void ShowVideoAd(boolean condition)
+	{
+		
+	}
+	
+	public void PreLoadVideoAd()
 	{
 		
 	}

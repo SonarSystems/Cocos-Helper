@@ -16,6 +16,7 @@
 #include "platform/android/jni/JniHelper.h"
 #include <android/log.h>
 #include "cocos2d.h"
+#include "SonarCocosHelper/SonarFrameworks.h"
 #endif
 
 #ifdef __cplusplus
@@ -25,6 +26,12 @@ extern "C" {
     JNIEXPORT void JNICALL Java_sonar_systems_frameworks_Vungle_VungleAds_rewardedVideoWasViewedVungle(JNIEnv* env, jobject thiz, jboolean result);
     
     JNIEXPORT void JNICALL Java_sonar_systems_frameworks_AdColony_AdColonyAds_rewardedVideoWasViewedAdcolony(JNIEnv* env, jobject thiz, jboolean result);
+
+    JNIEXPORT void JNICALL Java_sonar_systems_frameworks_AdMob_AdMobAds_FullscreenAdPreloaded(JNIEnv* env, jobject thiz, jboolean result);
+
+    JNIEXPORT void JNICALL Java_sonar_systems_frameworks_Chartboost_ChartBoostAds_rewardVideowasViewedChartboost(JNIEnv* env, jobject thiz, jboolean result);
+
+    JNIEXPORT void JNICALL Java_sonar_systems_frameworks_Chartboost_ChartBoostAds_FullscreenAdPreloaded(JNIEnv* env, jobject thiz, jboolean result);
 #endif
 #ifdef __cplusplus
 };
