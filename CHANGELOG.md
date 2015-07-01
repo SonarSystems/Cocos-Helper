@@ -17,6 +17,11 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.30.01](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.30.01) (1st July June 2015)
+
+- [UPDATE] AdMob preload ad function
+- [UPDATE] AdMob show preloaded ad function
+
 ## [1.30.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.30.00) (8th June June 2015)
 
 - [NEW] Vungle (iOS and Android)
