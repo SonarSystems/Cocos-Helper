@@ -28,7 +28,7 @@
 // MOPUB also needs these Linker flags
 // -ObjC
 // -fobjc-arc to every MoPub file
-#define SCH_IS_GOOGLE_ANALYTICS_ENABLED true // CoreData.framework, SystemConfiguration.framework, libz.dylib, libsqlite3.dylib, libGoogleAnalyticsServices.a, libAdIdAccess.a, AdSupport.framework, iAd.framework, GameController.framework
+#define SCH_IS_GOOGLE_ANALYTICS_ENABLED false // CoreData.framework, SystemConfiguration.framework, libz.dylib, libsqlite3.dylib, libGoogleAnalyticsServices.a, libAdIdAccess.a, AdSupport.framework, iAd.framework, GameController.framework
 // GOOGLE ANALYTICS also needs these Linker flags for IDFA
 // -framework AdSupport
 // -force_load "${SRCROOT}/GoogleAnalyticsFramework/libAdIdAccess.a"
