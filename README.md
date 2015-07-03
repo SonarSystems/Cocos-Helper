@@ -32,6 +32,7 @@ Future Plans
 * Airpush
 * WeChat
 * Game Controller
+* Android Immersive Mode
 
 Potential UI Plugin Features
 ------------------------------------------
