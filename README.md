@@ -33,6 +33,7 @@ Future Plans
 * WeChat
 * Game Controller
 * Android Immersive Mode
+* SQLite
 
 Potential UI Plugin Features
 ------------------------------------------
