@@ -34,6 +34,7 @@ Future Plans
 * Game Controller
 * Android Immersive Mode
 * SQLite
+* <strong><i>suggestions are very welcome</i></strong>
 
 Potential UI Plugin Features
 ------------------------------------------
