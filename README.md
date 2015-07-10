@@ -20,8 +20,9 @@ External Frameworks Supported in v1.30.01
 Future Plans
 ------------------------------------------
 * UI (in development)
-* Flurry (in development)
+* Flurry (testing)
 * Push Notifications
+* Local notifications
 * In-App Purchases (in development)
 * GameAnalytics
 * Everyplay
