@@ -34,7 +34,6 @@ Future Plans
 * Game Controller
 * Android Immersive Mode
 * SQLite
-* Open external URL
 * <strong><i>suggestions are very welcome</i></strong>
 
 Potential UI Plugin Features
