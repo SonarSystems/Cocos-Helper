@@ -509,15 +509,24 @@ SCHEmptyProtocol
 #pragma mark - ADMOB
 
 #if SCH_IS_AD_MOB_ENABLED == true
+- (GADRequest *)createRequest
+{
+    GADRequest *request = [GADRequest request];
+    if ([SCH_AD_MOB_TEST_DEVICE length])
+    {
+        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+    }
+    return request;
+}
 -( void )showAdMobBanner:( int ) position
 {
+    GADAdSize adSize = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? kGADAdSizeFullBanner : kGADAdSizeBanner;
+    GADRequest *request = [self createRequest];
     if ( !isAdMobTopBannerDisplayed && ADBANNERPOSITION_TOP == position )
     {
-        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
         adMobTopBanner.rootViewController = localViewController;
-        GADRequest *request = [GADRequest request];
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobTopBanner loadRequest:request];
         [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -530,11 +539,10 @@ SCHEmptyProtocol
     }
     else if ( !isAdMobBottomBannerDisplayed && ADBANNERPOSITION_BOTTOM == position )
     {
-        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
         adMobBottomBanner.rootViewController = localViewController;
         GADRequest *request = [GADRequest request];
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobBottomBanner loadRequest:request];
         [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -546,20 +554,18 @@ SCHEmptyProtocol
     }
     else if ( ADBANNERPOSITION_BOTH == position )
     {
-        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
         adMobTopBanner.rootViewController = localViewController;
         GADRequest *request = [GADRequest request];
         request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
-        [adMobTopBanner loadRequest:request];
         [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
-        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
         adMobBottomBanner.rootViewController = localViewController;
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobBottomBanner loadRequest:request];
         [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -611,11 +617,10 @@ SCHEmptyProtocol
 
 -( void )requestAdMobFullscreenAd
 {
-    adMobInterstitial = [[GADInterstitial alloc] init];
+    adMobInterstitial = [[GADInterstitial alloc] initWithAdUnitID:SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID];
     adMobInterstitial.adUnitID = SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID;
     adMobInterstitial.delegate = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+    GADRequest *request = [self createRequest];
     [adMobInterstitial loadRequest:request];
 }
 
