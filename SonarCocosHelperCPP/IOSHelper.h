@@ -106,6 +106,10 @@ SCHEmptyProtocol
 #if SCH_IS_VUNGLE_ENABLED == true
 , VungleSDKDelegate
 #endif
+
+#if SCH_IS_AD_MOB_ENABLED == true
+, GADInterstitialDelegate
+#endif
 >
 {
     AppController *appController;

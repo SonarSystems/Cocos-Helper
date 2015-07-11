@@ -542,7 +542,6 @@ SCHEmptyProtocol
         adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
         adMobBottomBanner.rootViewController = localViewController;
-        GADRequest *request = [GADRequest request];
         [adMobBottomBanner loadRequest:request];
         [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -557,8 +556,6 @@ SCHEmptyProtocol
         adMobTopBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
         adMobTopBanner.rootViewController = localViewController;
-        GADRequest *request = [GADRequest request];
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
@@ -625,7 +622,9 @@ SCHEmptyProtocol
 }
 
 -( void )interstitialDidReceiveAd:( GADInterstitial * )ad
-{ isAdMobFullscreenLoaded = true; }
+{
+    isAdMobFullscreenLoaded = true;
+}
 
 #endif
 
