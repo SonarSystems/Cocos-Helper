@@ -106,6 +106,10 @@ SCHEmptyProtocol
 #if SCH_IS_VUNGLE_ENABLED == true
 , VungleSDKDelegate
 #endif
+
+#if SCH_IS_AD_MOB_ENABLED == true
+, GADInterstitialDelegate
+#endif
 >
 {
     AppController *appController;
@@ -195,6 +199,7 @@ SCHEmptyProtocol
 #endif
 
 #if SCH_IS_AD_MOB_ENABLED == true
+-( void )requestAdMobFullscreenAd;
 -( void )showAdMobBanner:( int ) position;
 -( void )hideAdMobBanner:( int ) position;
 -( void )showAdMobFullscreenAd;
