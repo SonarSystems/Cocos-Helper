@@ -135,6 +135,10 @@ void IOSCPPHelper::hideAdMobBanner( int position )
     [[IOSHelper instance] hideAdMobBanner:position];
 }
 
+void IOSCPPHelper::requestAdMobFullScreenAd()
+{
+    [[IOSHelper instance] requestAdMobFullscreenAd];
+}
 void IOSCPPHelper::showAdMobFullscreenAd( )
 {
     [[IOSHelper instance] showAdMobFullscreenAd];
