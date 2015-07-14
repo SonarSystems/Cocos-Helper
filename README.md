@@ -1,8 +1,8 @@
-# Cocos Helper v1.30.01
+# Cocos Helper v1.40.00
 
 Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
-External Frameworks Supported in v1.30.01
+External Frameworks Supported
 ------------------------------------------
 * Google Play Services (Android)<br />
 * Facebook (iOS and Android)<br />
@@ -16,6 +16,8 @@ External Frameworks Supported in v1.30.01
 * MoPub (iOS and Android)<br />
 * Vungle (iOS and Android)
 * AdColony (iOS and Android)
+* UI
+	* ff
 
 Future Plans
 ------------------------------------------
