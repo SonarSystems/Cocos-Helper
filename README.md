@@ -17,7 +17,7 @@ External Frameworks Supported
 * Vungle (iOS and Android)
 * AdColony (iOS and Android)
 * UI
-	* ff
+	* Audio, Sound Effects, Music toggle buttons
 
 Future Plans
 ------------------------------------------
