@@ -17,6 +17,27 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.40.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.40.00) (14th July 2015)
+
+- [NEW] UI Plugin (audio, music, sound effects toggle buttons)
+- [NEW] Commented Vungle and AdColony methods
+
+## [1.30.01](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.30.01) (1st July 2015)
+
+- [UPDATE] AdMob preload ad function
+- [UPDATE] AdMob show preloaded ad function
+
+## [1.30.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.30.00) (8th June 2015)
+
+- [NEW] Vungle (iOS and Android)
+- [NEW] AdColony (iOS and Android)
+- [FIX] Bug fixes
+
+## [1.20.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.20.00) (3rd June 2015)
+
+- [NEW] Cocos2d-JS Port
+- [FIX] Bug fixes
+
 ## [1.10.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.10.00) (19th May 2015)
 
 - [NEW] MoPub Android

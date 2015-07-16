@@ -1,8 +1,8 @@
-# Sonar Cocos Helper v1.10.00
+# Cocos Helper v1.40.00
 
-Sonar Cocos Helper is designed to help simply the process of implementing external frameworks. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this.
+Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
-External Frameworks Supported in v1.10.00
+External Frameworks Supported
 ------------------------------------------
 * Google Play Services (Android)<br />
 * Facebook (iOS and Android)<br />
@@ -11,50 +11,125 @@ External Frameworks Supported in v1.10.00
 * iAds (iOS)<br />
 * RevMob (iOS and Android)<br />
 * Chartboost (iOS and Android)<br />
-* Gamecenter (iOS)<br />
-* MoPub (iOS and Android)<br />
+* Game Center (iOS)<br />
 * Google Analytics (iOS and Android)<br />
+* MoPub (iOS and Android)<br />
+* Vungle (iOS and Android)
+* AdColony (iOS and Android)
+* UI
+	* Audio, Sound Effects, Music toggle buttons
 
 Future Plans
 ------------------------------------------
-* GameAnalytics<br />
-* Flurry<br />
-* Everyplay<br />
-* Kiip<br />
-* TapJoy<br />
-* InMobi<br />
-* Port to Cocos2d-JS<br />
+* UI (in development)
+* Flurry (testing)
+* Push Notifications
+* Local notifications
+* In-App Purchases (in development)
+* GameAnalytics
+* Everyplay
+* Kiip
+* TapJoy
+* InMobi
+* Leadbolt
+* Airpush
+* WeChat
+* Game Controller
+* Android Immersive Mode
+* SQLite
+* Google Play Services (iOS)
+* <strong><i>suggestions are very welcome</i></strong>
+
+Potential UI Plugin Features
+------------------------------------------
+* Virtual onscreen Joystick
+* Audio Toggle
+* Pause popup
+* Rate popup
+* <strong><i>suggestions are very welcome</i></strong>
 
 Requirements
 ------------------------------------------
-* Cocos2d-x C++
+* Cocos2d-x C++ or Cocos2d-JS any version
 * Mac and Xcode for iOS development
 * Eclipse for Android development (Windows, Mac or Linux)
 
-Usage
-------------------------------------------
 Not only are we simplifying the implementation of external frameworks but we have provided videos to guide you through the process:<br />
-* Setting Up<br />
-	- Android : http://bit.ly/1GTldD7<br />
-	- iOS : http://bit.ly/1NX9kAj<br />
-* Google Play Services<br />
-	- Android : http://bit.ly/1Im8Mx1<br />
-* Facebook<br />
-	- Android : http://bit.ly/1yB6rhQ<br />
-	- iOS : http://bit.ly/1ONilc2<br />
-* Twitter<br />
-	- Android : http://bit.ly/1PXFbPP<br />
-	- iOS : http://bit.ly/1ONilc2<br />
-* AdMob<br />
-	- Android : http://bit.ly/1cCmqC2<br />
-	- iOS : http://bit.ly/1yB6wBZ<br />
-* iAds<br />
-	- iOS : http://bit.ly/1CTrzvQ<br />
-* RevMob<br />
-	- Android : http://bit.ly/1zoF84R<br />
-	- iOS : http://bit.ly/1Jb8OrD<br />
-* Chartboost<br />
-	- Android : http://bit.ly/1DqYk5Y<br />
-	- iOS : http://bit.ly/1PXFydd<br />
-* Gamecenter<br />
-	- iOS : http://bit.ly/1ONj3WG<br />
+
+Usage - Cocos2d-x C++
+------------------------------------------
+* Setting Up
+	- Android : http://bit.ly/1FTnD31
+	- iOS : http://bit.ly/1GLOKxM
+* Google Play Services
+	- Android : http://bit.ly/1FTmWGY
+* Facebook
+	- Android : http://bit.ly/1J9JLZx
+	- iOS : http://bit.ly/1LPOYnv
+* Twitter
+	- Android : http://bit.ly/1J9JKVE
+	- iOS : http://bit.ly/1LPOYnv
+* AdMob
+	- Android : http://bit.ly/1KEbRMW
+	- iOS : http://bit.ly/1FTnzjR
+* iAds
+	- iOS : http://bit.ly/1FgpeLK
+* RevMob
+	- Android : http://bit.ly/1FKieds
+	- iOS : http://bit.ly/1AAr5PV
+* Chartboost
+	- Android : http://bit.ly/1FTn2OQ
+	- iOS : http://bit.ly/1eGpf60
+* Game Center
+	- iOS : http://bit.ly/1Fle4WR
+* Google Analytics
+	- Android : http://bit.ly/1FgoXIy
+	- iOS : http://bit.ly/1KuJfT8
+* MoPub
+	- Android : http://bit.ly/1GkQ645
+	- iOS : http://bit.ly/1Bwm060
+* Vungle
+	- Android : http://bit.ly/1B4Ofym
+	- iOS : http://bit.ly/1F5swAV
+* AdColony
+	- Android : http://bit.ly/1JHthYX
+	- iOS : http://bit.ly/1JFelJm
+
+Usage - Cocos2d-JS
+------------------------------------------
+* Setting Up
+	- Android : http://bit.ly/1Td21EI
+	- iOS : http://bit.ly/1Kia9Qn
+* Google Play Services
+	- Android : http://bit.ly/1JvpgEy
+* Facebook
+	- Android : http://bit.ly/1GgQopl
+	- iOS : http://bit.ly/1FEcShA
+* Twitter
+	- Android : http://bit.ly/1JMbvlO
+	- iOS : http://bit.ly/1FEcShA
+* AdMob
+	- Android : http://bit.ly/1QOkMKy
+	- iOS : http://bit.ly/1KUGQ4z
+* iAds
+	- iOS : http://bit.ly/1Qr62X9
+* RevMob
+	- Android : coming soon
+	- iOS : http://bit.ly/1dvWicl
+* Chartboost
+	- Android : coming soon
+	- iOS : http://bit.ly/1f4xHMB
+* Game Center
+	- iOS : http://bit.ly/1BaOCXQ
+* Google Analytics
+	- Android : http://bit.ly/1U8dZjm
+	- iOS : http://bit.ly/1cVWyRl
+* MoPub
+	- Android : http://bit.ly/1It8Rl6
+	- iOS : http://bit.ly/1Bh5bBf
+* Vungle
+	- Android : http://bit.ly/1LDejDb
+	- iOS : http://bit.ly/1GciHC5
+* AdColony
+	- Android : http://bit.ly/1C9FEuP
+	- iOS : http://bit.ly/1J2Vb1u
