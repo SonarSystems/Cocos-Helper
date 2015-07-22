@@ -25,7 +25,7 @@ Future Plans
 * Flurry (testing)
 * Push Notifications
 * Local notifications
-* In-App Purchases (in development)
+* In-App Purchases
 * GameAnalytics
 * Everyplay
 * Kiip
