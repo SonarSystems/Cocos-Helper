@@ -760,16 +760,16 @@ SCHEmptyProtocol
 
 -( void )vungleSDKwillCloseAdWithViewInfo:( NSDictionary * )viewInfo willPresentProductSheet:( BOOL )willPresentProductSheet
 {
-    NSLog( viewInfo[@"completedView"] ? @"true" : @"false" );
+    NSLog( viewInfo[@"completedView"] ? @"true" : @"false" )
     
-    //[IOSResults videoWasViewedVungle:viewInfo[@"completedView"]];
+    [IOSResults rewardedVideoWasVuewedVungle:[[viewInfo objectForKey:@"completedView"] boolValue]];
 }
 
 -( void )vungleSDKwillShowAd
 {
     NSLog( @"An ad is about to be played!" );
     
-    //[IOSResults vungleSDKwillShowAd];
+    [IOSResults vungleSDKwillShowAd];
 }
 #endif
 
