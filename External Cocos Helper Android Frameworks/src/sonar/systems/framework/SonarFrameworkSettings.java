@@ -16,7 +16,7 @@ public class SonarFrameworkSettings
 	
 	public static final boolean USE_TWITTER = false; 					//uses intents for now so no need to include anything else.
 	
-	public static final boolean USE_CHARTBOOST = true; 				//Requires  Google play services  library and chartboost jar
+	public static final boolean USE_CHARTBOOST = false; 				//Requires  Google play services  library and chartboost jar
 	
 	public static final boolean USE_MOPUB = false;						//Requires MoPub SDK
     
