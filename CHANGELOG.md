@@ -17,6 +17,11 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.41.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.41.00) (29th July 2015)
+
+- [UPDATE] Extracted iOS external Frameworks
+- [UPDATE] Extracted Android external Frameworks
+
 ## [1.40.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.40.00) (14th July 2015)
 
 - [NEW] UI Plugin (audio, music, sound effects toggle buttons)
