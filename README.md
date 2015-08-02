@@ -35,7 +35,9 @@ Future Plans
 * Airpush
 * WeChat
 * Game Controller
-* Android Immersive Mode
+* Android
+	* Immersive Mode
+	* Check if device has a internet connection
 * SQLite
 * Google Play Services (iOS)
 * <strong><i>suggestions are very welcome</i></strong>
