@@ -38,8 +38,6 @@
 // -fobjc-arc
 #define SCH_IS_VUNGLE_ENABLED false // AdSupport.framework, AudioToolbox.framework, AVFoundation.framework, CFNetwork.framework, CoreGraphics.framework, CoreMedia.framework, Foundation.framework, libz.dylib, libsqlite3.dylib, MediaPlayer.framework, QuartzCore.framework, StoreKit.framework, SystemConfiguration.framework, UIKit.framework
 
-#define SCH_IS_WECHAT_ENABLED false //libWeCharSDK.a, WXApi.h, WXApiObject.h,SystemConfiguration.framework,libz.dylib,libsqlite3.0.dylib
-
 
 
 #define SCH_ADCOLONY_APP_ID @""
@@ -64,8 +62,5 @@
 
 //#define SCH_EVERYPLAY_CLIENT_ID @""
 //#define SCH_EVERYPLAY_CLIENT_SECRET @""
-
-
-#define SCH_WECHAT_APP_ID @""
 
 #endif

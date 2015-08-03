@@ -68,11 +68,6 @@
     #import <VungleSDK/VungleSDK.h>
 #endif
 
-#if SCH_IS_WECHAT_ENABLED == true
-    #import "WXApi.h"
-
-#endif
-
 @protocol SCHEmptyProtocol
 @end
 
@@ -110,10 +105,6 @@ SCHEmptyProtocol
 
 #if SCH_IS_VUNGLE_ENABLED == true
 , VungleSDKDelegate
-#endif
-
-#if SCH_IS_WECHAT_ENABLED == true
-, WXApiDelegate
 #endif
 >
 {
@@ -238,18 +229,6 @@ SCHEmptyProtocol
 -( void )showV4VCV:( BOOL )isIncentivised;
 -( void )vungleSDKwillCloseAdWithViewInfo:( NSDictionary * )viewInfo willPresentProductSheet:( BOOL )willPresentProductSheet;
 -( void )vungleSDKwillShowAd;
-#endif
-
-#if SCH_IS_WECHAT_ENABLED == true
--( void )sendTextContentToWeChat:( NSString * )msgString;
--( void )sendThumbImage:( NSString * ) thumbImgPath andShareImgToWeChat:( NSString * ) imgPath;
-
--( void )sendLinkWithThumbImg:( NSString* ) thumbImgPath andMsgTitle:( NSString* ) msgTitle andMsgDescription:( NSString* ) msgDes andURLToWeChat:( NSString* ) url;
-
--(void) sendMusicContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andMusicUrl:(NSString*) musicUrl andMusicDataUrl:(NSString*) musicDataURL;
-
--(void) sendVideoContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andVideoUrl:(NSString*) videoUrl;
-
 #endif
 
 @end

@@ -215,35 +215,4 @@
 }
 #endif
 
-
-#if SCH_IS_WECHAT_ENABLED == true
-+( void )sendTextMsgToWeChat:( NSString * ) msgString
-{
-    [[IOSHelper instance] sendTextContentToWeChat: msgString];
-}
-
-+( void )sendThumbImage:( NSString * ) thumbImgPath andShareImgToWeChat:( NSString * ) imgPath
-{
-    [[IOSHelper instance] sendThumbImage:thumbImgPath andShareImgToWeChat:imgPath];
-}
-
-+( void )sendLinkWithThumbImg:( NSString* ) thumbImgPath andMsgTitle:( NSString* ) msgTitle andMsgDescription:( NSString* ) msgDes andURLToWeChat:( NSString* ) url
-{
-    [[IOSHelper instance] sendLinkWithThumbImg:thumbImgPath andMsgTitle:msgTitle andMsgDescription:msgDes andURLToWeChat:url];
-}
-
-
-+(void) sendMusicContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andMusicUrl:(NSString*) musicUrl andMusicDataUrl:(NSString*) musicDataURL
-{
-    [[IOSHelper instance] sendMusicContentWithTitle:msgTitle andDescription:msgDescription andThumbImg:thumbImg andMusicUrl:musicUrl andMusicDataUrl:musicDataURL];
-}
-
-
-+(void) sendVideoContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andVideoUrl:(NSString*) videoUrl
-{
-    [[IOSHelper instance] sendVideoContentWithTitle:msgTitle andDescription:msgDescription andThumbImg:thumbImg andVideoUrl:videoUrl];
-}
-
-#endif
-
 @end

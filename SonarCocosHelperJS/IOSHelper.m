@@ -70,8 +70,7 @@ SCHEmptyProtocol
 
 // initialise the Network Framework to setup external frameworks
 -( void )initialise
-{
-    NSLog(@"cocos helper initialise");
+{    
     appController = ( AppController * )[[UIApplication sharedApplication] delegate];
     
 #if COCOS2D_JAVASCRIPT
@@ -179,15 +178,6 @@ SCHEmptyProtocol
     [[VungleSDK sharedSDK] setLoggingEnabled:YES];
     [[VungleSDK sharedSDK] setDelegate:self];
 #endif
-    
-#if SCH_IS_WECHAT_ENABLED == true
-    
-    NSString* appID = SCH_WECHAT_APP_ID;
-    // Register your app
-    [WXApi registerApp:appID withDescription:@"demo 2.0"];
-    
-#endif
-    
 }
 
 #if SCH_IS_iADS_ENABLED == true
@@ -781,123 +771,6 @@ SCHEmptyProtocol
     
     [IOSResults vungleSDKwillShowAd];
 }
-#endif
-
-
-/*
- //20150725 add send text to wechat function
- //by sheldon
- */
-
-
-
-
-
-#if SCH_IS_WECHAT_ENABLED == true
--( void )sendTextContentToWeChat:( NSString * )msgString
-{
-    NSLog(@"text string is %@",msgString);
-    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-    req.text = msgString;
-    req.bText = YES;
-    req.scene = WXSceneSession;
-    //WXSceneSession  = 0,        /**< 聊天界面    */
-    //WXSceneTimeline = 1,        /**< 朋友圈      */
-    //WXSceneFavorite = 2,        /**< 收藏       */
-    [WXApi sendReq:req];
-    
-}
-
--( void )sendThumbImage:( NSString * ) thumbImgPath andShareImgToWeChat:( NSString * ) imgPath
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    //thumb img path
-    [message setThumbImage:[UIImage imageNamed:thumbImgPath]];
-    WXImageObject *ext = [WXImageObject object];
-    //real share img
-    //make the format of API
-    NSString *imgType = [imgPath pathExtension];
-    NSString *imgPathWithoutExt = [imgPath stringByDeletingPathExtension];
-    NSLog(@"ext=%@,path withoutExt=%@",imgType,imgPathWithoutExt);
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:imgPathWithoutExt ofType:imgType];
-    ext.imageData = [NSData dataWithContentsOfFile:filePath];
-    
-    message.mediaObject = ext;
-    message.mediaTagName = @"WECHAT_TAG_JUMP_APP";
-    message.messageExt = @"msgExt";
-    message.messageAction = @"<action>dotalist</action>";
-    
-    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-    req.bText = NO;
-    req.message = message;
-    req.scene = WXSceneSession;
-    
-    [WXApi sendReq:req];
-}
-
-
--( void )sendLinkWithThumbImg:( NSString* ) thumbImgPath andMsgTitle:( NSString* ) msgTitle andMsgDescription:( NSString* ) msgDes andURLToWeChat:( NSString* ) url
-{
-
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = msgTitle;
-    message.description = msgDes;
-    [message setThumbImage:[UIImage imageNamed:thumbImgPath]];
-    
-    WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = url;
-    
-    message.mediaObject = ext;
-    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
-    
-    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-    req.bText = NO;
-    req.message = message;
-    req.scene = WXSceneSession;
-    [WXApi sendReq:req];
-}
-
-
--(void) sendMusicContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andMusicUrl:(NSString*) musicUrl andMusicDataUrl:(NSString*) musicDataURL
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = msgTitle;
-    message.description = msgDescription;
-    [message setThumbImage:[UIImage imageNamed:thumbImg]];
-    WXMusicObject *ext = [WXMusicObject object];
-    ext.musicUrl = musicUrl;
-    ext.musicDataUrl = musicDataURL;
-    
-    message.mediaObject = ext;
-    
-    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-    req.bText = NO;
-    req.message = message;
-    req.scene = WXSceneSession;
-    
-    [WXApi sendReq:req];
-}
-
--(void) sendVideoContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andVideoUrl:(NSString*) videoUrl
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = msgTitle;
-    message.description = msgDescription;
-    [message setThumbImage:[UIImage imageNamed:thumbImg]];
-    
-    WXVideoObject *ext = [WXVideoObject object];
-    ext.videoUrl = videoUrl;
-    
-    message.mediaObject = ext;
-    
-    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
-    req.bText = NO;
-    req.message = message;
-    req.scene = WXSceneSession;
-    
-    [WXApi sendReq:req];
-}
-
 #endif
 
 @end

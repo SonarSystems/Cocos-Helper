@@ -89,13 +89,4 @@
 +( void )showVideoVungle:( NSNumber * )isIncentivised;
 #endif
 
-#if SCH_IS_WECHAT_ENABLED == true
-+( void )sendTextMsgToWeChat:( NSString * ) msgString;
-+( void )sendThumbImage:( NSString * ) thumbImgPath andShareImgToWeChat:( NSString * ) imgPath;
-+( void )sendLinkWithThumbImg:( NSString* ) thumbImgPath andMsgTitle:( NSString* ) msgTitle andMsgDescription:( NSString* ) msgDes andURLToWeChat:( NSString* ) url;
-+(void) sendMusicContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andMusicUrl:(NSString*) musicUrl andMusicDataUrl:(NSString*) musicDataURL;
-+(void) sendVideoContentWithTitle:(NSString*) msgTitle andDescription:(NSString*)msgDescription andThumbImg:(NSString*) thumbImg andVideoUrl:(NSString*) videoUrl;
-
-#endif
-
 @end

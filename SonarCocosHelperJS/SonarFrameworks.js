@@ -35,7 +35,6 @@ SonarCocosHelper.GameCenter = function () { };
 SonarCocosHelper.GoogleAnalytics = function () { };
 SonarCocosHelper.AdColony = function () { };
 SonarCocosHelper.Vungle = function () { };
-SonarCocosHelper.WeChat = function () { };
 
 SonarCocosHelper.UI = function ()
 {
@@ -992,69 +991,4 @@ SonarCocosHelper.UI.MusicTouchEvent = function( sender, type )
             break;
     }
 }
-
-//share text to WeChat
-SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg ){
-
-    if ( cc.sys.os == cc.sys.OS_ANDROID )
-    {
-    }
-    else if ( cc.sys.os == cc.sys.OS_IOS )
-    {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendTextMsgToWeChat:", textMsg );
-    }
-
-};
-
-//share images to WeChat 
-SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath , imgPath ){
-    
-    if ( cc.sys.os == cc.sys.OS_ANDROID )
-    {
-    }
-    else if ( cc.sys.os == cc.sys.OS_IOS )
-    {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendThumbImage:andShareImgToWeChat:", thumbImgPath, imgPath );
-    }
-    
-};
-
-//share link to WeChat
-SonarCocosHelper.WeChat.shareLinkToWeChat = function( thumbImgPath , msgTitle , msgDescription , httpUrl ){
-    
-    if ( cc.sys.os == cc.sys.OS_ANDROID )
-    {
-    }
-    else if ( cc.sys.os == cc.sys.OS_IOS )
-    {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendLinkWithThumbImg:andMsgTitle:andMsgDescription:andURLToWeChat:", thumbImgPath, msgTitle , msgDescription , httpUrl);
-    }
-    
-};
-
-//share music to WeChat 
-SonarCocosHelper.WeChat.shareMusicToWeChat = function( msgTitle , msgDescription , thumbImgPath ,musicUrl ,musicDataURL){
-    
-    if ( cc.sys.os == cc.sys.OS_ANDROID )
-    {
-    }
-    else if ( cc.sys.os == cc.sys.OS_IOS )
-    {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendMusicContentWithTitle:andDescription:andThumbImg:andMusicUrl:andMusicDataUrl:", msgTitle , msgDescription , thumbImgPath , musicUrl , musicDataURL );
-    }
-    
-};
-
-//share video to WeChat
-SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle , msgDescription , thumbImgPath ,videoUrl){
-    
-    if ( cc.sys.os == cc.sys.OS_ANDROID )
-    {
-    }
-    else if ( cc.sys.os == cc.sys.OS_IOS )
-    {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendVideoContentWithTitle:andDescription:andThumbImg:andVideoUrl:", msgTitle , msgDescription , thumbImgPath , videoUrl );
-    }
-    
-};
 

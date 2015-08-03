@@ -98,15 +98,6 @@ public:
     static void showVideoVungle( bool isIncentivised );
 #endif
     
-    
-#if SCH_IS_WECHAT_ENABLED == true
-    static void shareTextToWeChat( __String msgString );
-    static void shareImageToWeChat( __String thumbImgPath ,__String imgPath );
-    static void shareLinkToWeChat( __String thumbImgPath , __String shareTitle , __String msgDes , __String shareUrl );
-    static void shareMusicToWeChat( __String msgTitle , __String msgDescription , __String thumbImg , __String  musicUrl , __String  musicDataURL);
-    static void shareVideoToWeChat(__String  msgTitle ,__String msgDescription ,__String thumbImg ,__String videoUrl);
-#endif
-    
 };
 
 #endif /* defined(__SNF__IOSCPPHelper__) */

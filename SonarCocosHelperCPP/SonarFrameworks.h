@@ -430,53 +430,6 @@ namespace SonarCocosHelper
         void MusicTouchEvent( Ref *sender, Widget::TouchEventType type );
     };
 
-    class WeChat
-    {
-    public:
-        /**
-         * share text content to WeChat
-         * @param shareString is the string to share
-         */
-        static void shareTextToWeChat( cocos2d::__String shareString );
-        /**
-         * share images to WeChat
-         * @param thumbImgPath is the thumb image of the image to share
-         * @param imgPath is the image to share
-         */
-        static void shareImageToWeChat( cocos2d::__String thumbImgPath , cocos2d::__String imgPath );
-        
-        /**
-         * share link to WeChat
-         * @param thumbImgPath is the thumb image of the link to share
-         * @param msgTitle is the tile of link to share
-         * @param msgDescription is the descripton of link to share
-         * @param httpUrl is the link to share
-         */
-        static void shareLinkToWeChat( cocos2d::__String thumbImgPath , cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String httpUrl);
-        
-        
-        /**
-         * share music to WeChat
-         * @param msgTitle is the tile of link to share
-         * @param msgDescription is the descripton of link to share
-         * @param thumbImgPath is the thumb image of the music to share
-         * @param musicUrl is the url of music loaded page
-         * @param musicDataURL is the url of music file
-         */
-        static void shareMusicToWeChat( cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String thumbImgPath , cocos2d::__String musicUrl , cocos2d::__String musicDataURL);
-        
-        
-        /**
-         * share video to WeChat
-         * @param msgTitle is the tile of link to share
-         * @param msgDescription is the descripton of link to share
-         * @param thumbImgPath is the thumb image of the link to share
-         * @param videoUrl is the link to share
-         */
-        static void shareVideoToWeChat( cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String thumbImgPath , cocos2d::__String videoUrl);
-        
-    };
-
     // NOT WORKING ATM
     /*class Everyplay
     {
