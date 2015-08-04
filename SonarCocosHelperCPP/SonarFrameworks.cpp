@@ -906,3 +906,63 @@ void Everyplay::playLastVideoRecording( )
 #endif
 }
 */
+
+
+
+
+void WeChat::shareTextToWeChat( cocos2d::__String shareString )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if SCH_IS_WECHAT_ENABLED == true
+    log("share text to we chat %s",shareString.getCString());
+    IOSCPPHelper::shareTextToWeChat(shareString);
+#endif
+#endif
+}
+void WeChat::shareImageToWeChat( cocos2d::__String thumbImgPath , cocos2d::__String imgPath )
+{
+    
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if SCH_IS_WECHAT_ENABLED == true
+    IOSCPPHelper::shareImageToWeChat(thumbImgPath, imgPath);
+#endif
+#endif
+    
+}
+void WeChat::shareLinkToWeChat( cocos2d::__String thumbImgPath , cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String httpUrl)
+{
+    
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if SCH_IS_WECHAT_ENABLED == true
+    IOSCPPHelper::shareLinkToWeChat(thumbImgPath, msgTitle , msgDescription , httpUrl);
+#endif
+#endif
+    
+}
+void WeChat::shareMusicToWeChat( cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String thumbImgPath , cocos2d::__String musicUrl , cocos2d::__String musicDataURL)
+{
+    
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if SCH_IS_WECHAT_ENABLED == true
+    IOSCPPHelper::shareMusicToWeChat(msgTitle, msgDescription, thumbImgPath, musicUrl, musicDataURL);
+#endif
+#endif
+    
+}
+
+void WeChat::shareVideoToWeChat( cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String thumbImgPath , cocos2d::__String videoUrl)
+{
+    
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if SCH_IS_WECHAT_ENABLED == true
+    IOSCPPHelper::shareVideoToWeChat(msgTitle, msgDescription, thumbImgPath,videoUrl);
+#endif
+#endif
+    
+}
+

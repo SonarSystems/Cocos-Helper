@@ -35,6 +35,8 @@ SonarCocosHelper.GameCenter = function () { };
 SonarCocosHelper.GoogleAnalytics = function () { };
 SonarCocosHelper.AdColony = function () { };
 SonarCocosHelper.Vungle = function () { };
+//20150725
+SonarCocosHelper.WeChat = function () { };
 
 SonarCocosHelper.UI = function ()
 {
@@ -228,7 +230,7 @@ SonarCocosHelper.Facebook.Share = function (name, link, description, caption, im
     {
        jsb.reflection.callStaticMethod( "IOSJSHelper", "shareViaFacebook:andContent:", description, imagePath );
     }
-}
+};
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
@@ -247,7 +249,7 @@ SonarCocosHelper.Twitter.Tweet = function (tweet, title, imagePath)
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "shareViaTwitter:andContent:", tweet, imagePath );
     }
-}
+};
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -270,7 +272,7 @@ SonarCocosHelper.AdMob.showBannerAd = function ( position )
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "showAdMobBanner:", position );
     }
-}
+};
 
 /**
  * Hide a banner on the top of the screen
@@ -291,7 +293,7 @@ SonarCocosHelper.AdMob.hideBannerAd = function ( position )
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "hideAdMobBanner:", position );
     }
-}
+};
 
 /**
  * Show a fullscreen interstitial ad
@@ -306,7 +308,7 @@ SonarCocosHelper.AdMob.hideBannerAd = function ( position )
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "showAdMobFullscreenAd" );
     }
-}
+};
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
@@ -990,5 +992,67 @@ SonarCocosHelper.UI.MusicTouchEvent = function( sender, type )
             
             break;
     }
-}
+};
+
+
+SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg ){
+
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendTextMsgToWeChat:", textMsg );
+    }
+
+};
+
+SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath , imgPath ){
+    
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendThumbImage:andShareImgToWeChat:", thumbImgPath, imgPath );
+    }
+    
+};
+
+SonarCocosHelper.WeChat.shareLinkToWeChat = function( thumbImgPath , msgTitle , msgDescription , httpUrl ){
+    
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendLinkWithThumbImg:andMsgTitle:andMsgDescription:andURLToWeChat:", thumbImgPath, msgTitle , msgDescription , httpUrl);
+    }
+    
+};
+
+SonarCocosHelper.WeChat.shareMusicToWeChat = function( msgTitle , msgDescription , thumbImgPath ,musicUrl ,musicDataURL){
+    
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendMusicContentWithTitle:andDescription:andThumbImg:andMusicUrl:andMusicDataUrl:", msgTitle , msgDescription , thumbImgPath , musicUrl , musicDataURL );
+    }
+    
+};
+
+
+SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle , msgDescription , thumbImgPath ,videoUrl){
+    
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendVideoContentWithTitle:andDescription:andThumbImg:andVideoUrl:", msgTitle , msgDescription , thumbImgPath , videoUrl );
+    }
+    
+};
 
