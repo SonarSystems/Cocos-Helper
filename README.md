@@ -18,6 +18,7 @@ External Frameworks Supported
 * AdColony (iOS and Android)
 * UI
 	* Audio, Sound Effects, Music toggle buttons
+* WeChat iOS
 
 Future Plans
 ------------------------------------------
@@ -33,7 +34,7 @@ Future Plans
 * InMobi
 * Leadbolt
 * Airpush
-* WeChat
+* WeChat Android
 * Game Controller
 * Android
 	* Immersive Mode
