@@ -1,4 +1,4 @@
-# Cocos Helper v1.42.00
+# Cocos Helper v1.43.00
 
 Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
