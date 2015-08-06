@@ -35,8 +35,8 @@ SonarCocosHelper.GameCenter = function () { };
 SonarCocosHelper.GoogleAnalytics = function () { };
 SonarCocosHelper.AdColony = function () { };
 SonarCocosHelper.Vungle = function () { };
-//20150725
 SonarCocosHelper.WeChat = function () { };
+SonarCocosHelper.Notifications = function () { };
 
 SonarCocosHelper.UI = function ()
 {
@@ -995,8 +995,8 @@ SonarCocosHelper.UI.MusicTouchEvent = function( sender, type )
 };
 
 
-SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg ){
-
+SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
@@ -1004,11 +1004,10 @@ SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg ){
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "sendTextMsgToWeChat:", textMsg );
     }
-
 };
 
-SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath , imgPath ){
-    
+SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath, imgPath )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
@@ -1016,43 +1015,49 @@ SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath , imgPath ){
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "sendThumbImage:andShareImgToWeChat:", thumbImgPath, imgPath );
     }
-    
 };
 
-SonarCocosHelper.WeChat.shareLinkToWeChat = function( thumbImgPath , msgTitle , msgDescription , httpUrl ){
-    
+SonarCocosHelper.WeChat.shareLinkToWeChat = function( thumbImgPath, msgTitle, msgDescription, httpUrl )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendLinkWithThumbImg:andMsgTitle:andMsgDescription:andURLToWeChat:", thumbImgPath, msgTitle , msgDescription , httpUrl);
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendLinkWithThumbImg:andMsgTitle:andMsgDescription:andURLToWeChat:", thumbImgPath, msgTitle, msgDescription, httpUrl);
     }
-    
 };
 
-SonarCocosHelper.WeChat.shareMusicToWeChat = function( msgTitle , msgDescription , thumbImgPath ,musicUrl ,musicDataURL){
-    
+SonarCocosHelper.WeChat.shareMusicToWeChat = function( msgTitle, msgDescription, thumbImgPath, musicUrl, musicDataURL )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendMusicContentWithTitle:andDescription:andThumbImg:andMusicUrl:andMusicDataUrl:", msgTitle , msgDescription , thumbImgPath , musicUrl , musicDataURL );
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendMusicContentWithTitle:andDescription:andThumbImg:andMusicUrl:andMusicDataUrl:", msgTitle, msgDescription, thumbImgPath, musicUrl, musicDataURL );
     }
-    
 };
 
-
-SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle , msgDescription , thumbImgPath ,videoUrl){
-    
+SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle, msgDescription, thumbImgPath, videoUrl )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendVideoContentWithTitle:andDescription:andThumbImg:andVideoUrl:", msgTitle , msgDescription , thumbImgPath , videoUrl );
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendVideoContentWithTitle:andDescription:andThumbImg:andVideoUrl:", msgTitle, msgDescription, thumbImgPath, videoUrl );
     }
-    
+};
+
+SonarCocosHelper.Notifications.scheduleLocalNotification = function( delay, textToDisplay )
+{
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:", delay, textToDisplay );
+    }
 };
 
