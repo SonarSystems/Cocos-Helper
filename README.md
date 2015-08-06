@@ -1,4 +1,4 @@
-# Cocos Helper v1.43.00
+# Cocos Helper v1.44.00
 
 Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
@@ -18,14 +18,15 @@ External Frameworks Supported
 * AdColony (iOS and Android)
 * UI
 	* Audio, Sound Effects, Music toggle buttons
-* WeChat iOS
+* WeChat (iOS)
+* Local notifications (iOS)
 
 Future Plans
 ------------------------------------------
 * UI (in development)
 * Flurry (testing)
 * Push Notifications
-* Local notifications
+* Local notifications (Android)
 * In-App Purchases
 * GameAnalytics
 * Everyplay
@@ -34,11 +35,11 @@ Future Plans
 * InMobi
 * Leadbolt
 * Airpush
-* WeChat Android
+* WeChat (Android)
 * Game Controller
 * Android
 	* Immersive Mode
-	* Check if device has a internet connection
+* Check if device has a internet connection
 * SQLite
 * Google Play Services (iOS)
 * <strong><i>suggestions are very welcome</i></strong>
