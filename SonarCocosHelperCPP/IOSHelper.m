@@ -185,9 +185,35 @@ SCHEmptyProtocol
     [WXApi registerApp:appID withDescription:@"demo 2.0"];
 #endif
     
-    NSLog(@"IOSHelper instance");
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+    UIApplication *app = [UIApplication sharedApplication];
     
+    if ( [UIApplication instancesRespondToSelector:@selector( registerUserNotificationSettings: )] )
+    { [app registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]]; }
+    
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    
+    if ( [oldNotifications count] > 0 )
+    { [app cancelAllLocalNotifications]; }
+#endif
 }
+
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+#endif
 
 #if SCH_IS_iADS_ENABLED == true
 // display iAd banner

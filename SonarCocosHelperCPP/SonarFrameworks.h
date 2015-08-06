@@ -485,9 +485,18 @@ namespace SonarCocosHelper
          * @param videoUrl is the link to share
          */
         static void shareVideoToWeChat( cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String thumbImgPath , cocos2d::__String videoUrl);
-        
     };
 
+    class Notifications
+    {
+    public:
+        /**
+         * schedule local notification
+         * @param delay is the amount of time until the notification is display from the time this method is called
+         * @param textToDisplay is the text to display in the notification
+         */
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay );
+    };
 }
 
 #endif

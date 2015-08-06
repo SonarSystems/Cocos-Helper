@@ -217,43 +217,53 @@ void IOSCPPHelper::showVideoVungle( bool isIncentivised )
 #endif
 
 #if SCH_IS_WECHAT_ENABLED == true
-void IOSCPPHelper::shareTextToWeChat(__String msgString)
+void IOSCPPHelper::shareTextToWeChat( __String msgString )
 {
     [[IOSHelper instance] sendTextContentToWeChat:[NSString stringWithCString:msgString.getCString( ) encoding:NSUTF8StringEncoding]];
 }
-void IOSCPPHelper::shareImageToWeChat(__String thumbImgPath ,__String imgPath)
+void IOSCPPHelper::shareImageToWeChat( __String thumbImgPath, __String imgPath )
 {
-    NSString *thumbImg =[NSString stringWithCString:thumbImgPath.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *shareImg =[NSString stringWithCString:imgPath.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *thumbImg = [NSString stringWithCString:thumbImgPath.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareImg = [NSString stringWithCString:imgPath.getCString( ) encoding:NSUTF8StringEncoding];
     
     [[IOSHelper instance] sendThumbImage:thumbImg andShareImgToWeChat:shareImg];
 }
-void IOSCPPHelper::shareLinkToWeChat( __String thumbImgPath , __String shareTitle , __String msgDes , __String shareUrl )
+void IOSCPPHelper::shareLinkToWeChat( __String thumbImgPath, __String shareTitle, __String msgDes, __String shareUrl )
 {
-    NSString *thumbImg =[NSString stringWithCString:thumbImgPath.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *msgTitle =[NSString stringWithCString:shareTitle.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *msgDescription =[NSString stringWithCString:msgDes.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *url =[NSString stringWithCString:shareUrl.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *thumbImg = [NSString stringWithCString:thumbImgPath.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *msgTitle = [NSString stringWithCString:shareTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *msgDescription = [NSString stringWithCString:msgDes.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *url = [NSString stringWithCString:shareUrl.getCString( ) encoding:NSUTF8StringEncoding];
     
     [[IOSHelper instance] sendLinkWithThumbImg:thumbImg andMsgTitle:msgTitle andMsgDescription:msgDescription andURLToWeChat:url];
 }
 
-void IOSCPPHelper::shareMusicToWeChat(__String msgTitle , __String msgDescription , __String thumbImg , __String  musicUrl , __String  musicDataURL)
+void IOSCPPHelper::shareMusicToWeChat( __String msgTitle, __String msgDescription, __String thumbImg, __String musicUrl, __String musicDataURL )
 {
-    NSString *shareTitle =[NSString stringWithCString:msgTitle.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *shareDescription =[NSString stringWithCString:msgDescription.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *shareThImg =[NSString stringWithCString:thumbImg.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *musicLinkUrl =[NSString stringWithCString:musicUrl.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *musicDataUrl =[NSString stringWithCString:musicDataURL.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareTitle = [NSString stringWithCString:msgTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareDescription = [NSString stringWithCString:msgDescription.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareThImg = [NSString stringWithCString:thumbImg.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *musicLinkUrl = [NSString stringWithCString:musicUrl.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *musicDataUrl = [NSString stringWithCString:musicDataURL.getCString( ) encoding:NSUTF8StringEncoding];
     [[IOSHelper instance] sendMusicContentWithTitle:shareTitle andDescription:shareDescription andThumbImg:shareThImg andMusicUrl:musicLinkUrl andMusicDataUrl:musicDataUrl];
 }
 
-void IOSCPPHelper::shareVideoToWeChat(__String  msgTitle ,__String msgDescription ,__String thumbImg ,__String videoUrl)
+void IOSCPPHelper::shareVideoToWeChat( __String msgTitle, __String msgDescription, __String thumbImg, __String videoUrl )
 {
-    NSString *shareTitle =[NSString stringWithCString:msgTitle.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *shareDescription =[NSString stringWithCString:msgDescription.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *shareThImg =[NSString stringWithCString:thumbImg.getCString( ) encoding:NSUTF8StringEncoding];
-    NSString *videoLinkUrl =[NSString stringWithCString:videoUrl.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareTitle = [NSString stringWithCString:msgTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareDescription = [NSString stringWithCString:msgDescription.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareThImg = [NSString stringWithCString:thumbImg.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *videoLinkUrl = [NSString stringWithCString:videoUrl.getCString( ) encoding:NSUTF8StringEncoding];
     [[IOSHelper instance] sendVideoContentWithTitle:shareTitle andDescription:shareDescription andThumbImg:shareThImg andVideoUrl:videoLinkUrl];
 }
 #endif
+
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+void IOSCPPHelper::scheduleLocalNotification( float delay, __String textToDisplay )
+{
+    NSString *notificationText = [NSString stringWithCString:textToDisplay.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] scheduleLocalNotification:delay andNotificationText:notificationText];
+}
+#endif
+
+
