@@ -17,6 +17,10 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.44.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.44.00) (6th August 2015)
+
+- [NEW] Local notifications iOS JavaScript
+
 ## [1.43.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.43.00) (6th August 2015)
 
 - [NEW] Local notifications iOS C++
