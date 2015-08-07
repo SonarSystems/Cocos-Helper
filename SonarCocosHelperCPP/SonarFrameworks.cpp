@@ -960,13 +960,65 @@ void WeChat::shareVideoToWeChat( cocos2d::__String msgTitle, cocos2d::__String m
 #endif
 }
 
-void Notifications::scheduleLocalNotification( float delay, cocos2d::__String textToDisplay )
+void Notifications::scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     #if SCH_IS_NOTIFICATIONS_ENABLED == true
-        IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay );
+        IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle );
     #endif
 #endif
 }
+
+void Notifications::scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+        IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle, notificationAction );
+    #endif
+#endif
+}
+
+void Notifications::scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, int repeatInterval )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+        IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle, repeatInterval );
+    #endif
+#endif
+}
+
+void Notifications::scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction, int repeatInterval )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+        IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle, notificationAction, repeatInterval );
+    #endif
+#endif
+}
+
+void Notifications::unscheduleAllLocalNotifications( )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+        IOSCPPHelper::unscheduleAllLocalNotifications( );
+    #endif
+#endif
+}
+
+void Notifications::unscheduleLocalNotification( cocos2d::__String notificationTitle )
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+        IOSCPPHelper::unscheduleLocalNotification( notificationTitle );
+    #endif
+#endif
+}
+
+
 

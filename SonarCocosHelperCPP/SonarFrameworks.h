@@ -36,9 +36,9 @@ using namespace ui;
 
 namespace SonarCocosHelper
 {
-	enum AdBannerPosition{ eBottom, eTop, eBoth };
-
-    enum UIButtonPosition{ eBottomLeft, eBottomRight, eTopLeft, eTopRight };
+	enum AdBannerPosition { eBottom, eTop, eBoth };
+    enum UIButtonPosition { eBottomLeft, eBottomRight, eTopLeft, eTopRight };
+    enum CalendarUnits { eMinute = 0, eHourly, eDaily, eWeekly, eMonthly, eYearly };
 
     class GooglePlayServices
     {
@@ -484,6 +484,7 @@ namespace SonarCocosHelper
          * @param thumbImgPath is the thumb image of the link to share
          * @param videoUrl is the link to share
          */
+        
         static void shareVideoToWeChat( cocos2d::__String msgTitle , cocos2d::__String msgDescription , cocos2d::__String thumbImgPath , cocos2d::__String videoUrl);
     };
 
@@ -494,8 +495,44 @@ namespace SonarCocosHelper
          * schedule local notification
          * @param delay is the amount of time until the notification is display from the time this method is called
          * @param textToDisplay is the text to display in the notification
+         * @param notificationTitle is the title for the notification
          */
-        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay );
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle );
+        /**
+         * schedule local notification with slide action text
+         * @param delay is the amount of time until the notification is display from the time this method is called
+         * @param textToDisplay is the text to display in the notification
+         * @param notificationTitle is the title for the notification
+         * @param notificationAction is the text that appears below the message on the lock screen aka slide to action
+         */
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction );
+        /**
+         * schedule local notification with a repeat interval
+         * @param delay is the amount of time until the notification is display from the time this method is called
+         * @param textToDisplay is the text to display in the notification
+         * @param notificationTitle is the title for the notification
+         * @param repeatInterval is how often you want to repeat the action
+         */
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, int repeatInterval );
+        /**
+         * schedule local notification with slide action text and a repeat interval
+         * @param delay is the amount of time until the notification is display from the time this method is called
+         * @param textToDisplay is the text to display in the notification
+         * @param notificationTitle is the title for the notification
+         * @param notificationAction is the text that appears below the message on the lock screen aka slide to action
+         * @param repeatInterval is how often you want to repeat the action
+         */
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction, int repeatInterval );
+        
+        /**
+         * unschedule all local notifications
+         */
+        static void unscheduleAllLocalNotifications( );
+        /**
+         * unschedule local notification
+         * @param notificationTitle is the notification that should be unscheduled
+         */
+        static void unscheduleLocalNotification( cocos2d::__String notificationTitle );
     };
 }
 
