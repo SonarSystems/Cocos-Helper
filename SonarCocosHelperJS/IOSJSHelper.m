@@ -243,9 +243,34 @@
 #endif
 
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
-+( void )scheduleLocalNotification:( NSNumber * ) delay andNotificationText:( NSString * ) textToDisplay
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * )notificationTitle
 {
-    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay];
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle];
+}
+
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction
+{
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationAction:notificationAction];
+}
+
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( NSNumber * )repeatInterval
+{
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andRepeatInterval:repeatInterval.intValue];
+}
+
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( NSNumber * )repeatInterval
+{
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationAction:notificationAction andRepeatInterval:repeatInterval.intValue];
+}
+
++( void )unscheduleAllLocalNotifications
+{
+    [[IOSHelper instance] unscheduleAllLocalNotifications];
+}
+
++( void )unscheduleLocalNotification:( NSString * )notificationTitle
+{
+    [[IOSHelper instance] unscheduleLocalNotification:notificationTitle];
 }
 #endif
 

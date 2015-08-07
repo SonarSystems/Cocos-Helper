@@ -896,19 +896,132 @@ SCHEmptyProtocol
 #endif
 
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
--( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle
 {
-    NSLog(@"%f", delay);
     NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
     UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
     
     if ( notifyAlarm )
     {
+        notifyAlarm.alertTitle = notificationTitle;
         notifyAlarm.fireDate = alarmTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle andNotificationAction:( NSString * )notificationAction
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        notifyAlarm.alertAction = notificationAction;
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( int )repeatInterval
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( int )repeatInterval
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        notifyAlarm.alertAction = notificationAction;
+        notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( NSCalendarUnit )convertRepeatIntervalToCalendarUnit:( int )repeatInterval
+{
+    NSCalendarUnit *calendarUnit;
+    
+    switch ( repeatInterval )
+    {
+        case CALENDAR_UNIT_MINUTE:
+            calendarUnit = NSMinuteCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_HOURLY:
+            calendarUnit = NSHourCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_DAILY:
+            calendarUnit = NSDayCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_WEEKLY:
+            calendarUnit = NSWeekCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_MONTHLY:
+            calendarUnit = NSMonthCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_YEARLY:
+            calendarUnit = NSYearCalendarUnit;
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    return calendarUnit;
+}
+
+-( void )unscheduleAllLocalNotifications
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    
+    if ( [oldNotifications count] > 0 )
+    { [app cancelAllLocalNotifications]; }
+}
+
+-( void )unscheduleLocalNotification:( NSString * )notificationTitle
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    
+    for ( NSUInteger i = 0; i < oldNotifications.count; i++ )
+    {
+        UILocalNotification *scheduledNotification = oldNotifications[i];
+        
+        if ( [scheduledNotification.alertTitle isEqualToString:notificationTitle] )
+        { [app cancelLocalNotification:scheduledNotification]; }
     }
 }
 #endif

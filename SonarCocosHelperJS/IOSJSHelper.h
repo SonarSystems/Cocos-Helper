@@ -98,7 +98,12 @@
 #endif
 
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
-+( void )scheduleLocalNotification:( NSNumber * ) delay andNotificationText:( NSString * ) textToDisplay;
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle;
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction;
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( NSNumber * )repeatInterval;
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( NSNumber * )repeatInterval;
++( void )unscheduleAllLocalNotifications;
++( void )unscheduleLocalNotification:( NSString * )notificationTitle;
 #endif
 
 @end
