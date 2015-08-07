@@ -17,6 +17,12 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.45.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.45.00) (7th August 2015)
+
+- [UPDATE] Local notifications iOS CPP can now be unscheduled
+- [UPDATE] Local notifications iOS CPP can now be set to repeat
+- [UPDATE] Local notifications iOS CPP can now have custom slide to unlock message
+
 ## [1.44.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.44.00) (6th August 2015)
 
 - [NEW] Local notifications iOS JavaScript
