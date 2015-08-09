@@ -1,6 +1,6 @@
-# Cocos Helper v1.41.00
+# Cocos Helper v1.46.00
 
-Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
+Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x C++ and JavaScript. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
 External Frameworks Supported
 ------------------------------------------
@@ -18,13 +18,15 @@ External Frameworks Supported
 * AdColony (iOS and Android)
 * UI
 	* Audio, Sound Effects, Music toggle buttons
+* WeChat (iOS)
+* Local notifications (iOS)
 
 Future Plans
 ------------------------------------------
 * UI (in development)
 * Flurry (testing)
 * Push Notifications
-* Local notifications
+* Local notifications (Android)
 * In-App Purchases
 * GameAnalytics
 * Everyplay
@@ -33,9 +35,11 @@ Future Plans
 * InMobi
 * Leadbolt
 * Airpush
-* WeChat
+* WeChat (Android)
 * Game Controller
-* Android Immersive Mode
+* Android
+	* Immersive Mode
+* Check if device has a internet connection
 * SQLite
 * Google Play Services (iOS)
 * <strong><i>suggestions are very welcome</i></strong>
@@ -43,14 +47,13 @@ Future Plans
 Potential UI Plugin Features
 ------------------------------------------
 * Virtual onscreen Joystick
-* Audio Toggle
 * Pause popup
 * Rate popup
 * <strong><i>suggestions are very welcome</i></strong>
 
 Requirements
 ------------------------------------------
-* Cocos2d-x C++ or Cocos2d-JS any version
+* Cocos2d-x C++ JavaScript any version
 * Mac and Xcode for iOS development
 * Eclipse for Android development (Windows, Mac or Linux)
 
@@ -95,7 +98,7 @@ Usage - Cocos2d-x C++
 	- Android : http://bit.ly/1JHthYX
 	- iOS : http://bit.ly/1JFelJm
 
-Usage - Cocos2d-JS
+Usage - Cocos2d-x JavaScript
 ------------------------------------------
 * Setting Up
 	- Android : http://bit.ly/1Td21EI

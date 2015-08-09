@@ -21,6 +21,7 @@ var CLASS_PATH = "sonar/systems/framework/SonarFrameworkFunctions";
 
 SonarCocosHelper.AdBannerPosition = { eBottom: 0, eTop: 1, eBoth: 2 };
 SonarCocosHelper.UIButtonPosition = { eBottomLeft: 0, eBottomRight: 1, eTopLeft: 2, eTopRight: 3 };
+SonarCocosHelper.CalendarUnits = { eMinute: 0, eHourly: 1, eDaily: 2, eWeekly: 3, eMonthly: 4, eYearly: 5 };
 
 SonarCocosHelper.IOS = function () { };
 SonarCocosHelper.GooglePlayServices = function () { };
@@ -35,8 +36,8 @@ SonarCocosHelper.GameCenter = function () { };
 SonarCocosHelper.GoogleAnalytics = function () { };
 SonarCocosHelper.AdColony = function () { };
 SonarCocosHelper.Vungle = function () { };
-//20150725
 SonarCocosHelper.WeChat = function () { };
+SonarCocosHelper.Notifications = function () { };
 
 SonarCocosHelper.UI = function ()
 {
@@ -657,7 +658,7 @@ SonarCocosHelper.Vungle.ShowVideoVungle = function ( isIncentivised )
 {
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
-         jsb.reflection.callStaticMethod(CLASS_PATH, "ShowRewardedVideoAdV", "(Z)V", isIncentivised);
+        jsb.reflection.callStaticMethod(CLASS_PATH, "ShowRewardedVideoAdV", "(Z)V", isIncentivised);
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
@@ -995,8 +996,8 @@ SonarCocosHelper.UI.MusicTouchEvent = function( sender, type )
 };
 
 
-SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg ){
-
+SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
@@ -1004,11 +1005,10 @@ SonarCocosHelper.WeChat.shareTextToWeChat = function( textMsg ){
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "sendTextMsgToWeChat:", textMsg );
     }
-
 };
 
-SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath , imgPath ){
-    
+SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath, imgPath )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
@@ -1016,43 +1016,100 @@ SonarCocosHelper.WeChat.shareImageToWeChat = function( thumbImgPath , imgPath ){
     {
         jsb.reflection.callStaticMethod( "IOSJSHelper", "sendThumbImage:andShareImgToWeChat:", thumbImgPath, imgPath );
     }
-    
 };
 
-SonarCocosHelper.WeChat.shareLinkToWeChat = function( thumbImgPath , msgTitle , msgDescription , httpUrl ){
-    
+SonarCocosHelper.WeChat.shareLinkToWeChat = function( thumbImgPath, msgTitle, msgDescription, httpUrl )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendLinkWithThumbImg:andMsgTitle:andMsgDescription:andURLToWeChat:", thumbImgPath, msgTitle , msgDescription , httpUrl);
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendLinkWithThumbImg:andMsgTitle:andMsgDescription:andURLToWeChat:", thumbImgPath, msgTitle, msgDescription, httpUrl);
     }
-    
 };
 
-SonarCocosHelper.WeChat.shareMusicToWeChat = function( msgTitle , msgDescription , thumbImgPath ,musicUrl ,musicDataURL){
-    
+SonarCocosHelper.WeChat.shareMusicToWeChat = function( msgTitle, msgDescription, thumbImgPath, musicUrl, musicDataURL )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendMusicContentWithTitle:andDescription:andThumbImg:andMusicUrl:andMusicDataUrl:", msgTitle , msgDescription , thumbImgPath , musicUrl , musicDataURL );
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendMusicContentWithTitle:andDescription:andThumbImg:andMusicUrl:andMusicDataUrl:", msgTitle, msgDescription, thumbImgPath, musicUrl, musicDataURL );
     }
-    
 };
 
-
-SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle , msgDescription , thumbImgPath ,videoUrl){
-    
+SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle, msgDescription, thumbImgPath, videoUrl )
+{
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendVideoContentWithTitle:andDescription:andThumbImg:andVideoUrl:", msgTitle , msgDescription , thumbImgPath , videoUrl );
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "sendVideoContentWithTitle:andDescription:andThumbImg:andVideoUrl:", msgTitle, msgDescription, thumbImgPath, videoUrl );
     }
-    
 };
+
+/**
+ * schedule local notification with slide action text and a repeat interval
+ * @param delay is the amount of time until the notification is display from the time this method is called
+ * @param textToDisplay is the text to display in the notification
+ * @param notificationTitle is the title for the notification
+ * @param notificationAction is the text that appears below the message on the lock screen aka slide to action
+ * @param repeatInterval is how often you want to repeat the action
+ */
+SonarCocosHelper.Notifications.scheduleLocalNotification = function( delay, textToDisplay, notificationTitle, notificationAction, repeatInterval )
+{
+    if ( typeof notificationAction === 'undefined' && typeof repeatInterval === 'undefined' )
+    {
+        if ( cc.sys.os == cc.sys.OS_ANDROID )
+        {
+        }
+        else if ( cc.sys.os == cc.sys.OS_IOS )
+        {
+            jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:andNotificationTitle:", delay, textToDisplay, notificationTitle );
+        }
+    }
+    else if ( typeof notificationAction !== 'undefined' && typeof repeatInterval !== 'undefined' )
+    {
+        if ( cc.sys.os == cc.sys.OS_ANDROID )
+        {
+        }
+        else if ( cc.sys.os == cc.sys.OS_IOS )
+        {
+            jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:andNotificationTitle:andNotificationAction:andRepeatInterval:", delay, textToDisplay, notificationTitle, notificationAction, repeatInterval );
+        }
+    }
+};
+
+/**
+ * unschedule all local notifications
+ */
+SonarCocosHelper.Notifications.unscheduleAllLocalNotifications = function( )
+{
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "unscheduleAllLocalNotifications" );
+    }
+};
+
+/**
+ * unschedule local notification
+ * @param notificationTitle is the notification that should be unscheduled
+ */
+SonarCocosHelper.Notifications.unscheduleLocalNotification = function( notificationTitle )
+{
+    if ( cc.sys.os == cc.sys.OS_ANDROID )
+    {
+    }
+    else if ( cc.sys.os == cc.sys.OS_IOS )
+    {
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "unscheduleLocalNotification:", notificationTitle );
+    }
+};
+
 

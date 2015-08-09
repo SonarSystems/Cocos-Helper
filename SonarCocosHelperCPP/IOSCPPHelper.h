@@ -98,13 +98,21 @@ public:
     static void showVideoVungle( bool isIncentivised );
 #endif
     
-    
 #if SCH_IS_WECHAT_ENABLED == true
     static void shareTextToWeChat( __String msgString );
     static void shareImageToWeChat( __String thumbImgPath ,__String imgPath );
     static void shareLinkToWeChat( __String thumbImgPath , __String shareTitle , __String msgDes , __String shareUrl );
     static void shareMusicToWeChat( __String msgTitle , __String msgDescription , __String thumbImg , __String  musicUrl , __String  musicDataURL);
     static void shareVideoToWeChat(__String  msgTitle ,__String msgDescription ,__String thumbImg ,__String videoUrl);
+#endif
+    
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle );
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction );
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, int repeatInterval );
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction, int repeatInterval );
+    static void unscheduleAllLocalNotifications( );
+    static void unscheduleLocalNotification( __String notificationTitle );
 #endif
     
 };
