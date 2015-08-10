@@ -1,8 +1,8 @@
-# Cocos Helper v1.30.00
+# Cocos Helper v1.46.00
 
-Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x and Cocos2d-JS. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
+Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x C++ and JavaScript. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
-External Frameworks Supported in v1.30.00
+External Frameworks Supported
 ------------------------------------------
 * Google Play Services (Android)<br />
 * Facebook (iOS and Android)<br />
@@ -16,13 +16,18 @@ External Frameworks Supported in v1.30.00
 * MoPub (iOS and Android)<br />
 * Vungle (iOS and Android)
 * AdColony (iOS and Android)
+* UI
+	* Audio, Sound Effects, Music toggle buttons
+* WeChat (iOS)
+* Local notifications (iOS)
 
 Future Plans
 ------------------------------------------
 * UI (in development)
-* Flurry (in development)
+* Flurry (testing)
 * Push Notifications
-* In-App Purchases (in development)
+* Local notifications (Android)
+* In-App Purchases
 * GameAnalytics
 * Everyplay
 * Kiip
@@ -30,19 +35,25 @@ Future Plans
 * InMobi
 * Leadbolt
 * Airpush
-* WeChat
+* WeChat (Android)
+* Game Controller
+* Android
+	* Immersive Mode
+* Check if device has a internet connection
+* SQLite
+* Google Play Services (iOS)
+* <strong><i>suggestions are very welcome</i></strong>
 
 Potential UI Plugin Features
 ------------------------------------------
 * Virtual onscreen Joystick
-* Audio Toggle
 * Pause popup
 * Rate popup
 * <strong><i>suggestions are very welcome</i></strong>
 
 Requirements
 ------------------------------------------
-* Cocos2d-x C++ or Cocos2d-JS any version
+* Cocos2d-x C++ JavaScript any version
 * Mac and Xcode for iOS development
 * Eclipse for Android development (Windows, Mac or Linux)
 
@@ -87,13 +98,13 @@ Usage - Cocos2d-x C++
 	- Android : http://bit.ly/1JHthYX
 	- iOS : http://bit.ly/1JFelJm
 
-Usage - Cocos2d-JS
+Usage - Cocos2d-x JavaScript
 ------------------------------------------
 * Setting Up
 	- Android : http://bit.ly/1Td21EI
 	- iOS : http://bit.ly/1Kia9Qn
 * Google Play Services
-	- Android : coming soon
+	- Android : http://bit.ly/1JvpgEy
 * Facebook
 	- Android : http://bit.ly/1GgQopl
 	- iOS : http://bit.ly/1FEcShA
@@ -114,14 +125,14 @@ Usage - Cocos2d-JS
 * Game Center
 	- iOS : http://bit.ly/1BaOCXQ
 * Google Analytics
-	- Android : coming soon
+	- Android : http://bit.ly/1U8dZjm
 	- iOS : http://bit.ly/1cVWyRl
 * MoPub
-	- Android : coming soon
+	- Android : http://bit.ly/1It8Rl6
 	- iOS : http://bit.ly/1Bh5bBf
 * Vungle
-	- Android : coming soon
+	- Android : http://bit.ly/1LDejDb
 	- iOS : http://bit.ly/1GciHC5
 * AdColony
-	- Android : coming soon
+	- Android : http://bit.ly/1C9FEuP
 	- iOS : http://bit.ly/1J2Vb1u

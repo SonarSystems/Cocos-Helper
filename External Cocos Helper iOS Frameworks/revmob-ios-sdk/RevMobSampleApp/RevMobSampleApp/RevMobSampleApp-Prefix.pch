@@ -1,0 +1,18 @@
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define REVMOB_ID @"5106be9d0639b41100000052"
+
+#define PLACEMENT_ID_BANNER @"5107dfde9c1d2f160000005f"
+#define PLACEMENT_ID_FULLSCREEN @"5107dfdeb909351500000071"
+#define PLACEMENT_ID_LINK @"5107dfddb90935a8030000a7"
+#define PLACEMENT_ID_POPUP @"5107dfdc2513d00d0000007a"
+#define PLACEMENT_ID_NOTIFICATION @"5107dfdc2513d01400000095"

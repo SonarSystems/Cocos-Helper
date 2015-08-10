@@ -178,6 +178,24 @@ SCHEmptyProtocol
     [[VungleSDK sharedSDK] setLoggingEnabled:YES];
     [[VungleSDK sharedSDK] setDelegate:self];
 #endif
+    
+#if SCH_IS_WECHAT_ENABLED == true
+    NSString* appID = SCH_WECHAT_APP_ID;
+    // Register your app
+    [WXApi registerApp:appID withDescription:@"demo 2.0"];
+#endif
+    
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+    UIApplication *app = [UIApplication sharedApplication];
+    
+    if ( [UIApplication instancesRespondToSelector:@selector( registerUserNotificationSettings: )] )
+    { [app registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]]; }
+    
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    
+    if ( [oldNotifications count] > 0 )
+    { [app cancelAllLocalNotifications]; }
+#endif
 }
 
 #if SCH_IS_iADS_ENABLED == true
@@ -509,15 +527,25 @@ SCHEmptyProtocol
 #pragma mark - ADMOB
 
 #if SCH_IS_AD_MOB_ENABLED == true
+- (GADRequest *)createRequest
+{
+    GADRequest *request = [GADRequest request];
+    if ([SCH_AD_MOB_TEST_DEVICE length])
+    {
+        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+    }
+    return request;
+}
+
 -( void )showAdMobBanner:( int ) position
 {
+    GADAdSize adSize = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? kGADAdSizeFullBanner : kGADAdSizeBanner;
+    GADRequest *request = [self createRequest];
     if ( !isAdMobTopBannerDisplayed && ADBANNERPOSITION_TOP == position )
     {
-        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
         adMobTopBanner.rootViewController = localViewController;
-        GADRequest *request = [GADRequest request];
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobTopBanner loadRequest:request];
         [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -530,11 +558,9 @@ SCHEmptyProtocol
     }
     else if ( !isAdMobBottomBannerDisplayed && ADBANNERPOSITION_BOTTOM == position )
     {
-        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
         adMobBottomBanner.rootViewController = localViewController;
-        GADRequest *request = [GADRequest request];
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobBottomBanner loadRequest:request];
         [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -546,20 +572,16 @@ SCHEmptyProtocol
     }
     else if ( ADBANNERPOSITION_BOTH == position )
     {
-        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobTopBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobTopBanner.adUnitID = SCH_AD_MOB_TOP_BANNER_AD_UNIT_ID;
         adMobTopBanner.rootViewController = localViewController;
-        GADRequest *request = [GADRequest request];
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
-        [adMobTopBanner loadRequest:request];
         [localViewController.view addSubview:adMobTopBanner];
         adMobTopBanner.translatesAutoresizingMaskIntoConstraints = NO;
         [view addConstraint:[NSLayoutConstraint constraintWithItem:adMobTopBanner attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1. constant:0]];
         
-        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adMobBottomBanner = [[GADBannerView alloc] initWithAdSize:adSize];
         adMobBottomBanner.adUnitID = SCH_AD_MOB_BOTTOM_BANNER_AD_UNIT_ID;
         adMobBottomBanner.rootViewController = localViewController;
-        request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
         [adMobBottomBanner loadRequest:request];
         [localViewController.view addSubview:adMobBottomBanner];
         adMobBottomBanner.translatesAutoresizingMaskIntoConstraints = NO;
@@ -611,16 +633,17 @@ SCHEmptyProtocol
 
 -( void )requestAdMobFullscreenAd
 {
-    adMobInterstitial = [[GADInterstitial alloc] init];
+    adMobInterstitial = [[GADInterstitial alloc] initWithAdUnitID:SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID];
     adMobInterstitial.adUnitID = SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID;
     adMobInterstitial.delegate = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[SCH_AD_MOB_TEST_DEVICE];
+    GADRequest *request = [self createRequest];
     [adMobInterstitial loadRequest:request];
 }
 
 -( void )interstitialDidReceiveAd:( GADInterstitial * )ad
-{ isAdMobFullscreenLoaded = true; }
+{
+    isAdMobFullscreenLoaded = true;
+}
 
 #endif
 
@@ -761,8 +784,8 @@ SCHEmptyProtocol
 -( void )vungleSDKwillCloseAdWithViewInfo:( NSDictionary * )viewInfo willPresentProductSheet:( BOOL )willPresentProductSheet
 {
     NSLog( viewInfo[@"completedView"] ? @"true" : @"false" );
-    
-    [IOSResults videoWasViewedVungle:viewInfo[@"completedView"]];
+
+    [IOSResults rewardedVideoWasVuewedVungle:[[viewInfo objectForKey:@"completedView"] boolValue]];
 }
 
 -( void )vungleSDKwillShowAd
@@ -772,5 +795,240 @@ SCHEmptyProtocol
     [IOSResults vungleSDKwillShowAd];
 }
 #endif
+
+
+#pragma mark - WECHAT
+
+#if SCH_IS_WECHAT_ENABLED == true
+-( void )sendTextContentToWeChat:( NSString * )msgString
+{
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.text = msgString;
+    req.bText = YES;
+    req.scene = WXSceneSession;
+    //WXSceneSession  = 0,        /**< 聊天界面    */
+    //WXSceneTimeline = 1,        /**< 朋友圈      */
+    //WXSceneFavorite = 2,        /**< 收藏       */
+    [WXApi sendReq:req];
+}
+
+-( void )sendThumbImage:( NSString * ) thumbImgPath andShareImgToWeChat:( NSString * ) imgPath
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    //thumb img path
+    [message setThumbImage:[UIImage imageNamed:thumbImgPath]];
+    WXImageObject *ext = [WXImageObject object];
+    //real share img
+    //make the format of API
+    NSString *imgType = [imgPath pathExtension];
+    NSString *imgPathWithoutExt = [imgPath stringByDeletingPathExtension];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:imgPathWithoutExt ofType:imgType];
+    ext.imageData = [NSData dataWithContentsOfFile:filePath];
+    
+    message.mediaObject = ext;
+    message.mediaTagName = @"WECHAT_TAG_JUMP_APP";
+    message.messageExt = @"msgExt";
+    message.messageAction = @"<action>dotalist</action>";
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    
+    [WXApi sendReq:req];
+}
+
+-( void )sendLinkWithThumbImg:( NSString * ) thumbImgPath andMsgTitle:( NSString * ) msgTitle andMsgDescription:( NSString * ) msgDes andURLToWeChat:( NSString * ) url
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = msgTitle;
+    message.description = msgDes;
+    [message setThumbImage:[UIImage imageNamed:thumbImgPath]];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = url;
+    
+    message.mediaObject = ext;
+    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
+}
+
+-( void ) sendMusicContentWithTitle:( NSString * ) msgTitle andDescription:( NSString * )msgDescription andThumbImg:( NSString * ) thumbImg andMusicUrl:( NSString * ) musicUrl andMusicDataUrl:( NSString * ) musicDataURL
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = msgTitle;
+    message.description = msgDescription;
+    [message setThumbImage:[UIImage imageNamed:thumbImg]];
+    WXMusicObject *ext = [WXMusicObject object];
+    ext.musicUrl = musicUrl;
+    ext.musicDataUrl = musicDataURL;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    
+    [WXApi sendReq:req];
+}
+
+-( void ) sendVideoContentWithTitle:( NSString * ) msgTitle andDescription:( NSString * )msgDescription andThumbImg:( NSString * ) thumbImg andVideoUrl:( NSString * ) videoUrl
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = msgTitle;
+    message.description = msgDescription;
+    [message setThumbImage:[UIImage imageNamed:thumbImg]];
+    
+    WXVideoObject *ext = [WXVideoObject object];
+    ext.videoUrl = videoUrl;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[[SendMessageToWXReq alloc] init]autorelease];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    
+    [WXApi sendReq:req];
+}
+#endif
+
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle andNotificationAction:( NSString * )notificationAction
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        notifyAlarm.alertAction = notificationAction;
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( int )repeatInterval
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( int )repeatInterval
+{
+    NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
+    UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
+    
+    if ( notifyAlarm )
+    {
+        notifyAlarm.alertTitle = notificationTitle;
+        notifyAlarm.fireDate = alarmTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
+        notifyAlarm.alertBody = textToDisplay;
+        notifyAlarm.alertAction = notificationAction;
+        notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
+        [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
+    }
+}
+
+-( NSCalendarUnit )convertRepeatIntervalToCalendarUnit:( int )repeatInterval
+{
+    NSCalendarUnit *calendarUnit;
+    
+    switch ( repeatInterval )
+    {
+        case CALENDAR_UNIT_MINUTE:
+            calendarUnit = NSMinuteCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_HOURLY:
+            calendarUnit = NSHourCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_DAILY:
+            calendarUnit = NSDayCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_WEEKLY:
+            calendarUnit = NSWeekCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_MONTHLY:
+            calendarUnit = NSMonthCalendarUnit;
+            
+            break;
+        case CALENDAR_UNIT_YEARLY:
+            calendarUnit = NSYearCalendarUnit;
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    return calendarUnit;
+}
+
+-( void )unscheduleAllLocalNotifications
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    
+    if ( [oldNotifications count] > 0 )
+    { [app cancelAllLocalNotifications]; }
+}
+
+-( void )unscheduleLocalNotification:( NSString * )notificationTitle
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    
+    for ( NSUInteger i = 0; i < oldNotifications.count; i++ )
+    {
+        UILocalNotification *scheduledNotification = oldNotifications[i];
+
+        if ( [scheduledNotification.alertTitle isEqualToString:notificationTitle] )
+        { [app cancelLocalNotification:scheduledNotification]; }
+    }
+}
+#endif
+
 
 @end

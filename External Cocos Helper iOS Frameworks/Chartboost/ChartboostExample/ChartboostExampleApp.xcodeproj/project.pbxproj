@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		034E0A0A1988724C00F59A68 /* Main_iPhone_4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034E0A081988724C00F59A68 /* Main_iPhone_4.storyboard */; };
+		03D86A7C198735B2000CE5D5 /* Demo-Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D86A7B198735B2000CE5D5 /* Demo-Button.png */; };
+		03D86A7E198735BA000CE5D5 /* Chartboost-LogoH1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D86A7D198735BA000CE5D5 /* Chartboost-LogoH1.png */; };
+		03F842D31988803C005DDE81 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842C61988803C005DDE81 /* Default.png */; };
+		03F842D51988803C005DDE81 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842C81988803C005DDE81 /* Default-Landscape~ipad.png */; };
+		03F842D61988803C005DDE81 /* Default-Landscape~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842C91988803C005DDE81 /* Default-Landscape~ipad@2x.png */; };
+		03F842D71988803C005DDE81 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842CA1988803C005DDE81 /* Default-Portrait@2x~ipad.png */; };
+		03F842D91988803C005DDE81 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842CC1988803C005DDE81 /* Default-568h@2x.png */; };
+		03F842DB1988803C005DDE81 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842CE1988803C005DDE81 /* Default@2x.png */; };
+		03F842DC1988803C005DDE81 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842CF1988803C005DDE81 /* Default~ipad.png */; };
+		03F842DD1988803C005DDE81 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F842D01988803C005DDE81 /* Default~iphone.png */; };
+		B558095B1991ADC30086DA23 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558095A1991ADC30086DA23 /* Chartboost.framework */; };
+		B57E85E51A1FD5C400E6D9AD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57E85E41A1FD5C400E6D9AD /* AdSupport.framework */; };
+		DA93B6B1182B31BC00C21472 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93B6B0182B31BC00C21472 /* Foundation.framework */; };
+		DA93B6B3182B31BC00C21472 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93B6B2182B31BC00C21472 /* CoreGraphics.framework */; };
+		DA93B6B5182B31BC00C21472 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93B6B4182B31BC00C21472 /* UIKit.framework */; };
+		DA93B6BB182B31BC00C21472 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA93B6B9182B31BC00C21472 /* InfoPlist.strings */; };
+		DA93B6BD182B31BC00C21472 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA93B6BC182B31BC00C21472 /* main.m */; };
+		DA93B6C1182B31BC00C21472 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA93B6C0182B31BC00C21472 /* AppDelegate.m */; };
+		DA93B6C4182B31BC00C21472 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA93B6C2182B31BC00C21472 /* Main_iPhone.storyboard */; };
+		DA93B6C7182B31BC00C21472 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA93B6C5182B31BC00C21472 /* Main_iPad.storyboard */; };
+		DA93B6CA182B31BC00C21472 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA93B6C9182B31BC00C21472 /* ViewController.m */; };
+		DA93B6CC182B31BC00C21472 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA93B6CB182B31BC00C21472 /* Images.xcassets */; };
+		DA93B6F3182B33FD00C21472 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA93B6F2182B33FD00C21472 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		034E0A091988724C00F59A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ChartboostExampleApp/Base.lproj/Main_iPhone_4.storyboard; sourceTree = "<group>"; };
+		03D86A7B198735B2000CE5D5 /* Demo-Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Demo-Button.png"; sourceTree = "<group>"; };
+		03D86A7D198735BA000CE5D5 /* Chartboost-LogoH1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chartboost-LogoH1.png"; sourceTree = "<group>"; };
+		03F842C61988803C005DDE81 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		03F842C81988803C005DDE81 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		03F842C91988803C005DDE81 /* Default-Landscape~ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad@2x.png"; sourceTree = "<group>"; };
+		03F842CA1988803C005DDE81 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		03F842CC1988803C005DDE81 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		03F842CE1988803C005DDE81 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		03F842CF1988803C005DDE81 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
+		03F842D01988803C005DDE81 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		B558095A1991ADC30086DA23 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chartboost.framework; path = ../Chartboost.framework; sourceTree = "<group>"; };
+		B57E85E41A1FD5C400E6D9AD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		DA93B6AD182B31BC00C21472 /* ChartboostExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartboostExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA93B6B0182B31BC00C21472 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA93B6B2182B31BC00C21472 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA93B6B4182B31BC00C21472 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA93B6B8182B31BC00C21472 /* ChartboostExampleApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChartboostExampleApp-Info.plist"; sourceTree = "<group>"; };
+		DA93B6BA182B31BC00C21472 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA93B6BC182B31BC00C21472 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA93B6BE182B31BC00C21472 /* ChartboostExampleApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChartboostExampleApp-Prefix.pch"; sourceTree = "<group>"; };
+		DA93B6BF182B31BC00C21472 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA93B6C0182B31BC00C21472 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA93B6C3182B31BC00C21472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		DA93B6C6182B31BC00C21472 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		DA93B6C8182B31BC00C21472 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DA93B6C9182B31BC00C21472 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DA93B6CB182B31BC00C21472 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DA93B6F2182B33FD00C21472 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA93B6AA182B31BC00C21472 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B57E85E51A1FD5C400E6D9AD /* AdSupport.framework in Frameworks */,
+				DA93B6F3182B33FD00C21472 /* StoreKit.framework in Frameworks */,
+				DA93B6B3182B31BC00C21472 /* CoreGraphics.framework in Frameworks */,
+				DA93B6B5182B31BC00C21472 /* UIKit.framework in Frameworks */,
+				DA93B6B1182B31BC00C21472 /* Foundation.framework in Frameworks */,
+				B558095B1991ADC30086DA23 /* Chartboost.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA93B6A4182B31BC00C21472 = {
+			isa = PBXGroup;
+			children = (
+				DA93B6B6182B31BC00C21472 /* ChartboostExampleApp */,
+				DA93B6AF182B31BC00C21472 /* Frameworks */,
+				DA93B6AE182B31BC00C21472 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA93B6AE182B31BC00C21472 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA93B6AD182B31BC00C21472 /* ChartboostExampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA93B6AF182B31BC00C21472 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B57E85E41A1FD5C400E6D9AD /* AdSupport.framework */,
+				DA93B6F2182B33FD00C21472 /* StoreKit.framework */,
+				DA93B6B0182B31BC00C21472 /* Foundation.framework */,
+				DA93B6B2182B31BC00C21472 /* CoreGraphics.framework */,
+				DA93B6B4182B31BC00C21472 /* UIKit.framework */,
+				B558095A1991ADC30086DA23 /* Chartboost.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA93B6B6182B31BC00C21472 /* ChartboostExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				03F842C61988803C005DDE81 /* Default.png */,
+				03F842C81988803C005DDE81 /* Default-Landscape~ipad.png */,
+				03F842C91988803C005DDE81 /* Default-Landscape~ipad@2x.png */,
+				03F842CA1988803C005DDE81 /* Default-Portrait@2x~ipad.png */,
+				03F842CC1988803C005DDE81 /* Default-568h@2x.png */,
+				03F842CE1988803C005DDE81 /* Default@2x.png */,
+				03F842CF1988803C005DDE81 /* Default~ipad.png */,
+				03F842D01988803C005DDE81 /* Default~iphone.png */,
+				03D86A7D198735BA000CE5D5 /* Chartboost-LogoH1.png */,
+				03D86A7B198735B2000CE5D5 /* Demo-Button.png */,
+				DA93B6BF182B31BC00C21472 /* AppDelegate.h */,
+				DA93B6C0182B31BC00C21472 /* AppDelegate.m */,
+				034E0A081988724C00F59A68 /* Main_iPhone_4.storyboard */,
+				DA93B6C2182B31BC00C21472 /* Main_iPhone.storyboard */,
+				DA93B6C5182B31BC00C21472 /* Main_iPad.storyboard */,
+				DA93B6C8182B31BC00C21472 /* ViewController.h */,
+				DA93B6C9182B31BC00C21472 /* ViewController.m */,
+				DA93B6CB182B31BC00C21472 /* Images.xcassets */,
+				DA93B6B7182B31BC00C21472 /* Supporting Files */,
+			);
+			path = ChartboostExampleApp;
+			sourceTree = "<group>";
+		};
+		DA93B6B7182B31BC00C21472 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA93B6B8182B31BC00C21472 /* ChartboostExampleApp-Info.plist */,
+				DA93B6B9182B31BC00C21472 /* InfoPlist.strings */,
+				DA93B6BC182B31BC00C21472 /* main.m */,
+				DA93B6BE182B31BC00C21472 /* ChartboostExampleApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA93B6AC182B31BC00C21472 /* ChartboostExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA93B6E2182B31BC00C21472 /* Build configuration list for PBXNativeTarget "ChartboostExampleApp" */;
+			buildPhases = (
+				DA93B6A9182B31BC00C21472 /* Sources */,
+				DA93B6AA182B31BC00C21472 /* Frameworks */,
+				DA93B6AB182B31BC00C21472 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChartboostExampleApp;
+			productName = ChartboostExampleApp;
+			productReference = DA93B6AD182B31BC00C21472 /* ChartboostExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA93B6A5182B31BC00C21472 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = chartboost;
+			};
+			buildConfigurationList = DA93B6A8182B31BC00C21472 /* Build configuration list for PBXProject "ChartboostExampleApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA93B6A4182B31BC00C21472;
+			productRefGroup = DA93B6AE182B31BC00C21472 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA93B6AC182B31BC00C21472 /* ChartboostExampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA93B6AB182B31BC00C21472 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA93B6CC182B31BC00C21472 /* Images.xcassets in Resources */,
+				03D86A7E198735BA000CE5D5 /* Chartboost-LogoH1.png in Resources */,
+				03D86A7C198735B2000CE5D5 /* Demo-Button.png in Resources */,
+				03F842D51988803C005DDE81 /* Default-Landscape~ipad.png in Resources */,
+				03F842D91988803C005DDE81 /* Default-568h@2x.png in Resources */,
+				03F842DD1988803C005DDE81 /* Default~iphone.png in Resources */,
+				03F842D61988803C005DDE81 /* Default-Landscape~ipad@2x.png in Resources */,
+				03F842D31988803C005DDE81 /* Default.png in Resources */,
+				03F842DC1988803C005DDE81 /* Default~ipad.png in Resources */,
+				03F842DB1988803C005DDE81 /* Default@2x.png in Resources */,
+				03F842D71988803C005DDE81 /* Default-Portrait@2x~ipad.png in Resources */,
+				DA93B6BB182B31BC00C21472 /* InfoPlist.strings in Resources */,
+				034E0A0A1988724C00F59A68 /* Main_iPhone_4.storyboard in Resources */,
+				DA93B6C4182B31BC00C21472 /* Main_iPhone.storyboard in Resources */,
+				DA93B6C7182B31BC00C21472 /* Main_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA93B6A9182B31BC00C21472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA93B6CA182B31BC00C21472 /* ViewController.m in Sources */,
+				DA93B6C1182B31BC00C21472 /* AppDelegate.m in Sources */,
+				DA93B6BD182B31BC00C21472 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		034E0A081988724C00F59A68 /* Main_iPhone_4.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034E0A091988724C00F59A68 /* Base */,
+			);
+			name = Main_iPhone_4.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		DA93B6B9182B31BC00C21472 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA93B6BA182B31BC00C21472 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DA93B6C2182B31BC00C21472 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA93B6C3182B31BC00C21472 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		DA93B6C5182B31BC00C21472 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA93B6C6182B31BC00C21472 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA93B6E0182B31BC00C21472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA93B6E1182B31BC00C21472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA93B6E3182B31BC00C21472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChartboostExampleApp/ChartboostExampleApp-Prefix.pch";
+				INFOPLIST_FILE = "ChartboostExampleApp/ChartboostExampleApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DA93B6E4182B31BC00C21472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChartboostExampleApp/ChartboostExampleApp-Prefix.pch";
+				INFOPLIST_FILE = "ChartboostExampleApp/ChartboostExampleApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA93B6A8182B31BC00C21472 /* Build configuration list for PBXProject "ChartboostExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA93B6E0182B31BC00C21472 /* Debug */,
+				DA93B6E1182B31BC00C21472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA93B6E2182B31BC00C21472 /* Build configuration list for PBXNativeTarget "ChartboostExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA93B6E3182B31BC00C21472 /* Debug */,
+				DA93B6E4182B31BC00C21472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA93B6A5182B31BC00C21472 /* Project object */;
+}

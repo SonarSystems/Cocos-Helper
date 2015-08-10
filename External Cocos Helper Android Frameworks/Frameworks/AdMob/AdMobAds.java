@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -28,6 +29,10 @@ public class AdMobAds extends Framework
 	
 	private static AdView top_banner_adView;
 	private static AdView bottom_banner_adView;
+	private static boolean top_banner_adView_request_sended = false;
+	private static boolean bottom_banner_adView_request_sended = false;
+	private static AdRequest top_banner_adView_request;
+	private static AdRequest bottom_banner_adView_request;
 	private InterstitialAd interstitial;
 
 	FrameLayout.LayoutParams top_adParams;
@@ -36,6 +41,10 @@ public class AdMobAds extends Framework
 	private final int BOTTOM = 0;
 	private final int TOP = 1;
 	private final int BOTH = 2;
+	
+	public static native void FullscreenAdPreloaded(boolean result);
+	
+	private boolean preLoadCalled = false;
 	
 	public AdMobAds()
 	{
@@ -63,7 +72,7 @@ public class AdMobAds extends Framework
 		top_banner_adView.setAdSize(AdSize.BANNER);
 		top_banner_adView.setAdUnitId(banner_id_top);
 
-		AdRequest adRequest = new AdRequest.Builder()
+		top_banner_adView_request = new AdRequest.Builder()
 		.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
 		.addTestDevice("HASH_DEVICE_ID")
 		.addTestDevice(test_device_id)
@@ -71,7 +80,6 @@ public class AdMobAds extends Framework
 		
 		top_adParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, android.view.Gravity.TOP|android.view.Gravity.CENTER_HORIZONTAL);
 
-		top_banner_adView.loadAd(adRequest);
 		top_banner_adView.setBackgroundColor(Color.BLACK);
 		top_banner_adView.setBackgroundColor(0);
 		
@@ -82,7 +90,7 @@ public class AdMobAds extends Framework
 		bottom_banner_adView.setAdSize(AdSize.BANNER);
 		bottom_banner_adView.setAdUnitId(banner_id_bottom);
 
-		AdRequest adRequest1 = new AdRequest.Builder()
+		bottom_banner_adView_request = new AdRequest.Builder()
 		.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
 		.addTestDevice("HASH_DEVICE_ID")
 		.addTestDevice(test_device_id)
@@ -90,7 +98,6 @@ public class AdMobAds extends Framework
 		
 		bottom_adParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, android.view.Gravity.BOTTOM|android.view.Gravity.CENTER_HORIZONTAL);
 
-		bottom_banner_adView.loadAd(adRequest1);
 		bottom_banner_adView.setBackgroundColor(Color.BLACK);
 		bottom_banner_adView.setBackgroundColor(0);
 		
@@ -104,7 +111,17 @@ public class AdMobAds extends Framework
 	    {
 	          public void onAdLoaded()
 	          {
-	        	  LoadFullscreenAd();
+	        	  if(preLoadCalled)
+	        	  {
+	        		  FullscreenAdPreloaded(true);
+	        	  }
+	        	  else
+	        	  {
+	        		  LoadFullscreenAd();
+	        	  }
+	        	  
+	        	  preLoadCalled = false;
+	        	  
 	          }
 	    });
 	    
@@ -174,10 +191,14 @@ public class AdMobAds extends Framework
 
 		     @Override
 		     public void run()
-		     {  
+		     {
+		     		if (!top_banner_adView_request_sended) {
+			     		top_banner_adView.loadAd(top_banner_adView_request);
+			     		top_banner_adView_request_sended = true;
+		     		}
 		    	 	if (!top_banner_adView.isEnabled())
 		    	 		top_banner_adView.setEnabled(true);
-		    	 	 if (top_banner_adView.getVisibility() == 4 )
+		    	 	if (top_banner_adView.getVisibility() == 4 )
 		    	 		top_banner_adView.setVisibility(View.VISIBLE); 
 		     }
 	     });
@@ -201,7 +222,11 @@ public class AdMobAds extends Framework
 
 				     @Override
 				     public void run()
-				     { 	
+				     {
+				     	if (!top_banner_adView_request_sended) {
+				     		top_banner_adView.loadAd(top_banner_adView_request);
+				     		top_banner_adView_request_sended = true;
+			     		}
 				    	 if (!top_banner_adView.isEnabled())
 				    	 	 top_banner_adView.setEnabled(true);
 				    	 
@@ -221,7 +246,11 @@ public class AdMobAds extends Framework
 
 				     @Override
 				     public void run()
-				     { 	
+				     {
+				     	if (!bottom_banner_adView_request_sended) {
+				     		bottom_banner_adView.loadAd(bottom_banner_adView_request);
+				     		bottom_banner_adView_request_sended = true;
+			     		}
 				    	 if (!bottom_banner_adView.isEnabled())
 				    		 bottom_banner_adView.setEnabled(true);
 				    	 
@@ -241,7 +270,11 @@ public class AdMobAds extends Framework
 
 				     @Override
 				     public void run()
-				     { 	
+				     {
+				     	if (!top_banner_adView_request_sended) {
+				     		top_banner_adView.loadAd(top_banner_adView_request);
+				     		top_banner_adView_request_sended = true;
+			     		}
 				    	 if (!top_banner_adView.isEnabled())
 				    	 	 top_banner_adView.setEnabled(true);
 				    	 
@@ -258,7 +291,11 @@ public class AdMobAds extends Framework
 
 				     @Override
 				     public void run()
-				     { 	
+				     {
+				     	 if (!bottom_banner_adView_request_sended) {
+				     		bottom_banner_adView.loadAd(bottom_banner_adView_request);
+				     		bottom_banner_adView_request_sended = true;
+			     		}
 				    	 if (!bottom_banner_adView.isEnabled())
 				    		 bottom_banner_adView.setEnabled(true);
 				    	 
@@ -437,5 +474,47 @@ public class AdMobAds extends Framework
 		}
 	}
 	
+	@Override
+	public void PreLoadFullscreenAd()
+	{
+		if(interstitial != null) 
+		{
+			activity.runOnUiThread(new Runnable()
+		    {
+	
+			     @Override
+			     public void run()
+			     {
+			    	// Create ad request.
+			 	    AdRequest adRequest = new AdRequest.Builder()
+			 	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+			 		.addTestDevice("HASH_DEVICE_ID")
+			 		.addTestDevice(test_device_id).build();
+
+			 	    // Begin loading your interstitial.
+			 	    interstitial.loadAd(adRequest);
+			 	    preLoadCalled = true;
+			     }
+		     });
+		}
+	}
+	
+	@Override
+	public void ShowPreLoadedFullscreenAd()
+	{
+		if(interstitial != null) 
+		{
+			activity.runOnUiThread(new Runnable()
+		     {
+	
+			     @Override
+			     public void run()
+			     {
+			    	 if(interstitial.isLoaded())
+			    		 interstitial.show();
+			     }
+		     });
+		}
+	}
 
 }

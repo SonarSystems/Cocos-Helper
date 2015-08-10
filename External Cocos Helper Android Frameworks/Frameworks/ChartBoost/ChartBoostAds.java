@@ -21,6 +21,9 @@ public class ChartBoostAds extends Framework
 	private String id= "";
 	private String sig = "";
 	
+	public static native void rewardVideowasViewedChartboost(boolean result);
+	public static native void FullscreenAdPreloaded(boolean result);
+	
 	public ChartBoostAds()
 	{
 		
@@ -41,7 +44,8 @@ public class ChartBoostAds extends Framework
 		 Chartboost.startWithAppId(activity, id, sig);
 		 /* Optional: If you want to program responses to Chartboost events, supply a delegate object here and see step (10) for more information */
 		 Chartboost.setDelegate(delegate);
-		  Chartboost.onCreate(activity);
+		 Chartboost.onCreate(activity);
+		  
 		  
 		  
 	}
@@ -62,10 +66,12 @@ public class ChartBoostAds extends Framework
 	        }
 	    
 	        @Override
-	        public void didCacheInterstitial(String location) {
+	        public void didCacheInterstitial(String location)
+	        {
 	            Log.i(TAG, "DID CACHE INTERSTITIAL '"+ (location != null ? location : "null"));
+	            FullscreenAdPreloaded(true);
 	        }
-	    
+	        
 	        @Override
 	        public void didFailToLoadInterstitial(String location, CBImpressionError error) {
 	            Log.i(TAG, "DID FAIL TO LOAD INTERSTITIAL '"+ (location != null ? location : "null")+ " Error: " + error.name());
@@ -161,6 +167,7 @@ public class ChartBoostAds extends Framework
 	        public void didCompleteRewardedVideo(String location, int reward) 
 	        {
 	            Log.i(TAG, String.format("DID COMPLETE REWARDED VIDEO '%s' FOR REWARD %d",  (location != null ? location : "null"), reward));
+	            rewardVideowasViewedChartboost(true);
 	        }
 	        
 	        @Override
@@ -208,8 +215,8 @@ public class ChartBoostAds extends Framework
 	public void onResume()
 	{
 		Chartboost.onResume(activity);
-		//Chartboost.cacheInterstitial(CBLocation.LOCATION_DEFAULT);
-		//Chartboost.cacheRewardedVideo(CBLocation.LOCATION_DEFAULT);
+		
+		
 	}
 	
 	@Override
@@ -228,9 +235,22 @@ public class ChartBoostAds extends Framework
 	@Override
 	public void ShowVideoAd()
 	{
-		Log.v("CHARTBOOST", "WOOP IT GOT CALLED");
 		Chartboost.showRewardedVideo(CBLocation.LOCATION_DEFAULT);
 	}
+	
+	@Override
+	public void PreLoadFullscreenAd()
+	{
+		Chartboost.cacheInterstitial(CBLocation.LOCATION_DEFAULT);
+	}
+	
+	
+	@Override
+	public void PreLoadVideoAd()
+	{
+		Chartboost.cacheRewardedVideo(CBLocation.LOCATION_DEFAULT);
+	}
+
 	
 
 }

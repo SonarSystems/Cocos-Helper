@@ -135,6 +135,10 @@ void IOSCPPHelper::hideAdMobBanner( int position )
     [[IOSHelper instance] hideAdMobBanner:position];
 }
 
+void IOSCPPHelper::requestAdMobFullScreenAd()
+{
+    [[IOSHelper instance] requestAdMobFullscreenAd];
+}
 void IOSCPPHelper::showAdMobFullscreenAd( )
 {
     [[IOSHelper instance] showAdMobFullscreenAd];
@@ -209,6 +213,91 @@ void IOSCPPHelper::showVideoAC( bool withPreOp, bool withPostOp )
 void IOSCPPHelper::showVideoVungle( bool isIncentivised )
 {
     [[IOSHelper instance] showV4VCV: isIncentivised];
+}
+#endif
+
+#if SCH_IS_WECHAT_ENABLED == true
+void IOSCPPHelper::shareTextToWeChat( __String msgString )
+{
+    [[IOSHelper instance] sendTextContentToWeChat:[NSString stringWithCString:msgString.getCString( ) encoding:NSUTF8StringEncoding]];
+}
+void IOSCPPHelper::shareImageToWeChat( __String thumbImgPath, __String imgPath )
+{
+    NSString *thumbImg = [NSString stringWithCString:thumbImgPath.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareImg = [NSString stringWithCString:imgPath.getCString( ) encoding:NSUTF8StringEncoding];
+    
+    [[IOSHelper instance] sendThumbImage:thumbImg andShareImgToWeChat:shareImg];
+}
+void IOSCPPHelper::shareLinkToWeChat( __String thumbImgPath, __String shareTitle, __String msgDes, __String shareUrl )
+{
+    NSString *thumbImg = [NSString stringWithCString:thumbImgPath.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *msgTitle = [NSString stringWithCString:shareTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *msgDescription = [NSString stringWithCString:msgDes.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *url = [NSString stringWithCString:shareUrl.getCString( ) encoding:NSUTF8StringEncoding];
+    
+    [[IOSHelper instance] sendLinkWithThumbImg:thumbImg andMsgTitle:msgTitle andMsgDescription:msgDescription andURLToWeChat:url];
+}
+
+void IOSCPPHelper::shareMusicToWeChat( __String msgTitle, __String msgDescription, __String thumbImg, __String musicUrl, __String musicDataURL )
+{
+    NSString *shareTitle = [NSString stringWithCString:msgTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareDescription = [NSString stringWithCString:msgDescription.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareThImg = [NSString stringWithCString:thumbImg.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *musicLinkUrl = [NSString stringWithCString:musicUrl.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *musicDataUrl = [NSString stringWithCString:musicDataURL.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] sendMusicContentWithTitle:shareTitle andDescription:shareDescription andThumbImg:shareThImg andMusicUrl:musicLinkUrl andMusicDataUrl:musicDataUrl];
+}
+
+void IOSCPPHelper::shareVideoToWeChat( __String msgTitle, __String msgDescription, __String thumbImg, __String videoUrl )
+{
+    NSString *shareTitle = [NSString stringWithCString:msgTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareDescription = [NSString stringWithCString:msgDescription.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *shareThImg = [NSString stringWithCString:thumbImg.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *videoLinkUrl = [NSString stringWithCString:videoUrl.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] sendVideoContentWithTitle:shareTitle andDescription:shareDescription andThumbImg:shareThImg andVideoUrl:videoLinkUrl];
+}
+#endif
+
+#if SCH_IS_NOTIFICATIONS_ENABLED == true
+void IOSCPPHelper::scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle )
+{
+    NSString *notificationText = [NSString stringWithCString:textToDisplay.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *notificationTitleLcl = [NSString stringWithCString:notificationTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] scheduleLocalNotification:delay andNotificationText:notificationText andNotificationTitle:notificationTitleLcl];
+}
+
+void IOSCPPHelper::scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction )
+{
+    NSString *notificationText = [NSString stringWithCString:textToDisplay.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *notificationTitleLcl = [NSString stringWithCString:notificationTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *notificationActionLcl = [NSString stringWithCString:notificationAction.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] scheduleLocalNotification:delay andNotificationText:notificationText andNotificationTitle:notificationTitleLcl andNotificationAction:notificationActionLcl];
+}
+
+void IOSCPPHelper::scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, int repeatInterval )
+{
+    NSString *notificationText = [NSString stringWithCString:textToDisplay.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *notificationTitleLcl = [NSString stringWithCString:notificationTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] scheduleLocalNotification:delay andNotificationText:notificationText andNotificationTitle:notificationTitleLcl andRepeatInterval:repeatInterval];
+}
+
+void IOSCPPHelper::scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction, int repeatInterval )
+{
+    NSString *notificationText = [NSString stringWithCString:textToDisplay.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *notificationTitleLcl = [NSString stringWithCString:notificationTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    NSString *notificationActionLcl = [NSString stringWithCString:notificationAction.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] scheduleLocalNotification:delay andNotificationText:notificationText andNotificationTitle:notificationTitleLcl andNotificationAction:notificationActionLcl andRepeatInterval:repeatInterval];
+}
+
+void IOSCPPHelper::unscheduleAllLocalNotifications( )
+{
+    [[IOSHelper instance] unscheduleAllLocalNotifications];
+}
+
+void IOSCPPHelper::unscheduleLocalNotification( __String notificationTitle )
+{
+    NSString *notificationTitleLcl = [NSString stringWithCString:notificationTitle.getCString( ) encoding:NSUTF8StringEncoding];
+    [[IOSHelper instance] unscheduleLocalNotification:notificationTitleLcl];
 }
 #endif
 
