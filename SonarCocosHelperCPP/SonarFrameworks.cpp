@@ -403,6 +403,7 @@ void RevMob::showPopupAd( )
 void RevMob::showBannerAd( )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall("ShowBannerAd",CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     #if SCH_IS_REVMOB_ENABLED == true
         IOSCPPHelper::showRevMobBanner( );
@@ -413,6 +414,7 @@ void RevMob::showBannerAd( )
 void RevMob::hideBannerAd( )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall("HideBannerAd",CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     #if SCH_IS_REVMOB_ENABLED == true
         IOSCPPHelper::hideRevMobBanner( );

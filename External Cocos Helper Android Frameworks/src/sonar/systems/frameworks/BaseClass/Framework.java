@@ -68,6 +68,10 @@ public class Framework
 
 	}
 	
+	public void onRestart()
+	{
+		
+	}
 	
 
 	

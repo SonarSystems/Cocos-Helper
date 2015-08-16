@@ -674,6 +674,10 @@ public class SonarFrameworkFunctions
 		{
 			admob.ShowBannerAd();
 		}
+		if(SonarFrameworkSettings.USE_REVMOB)
+		{
+			revmob.ShowBannerAd();
+		}
 	}
 	
 	public static void ShowBannerAd(int position)
@@ -1066,4 +1070,11 @@ public class SonarFrameworkFunctions
 		return false;
 	}
 	//End Activity Functions OnStart/OnStop/onCreate/onActivityResult
+
+	public void onRestart() {
+		if(SonarFrameworkSettings.USE_REVMOB)
+		{
+			revmob.onRestart();
+		}
+	}
 }
