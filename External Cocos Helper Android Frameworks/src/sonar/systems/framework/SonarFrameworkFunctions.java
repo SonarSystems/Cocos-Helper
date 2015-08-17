@@ -694,6 +694,10 @@ public class SonarFrameworkFunctions
 		{
 			admob.HideBannerAd();
 		}
+		if(SonarFrameworkSettings.USE_REVMOB)
+		{
+			revmob.HideBannerAd();
+		}
 	}
 	
 	public static void HideBannerAd(int position)
