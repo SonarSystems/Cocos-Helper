@@ -243,24 +243,24 @@
 #endif
 
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
-+( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * )notificationTitle
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationTag:(NSNumber * ) notificationTag
 {
-    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle];
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationTag:notificationTag];
 }
 
-+( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andNotificationTag:(NSNumber * ) notificationTag
 {
-    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationAction:notificationAction];
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationAction:notificationAction andNotificationTag:notificationTag];
 }
 
-+( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( NSNumber * )repeatInterval
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( NSNumber * )repeatInterval andNotificationTag:(NSNumber * ) notificationTag
 {
-    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andRepeatInterval:repeatInterval.intValue];
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andRepeatInterval:repeatInterval.intValue andNotificationTag:notificationTag];
 }
 
-+( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( NSNumber * )repeatInterval
++( void )scheduleLocalNotification:( NSNumber * )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( NSNumber * )repeatInterval andNotificationTag:(NSNumber * ) notificationTag
 {
-    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationAction:notificationAction andRepeatInterval:repeatInterval.intValue];
+    [[IOSHelper instance] scheduleLocalNotification:delay.floatValue andNotificationText:textToDisplay andNotificationTitle:notificationTitle andNotificationAction:notificationAction andRepeatInterval:repeatInterval.intValue andNotificationTag:notificationTag];
 }
 
 +( void )unscheduleAllLocalNotifications
@@ -268,9 +268,9 @@
     [[IOSHelper instance] unscheduleAllLocalNotifications];
 }
 
-+( void )unscheduleLocalNotification:( NSString * )notificationTitle
++( void )unscheduleLocalNotification:( NSNumber * )notificationTag
 {
-    [[IOSHelper instance] unscheduleLocalNotification:notificationTitle];
+    [[IOSHelper instance] unscheduleLocalNotification:notificationTag];
 }
 #endif
 
