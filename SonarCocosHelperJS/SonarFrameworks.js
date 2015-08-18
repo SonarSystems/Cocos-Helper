@@ -1059,7 +1059,7 @@ SonarCocosHelper.WeChat.shareVideoToWeChat = function( msgTitle, msgDescription,
  * @param notificationAction is the text that appears below the message on the lock screen aka slide to action
  * @param repeatInterval is how often you want to repeat the action
  */
-SonarCocosHelper.Notifications.scheduleLocalNotification = function( delay, textToDisplay, notificationTitle, notificationAction, repeatInterval )
+SonarCocosHelper.Notifications.scheduleLocalNotification = function( delay, textToDisplay, notificationTitle, notificationTag, notificationAction, repeatInterval )
 {
     if ( typeof notificationAction === 'undefined' && typeof repeatInterval === 'undefined' )
     {
@@ -1068,7 +1068,7 @@ SonarCocosHelper.Notifications.scheduleLocalNotification = function( delay, text
         }
         else if ( cc.sys.os == cc.sys.OS_IOS )
         {
-            jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:andNotificationTitle:", delay, textToDisplay, notificationTitle );
+            jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:andNotificationTitle:andNotificationTag:", delay, textToDisplay, notificationTitle, notificationTag );
         }
     }
     else if ( typeof notificationAction !== 'undefined' && typeof repeatInterval !== 'undefined' )
@@ -1078,7 +1078,7 @@ SonarCocosHelper.Notifications.scheduleLocalNotification = function( delay, text
         }
         else if ( cc.sys.os == cc.sys.OS_IOS )
         {
-            jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:andNotificationTitle:andNotificationAction:andRepeatInterval:", delay, textToDisplay, notificationTitle, notificationAction, repeatInterval );
+            jsb.reflection.callStaticMethod( "IOSJSHelper", "scheduleLocalNotification:andNotificationText:andNotificationTitle:andNotificationAction:andRepeatInterval:andNotificationTag:", delay, textToDisplay, notificationTitle, notificationAction, repeatInterval ,andNotificationTag);
         }
     }
 };
@@ -1101,14 +1101,14 @@ SonarCocosHelper.Notifications.unscheduleAllLocalNotifications = function( )
  * unschedule local notification
  * @param notificationTitle is the notification that should be unscheduled
  */
-SonarCocosHelper.Notifications.unscheduleLocalNotification = function( notificationTitle )
+SonarCocosHelper.Notifications.unscheduleLocalNotification = function( notificationTag )
 {
     if ( cc.sys.os == cc.sys.OS_ANDROID )
     {
     }
     else if ( cc.sys.os == cc.sys.OS_IOS )
     {
-        jsb.reflection.callStaticMethod( "IOSJSHelper", "unscheduleLocalNotification:", notificationTitle );
+        jsb.reflection.callStaticMethod( "IOSJSHelper", "unscheduleLocalNotification:", notificationTag );
     }
 };
 

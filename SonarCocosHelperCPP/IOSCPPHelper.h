@@ -107,12 +107,12 @@ public:
 #endif
     
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
-    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle );
-    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction );
-    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, int repeatInterval );
-    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction, int repeatInterval );
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle , int notificationTag);
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction , int notificationTag);
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, int repeatInterval , int notificationTag);
+    static void scheduleLocalNotification( float delay, __String textToDisplay, __String notificationTitle, __String notificationAction, int repeatInterval , int notificationTag);
     static void unscheduleAllLocalNotifications( );
-    static void unscheduleLocalNotification( __String notificationTitle );
+    static void unscheduleLocalNotification( int notificationTag );
 #endif
     
 };
