@@ -47,6 +47,7 @@ Future Plans
 
 Potential UI Plugin Features
 ------------------------------------------
+* Plugin buttons
 * Virtual onscreen Joystick
 * Pause popup
 * Rate popup
