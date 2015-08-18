@@ -2,7 +2,7 @@ package sonar.systems.frameworks.RevMob;
 
 
 import com.revmob.RevMob;
-import com.revmob.ads.fullscreen.RevMobFullscreen;
+import com.revmob.ads.interstitial.RevMobFullscreen;
 import com.revmob.ads.popup.RevMobPopup;
 import sonar.systems.frameworks.BaseClass.Framework;
 import android.app.Activity;
@@ -103,6 +103,10 @@ public class RevMobAds extends Framework
 			revmob.showPopup(activity);
 		}
 	}
-	
+	@Override
+	public void onRestart() 
+	{
+		
+	}
 
 }

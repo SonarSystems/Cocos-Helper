@@ -674,6 +674,10 @@ public class SonarFrameworkFunctions
 		{
 			admob.ShowBannerAd();
 		}
+		if(SonarFrameworkSettings.USE_REVMOB)
+		{
+			revmob.ShowBannerAd();
+		}
 	}
 	
 	public static void ShowBannerAd(int position)
@@ -689,6 +693,10 @@ public class SonarFrameworkFunctions
 		if(SonarFrameworkSettings.USE_ADMOB)
 		{
 			admob.HideBannerAd();
+		}
+		if(SonarFrameworkSettings.USE_REVMOB)
+		{
+			revmob.HideBannerAd();
 		}
 	}
 	
@@ -1066,4 +1074,11 @@ public class SonarFrameworkFunctions
 		return false;
 	}
 	//End Activity Functions OnStart/OnStop/onCreate/onActivityResult
+
+	public void onRestart() {
+		if(SonarFrameworkSettings.USE_REVMOB)
+		{
+			revmob.onRestart();
+		}
+	}
 }
