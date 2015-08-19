@@ -497,7 +497,7 @@ namespace SonarCocosHelper
          * @param textToDisplay is the text to display in the notification
          * @param notificationTitle is the title for the notification
          */
-        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle );
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle , int notificationTag);
         /**
          * schedule local notification with slide action text
          * @param delay is the amount of time until the notification is display from the time this method is called
@@ -505,7 +505,7 @@ namespace SonarCocosHelper
          * @param notificationTitle is the title for the notification
          * @param notificationAction is the text that appears below the message on the lock screen aka slide to action
          */
-        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction );
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction , int notificationTag);
         /**
          * schedule local notification with a repeat interval
          * @param delay is the amount of time until the notification is display from the time this method is called
@@ -513,7 +513,7 @@ namespace SonarCocosHelper
          * @param notificationTitle is the title for the notification
          * @param repeatInterval is how often you want to repeat the action
          */
-        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, int repeatInterval );
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, int repeatInterval , int notificationTag);
         /**
          * schedule local notification with slide action text and a repeat interval
          * @param delay is the amount of time until the notification is display from the time this method is called
@@ -522,7 +522,7 @@ namespace SonarCocosHelper
          * @param notificationAction is the text that appears below the message on the lock screen aka slide to action
          * @param repeatInterval is how often you want to repeat the action
          */
-        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction, int repeatInterval );
+        static void scheduleLocalNotification( float delay, cocos2d::__String textToDisplay, cocos2d::__String notificationTitle, cocos2d::__String notificationAction, int repeatInterval , int notificationTag);
         
         /**
          * unschedule all local notifications
@@ -532,7 +532,9 @@ namespace SonarCocosHelper
          * unschedule local notification
          * @param notificationTitle is the notification that should be unscheduled
          */
-        static void unscheduleLocalNotification( cocos2d::__String notificationTitle );
+        //static void unscheduleLocalNotification( cocos2d::__String notificationTitle );
+        static void unscheduleLocalNotification( int notificationTag );
+        
     };
 }
 

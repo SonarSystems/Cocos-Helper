@@ -188,8 +188,12 @@ SCHEmptyProtocol
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
     UIApplication *app = [UIApplication sharedApplication];
     
-    if ( [UIApplication instancesRespondToSelector:@selector( registerUserNotificationSettings: )] )
-    { [app registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]]; }
+    if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //only ios8 need to register notification
+        if ( [UIApplication instancesRespondToSelector:@selector( registerUserNotificationSettings: )] )
+        { [app registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]]; }
+    }
+    
     
     NSArray *oldNotifications = [app scheduledLocalNotifications];
     
@@ -896,70 +900,95 @@ SCHEmptyProtocol
 #endif
 
 #if SCH_IS_NOTIFICATIONS_ENABLED == true
--( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle andNotificationTag:( NSNumber * )notificationTag
 {
     NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
     UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
     
     if ( notifyAlarm )
     {
-        notifyAlarm.alertTitle = notificationTitle;
+        
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+            notifyAlarm.alertTitle = notificationTitle;
+        }
         notifyAlarm.fireDate = alarmTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
+        
+        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        notifyAlarm.userInfo = infoDict;
+        
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
 }
 
--( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle andNotificationAction:( NSString * )notificationAction
+-( void )scheduleLocalNotification:( NSTimeInterval ) delay andNotificationText:( NSString * ) textToDisplay andNotificationTitle:( NSString * ) notificationTitle andNotificationAction:( NSString * )notificationAction andNotificationTag:( NSNumber * )notificationTag
 {
     NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
     UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
     
     if ( notifyAlarm )
     {
-        notifyAlarm.alertTitle = notificationTitle;
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+            notifyAlarm.alertTitle = notificationTitle;
+        }
         notifyAlarm.fireDate = alarmTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.alertAction = notificationAction;
+        
+        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        notifyAlarm.userInfo = infoDict;
+        
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
 }
 
--( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( int )repeatInterval
+-( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andRepeatInterval:( int )repeatInterval andNotificationTag:( NSNumber * )notificationTag
 {
     NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
     UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
     
     if ( notifyAlarm )
     {
-        notifyAlarm.alertTitle = notificationTitle;
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+            notifyAlarm.alertTitle = notificationTitle;
+        }
         notifyAlarm.fireDate = alarmTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
+        
+        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        notifyAlarm.userInfo = infoDict;
+        
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
 }
 
--( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( int )repeatInterval
+-( void )scheduleLocalNotification:( NSTimeInterval )delay andNotificationText:( NSString * )textToDisplay andNotificationTitle:( NSString * )notificationTitle andNotificationAction:( NSString * )notificationAction andRepeatInterval:( int )repeatInterval andNotificationTag:( NSNumber * )notificationTag
 {
     NSDate *alarmTime = [[NSDate date] dateByAddingTimeInterval:delay];
     UILocalNotification *notifyAlarm = [[UILocalNotification alloc] init];
     
     if ( notifyAlarm )
     {
-        notifyAlarm.alertTitle = notificationTitle;
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+            notifyAlarm.alertTitle = notificationTitle;
+        }
         notifyAlarm.fireDate = alarmTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.alertAction = notificationAction;
         notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
+        
+        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        notifyAlarm.userInfo = infoDict;
+        
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
 }
@@ -1011,7 +1040,7 @@ SCHEmptyProtocol
     { [app cancelAllLocalNotifications]; }
 }
 
--( void )unscheduleLocalNotification:( NSString * )notificationTitle
+-( void )unscheduleLocalNotification:( NSNumber * ) notificationTag
 {
     UIApplication *app = [UIApplication sharedApplication];
     NSArray *oldNotifications = [app scheduledLocalNotifications];
@@ -1020,7 +1049,7 @@ SCHEmptyProtocol
     {
         UILocalNotification *scheduledNotification = oldNotifications[i];
         
-        if ( [scheduledNotification.alertTitle isEqualToString:notificationTitle] )
+        if ( [[scheduledNotification.userInfo objectForKey:@"notificationID"] isEqualToNumber:notificationTag] )
         { [app cancelLocalNotification:scheduledNotification]; }
     }
 }

@@ -42,10 +42,12 @@ Future Plans
 * Check if device has a internet connection
 * SQLite
 * Google Play Services (iOS)
+* Tune
 * <strong><i>suggestions are very welcome</i></strong>
 
 Potential UI Plugin Features
 ------------------------------------------
+* Plugin buttons
 * Virtual onscreen Joystick
 * Pause popup
 * Rate popup
