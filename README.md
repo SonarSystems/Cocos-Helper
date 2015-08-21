@@ -42,6 +42,7 @@ Future Plans
 * Check if device has a internet connection
 * SQLite
 * Google Play Services (iOS)
+* Google Play Services Multiplayer
 * Tune
 * <strong><i>suggestions are very welcome</i></strong>
 
