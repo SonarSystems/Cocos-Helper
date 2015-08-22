@@ -16,7 +16,7 @@
 #include "platform/android/jni/JniHelper.h"
 #include <android/log.h>
 #include "cocos2d.h"
-#include "SonarCocosHelper/SonarFrameworks.h"
+#include "SonarFrameworks.h"
 #endif
 
 #ifdef __cplusplus

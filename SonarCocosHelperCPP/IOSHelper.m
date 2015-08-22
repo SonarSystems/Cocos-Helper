@@ -634,7 +634,6 @@ SCHEmptyProtocol
 -( void )requestAdMobFullscreenAd
 {
     adMobInterstitial = [[GADInterstitial alloc] initWithAdUnitID:SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID];
-    adMobInterstitial.adUnitID = SCH_AD_MOB_FULLSCREEN_AD_UNIT_ID;
     adMobInterstitial.delegate = self;
     GADRequest *request = [self createRequest];
     [adMobInterstitial loadRequest:request];
