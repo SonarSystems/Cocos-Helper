@@ -27,6 +27,7 @@ Future Plans
 * Flurry (testing)
 * Push Notifications
 * Local notifications (Android)
+* Native Alerts
 * In-App Purchases
 * GameAnalytics
 * Everyplay
