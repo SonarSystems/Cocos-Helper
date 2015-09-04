@@ -20,7 +20,7 @@
 #define SCH_IS_iADS_ENABLED false // iAd.framework
 #define SCH_IS_AD_MOB_ENABLED false // AdSupport.framework, AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreMedia.framework, CoreTelephony.framework, EventKit.framework, EventKitUI.framework, MessageUI.framework, StoreKit.framework, SystemConfiguration.framework
 #define SCH_IS_CHARTBOOST_ENABLED false // StoreKit.framework, Foundation.framework, CoreGraphics.framework, UIKit.framework
-#define SCH_IS_REVMOB_ENABLED false // SystemConfiguration.framework, StoreKit.framework, MediaPlayer.framework, AdSupport.framework
+#define SCH_IS_REVMOB_ENABLED false // SystemConfiguration.framework, StoreKit.framework, MediaPlayer.framework, AdSupport.framework, CoreLocation.framework
 #define SCH_IS_SOCIAL_ENABLED false // Social.framework
 #define SCH_IS_GAME_CENTER_ENABLED false // Social.framework, GameKit.framework
 //#define SCH_IS_EVERYPLAY_ENABLED false // AdSupport (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, AssetsLibrary.framework, AudioToolbox.framework, AVFoundation.framework, CoreGraphics.framework, CoreImage (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, CoreMedia.framework, CoreVideo.framework, Foundation.framework, MessageUI.framework, MobileCoreServices.framework, OpenGLES.framework, QuartzCore.framework, Security.framework, Social (iOS 6+, set to Optional link for pre-iOS 6 compatibility).framework, StoreKit.framework, SystemConfiguration.framework, Twitter (iOS 5+, set to Optional link for pre-iOS 5 compatibility).framework, UIKit.framework
