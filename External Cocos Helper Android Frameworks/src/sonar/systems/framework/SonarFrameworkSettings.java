@@ -23,4 +23,6 @@ public class SonarFrameworkSettings
     public static final boolean USE_ADCOLONY = false;					//Requires AdColony SDK
     
     public static final boolean USE_VUNGLE = false;						//Requires Vungle SDK
+
+    public static final boolean USE_AMAZON_GAMECIRCLES = false;	
 }

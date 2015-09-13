@@ -1,0 +1,1915 @@
+<!--
+class.cs
+
+Copyright (c) 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+Use is subject to license terms.
+-->
+
+<!DOCTYPE html>
+<!--
+macros.cs
+
+Copyright (c) 2013-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+Use is subject to license terms.
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  GameDataMap |
+
+Doclava
+
+</title>
+<link href="../../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../");
+</script>
+<script src="../../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="" itemscope itemtype="http://schema.org/Article">
+
+<div id="header">
+    <div id="headerLeft">
+      
+    </div>
+    <div id="headerRight">
+        
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="Search API Reference" name="q"
+                      value="Search API Reference"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <!-- <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td> -->
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+    </div><!-- headerRight -->
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../../../reference/packages.html"  >Package Index</a> | 
+                <a href="../../../../../../reference/classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/package-summary.html">com.amazon.ags.api</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/achievements/package-summary.html">com.amazon.ags.api.achievements</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/leaderboards/package-summary.html">com.amazon.ags.api.leaderboards</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/overlay/package-summary.html">com.amazon.ags.api.overlay</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/player/package-summary.html">com.amazon.ags.api.player</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/whispersync/package-summary.html">com.amazon.ags.api.whispersync</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/whispersync/migration/package-summary.html">com.amazon.ags.api.whispersync.migration</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/package-summary.html">com.amazon.ags.api.whispersync.model</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../reference/com/amazon/ags/constants/package-summary.html">com.amazon.ags.constants</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="selected api apilevel-"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html">GameDataMap</a></li>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/WhispersyncClient.html">WhispersyncClient</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/WhispersyncEventListener.html">WhispersyncEventListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/FailReason.html">FailReason</a></li>
+      </ul>
+    </li>
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../../../reference/packages.html"  >Package Index</a> | 
+            <a href="../../../../../../reference/classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+
+<div class="sum-details-links">
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    interface
+<h1 itemprop="name">GameDataMap</h1>
+
+
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.amazon.ags.api.whispersync.GameDataMap</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>
+      <b><img src="../../../../../../assets/images/warning.png"/><br>
+      <font color="red">This interface is still under development and the API is
+      <em>subject to change or removal at any time without notice</em>.
+      <br>The API may change on your device if it is flashed with a new build or receives an OTA update.</b></font>
+      </p>
+<p itemprop="articleBody">An in-memory representation of the current state of a game's 
+ Whispersync data. This data structure is organized as a map of strings 
+ to containers where each container is a specific syncable type. The 
+ syncable types that are supported are: highest number, lowest number, 
+ latest number, highest number list, lowest number list, accumulating 
+ number, latest string, latest string list, string set, and game data
+ maps (for nested maps). When the GameDataMap is populated or updated 
+ with a new value of each syncable type, that value is automatically 
+ synchronized with data stored locally on the device and in the cloud.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableAccumulatingNumber.html">SyncableAccumulatingNumber</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getAccumulatingNumber(java.lang.String)">getAccumulatingNumber</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the accumulating number associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getAccumulatingNumberKeys()">getAccumulatingNumberKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with an accumulating number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableDeveloperString.html">SyncableDeveloperString</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getDeveloperString(java.lang.String)">getDeveloperString</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the developer string associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getDeveloperStringKeys()">getDeveloperStringKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a developer string.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumberList.html">SyncableNumberList</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getHighNumberList(java.lang.String)">getHighNumberList</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the high number list associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getHighNumberListKeys()">getHighNumberListKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a high number list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumber.html">SyncableNumber</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getHighestNumber(java.lang.String)">getHighestNumber</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the highest number associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getHighestNumberKeys()">getHighestNumberKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a highest number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumber.html">SyncableNumber</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestNumber(java.lang.String)">getLatestNumber</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the latest number associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestNumberKeys()">getLatestNumberKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a latest number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumberList.html">SyncableNumberList</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestNumberList(java.lang.String)">getLatestNumberList</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the latest number list associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestNumberListKeys()">getLatestNumberListKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a latest number list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableString.html">SyncableString</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestString(java.lang.String)">getLatestString</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the latest string associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestStringKeys()">getLatestStringKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a latest string.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableStringList.html">SyncableStringList</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestStringList(java.lang.String)">getLatestStringList</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the latest string list associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLatestStringListKeys()">getLatestStringListKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a latest string list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumberList.html">SyncableNumberList</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLowNumberList(java.lang.String)">getLowNumberList</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the low number list associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLowNumberListKeys()">getLowNumberListKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a low number list.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumber.html">SyncableNumber</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLowestNumber(java.lang.String)">getLowestNumber</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the lowest number associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getLowestNumberKeys()">getLowestNumberKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a lowest number.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html">GameDataMap</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getMap(java.lang.String)">getMap</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the nested-map associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getMapKeys()">getMapKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a nested-map.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableStringSet.html">SyncableStringSet</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getStringSet(java.lang.String)">getStringSet</a></span>(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</nobr>
+        
+        <div class="jd-descrdiv">Retrieves the string set associated with the given name.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html#getStringSetKeys()">getStringSetKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves a collection of keys associated with a latest string set.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="getAccumulatingNumber(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableAccumulatingNumber.html">SyncableAccumulatingNumber</a>
+      </span>
+      <span class="sympad">getAccumulatingNumber</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the accumulating number associated with the given name. 
+ If such a number does not exist, an empty SyncableAccumulatingNumber 
+ container is returned which can be set. Once set, that value is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the accumulating number to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The accumulating number associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getAccumulatingNumberKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getAccumulatingNumberKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with an accumulating number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with an accumulating number.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDeveloperString(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableDeveloperString.html">SyncableDeveloperString</a>
+      </span>
+      <span class="sympad">getDeveloperString</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the developer string associated with the given name.
+ If such a string does not exist, an empty SyncableDeveloperString
+ container is returned which can be set. Once set, that value is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the developer string to return. This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The developer string associated with the given name.
+            Null is never returned.
+ 
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getDeveloperStringKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getDeveloperStringKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a developer string.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a developer string.
+            Null is never returned.
+
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHighNumberList(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumberList.html">SyncableNumberList</a>
+      </span>
+      <span class="sympad">getHighNumberList</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the high number list associated with the given name. 
+ High number lists are sorted in decreasing order by value.
+ If such a list does not exist, an empty SyncableNumberList 
+ container is returned which can be set. Once set, that list is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the high number list to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The high number list associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHighNumberListKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getHighNumberListKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a high number list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a high number list.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHighestNumber(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumber.html">SyncableNumber</a>
+      </span>
+      <span class="sympad">getHighestNumber</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the highest number associated with the given name. 
+ If such a number does not exist, an empty SyncableNumber 
+ container is returned which can be set. Once set, that value is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the highest number to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The highest number associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHighestNumberKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getHighestNumberKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a highest number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a highest number.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestNumber(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumber.html">SyncableNumber</a>
+      </span>
+      <span class="sympad">getLatestNumber</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the latest number associated with the given name. 
+ If such a number does not exist, an empty SyncableNumber 
+ container is returned which can be set. Once set, that value is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the latest number to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The latest number associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestNumberKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getLatestNumberKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a latest number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a latest number.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestNumberList(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumberList.html">SyncableNumberList</a>
+      </span>
+      <span class="sympad">getLatestNumberList</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the latest number list associated with the given name. 
+ Latest number lists are sorted in order of the most recently set 
+ values first, where ties resolve in order of increasing value.  If 
+ such a list does not exist, an empty SyncableNumberList container 
+ is returned which can be set. Once set, that list is inserted into
+ the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the latest number list to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The latest number list associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestNumberListKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getLatestNumberListKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a latest number list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a latest number list.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestString(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableString.html">SyncableString</a>
+      </span>
+      <span class="sympad">getLatestString</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the latest string associated with the given name. 
+ If such a string does not exist, an empty SyncableString 
+ container is returned which can be set. Once set, that value is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the latest string to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The latest string associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestStringKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getLatestStringKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a latest string.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a latest string.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestStringList(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableStringList.html">SyncableStringList</a>
+      </span>
+      <span class="sympad">getLatestStringList</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the latest string list associated with the given name. 
+ Latest string lists are sorted in order of the most recently set 
+ values first, where ties resolve in alphabetical order by value.  
+ If such a list does not exist, an empty SyncableStringList container 
+ is returned which can be set. Once set, that list is inserted into 
+ the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the latest string list to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The latest string list associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLatestStringListKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getLatestStringListKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a latest string list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a latest string list.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLowNumberList(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumberList.html">SyncableNumberList</a>
+      </span>
+      <span class="sympad">getLowNumberList</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the low number list associated with the given name. 
+ Low number lists are sorted in increasing order by value.
+ If such a list does not exist, an empty SyncableNumberList 
+ container is returned which can be set. Once set, that list is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the low number list to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The low number list associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLowNumberListKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getLowNumberListKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a low number list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a low number list.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLowestNumber(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableNumber.html">SyncableNumber</a>
+      </span>
+      <span class="sympad">getLowestNumber</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the lowest number associated with the given name. 
+ If such a number does not exist, an empty SyncableNumber 
+ container is returned which can be set. Once set, that value is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the lowest number to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The lowest number associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLowestNumberKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getLowestNumberKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a lowest number.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a lowest number.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMap(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/GameDataMap.html">GameDataMap</a>
+      </span>
+      <span class="sympad">getMap</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the nested-map associated with the given name. 
+ If such a map does not exist, an empty GameDataMap 
+ container is returned which can be set. Once set, that nested-map is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the nested-map to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The nested-map associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getMapKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getMapKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a nested-map.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a nested-map.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStringSet(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../reference/com/amazon/ags/api/whispersync/model/SyncableStringSet.html">SyncableStringSet</a>
+      </span>
+      <span class="sympad">getStringSet</span>
+      <span class="normal">(<a href="http://developer.android.com/reference/java/lang/String.html">String</a> name)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves the string set associated with the given name. 
+ If such a set does not exist, an empty SyncableStringSet 
+ container is returned which can be set. Once set, that set is 
+ inserted into the map and automatically synchronized.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>name</th>
+          <td>The name of the latest string set to return.  This
+            cannot be null or empty.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The latest string set associated with the given name.
+            Null is never returned
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStringSetKeys()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="http://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="http://developer.android.com/reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getStringSetKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+   
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves a collection of keys associated with a latest string set.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a collection of keys associated with a latest string set.
+             Null is never returned.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+</script>
+
+</body>
+</html>
