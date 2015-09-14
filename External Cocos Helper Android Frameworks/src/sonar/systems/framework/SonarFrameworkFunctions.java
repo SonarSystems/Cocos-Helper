@@ -50,17 +50,16 @@ public class SonarFrameworkFunctions
 	private static Framework mopub = null;
 	//MoPub
 	
-    //Adcolony
-    private static Framework adcolony = null;
-    //Adcolony
-    
-    //Vungle
-    private static Framework vungle = null;
-    //Vungle
-
-    //Amazon Game circle
-    private static Framework amazongameCircle = null;
-    //Amazon Game circle
+	//Adcolony
+	private static Framework adcolony = null;
+	//Adcolony
+	
+	//Vungle
+	private static Framework vungle = null;
+	//Vungle
+	// Amazon Game circle
+	private static Framework amazongameCircle = null;
+	// Amazon Game circle
 
 	public SonarFrameworkFunctions(Context app) throws ClassNotFoundException
 	{
@@ -369,30 +368,28 @@ public class SonarFrameworkFunctions
             vungle = new Framework(); // empty object
         }
         //END VUNGLE
-
         if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
         {
         	try {
-				amazongameCircle = (Framework) Class.forName("sonar.systems.frameworks.Amazon.GameCircles.AmazonGameCircles").getConstructor().newInstance();
-				amazongameCircle.SetActivity((SonarFrameworkActivity)app);
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
-        }// END AMAZON GAME CIRCLES
+                amazongameCircle = (Framework) Class.forName("sonar.systems.frameworks.Amazon.AmazonGameCircles").getConstructor().newInstance();
+                amazongameCircle.SetActivity(((SonarFrameworkActivity)app));
+            } catch (InstantiationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
 		
 	}
 	
@@ -481,9 +478,9 @@ public class SonarFrameworkFunctions
 			});
 		}
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-        {
-        	amazongameCircle.submitScore(leaderboardID, score);
-        }
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
 
 	}
 	
@@ -515,9 +512,9 @@ public class SonarFrameworkFunctions
 			});
 		}
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-        {
-        	amazongameCircle.submitScore(leaderboardID, score);
-        }
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
 
 	}
 
@@ -597,10 +594,10 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-		if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-        {
-            amazongameCircle.showLeaderboard(leaderboardID);
-        }
+				if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			//On development
+		}
 
 	}
 
@@ -651,9 +648,12 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-
+		if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.showLeaderboard(leaderboardID);
+		}
 	}
-	//End GooglePlayServices Functions
+	//End GooglePlayServices Functions & Amazon Gamecircles
 	
 	//Revmob Functions
 	public static void ShowFullscreenAd()
@@ -1011,10 +1011,6 @@ public class SonarFrameworkFunctions
         {
         	amazongameCircle.onCreate(b);
         }
-        if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-        {
-        	amazongameCircle.onResume();
-        }
 		
 	}
 	
@@ -1050,7 +1046,10 @@ public class SonarFrameworkFunctions
         {
             vungle.onResume();
         }
-
+        if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+        {
+        	amazongameCircle.onResume();
+        }
 	}
 	
 	public void onSaveInstanceState(Bundle outState) 

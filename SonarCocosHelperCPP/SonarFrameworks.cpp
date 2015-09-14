@@ -1021,6 +1021,7 @@ void Notifications::unscheduleLocalNotification(  int notificationTag  )
     #endif
 #endif
 }
+
 void AmazonGameCircle::showLeaderboard(const char* leaderboardID)
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)

@@ -22,7 +22,7 @@ External Frameworks Supported
 	* Audio, Sound Effects, Music toggle buttons
 * WeChat (iOS)
 * Local notifications (iOS)
-* Amazon Game Circles (Android)
+* Amazon Game Circle (Android)
 
 Future Plans
 ------------------------------------------
