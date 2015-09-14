@@ -1021,6 +1021,23 @@ void Notifications::unscheduleLocalNotification(  int notificationTag  )
     #endif
 #endif
 }
-
-
-
+void AmazonGameCircle::showLeaderboard(const char* leaderboardID)
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    JniHelpers::jniCommonVoidCall(
+                "showLeaderboardAmazon",
+                CLASS_NAME,
+                leaderboardID);
+#endif
+}
+void AmazonGameCircle::submitScore(const char* leaderboardID, long score)
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    JniHelpers::jniCommonVoidCall(
+                "submitScoreAmazon",
+                CLASS_NAME,
+                leaderboardID,
+                score);
+    cocos2d::log("submit score long");
+#endif
+}

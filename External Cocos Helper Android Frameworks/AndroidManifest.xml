@@ -99,6 +99,39 @@
 		<activity android:name="com.jirbo.adcolony.AdColonyBrowser"
 		android:configChanges="keyboardHidden|orientation|screenSize"
 		android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />-->
+		
+		<!-- End Required Activity for playback of Vungle video ads -->
+
+	    <!-- Required for use Amazon Game Circles SDK
+	    <activity
+		android:name="com.amazon.ags.html5.overlay.GameCircleUserInterface"
+	    android:theme="@style/GCOverlay" >
+		</activity>
+	    <activity android:name="com.amazon.identity.auth.device.authorization.AuthorizationActivity"
+	    android:allowTaskReparenting="true"
+	    android:launchMode="singleTask"
+	    android:theme="@android:style/Theme.NoDisplay" >
+	    <intent-filter>
+	    <action android:name="android.intent.action.VIEW" />
+	    <category android:name="android.intent.category.DEFAULT" />
+	    <category android:name="android.intent.category.BROWSABLE" />
+	    <data android:host="your.package.name" android:scheme="amzn" />
+	    </intent-filter>
+	    </activity>
+	    <activity android:name="com.amazon.ags.html5.overlay.GameCircleAlertUserInterface"
+	    android:theme="@style/GCAlert" >
+	    </activity>
+	    <receiver
+	    android:name="com.amazon.identity.auth.device.authorization.PackageIntentReceiver"
+	    android:enabled="true" >
+	    <intent-filter>
+	    <action android:name="android.intent.action.PACKAGE_INSTALL" />
+	    <action android:name="android.intent.action.PACKAGE_ADDED" />
+	    <data android:scheme="package" />
+	    </intent-filter>
+	    </receiver>-->
+	     
+	    <!-- End Requirements for use Amazon Game Circles DSK -->   
 	        
 	    </application>
 

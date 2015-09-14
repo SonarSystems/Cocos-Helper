@@ -536,6 +536,18 @@ namespace SonarCocosHelper
         static void unscheduleLocalNotification( int notificationTag );
         
     };
+    class AmazonGameCircle
+    {
+    public:
+
+        static void showLeaderboard( const char *leaderboardID );
+        /**
+         * Submit score to online leaderboard
+         * @param leaderboardID is the name of your leaderboard
+         * @param score is the score to submit online
+         */
+        static void submitScore( const char *leaderboardID, long score );
+    };
 }
 
 #endif

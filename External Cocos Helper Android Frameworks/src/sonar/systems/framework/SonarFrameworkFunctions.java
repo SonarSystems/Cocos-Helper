@@ -50,13 +50,16 @@ public class SonarFrameworkFunctions
 	private static Framework mopub = null;
 	//MoPub
 	
-    //Adcolony
-    private static Framework adcolony = null;
-    //Adcolony
-    
-    //Vungle
-    private static Framework vungle = null;
-    //Vungle
+	//Adcolony
+	private static Framework adcolony = null;
+	//Adcolony
+	
+	//Vungle
+	private static Framework vungle = null;
+	//Vungle
+	// Amazon Game circle
+	private static Framework amazongameCircle = null;
+	// Amazon Game circle
 
 	public SonarFrameworkFunctions(Context app) throws ClassNotFoundException
 	{
@@ -365,6 +368,28 @@ public class SonarFrameworkFunctions
             vungle = new Framework(); // empty object
         }
         //END VUNGLE
+        if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+        {
+        	try {
+                amazongameCircle = (Framework) Class.forName("sonar.systems.frameworks.Amazon.AmazonGameCircles").getConstructor().newInstance();
+                amazongameCircle.SetActivity(((SonarFrameworkActivity)app));
+            } catch (InstantiationException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
 		
 	}
 	
@@ -452,6 +477,10 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
+		else if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
 
 	}
 	
@@ -482,7 +511,6 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-
 	}
 
 	public static void unlockAchievement(final String achievementID) 
@@ -561,7 +589,6 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-
 	}
 
 	public static void showLeaderboards() 
@@ -613,7 +640,32 @@ public class SonarFrameworkFunctions
 		}
 
 	}
-	//End GooglePlayServices Functions
+	//End GooglePlayServices Functions & Amazon Gamecircles
+	
+	//Amazon GameCircleFunctions
+	
+	public static void showLeaderboardAmazon(String leaderboardID)
+	{
+		if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.showLeaderboard(leaderboardID);
+		}
+	}
+	
+	public static void submitScoreAmazon(final String leaderboardID, final long score) 
+	{
+		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
+	}
+	public static void submitScoreAmazon(final String leaderboardID, final int score) 
+	{
+		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
+	}
 	
 	//Revmob Functions
 	public static void ShowFullscreenAd()
@@ -967,6 +1019,10 @@ public class SonarFrameworkFunctions
         {
             vungle.onCreate(b);
         }
+        if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+        {
+        	amazongameCircle.onCreate(b);
+        }
 		
 	}
 	
@@ -1002,7 +1058,10 @@ public class SonarFrameworkFunctions
         {
             vungle.onResume();
         }
-
+        if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+        {
+        	amazongameCircle.onResume();
+        }
 	}
 	
 	public void onSaveInstanceState(Bundle outState) 
