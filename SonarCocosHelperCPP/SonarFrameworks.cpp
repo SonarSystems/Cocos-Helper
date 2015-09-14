@@ -1021,12 +1021,11 @@ void Notifications::unscheduleLocalNotification(  int notificationTag  )
     #endif
 #endif
 }
-
 void AmazonGameCircle::showLeaderboard(const char* leaderboardID)
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     JniHelpers::jniCommonVoidCall(
-                "showLeaderboard",
+                "showLeaderboardAmazon",
                 CLASS_NAME,
                 leaderboardID);
 #endif
@@ -1035,7 +1034,7 @@ void AmazonGameCircle::submitScore(const char* leaderboardID, long score)
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     JniHelpers::jniCommonVoidCall(
-                "submitScore",
+                "submitScoreAmazon",
                 CLASS_NAME,
                 leaderboardID,
                 score);

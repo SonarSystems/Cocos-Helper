@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
      <!-- Google Play Services -->
-	     <string name="google_play_game_app_id">000000000000</string> <!-- SET TO YOUR GPG APP ID -->
+	     <string name="google_play_game_app_id">154943979832</string> <!-- SET TO YOUR GPG APP ID -->
 	    
 	    <string name="gamehelper_alert">Not working yet, sorry.</string>
 	    <string name="gamehelper_sign_in_failed">Failed to sign in. Please check your network connection and try again.</string>

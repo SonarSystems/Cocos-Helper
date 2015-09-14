@@ -45,7 +45,9 @@ public class AmazonGameCircles extends Framework
         {
             // TODO Auto-generated method stub
             isEnable = false;
-
+            Log.d("GameCircleClient", "Amazon game services not ready,Game circles doesn't work in debug mode. maybe your api_key.txt file is not loaded. api_ket.txt file goes in resources");
+            Log.d("GameCircleClient", "maybe your api_key.txt file is not loaded. api_ket.txt file goes in Resources not in assets. Cocos takes from Resources to assets.");
+            Log.d("GameCircleClient", "Go to the maniest in the part of Amazon Game circles replace your.package.app with your own game package"); // That's all the possible errors that I know.
         }
     };
     EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(
@@ -138,8 +140,7 @@ public class AmazonGameCircles extends Framework
             }
         }
         else
-            Log.d("AmazonGameCircles",
-                    "if you're debugin it will not work you need to create release");
+            Log.d("AmazonGameCircles","if you're debugin it will not work you need to create release");
         return null;
     }
 

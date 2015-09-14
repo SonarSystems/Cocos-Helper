@@ -125,9 +125,22 @@ public class Framework
 	}
 	//END GOOGLE PLAY SERVICES
 	
+	//AMAZON GAME CIRCLES
 	
+	public void showLeaderBoardAmazon(String leaderboard)
+	{
+	    
+	}
+	public void submitScoreAmazon(final String leaderboardID, final long score) 
+	{
+		
+	}
+	public void submitScoreAmazon(final String leaderboardID, final int score) 
+	{
+		
+	}
 	
-	
+	//END AMAZON GAME CIRCLES
 	
 	//REVMOB / Chartboost / admob
 	public void ShowFullscreenAd()

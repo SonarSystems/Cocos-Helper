@@ -477,7 +477,7 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		else if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
 			amazongameCircle.submitScore(leaderboardID,score);
 		}
@@ -511,11 +511,6 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-		{
-			amazongameCircle.submitScore(leaderboardID,score);
-		}
-
 	}
 
 	public static void unlockAchievement(final String achievementID) 
@@ -594,11 +589,6 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-				if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-		{
-			//On development
-		}
-
 	}
 
 	public static void showLeaderboards() 
@@ -648,12 +638,34 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
+
+	}
+	//End GooglePlayServices Functions & Amazon Gamecircles
+	
+	//Amazon GameCircleFunctions
+	
+	public static void showLeaderboardAmazon(String leaderboardID)
+	{
 		if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
 			amazongameCircle.showLeaderboard(leaderboardID);
 		}
 	}
-	//End GooglePlayServices Functions & Amazon Gamecircles
+	
+	public static void submitScoreAmazon(final String leaderboardID, final long score) 
+	{
+		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
+	}
+	public static void submitScoreAmazon(final String leaderboardID, final int score) 
+	{
+		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircle.submitScore(leaderboardID,score);
+		}
+	}
 	
 	//Revmob Functions
 	public static void ShowFullscreenAd()
