@@ -24,5 +24,5 @@ public class SonarFrameworkSettings
 	
 	public static final boolean USE_VUNGLE = false;						//Requires Vungle SDK
 
-	public static final boolean USE_AMAZON_GAMECIRCLES = true;			//Requires Amazon GameCircle SDK
+	public static final boolean USE_AMAZON_GAMECIRCLES = false;			//Requires Amazon GameCircle SDK
 }
