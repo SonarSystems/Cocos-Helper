@@ -48,6 +48,7 @@ Future Plans
 * Google Play Services (iOS)
 * Google Play Services Multiplayer
 * Tune
+* Rating
 * <strong><i>suggestions are very welcome</i></strong>
 
 Potential UI Plugin Features
