@@ -784,7 +784,7 @@ SCHEmptyProtocol
 {
     NSLog( viewInfo[@"completedView"] ? @"true" : @"false" );
 
-    [IOSResults rewardedVideoWasVuewedVungle:[[viewInfo objectForKey:@"completedView"] boolValue]];
+    [IOSResults videoWasViewedVungle:[[viewInfo objectForKey:@"completedView"] boolValue]];
 }
 
 -( void )vungleSDKwillShowAd
