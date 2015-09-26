@@ -735,12 +735,12 @@ SCHEmptyProtocol
 -( void )setGADispatchInterval:( int )dispatchInterval
 { [GAI sharedInstance].dispatchInterval = dispatchInterval; }
 
--( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label
+-( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label: ( NSNumber * ) value
 {
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category     // Event category (required)
                                                           action:action  // Event action (required)
                                                            label:label          // Event label
-                                                           value:nil] build]];    // Event value
+                                                           value:value] build]];    // Event value
 }
 #endif
 
