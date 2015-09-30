@@ -384,8 +384,8 @@ SCHEmptyProtocol
 
 -( void )shareWithString:( NSString *) message: ( NSString * ) imagePath
 {
-    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:imagePath]];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[message, imagePath] applicationActivities:nil];
+    UIImage *image = [UIImage imageNamed:imagePath];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[message, image] applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop];
     
     // Finally present the view controller.
