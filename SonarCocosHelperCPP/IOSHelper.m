@@ -906,7 +906,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -914,8 +915,8 @@ SCHEmptyProtocol
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
         
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
@@ -928,7 +929,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -937,8 +939,8 @@ SCHEmptyProtocol
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.alertAction = notificationAction;
         
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
@@ -951,7 +953,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -960,8 +963,8 @@ SCHEmptyProtocol
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
         
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
@@ -974,7 +977,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -983,8 +987,9 @@ SCHEmptyProtocol
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.alertAction = notificationAction;
         notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
