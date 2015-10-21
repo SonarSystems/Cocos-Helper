@@ -539,7 +539,10 @@ namespace SonarCocosHelper
     class AmazonGameCircle
     {
     public:
-
+	/**
+         * show leaderboard
+         * @param leaderboardID is the name of your leaderboard
+         */
         static void showLeaderboard( const char *leaderboardID );
         /**
          * Submit score to online leaderboard

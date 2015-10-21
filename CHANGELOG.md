@@ -17,6 +17,10 @@ e - minor bug fix<br />
 [FIX] - bug fixed<br />
 [REMOVE] - functionality removed<br />
 
+## [1.48.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.48.00) (19th October 2015)
+
+- [FIX] Local notifications C++ and JavaScript crash fix
+
 ## [1.46.00](https://github.com/SonarSystems/Sonar-Cocos-Helper/releases/tag/v1.46.00) (7th August 2015)
 
 - [UPDATE] Local notifications iOS JavaScript can now be unscheduled

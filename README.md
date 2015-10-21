@@ -1,6 +1,6 @@
 # Official Cocos Helper website http://cocoshelper.sonarsystems.co.uk
 
-# Cocos Helper v1.46.00
+# Cocos Helper v1.48.00
 
 Cocos Helper is designed to help simplify the process of implementing external frameworks and non existent features into Cocos2d-x C++ and JavaScript. We understand that it is a laborious and painful task to integrate external frameworks into your projects over and over again. So we have solved this with the <strong>Helper</strong>.
 
@@ -48,6 +48,7 @@ Future Plans
 * Google Play Services (iOS)
 * Google Play Services Multiplayer
 * Tune
+* Rating
 * <strong><i>suggestions are very welcome</i></strong>
 
 Potential UI Plugin Features

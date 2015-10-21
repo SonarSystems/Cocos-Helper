@@ -384,8 +384,8 @@ SCHEmptyProtocol
 
 -( void )shareWithString:( NSString *) message: ( NSString * ) imagePath
 {
-    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:imagePath]];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[message, imagePath] applicationActivities:nil];
+    UIImage *image = [UIImage imageNamed:imagePath];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[message, image] applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop];
     
     // Finally present the view controller.
@@ -735,12 +735,12 @@ SCHEmptyProtocol
 -( void )setGADispatchInterval:( int )dispatchInterval
 { [GAI sharedInstance].dispatchInterval = dispatchInterval; }
 
--( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label
+-( void )sendGAEvent:( NSString * ) category: ( NSString * ) action: ( NSString * ) label: ( NSNumber * ) value
 {
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category     // Event category (required)
                                                           action:action  // Event action (required)
                                                            label:label          // Event label
-                                                           value:nil] build]];    // Event value
+                                                           value:value] build]];    // Event value
 }
 #endif
 
@@ -784,7 +784,7 @@ SCHEmptyProtocol
 {
     NSLog( viewInfo[@"completedView"] ? @"true" : @"false" );
 
-    [IOSResults rewardedVideoWasVuewedVungle:[[viewInfo objectForKey:@"completedView"] boolValue]];
+    [IOSResults videoWasViewedVungle:[[viewInfo objectForKey:@"completedView"] boolValue]];
 }
 
 -( void )vungleSDKwillShowAd
@@ -906,7 +906,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -914,8 +915,8 @@ SCHEmptyProtocol
         notifyAlarm.soundName = UILocalNotificationDefaultSoundName;
         notifyAlarm.alertBody = textToDisplay;
         
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
@@ -928,7 +929,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -937,8 +939,8 @@ SCHEmptyProtocol
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.alertAction = notificationAction;
         
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
@@ -951,7 +953,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -960,8 +963,8 @@ SCHEmptyProtocol
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
         
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
@@ -974,7 +977,8 @@ SCHEmptyProtocol
     
     if ( notifyAlarm )
     {
-        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        if ( [[UIDevice currentDevice].systemVersion floatValue] >= 8.0 )
+        {
             notifyAlarm.alertTitle = notificationTitle;
         }
         notifyAlarm.fireDate = alarmTime;
@@ -983,8 +987,9 @@ SCHEmptyProtocol
         notifyAlarm.alertBody = textToDisplay;
         notifyAlarm.alertAction = notificationAction;
         notifyAlarm.repeatInterval = [self convertRepeatIntervalToCalendarUnit:repeatInterval];
-        NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
-        notifyAlarm.userInfo = infoDict;
+        
+        //NSDictionary * infoDict = [NSDictionary dictionaryWithObject:notificationTag forKey:@"notificationID"];
+        //notifyAlarm.userInfo = infoDict;
         
         [[UIApplication sharedApplication] scheduleLocalNotification: notifyAlarm];
     }
