@@ -2,12 +2,14 @@ package sonar.systems.frameworks.RevMob;
 
 
 import com.revmob.RevMob;
+import com.revmob.RevMobAdsListener;
 import com.revmob.ads.interstitial.RevMobFullscreen;
 import com.revmob.ads.popup.RevMobPopup;
-import sonar.systems.frameworks.BaseClass.Framework;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import sonar.systems.frameworks.BaseClass.Framework;
 
 
 public class RevMobAds extends Framework
@@ -93,7 +95,7 @@ public class RevMobAds extends Framework
 	@Override
 	public void ShowPopUpAd()
 	{
-		if (popup != null) 
+		/*if (popup != null) 
 		{
 		      popup.show();
 		}
@@ -101,12 +103,33 @@ public class RevMobAds extends Framework
 		{
 			RevMob revmob = RevMob.session();
 			revmob.showPopup(activity);
-		}
+		}*/
+		RevMobPopup ad = createPopup(activity, null, null);
+		ad.show();
 	}
 	@Override
 	public void onRestart() 
 	{
 		
 	}
+	
+	 public RevMobPopup createPopup(Activity activity, RevMobAdsListener listener)
+	 {
+		 return createPopup(activity, null, listener);
+	 }
+	 
+	 public RevMobPopup createPopup(Activity activity, String placementId, RevMobAdsListener listener)
+	 {
+		 validateActivity(activity);
+		 RevMobPopup ad = new RevMobPopup(activity, listener);
+		 ad.load(placementId);
+		 return ad;
+	 }
+	 private static void validateActivity(Activity activity)
+	 {
+		 if (activity == null) {
+			 throw new RuntimeException("RevMob: Activity must not be a null value.");
+		 }
+	 }
 
 }
