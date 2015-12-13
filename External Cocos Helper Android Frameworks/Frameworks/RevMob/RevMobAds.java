@@ -3,12 +3,17 @@ package sonar.systems.frameworks.RevMob;
 
 import com.revmob.RevMob;
 import com.revmob.RevMobAdsListener;
+import com.revmob.ads.banner.RevMobBanner;
 import com.revmob.ads.interstitial.RevMobFullscreen;
 import com.revmob.ads.popup.RevMobPopup;
+import com.revmob.internal.AndroidHelper;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.RelativeLayout;
 import sonar.systems.frameworks.BaseClass.Framework;
 
 
@@ -18,6 +23,10 @@ public class RevMobAds extends Framework
 	
 	private static RevMobFullscreen fullscreen;
 	private static RevMobPopup popup;
+	private static RelativeLayout bannerLayout;
+	private static RelativeLayout.LayoutParams bannerParams;
+
+	private static RevMobBanner bannerAd;
 	
 	public RevMobAds()
 	{
@@ -75,14 +84,14 @@ public class RevMobAds extends Framework
 			RevMob revmob = RevMob.session();
 			revmob.showFullscreen(activity);
 		}
-		
 	}
 	
 	@Override
 	public void ShowBannerAd()
 	{
 		RevMob revmob = RevMob.session();
-	    revmob.showBanner(activity);
+		revmob.showBanner(activity,null,null);
+		//revmob.showLoadedBanner();
 	}
 
 	@Override
@@ -117,6 +126,10 @@ public class RevMobAds extends Framework
 	 {
 		 return createPopup(activity, null, listener);
 	 }
+	 public RevMobBanner createBanner(Activity activity)
+	  {
+	    return createBanner(activity, null, null);
+	  }
 	 
 	 public RevMobPopup createPopup(Activity activity, String placementId, RevMobAdsListener listener)
 	 {
@@ -125,11 +138,19 @@ public class RevMobAds extends Framework
 		 ad.load(placementId);
 		 return ad;
 	 }
+	 public RevMobBanner createBanner(Activity activity, String placementId, RevMobAdsListener listener)
+	 {
+		validateActivity(activity);
+	    RevMobBanner ad = new RevMobBanner(activity, listener);
+	    ad.setChangeBannerParams(false);
+	    ad.load(placementId);
+	    return ad;
+	  }
+	 
 	 private static void validateActivity(Activity activity)
 	 {
 		 if (activity == null) {
 			 throw new RuntimeException("RevMob: Activity must not be a null value.");
 		 }
 	 }
-
 }
