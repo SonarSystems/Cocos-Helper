@@ -62,5 +62,9 @@
 	<!-- Amazon game circles -->
     <!-- Amazon game circles doesn't use a string value in xml. You need a "api_key.txt" file Amazon will give that file first setup in the website-->
     <!-- Amazon game circles -->
+
+    <!-- Flury -->
+    <string name="my_flurry_apikey">00000000000000000000</string>
+    <!-- Flurry -->
     
 </resources>

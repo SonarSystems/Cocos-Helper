@@ -131,7 +131,14 @@
 	    </intent-filter>
 	    </receiver>-->
 	     
-	    <!-- End Requirements for use Amazon Game Circles DSK -->   
+	    <!-- End Requirements for use Amazon Game Circles DSK -->
+
+      <!-- Requirements for Flurry 
+       <activity
+      android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
+      android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize">
+    </activity> -->
+      <!-- End requirements for Flurry --> 
 	        
 	    </application>
 
