@@ -1,6 +1,8 @@
 package sonar.systems.frameworks.FlurryAds;
 
 import com.flurry.android.FlurryAgent;
+import com.flurry.android.ads.FlurryAdBanner;
+import com.flurry.android.ads.FlurryAdBannerListener;
 import com.flurry.android.ads.FlurryAdErrorType;
 import com.flurry.android.ads.FlurryAdInterstitial;
 import com.flurry.android.ads.FlurryAdInterstitialListener;
@@ -9,6 +11,10 @@ import com.flurry.android.ads.FlurryAdTargeting;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import sonar.systems.frameworks.BaseClass.Framework;
 
 public class FlurryAds extends Framework
@@ -18,7 +24,15 @@ public class FlurryAds extends Framework
     
     private FlurryAdInterstitial mFlurryAdInterstitial = null;
     
-    private String mAdSpaceName = "fullscreen_ads";
+    LayoutParams top_adParams;
+    FrameLayout.LayoutParams bottom_adParams;
+    
+    private RelativeLayout mBanner;
+    private FlurryAdBanner mFlurryAdBanner = null;
+    
+    private String mAdSpaceName = "INTERSTITIAL_MEMORY";//This is the intersitial ads
+    private String mAdSpaceNameBanner = "BANNER";//This is the banner name
+    
     private final static String TAG = "Flurry cocos";
     
     FlurryAdInterstitialListener mAdInterstitialListener = new FlurryAdInterstitialListener() {
@@ -68,6 +82,57 @@ public class FlurryAds extends Framework
         }
     };
     
+    FlurryAdBannerListener bannerAdListener = new FlurryAdBannerListener() {
+        
+        @Override
+        public void onFetched(FlurryAdBanner adBanner) {
+               adBanner.displayAd();
+        }
+
+        @Override
+        public void onError(FlurryAdBanner adBanner, FlurryAdErrorType adErrorType, int errorCode) {
+             adBanner.destroy();
+        }
+       //..
+       //the remainder of the listener callback methods
+
+        @Override
+        public void onAppExit(FlurryAdBanner arg0) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void onClicked(FlurryAdBanner arg0) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void onCloseFullscreen(FlurryAdBanner arg0) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void onRendered(FlurryAdBanner arg0) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void onShowFullscreen(FlurryAdBanner arg0) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void onVideoCompleted(FlurryAdBanner arg0) {
+            // TODO Auto-generated method stub
+            
+        }
+    };
+    
     public FlurryAds()
     {
         // TODO Auto-generated constructor stub
@@ -77,7 +142,6 @@ public class FlurryAds extends Framework
     {
         this.activity = activity;
         mFlurryApiKey = activity.getResources().getString(activity.getResources().getIdentifier("my_flurry_apikey","string",activity.getPackageName()));
-        System.out.println();
     }
     
     @Override
@@ -85,25 +149,56 @@ public class FlurryAds extends Framework
     {
         // Flurry analytics
         super.onCreate(b);
+        bottom_adParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, android.view.Gravity.BOTTOM|android.view.Gravity.CENTER_HORIZONTAL);
         
-        FlurryAgent.setLogEnabled(false);
-        //FlurryAgent.setLogLevel(Log.VERBOSE);
-        FlurryAgent.setLogEvents(false);
-        
+        FlurryAgent.setLogEnabled(true);
+        FlurryAgent.setLogLevel(Log.VERBOSE);
+        FlurryAgent.setLogEvents(true);
         FlurryAgent.init(activity, mFlurryApiKey);
+        Log.i("[Flurry]", "Flurry SDK initialized");
         
+        //Intersitial setup
         mFlurryAdInterstitial = new FlurryAdInterstitial(activity, mAdSpaceName);
-
         mFlurryAdInterstitial.setListener(mAdInterstitialListener);
-
         FlurryAdTargeting adTargeting = new FlurryAdTargeting();
-        adTargeting.setEnableTestAds(false);
+        adTargeting.setEnableTestAds(true);
         mFlurryAdInterstitial.setTargeting(adTargeting);
-
-        //mFlurryAdInterstitial.fetchAd();
-        Log.d("Cocos2dx Activity", "Flurry on create");
+        
+        
+        //Banner setup
+        loadStandardBanner();
+        
+        Log.i("Cocos2dx Activity", "Flurry on create");
+        //ShowBannerAd();
+        ShowFullscreenAd();
     }
-    
+    private void loadStandardBanner()
+    {
+        //ViewGroup bannerAdLayout = (ViewGroup) activity.findViewById(R.id.banner_layout);
+        
+        LinearLayout lin=new LinearLayout(activity);
+        lin.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
+                                              LayoutParams.FILL_PARENT));
+        lin.setOrientation(LinearLayout.HORIZONTAL);
+
+        LinearLayout lin2=new LinearLayout(activity);
+        lin2.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+                                              LayoutParams.WRAP_CONTENT));
+
+        lin.addView(lin2);      
+
+
+        LayoutParams linLayoutParam = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT); 
+        
+        //Banner creation
+        mFlurryAdBanner = new FlurryAdBanner(activity, lin,mAdSpaceNameBanner);
+        mFlurryAdBanner.setListener(bannerAdListener);
+        Log.i(TAG, "Fetching banner ad");
+        mFlurryAdBanner.fetchAd();
+        
+        activity.addContentView(lin2, bottom_adParams);
+        
+    }
     @Override
     public void onStart()
     {
@@ -112,6 +207,7 @@ public class FlurryAds extends Framework
         FlurryAgent.onStartSession(activity,mFlurryApiKey);
         // fetch and prepare ad for this ad space. won’t render one yet
         //mFlurryAdInterstitial.fetchAd();
+        mFlurryAdInterstitial.fetchAd();
     }
     @Override
     public void onStop()
@@ -144,6 +240,26 @@ public class FlurryAds extends Framework
             mFlurryAdInterstitial.fetchAd();
         }        
         Log.d("Flurry", "Flurry ads interstitial show");
+    }
+    
+    @Override
+    public void ShowBannerAd() 
+    {
+        FlurryAdTargeting adTargeting = new FlurryAdTargeting();
+        adTargeting.setEnableTestAds(false);
+        super.ShowBannerAd();
+        if(mFlurryAdBanner.isReady())
+        {
+            mFlurryAdBanner.setTargeting(adTargeting);
+            mFlurryAdBanner.displayAd();
+        }
+        else
+        {
+            mFlurryAdBanner.setTargeting(adTargeting);
+            mFlurryAdBanner = new FlurryAdBanner(activity, mBanner, mAdSpaceNameBanner);
+            mFlurryAdBanner.setListener(bannerAdListener);
+            mFlurryAdBanner.fetchAndDisplayAd();
+        }
     }
     
 }
