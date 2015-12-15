@@ -196,7 +196,7 @@ public class FlurryAds extends Framework
         Log.i(TAG, "Fetching banner ad");
         mFlurryAdBanner.fetchAd();
         
-        activity.addContentView(lin2, bottom_adParams);
+        activity.addContentView(lin, bottom_adParams);
         
     }
     @Override
