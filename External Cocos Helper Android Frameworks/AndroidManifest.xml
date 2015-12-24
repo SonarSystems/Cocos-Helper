@@ -51,7 +51,7 @@
         </activity>
         
         <!-- Required for RevMob 
-        <meta-data android:name="com.revmob.app.id" android:value="@string/revmob_app_id_amazon"/>
+        <meta-data android:name="com.revmob.app.id" android:value="@string/revmob_app_id"/>
         <activity 
             android:name="com.revmob.FullscreenActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
