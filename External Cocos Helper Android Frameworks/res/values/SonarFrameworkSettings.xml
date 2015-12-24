@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
      <!-- Google Play Services -->
-	     <string name="google_play_game_app_id">000000000000</string> <!-- SET TO YOUR GPG APP ID -->
+	     <string name="google_play_game_app_id">0000000000000</string> <!-- SET TO YOUR GPG APP ID -->
 	    
 	    <string name="gamehelper_alert">Not working yet, sorry.</string>
 	    <string name="gamehelper_sign_in_failed">Failed to sign in. Please check your network connection and try again.</string>
@@ -33,7 +33,8 @@
 	<!-- Chartboost End -->
 	
 	 <!-- Revmob -->
-		<string name="revmob_app_id">00000000000000000000000</string> <!-- SET TO YOUR REVMOB APP ID -->
+	 <string name="revmob_app_id_amazon">000000000000000000000000</string> <!-- SET TO YOUR REVMOB APP ID -->
+		<string name="revmob_app_id_google">000000000000000000000000</string> <!-- SET TO YOUR REVMOB APP ID -->
 	<!-- Revmob End -->
 	
     <!-- Game Analytics API -->
@@ -46,7 +47,7 @@
 	<!-- Google Analytics API -->
 	
 	<!-- MoPub -->
-		<string name="mopub_banner_id">00000000000000000000</string>
+		<string name="mopub_banner_id">00000000000000000000000</string>
 		<string name="mopub_fullscreen_id">00000000000000000000000</string>
 	<!-- MoPub -->
     
@@ -62,8 +63,8 @@
 	<!-- Amazon game circles -->
     <!-- Amazon game circles doesn't use a string value in xml. You need a "api_key.txt" file Amazon will give that file first setup in the website-->
     <!-- Amazon game circles -->
-
-    <!-- Flury -->
+    
+	<!-- Flury -->
     <string name="my_flurry_apikey">00000000000000000000</string>
     <!-- Flurry -->
     

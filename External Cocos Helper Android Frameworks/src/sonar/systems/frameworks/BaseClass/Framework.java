@@ -1,11 +1,9 @@
 package sonar.systems.frameworks.BaseClass;
 
-import sonar.systems.framework.SonarFrameworkSettings;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 public class Framework
 {
@@ -139,6 +137,20 @@ public class Framework
 	{
 		
 	}
+	public void showLeaderboardsAmazon()
+	{
+		
+	}
+	
+	public void showAchievementsAmazon()
+	{
+		
+	}
+	
+	public void unlockAchievementAmazon(final String AchievementID)
+	{
+		
+	}
 	
 	//END AMAZON GAME CIRCLES
 	
@@ -235,4 +247,21 @@ public class Framework
 		
 	}
 	//END GOOGLE ANALYTICS
+	
+	//FLURRY ANALYTICS
+	
+	public void SendLogEvent(final String eventId)
+        {
+	    
+        }
+	public void SendLogEvent(final String eventId,boolean timed)
+	{
+	    
+	}
+	public void EndTimeLogEvent(final String eventId)
+	{
+	    
+	}
+	
+	//END FLURRY ANALYTICS
 }
