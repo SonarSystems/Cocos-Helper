@@ -12,7 +12,7 @@ public class SonarFrameworkSettings
 	
 	public static final boolean USE_REVMOB = false;						//Requires revmob jar file and Google play services  library
 
-	public static final boolean USE_FACEBOOK = false;					//Requires facebook sdk library and android support and bolt jar file (in the facebook sdk libs folder)
+	public static final boolean USE_FACEBOOK = false;					//Requires facebook sdk library and android support and bolt jar file //(in the facebook sdk libs folder)
 	
 	public static final boolean USE_TWITTER = false; 					//uses intents for now so no need to include anything else.
 	
@@ -25,4 +25,6 @@ public class SonarFrameworkSettings
 	public static final boolean USE_VUNGLE = false;						//Requires Vungle SDK
 
 	public static final boolean USE_AMAZON_GAMECIRCLES = false;			//Requires Amazon GameCircle SDK
+	
+	public static final boolean USE_FLURRY_ANALYTICS = false;           //Requires Google play services & Flurry Analytics Jar
 }

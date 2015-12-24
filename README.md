@@ -23,6 +23,7 @@ External Frameworks Supported
 * WeChat (iOS)
 * Local notifications (iOS)
 * Amazon Game Circles (Android)
+* Flurry Analytics (Android)
 
 Future Plans
 ------------------------------------------
