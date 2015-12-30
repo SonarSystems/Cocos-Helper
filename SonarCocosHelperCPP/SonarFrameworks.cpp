@@ -1112,7 +1112,7 @@ void FlurryAnalytics::sendLogEvent(cocos2d::__String eventId)
 }
 void FlurryAnalytics::sendLogEvent(cocos2d::__String eventId, bool timed)
 {
-#if(CC_TARGET_PLATFORM)
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     JniHelpers::jniCommonIntCall("SendLogEvent",CLASS_NAME,eventId.getCString(),timed);
 #endif
 }
