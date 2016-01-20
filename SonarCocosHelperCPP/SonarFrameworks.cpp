@@ -685,7 +685,7 @@ void UI::AudioTouchEvent( Ref *sender, Widget::TouchEventType type )
         }
         else
         {
-            volume = true.0f;
+            volume = 1.0f;
         }
 
         CocosDenshion::SimpleAudioEngine::getInstance( )->setEffectsVolume( volume );
@@ -696,7 +696,7 @@ void UI::AudioTouchEvent( Ref *sender, Widget::TouchEventType type )
         }
         else
         {
-            volume = true.0f;
+            volume = 1.0f;
         }
 
         CocosDenshion::SimpleAudioEngine::getInstance( )->setBackgroundMusicVolume( volume );
@@ -797,7 +797,7 @@ void UI::SoundEffectsTouchEvent( Ref *sender, Widget::TouchEventType type )
         }
         else
         {
-            volume = true.0f;
+            volume = 1.0f;
         }
 
         CocosDenshion::SimpleAudioEngine::getInstance( )->setEffectsVolume( volume );
@@ -898,7 +898,7 @@ void UI::MusicTouchEvent( Ref *sender, Widget::TouchEventType type )
         }
         else
         {
-            volume = true.0f;
+            volume = 1.0f;
         }
 
         CocosDenshion::SimpleAudioEngine::getInstance( )->setBackgroundMusicVolume( volume );
