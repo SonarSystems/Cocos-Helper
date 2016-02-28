@@ -240,10 +240,8 @@ void Twitter::Tweet(const char* tweet,const char* title, const char *imagePath)
 void Mopub::showBannerAd()
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    return JniHelpers::jniCommonVoidCall(
-               "ShowBannerAdMP",
-               CLASS_NAME
-           );
+    return JniHelpers::jniCommonVoidCall("ShowBannerAdMP",CLASS_NAME
+                                        );
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         #if SCH_IS_MOPUB_ENABLED == true
 
@@ -1090,18 +1088,31 @@ void AmazonGameCircle::showLeaderboards()
 void AmazonGameCircle::showAchievements()
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    JniHelpers::jniCommonVoidCall(
-        "showAchievementsAmazon",
-        CLASS_NAME);
+    JniHelpers::jniCommonVoidCall("showAchievementsAmazon",CLASS_NAME);
 #endif
 }
 void AmazonGameCircle::unlockAchievement(const char* achievementID)
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    JniHelpers::jniCommonVoidCall(
-        "unlockAchievementAmazon",
-        CLASS_NAME,
-        achievementID);
+    JniHelpers::jniCommonVoidCall("unlockAchievementAmazon",CLASS_NAME,achievementID);
+#endif
+}
+void AmazonAds::showBannerAd()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall("ShowBannerAdAmazon",CLASS_NAME);
+#endif
+}
+void AmazonAds::hideBannerAd()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall("HideBannerAdAmazon",CLASS_NAME);
+#endif
+}
+void AmazonAds::showInterstitial()
+{
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return JniHelpers::jniCommonVoidCall("ShowInterstitialAdAmazon",CLASS_NAME);
 #endif
 }
 void FlurryAnalytics::sendLogEvent(cocos2d::__String eventId)
@@ -1112,7 +1123,7 @@ void FlurryAnalytics::sendLogEvent(cocos2d::__String eventId)
 }
 void FlurryAnalytics::sendLogEvent(cocos2d::__String eventId, bool timed)
 {
-#if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#if(CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
     JniHelpers::jniCommonIntCall("SendLogEvent",CLASS_NAME,eventId.getCString(),timed);
 #endif
 }
