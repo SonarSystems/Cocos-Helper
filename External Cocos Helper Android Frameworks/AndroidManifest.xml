@@ -132,6 +132,12 @@
       </receiver> -->
        
       <!-- End Requirements for use Amazon Game Circles DSK -->
+
+      <!-- Requirements for Amazon Ads 
+
+       <activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>-->
+       
+        <!-- End Requirements for Amazon Ads -->
          
       <!--  Required for Flurry SDK 
         <activity
@@ -140,15 +146,8 @@
         </activity> -->
       <!--  End Required for Flurry SDK -->
         
-        <!-- Requirements for Amazon Ads 
-        <activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
-        -->
-        <!-- End Requirements for Amazon Ads -->
-        
       </application>
       
-      
-
     <supports-screens android:anyDensity="true"
                       android:smallScreens="true"
                       android:normalScreens="true"

@@ -539,10 +539,9 @@ public:
 class AmazonGameCircle
 {
 public:
-    /**
-            * show leaderboard
-            * @param leaderboardID is the name of your leaderboard
-            */
+    /* show leaderboard
+     * @param leaderboardID is the name of your leaderboard
+     */
     static void showLeaderboard( const char *leaderboardID );
     /**
      * Submit score to online leaderboard
@@ -557,7 +556,6 @@ public:
 
     /* show achievement
      * @param achievementID is the name of the achievement
-     *
      */
     static void unlockAchievement(const char* achievementID);
 };

@@ -1,4 +1,8 @@
-package sonar.systems.frameworks.AmazonAds;
+/**
+ * Written by: Oscar Leif
+ * 
+ */
+package sonar.systems.frameworks.Amazon;
 
 import com.amazon.device.ads.Ad;
 import com.amazon.device.ads.AdError;
@@ -8,7 +12,6 @@ import com.amazon.device.ads.AdRegistration;
 import com.amazon.device.ads.AdSize;
 import com.amazon.device.ads.DefaultAdListener;
 import com.amazon.device.ads.InterstitialAd;
-import com.flurry.sdk.ai.c;
 
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
@@ -21,29 +24,28 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 import sonar.systems.frameworks.BaseClass.Framework;
 
 public class AmazonAds extends Framework
 {
 
-    private Activity activity;
-    private static String APP_KEY = ""; // Sample Application Key. Replace this value with your Application Key.
+    private Activity            activity;
+    private static String       APP_KEY = "";                               // Sample Application Key. Replace this value with your Application Key.
     private static final String LOG_TAG = "Amazon Ads Cocos Helper Plugin"; // Tag used to prefix all log messages.
 
-    private ViewGroup adViewContainer; // View group to which the ad view will
-                                       // be added.
-    private AdLayout currentAdView; // The ad that is currently visible to the
-                                    // user.
-    private AdLayout nextAdView; // A placeholder for the next ad so we can keep
-                                 // the current ad visible while the next ad
-                                 // loads.
-    private InterstitialAd interstitialAd;
+    private ViewGroup           adViewContainer;                            // View group to which the ad view will
+                                                                            // be added.
+    private AdLayout            currentAdView;                              // The ad that is currently visible to the
+                                                                            // user.
+    private AdLayout            nextAdView;                                 // A placeholder for the next ad so we can keep
+                                                                            // the current ad visible while the next ad
+                                                                            // loads.
+    private InterstitialAd      interstitialAd;
 
     public void SetActivity(Activity activity)
     {
         this.activity = activity;
-        APP_KEY = activity.getResources().getString(activity.getResources().getIdentifier("amazon_ads_key","string",activity.getPackageName()));
+        APP_KEY = activity.getResources().getString(activity.getResources().getIdentifier("amazon_ads_key", "string", activity.getPackageName()));
     }
 
     @Override
@@ -71,78 +73,80 @@ public class AmazonAds extends Framework
         this.interstitialAd.setListener(new InterstitialAdListener());
         loadAd();
     }
-    
+
     @Override
     public void HideBannerAd()
     {
         activity.runOnUiThread(new Runnable()
         {
-            
+
             @Override
             public void run()
             {
-                if(currentAdView != null)
+                if (currentAdView != null)
                 {
-                    if(currentAdView.getVisibility() == View.VISIBLE)
+                    if (currentAdView.getVisibility() == View.VISIBLE)
                     {
-                        final Animation slideDown = AnimationUtils.loadAnimation(activity,com.hammergames.hammermole.R.anim.slide_down);
+                        final Animation slideDown = AnimationUtils.loadAnimation(activity, activity.getResources().getIdentifier("slide_down", "anim", activity.getPackageName()));
                         currentAdView.startAnimation(slideDown);
-                        currentAdView.setVisibility(View.INVISIBLE);    
+                        currentAdView.setVisibility(View.INVISIBLE);
                     }
                 }
-                else if(currentAdView == null)
+                else if (currentAdView == null)
                 {
                     Log.w(LOG_TAG, "Something wrong please: if Server Message is: DISABLED_APP maybe it's the tax information");
-                    //Toast.makeText(activity, "Hello I failed :(", 2).show();
+                    // Toast.makeText(activity, "Hello I failed :(", 2).show();
                 }
-                
+
             }
         });
     }
+
     @Override
     public void ShowBannerAd()
     {
         super.ShowBannerAd();
-        
-        //showCurrentAd();
+
+        // showCurrentAd();
         activity.runOnUiThread(new Runnable()
         {
             public void run()
             {
-                if(currentAdView != null)
+                if (currentAdView != null)
                 {
-                    if(currentAdView.getVisibility() == View.INVISIBLE)
+                    if (currentAdView.getVisibility() == View.INVISIBLE)
                     {
                         currentAdView.setVisibility(View.VISIBLE);
-                        final Animation slideUp = AnimationUtils.loadAnimation(activity,com.hammergames.hammermole.R.anim.slide_up);
+                        final Animation slideUp = AnimationUtils.loadAnimation(activity, activity.getResources().getIdentifier("slide_up", "anim", activity.getPackageName()));
                         currentAdView.startAnimation(slideUp);
-                    }    
+                    }
                 }
-                else if(currentAdView == null)
+                else if (currentAdView == null)
                 {
                     Log.w(LOG_TAG, "Something wrong please: if Server Message is: DISABLED_APP maybe it's the tax information");
                 }
-                
+
             }
         });
-        
+
     }
-    
+
     @Override
     public void ShowFullscreenAd()
     {
         // TODO Auto-generated method stub
         super.ShowFullscreenAd();
-        if(!this.interstitialAd.showAd())
+        if (!this.interstitialAd.showAd())
         {
             Log.w(LOG_TAG, "The interstitial ad was not show. Check logcar for more information");
         }
     }
+
     /**
      * Clean up all ad view resources when destroying the activity.
      */
     @Override
-    public void onDestroy() 
+    public void onDestroy()
     {
         super.onDestroy();
         if (this.currentAdView != null)
@@ -159,10 +163,8 @@ public class AmazonAds extends Framework
         if (this.nextAdView == null)
         { // Create and configure a new ad if the next ad doesn't currently
           // exist.
-            this.nextAdView = new AdLayout(activity,AdSize.SIZE_AUTO_NO_SCALE);
-            final android.widget.FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,
-                    Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+            this.nextAdView = new AdLayout(activity, AdSize.SIZE_AUTO_NO_SCALE);
+            final android.widget.FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
 
             // Note: The above implementation is for an auto-sized ad in an
             // AdLayout of width MATCH_PARENT and
@@ -196,9 +198,9 @@ public class AmazonAds extends Framework
         // final AdTargetingOptions adOptions = new AdTargetingOptions();
         // adOptions.enableGeoLocation(true);
         // this.nextAdView.loadAd(adOptions);
-        if(this.interstitialAd.loadAd())
+        if (this.interstitialAd.loadAd())
         {
-            
+
         }
         else
         {
@@ -207,12 +209,11 @@ public class AmazonAds extends Framework
     }
 
     /**
-     * Hides the ad that is in the current ad view, and then displays the ad
-     * that is in the next ad view.
+     * Hides the ad that is in the current ad view, and then displays the ad that is in the next ad view.
      */
     private void swapCurrentAd()
     {
-        final Animation slideDown = AnimationUtils.loadAnimation(activity,com.hammergames.hammermole.R.anim.slide_down);
+        final Animation slideDown = AnimationUtils.loadAnimation(activity, activity.getResources().getIdentifier("slide_down", "anim", activity.getPackageName()));
         slideDown.setAnimationListener(new AnimationListener()
         {
             public void onAnimationEnd(final Animation animation)
@@ -237,8 +238,8 @@ public class AmazonAds extends Framework
     private void showCurrentAd()
     {
         this.adViewContainer.addView(this.currentAdView);
-        final Animation slideUp = AnimationUtils.loadAnimation(activity,com.hammergames.hammermole.R.anim.slide_up);
-        this.currentAdView.startAnimation(slideUp);    
+        final Animation slideUp = AnimationUtils.loadAnimation(activity, activity.getResources().getIdentifier("slide_up", "anim", activity.getPackageName()));
+        this.currentAdView.startAnimation(slideUp);
     }
 
     /**
@@ -254,9 +255,7 @@ public class AmazonAds extends Framework
     }
 
     /**
-     * This class is for an event listener that tracks ad lifecycle events. It
-     * extends DefaultAdListener, so you can override only the methods that you
-     * need.
+     * This class is for an event listener that tracks ad lifecycle events. It extends DefaultAdListener, so you can override only the methods that you need.
      */
     class SampleAdListener extends DefaultAdListener
     {
@@ -266,8 +265,7 @@ public class AmazonAds extends Framework
         @Override
         public void onAdLoaded(final Ad ad, final AdProperties adProperties)
         {
-            Log.i(LOG_TAG, adProperties.getAdType().toString()
-                    + " ad loaded successfully.");
+            Log.i(LOG_TAG, adProperties.getAdType().toString() + " ad loaded successfully.");
             // If there is an ad currently being displayed, swap the ad that
             // just loaded with current ad.
             // Otherwise simply display the ad that just loaded.
@@ -293,8 +291,7 @@ public class AmazonAds extends Framework
         @Override
         public void onAdFailedToLoad(final Ad ad, final AdError error)
         {
-            Log.w(LOG_TAG, "Ad failed to load. Code: " + error.getCode()
-                    + ", Message: " + error.getMessage());
+            Log.w(LOG_TAG, "Ad failed to load. Code: " + error.getCode() + ", Message: " + error.getMessage());
         }
 
         /**
@@ -308,8 +305,7 @@ public class AmazonAds extends Framework
         }
 
         /**
-         * This event is called after a rich media ad has collapsed from an
-         * expanded state.
+         * This event is called after a rich media ad has collapsed from an expanded state.
          */
         @Override
         public void onAdCollapsed(final Ad ad)
@@ -318,43 +314,46 @@ public class AmazonAds extends Framework
             // Resume your activity here, if it was paused in onAdExpanded.
         }
     }
+
     /**
-     * This class is for an event listener that tracks ad lifecycle events.
-     * It extends DefaultAdListener, so you can override only the methods that you need.
-     * In this case, there is no need to override methods specific to expandable ads.
+     * This class is for an event listener that tracks ad lifecycle events. It extends DefaultAdListener, so you can override only the methods that you need. In this case, there is no need to override methods specific to expandable ads.
      */
-    class InterstitialAdListener extends DefaultAdListener {
+    class InterstitialAdListener extends DefaultAdListener
+    {
         /**
          * This event is called once an ad loads successfully.
          */
         @Override
-        public void onAdLoaded(final Ad ad, final AdProperties adProperties) {
+        public void onAdLoaded(final Ad ad, final AdProperties adProperties)
+        {
             Log.i(LOG_TAG, adProperties.getAdType().toString() + " ad loaded successfully.");
-    
+
             // Once an interstitial ad has been loaded, it can then be shown.
-            ///AmazonAds.this.showButton.setEnabled(true);
+            /// AmazonAds.this.showButton.setEnabled(true);
         }
-    
+
         /**
          * This event is called if an ad fails to load.
          */
         @Override
-        public void onAdFailedToLoad(final Ad view, final AdError error) {
+        public void onAdFailedToLoad(final Ad view, final AdError error)
+        {
             Log.w(LOG_TAG, "Ad failed to load. Code: " + error.getCode() + ", Message: " + error.getMessage());
-            
+
             // A new load action may be attempted once the previous one has returned a failure callback.
-            //InterstitialAdActivity.this.loadButton.setEnabled(true);
+            // InterstitialAdActivity.this.loadButton.setEnabled(true);
         }
-        
+
         /**
          * This event is called when an interstitial ad has been dismissed by the user.
          */
         @Override
-        public void onAdDismissed(final Ad ad) {
+        public void onAdDismissed(final Ad ad)
+        {
             Log.i(LOG_TAG, "Ad has been dismissed by the user.");
-            
+
             // Once the shown ad is dismissed, its lifecycle is complete and a new ad can be loaded.
-            //InterstitialAdActivity.this.loadButton.setEnabled(true);
+            // InterstitialAdActivity.this.loadButton.setEnabled(true);
             AmazonAds.this.loadAd();
         }
     }
