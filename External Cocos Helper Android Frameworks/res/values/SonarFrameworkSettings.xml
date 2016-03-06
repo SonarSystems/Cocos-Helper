@@ -32,9 +32,8 @@
 		<string name="chartboost_app_signature">0000000000000000000000000000000000000</string> <!-- SET TO YOUR CHARTBOOST APP SIGNATURE -->
 	<!-- Chartboost End -->
 	
-	 <!-- Revmob -->
-	 <string name="revmob_app_id_amazon">000000000000000000000000</string> <!-- SET TO YOUR REVMOB APP ID -->
-		<string name="revmob_app_id_google">000000000000000000000000</string> <!-- SET TO YOUR REVMOB APP ID -->
+	  <!-- Revmob -->
+	 <string name="revmob_app_id">000000000000000000000000</string> <!-- SET TO YOUR REVMOB APP ID -->
 	<!-- Revmob End -->
 	
     <!-- Game Analytics API -->
@@ -64,8 +63,11 @@
     <!-- Amazon game circles doesn't use a string value in xml. You need a "api_key.txt" file Amazon will give that file first setup in the website-->
     <!-- Amazon game circles -->
     
+    <!-- Amazon Ads -->
+    <string name="amazon_ads_key">00000000000000000000000000000000</string>
+    <!-- Amazon Ads -->
+    
 	<!-- Flury -->
     <string name="my_flurry_apikey">00000000000000000000</string>
-    <!-- Flurry -->
     
 </resources>

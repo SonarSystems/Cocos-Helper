@@ -59,12 +59,16 @@ public class SonarFrameworkFunctions
 	//Vungle
 	
 	// Amazon Game circle
-	private static Framework amazongameCircle = null;
+	private static Framework amazongameCircles = null;
 	// Amazon Game circle
 	
 	//Flurry
 	private static Framework flurry = null;
 	//Flurry
+	
+	//Amazon Ads
+	private static Framework amazonAds = null;
+	//Amazon Ads
 
 	public SonarFrameworkFunctions(Context app) throws ClassNotFoundException
 	{
@@ -380,8 +384,8 @@ public class SonarFrameworkFunctions
         if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
         {
         	try {
-                amazongameCircle = (Framework) Class.forName("sonar.systems.frameworks.Amazon.AmazonGameCircles").getConstructor().newInstance();
-                amazongameCircle.SetActivity(((SonarFrameworkActivity)app));
+                amazongameCircles = (Framework) Class.forName("sonar.systems.frameworks.Amazon.AmazonGameCircles").getConstructor().newInstance();
+                amazongameCircles.SetActivity(((SonarFrameworkActivity)app));
             } catch (InstantiationException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -401,7 +405,7 @@ public class SonarFrameworkFunctions
         }
         else
         {
-        	amazongameCircle = new Framework();
+        	amazongameCircles = new Framework();
         }
         //END AMAZON GAME CIRCLES
         
@@ -434,6 +438,37 @@ public class SonarFrameworkFunctions
         	flurry = new Framework();
         }
         //END FLURRY
+        
+        //AMAZON ADS
+        
+        if(SonarFrameworkSettings.USE_AMAZON_ADS)
+        {
+            try
+            {
+                amazonAds = (Framework) Class.forName("sonar.systems.frameworks.Amazon.AmazonAds").getConstructor().newInstance();
+                amazonAds.SetActivity(((SonarFrameworkActivity)app));
+            }catch (InstantiationException e){
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }     	
+        }
+    	else 
+    	{
+    		amazonAds = new Framework();
+    	}
+        
+        //END AMAZON ADS
 		
 	}
 	
@@ -521,11 +556,6 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-		else if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-		{
-			amazongameCircle.submitScore(leaderboardID,score);
-		}
-
 	}
 	
 	public static void submitScore(final String leaderboardID, final int score)
@@ -681,21 +711,16 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
-		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
-		{
-			amazongameCircle.showLeaderboards();
-		}
-
 	}
-	//End GooglePlayServices Functions & Amazon Gamecircles
+	//End GooglePlayServices Functions
 	
-	//Amazon GameCircleFunctions
+	//Amazon Game Circles Functions
 	
 	public static void showLeaderboardAmazon(String leaderboardID)
 	{
 		if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircle.showLeaderboard(leaderboardID);
+			amazongameCircles.showLeaderboard(leaderboardID);
 		}
 	}
 	
@@ -703,37 +728,38 @@ public class SonarFrameworkFunctions
 	{
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircle.submitScore(leaderboardID,score);
+			amazongameCircles.submitScore(leaderboardID,score);
 		}
 	}
 	public static void submitScoreAmazon(final String leaderboardID, final int score) 
 	{
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircle.submitScore(leaderboardID,score);
+			amazongameCircles.submitScore(leaderboardID,score);
 		}
 	}
 	public static void showLeaderboardsAmazon()
 	{
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircle.showLeaderboardsAmazon();
+			amazongameCircles.showLeaderboardsAmazon();
 		}
 	}
 	public static void showAchievementsAmazon()
 	{
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircle.showAchievementsAmazon();
+			amazongameCircles.showAchievementsAmazon();
 		}
 	}
 	public static void unlockAchievementAmazon(final String achievementID)
 	{
 		if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircle.unlockAchievementAmazon(achievementID);
+			amazongameCircles.unlockAchievementAmazon(achievementID);
 		}
 	}
+	//End Amazon Game Circles Functions
 	
 	//Revmob Functions
 	public static void ShowFullscreenAd()
@@ -753,13 +779,37 @@ public class SonarFrameworkFunctions
 	}
 	//End Revmob Functions
 	
+	//Amazon Ads Functions
+	public static void ShowBannerAdAmazon()
+	{
+	    if(SonarFrameworkSettings.USE_AMAZON_ADS)
+	    {
+	     amazonAds.ShowBannerAd();   
+	    }
+	}
+	public static void HideBannerAdAmazon()
+	{
+	    if(SonarFrameworkSettings.USE_AMAZON_ADS)
+	    {
+	        amazonAds.HideBannerAd();
+	    }
+	}
+	public static void ShowInterstitialAdAmazon()
+	{
+	    if(SonarFrameworkSettings.USE_AMAZON_ADS)
+	    {
+	        amazonAds.ShowFullscreenAd();    
+	    }
+	}
+	//End Amazon Ads Functions
+	
 	//Facebook Functions
 	public static void FacebookSignIn()
 	{
-		if(SonarFrameworkSettings.USE_FACEBOOK)
-		{
-			facebook.FacebookSignIn();
-		}
+	    if(SonarFrameworkSettings.USE_FACEBOOK)
+	    {
+	        facebook.FacebookSignIn();
+	    }
 	}
 	
 	public static void FacebookShare(final String name,final String link, final String description, final String caption, final String imagePath )
@@ -798,6 +848,10 @@ public class SonarFrameworkFunctions
 		{
 			revmob.ShowBannerAd();
 		}
+		if(SonarFrameworkSettings.USE_AMAZON_ADS)
+		{
+		    amazonAds.ShowBannerAd();
+		}
 	}
 	
 	public static void ShowBannerAd(int position)
@@ -817,6 +871,10 @@ public class SonarFrameworkFunctions
 		if(SonarFrameworkSettings.USE_REVMOB)
 		{
 			revmob.HideBannerAd();
+		}
+		if(SonarFrameworkSettings.USE_AMAZON_ADS)
+		{
+		    amazonAds.HideBannerAd();
 		}
 	}
 	
@@ -1081,9 +1139,6 @@ public class SonarFrameworkFunctions
 	
         public void onCreate(Bundle b)
         {
-            {
-    
-            }
             // GOOGLE PLAY SERVICES
             if (SonarFrameworkSettings.USE_GOOGLE_PLAY_GAME_SERVICES)
             {
@@ -1126,11 +1181,15 @@ public class SonarFrameworkFunctions
             }
             if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
             {
-                amazongameCircle.onCreate(b);
+                amazongameCircles.onCreate(b);
             }
             if (SonarFrameworkSettings.USE_FLURRY_ANALYTICS)
             {
                 flurry.onCreate(b);
+            }
+            if(SonarFrameworkSettings.USE_AMAZON_ADS)
+            {
+            	amazonAds.onCreate(b);
             }
     
         }
@@ -1169,7 +1228,7 @@ public class SonarFrameworkFunctions
         }
         if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
         {
-        	amazongameCircle.onResume();
+        	amazongameCircles.onResume();
         }
         if(SonarFrameworkSettings.USE_REVMOB)
         {
@@ -1211,6 +1270,10 @@ public class SonarFrameworkFunctions
         {
             vungle.onPause();
         }
+        if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+        {
+        	amazongameCircles.onPause();
+        }
 	}
 
 	public void onDestroy() 
@@ -1229,10 +1292,13 @@ public class SonarFrameworkFunctions
 	    {
 	    	 chartboost.onDestroy();
 	    }
-		
 		if(SonarFrameworkSettings.USE_MOPUB)
 		{
 			mopub.onDestroy();
+		}
+		if(SonarFrameworkSettings.USE_AMAZON_ADS)
+		{
+		    amazonAds.onDestroy();
 		}
 	}
 	

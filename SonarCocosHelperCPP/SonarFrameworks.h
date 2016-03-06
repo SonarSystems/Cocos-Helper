@@ -32,7 +32,7 @@
 using namespace cocos2d;
 
 USING_NS_CC_EXT;
-using namespace ui;
+using namespace cocos2d::ui;
 
 namespace SonarCocosHelper
 {
@@ -394,9 +394,9 @@ public:
     void SetMusicButtonPosition( float xPos, float yPos );
 
 private:
-    ui::Button *audioToggleButton;
-    ui::Button *soundEffectsToggleButton;
-    ui::Button *musicToggleButton;
+    cocos2d::ui::Button *audioToggleButton;
+    cocos2d::ui::Button *soundEffectsToggleButton;
+    cocos2d::ui::Button *musicToggleButton;
 
     class Audio
     {
@@ -539,10 +539,9 @@ public:
 class AmazonGameCircle
 {
 public:
-    /**
-            * show leaderboard
-            * @param leaderboardID is the name of your leaderboard
-            */
+    /* show leaderboard
+     * @param leaderboardID is the name of your leaderboard
+     */
     static void showLeaderboard( const char *leaderboardID );
     /**
      * Submit score to online leaderboard
@@ -557,9 +556,15 @@ public:
 
     /* show achievement
      * @param achievementID is the name of the achievement
-     *
      */
     static void unlockAchievement(const char* achievementID);
+};
+class AmazonAds
+{
+public:
+    static void showBannerAd();
+    static void hideBannerAd();
+    static void showInterstitial();
 };
 
 class FlurryAnalytics
@@ -569,6 +574,7 @@ public:
     static void sendLogEvent(cocos2d::__String eventId,bool timed);
     static void endLogEvent(cocos2d::__String eventId);
 };
+
 }
 
 #endif
