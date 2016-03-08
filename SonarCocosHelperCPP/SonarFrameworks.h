@@ -393,6 +393,12 @@ public:
      */
     void SetMusicButtonPosition( float xPos, float yPos );
 
+    /**
+     * Create and add a centered background
+     * @param backgroundImage (required) background image filepath
+     */
+    static void AddCentredBackground( const std::string &background, cocos2d::Layer *layer );
+
 private:
     cocos2d::ui::Button *audioToggleButton;
     cocos2d::ui::Button *soundEffectsToggleButton;

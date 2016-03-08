@@ -914,6 +914,13 @@ void UI::MusicTouchEvent( Ref *sender, Widget::TouchEventType type )
     }
 }
 
+void UI::AddCentredBackground( const std::string &background, cocos2d::Layer *layer )
+{
+    Sprite *sprite = Sprite::create( background );
+    sprite->setPosition( Vec2( Director::getInstance( )->getVisibleSize( ).width / 2 + Director::getInstance( )->getVisibleOrigin( ).x, Director::getInstance( )->getVisibleSize( ).height / 2 + Director::getInstance( )->getVisibleOrigin( ).y ) );
+    layer->addChild( sprite );
+}
+
 // NOT WORKING ATM
 /*
 void Everyplay::setup( )
