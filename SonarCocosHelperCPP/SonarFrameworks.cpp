@@ -921,6 +921,41 @@ void UI::AddCentredBackground( const std::string &background, cocos2d::Layer *la
     layer->addChild( sprite );
 }
 
+Vec2 UI::GetScreenCenter( )
+{    
+    return Vec2( Director::getInstance( )->getVisibleSize( ).width / 2 + Director::getInstance( )->getVisibleOrigin( ).x, Director::getInstance( )->getVisibleSize( ).height / 2 + Director::getInstance( )->getVisibleOrigin( ).y );
+}
+
+Vec2 UI::GetScreenCorner( int position, Node *itemToPosition )
+{
+    Size visibleSize = Director::getInstance( )->getVisibleSize( );
+    Vec2 origin = Director::getInstance( )->getVisibleOrigin( );
+    
+    switch ( position )
+    {
+        case SonarCocosHelper::UIButtonPosition::eBottomLeft:
+            return Vec2( itemToPosition->getContentSize( ).width / 2 + origin.x, itemToPosition->getContentSize( ).height / 2 + origin.y );
+            
+            break;
+            
+        case SonarCocosHelper::UIButtonPosition::eBottomRight:
+            return Vec2( visibleSize.width - itemToPosition->getContentSize( ).width / 2 + origin.x, itemToPosition->getContentSize( ).height / 2 + origin.y );
+            
+            break;
+            
+        case SonarCocosHelper::UIButtonPosition::eTopLeft:
+            return Vec2( itemToPosition->getContentSize( ).width / 2 + origin.x, visibleSize.height - itemToPosition->getContentSize( ).height / 2 + origin.y );
+            
+            break;
+            
+        case SonarCocosHelper::UIButtonPosition::eTopRight:
+        default:
+            return Vec2( visibleSize.width - itemToPosition->getContentSize( ).width / 2 + origin.x, visibleSize.height - itemToPosition->getContentSize( ).height / 2 + origin.y );
+            
+            break;
+    }
+}
+
 // NOT WORKING ATM
 /*
 void Everyplay::setup( )

@@ -398,6 +398,17 @@ public:
      * @param backgroundImage (required) background image filepath
      */
     static void AddCentredBackground( const std::string &background, cocos2d::Layer *layer );
+    /**
+     * Get the screen centre
+     * @return screem center Vector (Vec2)
+     */
+    static Vec2 GetScreenCenter( );
+    /**
+     * Get the corner screen vector for positioning a node (game object/item)
+     * @param position (required) where would you like to position the button (SonarCocosHelper::UIButtonPosition::eBottomLeft, SonarCocosHelper::UIButtonPosition::eBottomRight, SonarCocosHelper::UIButtonPosition::eTopLeft, SonarCocosHelper::UIButtonPosition::eTopRight)
+     * @return screem corner Vector (Vec2)
+     */
+    static Vec2 GetScreenCorner( int position, Node *itemToPosition );
 
 private:
     cocos2d::ui::Button *audioToggleButton;
