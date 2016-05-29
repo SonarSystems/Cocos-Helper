@@ -146,3 +146,7 @@ Usage - Cocos2d-x JavaScript
 * AdColony
 	- Android : http://bit.ly/1C9FEuP
 	- iOS : http://bit.ly/1J2Vb1u
+	
+# Google play services problems
+As far I know Google has release the new google play services revision 30.
+It removes the Google play services lib folder I will recomend you yo use the revision 29.
