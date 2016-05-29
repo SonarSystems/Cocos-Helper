@@ -149,4 +149,4 @@ Usage - Cocos2d-x JavaScript
 	
 # Google play services problems
 As far I know Google has release the new google play services revision 30.
-It removes the Google play services lib folder I will recomend you yo use the revision 29.
+It removes the Google play services lib folder I will recomend you to use the revision 29.
