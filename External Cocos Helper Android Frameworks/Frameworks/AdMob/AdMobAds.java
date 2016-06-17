@@ -42,8 +42,6 @@ public class AdMobAds extends Framework
 	private final int TOP = 1;
 	private final int BOTH = 2;
 	
-	public static native void FullscreenAdPreloaded(boolean result);
-	
 	private boolean preLoadCalled = false;
 	
 	public AdMobAds()
@@ -111,16 +109,11 @@ public class AdMobAds extends Framework
 	    {
 	          public void onAdLoaded()
 	          {
-	        	  if(preLoadCalled)
-	        	  {
-	        		  FullscreenAdPreloaded(true);
-	        	  }
-	        	  else
+	        	  if(!preLoadCalled)
 	        	  {
 	        		  LoadFullscreenAd();
+                      preLoadCalled = false;
 	        	  }
-	        	  
-	        	  preLoadCalled = false;
 	        	  
 	          }
 	    });
@@ -512,6 +505,7 @@ public class AdMobAds extends Framework
 			     {
 			    	 if(interstitial.isLoaded())
 			    		 interstitial.show();
+			 	     preLoadCalled = true;
 			     }
 		     });
 		}
