@@ -3,6 +3,8 @@ package sonar.systems.framework;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 
@@ -15,11 +17,23 @@ public class SonarFrameworkActivity extends Cocos2dxActivity
 	{
 		super();
 	}
+
+    protected void onLoadNativeLibraries() {
+        try {
+            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = ai.metaData;
+            String libName = bundle.getString("android.app.lib_name");
+            System.loadLibrary(libName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 	
 	@Override
 	protected void onCreate(Bundle b) 
 	{
 		super.onCreate(b);
+        onLoadNativeLibraries();
 		try {
 			functions = new SonarFrameworkFunctions(this);
 		} catch (ClassNotFoundException e) {
@@ -85,10 +99,5 @@ public class SonarFrameworkActivity extends Cocos2dxActivity
 				return;
 			else
 				super.onBackPressed();
-	}
-	//Cocos2d-x
-	static 
-	{
-			System.loadLibrary("cocos2dcpp");
 	}
 }
