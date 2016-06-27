@@ -18,7 +18,7 @@
        
     <!-- Tell Cocos2dxActivity the name of our .so CPP VERSION -->
     <meta-data android:name="android.app.lib_name"
-                android:value="cocos2dcpp" /> 
+                android:value="MyGame" /> 
 
         <!-- Required for Google Play Services 
         <meta-data
