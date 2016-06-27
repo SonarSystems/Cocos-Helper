@@ -34,23 +34,23 @@ public class AmazonGameCircles extends Framework
 
     public AmazonGameCircles()
     {
-    	
+        
     }
     AmazonGamesCallback callback = new AmazonGamesCallback()
     {
-    	@Override
-    	public void onServiceReady(AmazonGamesClient arg0)
-    	{
-    		agsClient = arg0;
-    		gameServicesAvaliable = true;
-    		Toast.makeText(activity, "GameServices Ready",Toast.LENGTH_SHORT).show();
-    	}
-    	@Override
-    	public void onServiceNotReady(AmazonGamesStatus arg0)
-    	{
-    		gameServicesAvaliable = false;
-    		Toast.makeText(activity, "GameServices Not ready",Toast.LENGTH_SHORT).show();
-    	}
+        @Override
+        public void onServiceReady(AmazonGamesClient arg0)
+        {
+            agsClient = arg0;
+            gameServicesAvaliable = true;
+            //Toast.makeText(activity, "GameServices Ready",Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        public void onServiceNotReady(AmazonGamesStatus arg0)
+        {
+            gameServicesAvaliable = false;
+            //Toast.makeText(activity, "GameServices Not ready",Toast.LENGTH_SHORT).show();
+        }
     };
     EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(AmazonGamesFeature.Achievements, AmazonGamesFeature.Leaderboards);
 
@@ -85,6 +85,38 @@ public class AmazonGameCircles extends Framework
 
     @Override
     public void submitScoreAmazon(String leaderboardID, int score)
+    {
+        super.submitScore(leaderboardID, score);
+        if (gameServicesAvaliable)
+        {
+            Log.d("AmazonGameCircle", "Sending LeaderboardID: " + leaderboardID + "with this score: " + Long.toString(score));
+            LeaderboardsClient lbClient = agsClient.getLeaderboardsClient();
+            AGResponseHandle<SubmitScoreResponse> handle = lbClient.submitScore(leaderboardID, score);
+
+            // Optional callback to receive notification of success/failure
+            handle.setCallback(new AGResponseCallback<SubmitScoreResponse>()
+            {
+                @Override
+                public void onComplete(SubmitScoreResponse result)
+                {
+                    if (result.isError())
+                    {
+                        // Add optional error
+                    }
+                    else
+                    {
+                        // continue game flow.
+                    }
+                }
+            });
+        }
+        else
+        {
+            Log.d("AmazonGameCircles", "Developer mode you need to sign the app first");
+        }
+    }
+    @Override
+    public void submitScoreAmazon(final String leaderboardID, final long score)
     {
         super.submitScore(leaderboardID, score);
         if (gameServicesAvaliable)

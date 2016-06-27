@@ -23,6 +23,10 @@
 #include "IOSCPPHelper.h"
 #endif
 
+#if(CC_TARGET_PLATFORM == WINRT)
+	
+#endif
+
 using namespace SonarCocosHelper;
 
 std::string UI::Audio::offButtonString = "";
@@ -47,7 +51,7 @@ void IOS::Setup( )
 
 void IOS::Share( cocos2d::__String shareString, cocos2d::__String imagePath )
 {
-#if SCH_IS_SOCIAL_ENABLED == true
+#if SCH_IS_SOCIAL_ENABLED == 1
     IOSCPPHelper::shareWithString( shareString, imagePath );
 #endif
 }
@@ -143,49 +147,49 @@ void GooglePlayServices::showLeaderboard(const char* leaderboardID)
 
 void GameCenter::signIn( )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterLogin( );
 #endif
 }
 
 void GameCenter::showLeaderboard( )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterShowLeaderboard( );
 #endif
 }
 
 void GameCenter::showAchievements( )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterShowAchievements( );
 #endif
 }
 
 void GameCenter::submitScore( int scoreNumber, cocos2d::__String leaderboardID )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterSubmitScore( scoreNumber, leaderboardID );
 #endif
 }
 
 void GameCenter::unlockAchievement( cocos2d::__String achievementID )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterUnlockAchievement( achievementID, 100.0f );
 #endif
 }
 
 void GameCenter::unlockAchievement( cocos2d::__String achievementID, float percent )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterUnlockAchievement( achievementID, percent );
 #endif
 }
 
 void GameCenter::resetPlayerAchievements( )
 {
-#if SCH_IS_GAME_CENTER_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_GAME_CENTER_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::gameCenterResetPlayerAchievements( );
 #endif
 }
@@ -214,7 +218,7 @@ void Facebook::Share(const char* name,const char* link, const char* description,
                caption,
                imagePath);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_SOCIAL_ENABLED == true
+        #if SCH_IS_SOCIAL_ENABLED == 1
 
     IOSCPPHelper::shareViaFacebook( description, imagePath );
 #endif
@@ -230,7 +234,7 @@ void Twitter::Tweet(const char* tweet,const char* title, const char *imagePath)
         tweet,
         title);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_SOCIAL_ENABLED == true
+        #if SCH_IS_SOCIAL_ENABLED == 1
 
     IOSCPPHelper::shareViaTwitter( tweet, imagePath );
 #endif
@@ -243,7 +247,7 @@ void Mopub::showBannerAd()
     return JniHelpers::jniCommonVoidCall("ShowBannerAdMP",CLASS_NAME
                                         );
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_MOPUB_ENABLED == true
+        #if SCH_IS_MOPUB_ENABLED == 1
 
     IOSCPPHelper::showMopubBanner();
 #endif
@@ -259,7 +263,7 @@ void Mopub::hideBannerAd()
                CLASS_NAME
            );
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_MOPUB_ENABLED == true
+        #if SCH_IS_MOPUB_ENABLED == 1
 
     IOSCPPHelper::hideMopubBanner();
 #endif
@@ -275,7 +279,7 @@ void Mopub::showFullscreenAd( )
                CLASS_NAME
            );
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_MOPUB_ENABLED == true
+        #if SCH_IS_MOPUB_ENABLED == 1
 
     IOSCPPHelper::showMoPubFullscreenAd();
 #endif
@@ -291,7 +295,7 @@ void AdMob::showBannerAd()
                CLASS_NAME,
                AdBannerPosition::eTop);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_AD_MOB_ENABLED == true
+        #if SCH_IS_AD_MOB_ENABLED == 1
 
     IOSCPPHelper::showAdMobBanner( AdBannerPosition::eTop );
 #endif
@@ -306,7 +310,7 @@ void AdMob::showBannerAd(int position)
                CLASS_NAME,
                position);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_AD_MOB_ENABLED == true
+        #if SCH_IS_AD_MOB_ENABLED == 1
 
     IOSCPPHelper::showAdMobBanner( position );
 #endif
@@ -320,7 +324,7 @@ void AdMob::hideBannerAd()
                "HideBannerAd",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_AD_MOB_ENABLED == true
+        #if SCH_IS_AD_MOB_ENABLED == 1
 
     IOSCPPHelper::hideAdMobBanner( eBoth );
 #endif
@@ -335,7 +339,7 @@ void AdMob::hideBannerAd( int position )
                CLASS_NAME,
                position);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        #if SCH_IS_AD_MOB_ENABLED == true
+        #if SCH_IS_AD_MOB_ENABLED == 1
 
     IOSCPPHelper::hideAdMobBanner( position );
 #endif
@@ -349,7 +353,7 @@ void AdMob::showFullscreenAd()
                "ShowFullscreenAdAM",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	#if SCH_IS_AD_MOB_ENABLED == true
+	#if SCH_IS_AD_MOB_ENABLED == 1
 
     IOSCPPHelper::showAdMobFullscreenAd( );
 #endif
@@ -363,7 +367,7 @@ void AdMob::preLoadFullscreenAd()
                "PreLoadFullscreenAdAM",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	#if SCH_IS_AD_MOB_ENABLED == true
+	#if SCH_IS_AD_MOB_ENABLED == 1
     //todo
 #endif
 #endif
@@ -376,7 +380,7 @@ void AdMob::showPreLoadedFullscreenAd()
                "ShowPreLoadedFullscreenAdAM",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	#if SCH_IS_AD_MOB_ENABLED == true
+	#if SCH_IS_AD_MOB_ENABLED == 1
     //todo
 #endif
 #endif
@@ -389,7 +393,7 @@ void RevMob::showFullscreenAd()
                "ShowFullscreenAd",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_REVMOB_ENABLED == true
+    #if SCH_IS_REVMOB_ENABLED == 1
 
     IOSCPPHelper::showRevMobFullScreenAd( );
 #endif
@@ -403,7 +407,7 @@ void RevMob::showPopupAd( )
                "ShowPopUpAd",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_REVMOB_ENABLED == true
+    #if SCH_IS_REVMOB_ENABLED == 1
 
     IOSCPPHelper::showRevMobPopupAd( );
 #endif
@@ -415,7 +419,7 @@ void RevMob::showBannerAd( )
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     return JniHelpers::jniCommonVoidCall("ShowBannerAd",CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_REVMOB_ENABLED == true
+    #if SCH_IS_REVMOB_ENABLED == 1
 
     IOSCPPHelper::showRevMobBanner( );
 #endif
@@ -427,7 +431,7 @@ void RevMob::hideBannerAd( )
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     return JniHelpers::jniCommonVoidCall("HideBannerAd",CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_REVMOB_ENABLED == true
+    #if SCH_IS_REVMOB_ENABLED == 1
 
     IOSCPPHelper::hideRevMobBanner( );
 #endif
@@ -441,7 +445,7 @@ void Chartboost::showFullscreenAd( )
                "ShowFullscreenAdCB",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_CHARTBOOST_ENABLED == true
+    #if SCH_IS_CHARTBOOST_ENABLED == 1
 
     IOSCPPHelper::showChartboostFullScreenAd( );
 #endif
@@ -455,7 +459,7 @@ void Chartboost::preLoadFullscreenAd()
                "PreLoadFullscreenAdCB",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	#if SCH_IS_AD_MOB_ENABLED == true
+	#if SCH_IS_AD_MOB_ENABLED == 1
     //todo
 #endif
 #endif
@@ -468,7 +472,7 @@ void Chartboost::preLoadVideoAd()
                "PreLoadVideoAdCB",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	#if SCH_IS_AD_MOB_ENABLED == true
+	#if SCH_IS_AD_MOB_ENABLED == 1
     //todo
 #endif
 #endif
@@ -481,7 +485,7 @@ void Chartboost::showVideoAd( )
                "ShowVideoAdCB",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_CHARTBOOST_ENABLED == true
+    #if SCH_IS_CHARTBOOST_ENABLED == 1
 
     IOSCPPHelper::showChartboostVideoAd( );
 #endif
@@ -492,7 +496,7 @@ void Chartboost::showMoreApps( )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_CHARTBOOST_ENABLED == true
+    #if SCH_IS_CHARTBOOST_ENABLED == 1
     IOSCPPHelper::showChartboostMoreApps( );
 #endif
 #endif
@@ -500,21 +504,21 @@ void Chartboost::showMoreApps( )
 
 void iAds::showiAdBanner( )
 {
-#if SCH_IS_iADS_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_iADS_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::showiAdBanner( AdBannerPosition::eTop );
 #endif
 }
 
 void iAds::showiAdBanner( int position )
 {
-#if SCH_IS_iADS_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_iADS_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::showiAdBanner( position );
 #endif
 }
 
 void iAds::hideiAdBanner( )
 {
-#if SCH_IS_iADS_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_iADS_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::hideiAdBanner( );
 #endif
 }
@@ -528,7 +532,7 @@ void GoogleAnalytics::setScreenName( cocos2d::__String screenName )
                screenName.getCString());
 
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == 1
 
     IOSCPPHelper::setGAScreenName( screenName );
 #endif
@@ -543,7 +547,7 @@ void GoogleAnalytics::setDispatchInterval( int dispatchInterval )
                CLASS_NAME,
                dispatchInterval);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == 1
 
     IOSCPPHelper::setGADispatchInterval( dispatchInterval );
 #endif
@@ -561,7 +565,7 @@ void GoogleAnalytics::sendEvent( cocos2d::__String category, cocos2d::__String a
                label.getCString(),
                value);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == true
+    #if SCH_IS_GOOGLE_ANALYTICS_ENABLED == 1
 
     IOSCPPHelper::sendGAEvent( category, action, label, value );
 #endif
@@ -575,7 +579,7 @@ void AdColony::showVideoAC (bool withPreOp, bool withPostOp)
                "ShowRewardedVideoAdAC",
                CLASS_NAME);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_ADCOLONY_ENABLED == true
+    #if SCH_IS_ADCOLONY_ENABLED == 1
 
     IOSCPPHelper::showVideoAC( withPreOp, withPostOp );
 #endif
@@ -590,7 +594,7 @@ void Vungle::ShowVideoVungle( bool isIncentivised )
                CLASS_NAME,
                isIncentivised);
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_VUNGLE_ENABLED == true
+    #if SCH_IS_VUNGLE_ENABLED == 1
 
     IOSCPPHelper::showVideoVungle( isIncentivised );
 #endif
@@ -960,28 +964,28 @@ Vec2 UI::GetScreenCorner( int position, Node *itemToPosition )
 /*
 void Everyplay::setup( )
 {
-#if SCH_IS_EVERYPLAY_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_EVERYPLAY_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::setupEveryplay( );
 #endif
 }
  
 void Everyplay::showEveryplay( )
 {
-#if SCH_IS_EVERYPLAY_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_EVERYPLAY_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::showEveryplay( );
 #endif
 }
  
 void Everyplay::record( )
 {
-#if SCH_IS_EVERYPLAY_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_EVERYPLAY_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::recordEveryplayVideo( );
 #endif
 }
  
 void Everyplay::playLastVideoRecording( )
 {
-#if SCH_IS_EVERYPLAY_ENABLED == true && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+#if SCH_IS_EVERYPLAY_ENABLED == 1 && CC_TARGET_PLATFORM == CC_PLATFORM_IOS
     IOSCPPHelper::playLastEveryplayVideoRecording( );
 #endif
 }
@@ -994,7 +998,7 @@ void WeChat::shareTextToWeChat( cocos2d::__String shareString )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_WECHAT_ENABLED == true
+    #if SCH_IS_WECHAT_ENABLED == 1
     IOSCPPHelper::shareTextToWeChat( shareString );
 #endif
 #endif
@@ -1004,7 +1008,7 @@ void WeChat::shareImageToWeChat( cocos2d::__String thumbImgPath, cocos2d::__Stri
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_WECHAT_ENABLED == true
+    #if SCH_IS_WECHAT_ENABLED == 1
     IOSCPPHelper::shareImageToWeChat( thumbImgPath, imgPath );
 #endif
 #endif
@@ -1014,7 +1018,7 @@ void WeChat::shareLinkToWeChat( cocos2d::__String thumbImgPath, cocos2d::__Strin
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_WECHAT_ENABLED == true
+    #if SCH_IS_WECHAT_ENABLED == 1
     IOSCPPHelper::shareLinkToWeChat( thumbImgPath, msgTitle, msgDescription, httpUrl );
 #endif
 #endif
@@ -1024,7 +1028,7 @@ void WeChat::shareMusicToWeChat( cocos2d::__String msgTitle, cocos2d::__String m
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_WECHAT_ENABLED == true
+    #if SCH_IS_WECHAT_ENABLED == 1
     IOSCPPHelper::shareMusicToWeChat( msgTitle, msgDescription, thumbImgPath, musicUrl, musicDataURL );
 #endif
 #endif
@@ -1034,7 +1038,7 @@ void WeChat::shareVideoToWeChat( cocos2d::__String msgTitle, cocos2d::__String m
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_WECHAT_ENABLED == true
+    #if SCH_IS_WECHAT_ENABLED == 1
     IOSCPPHelper::shareVideoToWeChat( msgTitle, msgDescription, thumbImgPath, videoUrl );
 #endif
 #endif
@@ -1044,7 +1048,7 @@ void Notifications::scheduleLocalNotification( float delay, cocos2d::__String te
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+    #if SCH_IS_NOTIFICATIONS_ENABLED == 1
     IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle ,notificationTag);
 #endif
 #endif
@@ -1054,7 +1058,7 @@ void Notifications::scheduleLocalNotification( float delay, cocos2d::__String te
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+    #if SCH_IS_NOTIFICATIONS_ENABLED == 1
     IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle, notificationAction ,notificationTag);
 #endif
 #endif
@@ -1064,7 +1068,7 @@ void Notifications::scheduleLocalNotification( float delay, cocos2d::__String te
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+    #if SCH_IS_NOTIFICATIONS_ENABLED == 1
     IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle, repeatInterval ,notificationTag);
 #endif
 #endif
@@ -1074,7 +1078,7 @@ void Notifications::scheduleLocalNotification( float delay, cocos2d::__String te
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+    #if SCH_IS_NOTIFICATIONS_ENABLED == 1
     IOSCPPHelper::scheduleLocalNotification( delay, textToDisplay, notificationTitle, notificationAction, repeatInterval , notificationTag );
 #endif
 #endif
@@ -1084,7 +1088,7 @@ void Notifications::unscheduleAllLocalNotifications( )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+    #if SCH_IS_NOTIFICATIONS_ENABLED == 1
     IOSCPPHelper::unscheduleAllLocalNotifications( );
 #endif
 #endif
@@ -1094,7 +1098,7 @@ void Notifications::unscheduleLocalNotification(  int notificationTag  )
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #elif(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #if SCH_IS_NOTIFICATIONS_ENABLED == true
+    #if SCH_IS_NOTIFICATIONS_ENABLED == 1
     IOSCPPHelper::unscheduleLocalNotification( notificationTag );
 #endif
 #endif
@@ -1102,13 +1106,13 @@ void Notifications::unscheduleLocalNotification(  int notificationTag  )
 void AmazonGameCircle::showLeaderboard(const char* leaderboardID)
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    JniHelpers::jniCommonVoidCall("showLeaderboardAmazon",CLASS_NAME,leaderboardID);
+	JniHelpers::jniCommonVoidCall("showLeaderboardAmazon",CLASS_NAME,leaderboardID);
 #endif
 }
 void AmazonGameCircle::submitScore(const char* leaderboardID, long score)
 {
 #if(CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    JniHelpers::jniCommonVoidCall("submitScoreAmazon",CLASS_NAME,leaderboardID,score);
+	JniHelpers::jniCommonVoidCall("submitScore",CLASS_NAME,leaderboardID,score);
 #endif
 }
 void AmazonGameCircle::showLeaderboards()

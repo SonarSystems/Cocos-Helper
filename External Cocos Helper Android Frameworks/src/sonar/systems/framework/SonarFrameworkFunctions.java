@@ -556,6 +556,10 @@ public class SonarFrameworkFunctions
 				}
 			});
 		}
+		else if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircles.submitScoreAmazon(leaderboardID, score);
+		}
 	}
 	
 	public static void submitScore(final String leaderboardID, final int score)
@@ -584,6 +588,10 @@ public class SonarFrameworkFunctions
 					}
 				}
 			});
+		}
+		else if(SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
+		{
+			amazongameCircles.submitScoreAmazon(leaderboardID, score);
 		}
 	}
 
@@ -720,7 +728,7 @@ public class SonarFrameworkFunctions
 	{
 		if (SonarFrameworkSettings.USE_AMAZON_GAMECIRCLES)
 		{
-			amazongameCircles.showLeaderboard(leaderboardID);
+			amazongameCircles.showLeaderboardAmazon(leaderboardID);
 		}
 	}
 	
