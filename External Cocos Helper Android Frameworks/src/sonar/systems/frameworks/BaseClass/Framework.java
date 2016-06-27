@@ -121,7 +121,7 @@ public class Framework
 
     // AMAZON GAME CIRCLES
 
-    public void showLeaderBoardAmazon(String leaderboard)
+    public void showLeaderboardAmazon(String leaderboard)
     {
 
     }

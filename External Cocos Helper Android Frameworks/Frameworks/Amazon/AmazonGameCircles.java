@@ -22,6 +22,7 @@ import com.amazon.ags.api.leaderboards.SubmitScoreResponse;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 import sonar.systems.frameworks.BaseClass.Framework;
 
 public class AmazonGameCircles extends Framework
@@ -29,27 +30,28 @@ public class AmazonGameCircles extends Framework
     private Activity           activity;
     private AmazonGamesClient  agsClient;
     private LeaderboardsClient lbClient;
-    private boolean            gameServicesAvaliable;
+    private boolean            gameServicesAvaliable = false;
 
     public AmazonGameCircles()
     {
+    	
     }
-
-    AmazonGamesCallback         callback       = new AmazonGamesCallback()
-                                               {
-                                                   @Override
-                                                   public void onServiceReady(AmazonGamesClient arg0)
-                                                   {
-                                                       agsClient = arg0;
-                                                       gameServicesAvaliable = true;
-                                                   }
-
-                                                   @Override
-                                                   public void onServiceNotReady(AmazonGamesStatus arg0)
-                                                   {
-                                                       gameServicesAvaliable = false;
-                                                   }
-                                               };
+    AmazonGamesCallback callback = new AmazonGamesCallback()
+    {
+    	@Override
+    	public void onServiceReady(AmazonGamesClient arg0)
+    	{
+    		agsClient = arg0;
+    		gameServicesAvaliable = true;
+    		Toast.makeText(activity, "GameServices Ready",Toast.LENGTH_SHORT).show();
+    	}
+    	@Override
+    	public void onServiceNotReady(AmazonGamesStatus arg0)
+    	{
+    		gameServicesAvaliable = false;
+    		Toast.makeText(activity, "GameServices Not ready",Toast.LENGTH_SHORT).show();
+    	}
+    };
     EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(AmazonGamesFeature.Achievements, AmazonGamesFeature.Leaderboards);
 
     @Override
@@ -85,7 +87,7 @@ public class AmazonGameCircles extends Framework
     public void submitScoreAmazon(String leaderboardID, int score)
     {
         super.submitScore(leaderboardID, score);
-        if (gameServicesAvaliable == true)
+        if (gameServicesAvaliable)
         {
             Log.d("AmazonGameCircle", "Sending LeaderboardID: " + leaderboardID + "with this score: " + Long.toString(score));
             LeaderboardsClient lbClient = agsClient.getLeaderboardsClient();
@@ -115,11 +117,10 @@ public class AmazonGameCircles extends Framework
     }
 
     @Override
-    public void showLeaderBoardAmazon(String leaderboard)
+    public void showLeaderboardAmazon(String leaderboard)
     {
         Log.d("AmazonGameCircle", "Show LeaderboardID: " + leaderboard);
-
-        if (gameServicesAvaliable == true)
+        if (gameServicesAvaliable)
         {
             LeaderboardsClient lbClient = agsClient.getLeaderboardsClient();
             if (lbClient != null)
