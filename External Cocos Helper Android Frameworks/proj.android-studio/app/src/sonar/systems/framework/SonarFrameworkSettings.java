@@ -31,7 +31,7 @@ public class SonarFrameworkSettings
 
     public static final boolean USE_AMAZON_GAMECIRCLES        = false;  // Requires Amazon GameCircle SDK
 
-    public static final boolean USE_AMAZON_ADS                = true; // Requires Amazon ads Jar file library
+    public static final boolean USE_AMAZON_ADS                = false; // Requires Amazon ads Jar file library
 
     public static final boolean USE_FLURRY_ANALYTICS          = false; // Requires Google play services & Flurry
                                                                        // Analytics Jar
