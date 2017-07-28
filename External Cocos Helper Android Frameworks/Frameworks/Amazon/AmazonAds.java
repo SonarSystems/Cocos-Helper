@@ -29,13 +29,13 @@ public class AmazonAds extends Framework
 {
     private static AmazonAds instance = null;
     private Activity activity;
-    private static String APP_KEY = "";                         // Sample Application Key. Replace this value with your Application Key.
-    private static final String LOG_TAG = "Amazon Ads Plugin";	// Tag used to prefix all log messages.
+    private static String APP_KEY = "";                               // Sample Application Key. Replace this value with your Application Key.
+    private static final String LOG_TAG = "Amazon Ads Plugin"; // Tag used to prefix all log messages.
 
-    private ViewGroup adViewContainer;                          // View group to which the ad view will be added.
-    
-    private AdLayout adView = null;                             // The ad that is currently visible to the user.
-    
+    private ViewGroup adViewContainer;                            // View group to which the ad view will
+    // be added.
+    private AdLayout adView = null;                                     // The ad that is currently visible to the
+    // user.
     private InterstitialAd interstitialAd;
 
     private boolean isInitizalided = false;
@@ -82,7 +82,8 @@ public class AmazonAds extends Framework
 
     private void InitializeAds()
     {
-        APP_KEY = "sample-app-v1_pub-2";
+        APP_KEY = "42e4f418e79c4ce1960f9de6ef14bbbd";//activity.getResources().getString(activity.getResources().getIdentifier("amazon_ads_key", "string", activity.getPackageName()));
+        //APP_KEY = "sample-app-v1_pub-2";
         AdLayout adLayout = new AdLayout(activity);
         //adLayout.setTimeout(15000); // 20 seconds This is optionally by Default is 10000
         AdRegistration.enableLogging(true);

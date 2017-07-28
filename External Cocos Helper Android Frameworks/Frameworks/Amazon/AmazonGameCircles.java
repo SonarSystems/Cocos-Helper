@@ -1,12 +1,15 @@
-package sonar.systems.frameworks.Amazon;
+package sonar.systems.frameworks.amazon;
 
 /**
  * Written by: Oscar Leif
- * 
+ * <p>
  * WARNING: Don't use Android 6 has target it will make this crash
  */
 
-import java.util.EnumSet;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.amazon.ags.api.AGResponseCallback;
 import com.amazon.ags.api.AGResponseHandle;
@@ -19,23 +22,41 @@ import com.amazon.ags.api.achievements.UpdateProgressResponse;
 import com.amazon.ags.api.leaderboards.LeaderboardsClient;
 import com.amazon.ags.api.leaderboards.SubmitScoreResponse;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
+import java.util.EnumSet;
+
 import sonar.systems.frameworks.BaseClass.Framework;
 
 public class AmazonGameCircles extends Framework
 {
-    private Activity           activity;
-    private AmazonGamesClient  agsClient;
+    public static AmazonGameCircles instance;
+    private Activity activity;
+    private AmazonGamesClient agsClient;
     private LeaderboardsClient lbClient;
-    private boolean            gameServicesAvaliable = false;
+    private boolean gameServicesAvaliable;
 
     public AmazonGameCircles()
     {
-        
+        if (instance == null)
+        {
+            try
+            {
+                throw new Exception("Object already exist");
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
+
+    public static AmazonGameCircles getInstance() throws Exception
+    {
+        if (instance == null)
+        {
+            instance = new AmazonGameCircles();
+        }
+        return instance;
+    }
+
     AmazonGamesCallback callback = new AmazonGamesCallback()
     {
         @Override
@@ -43,13 +64,12 @@ public class AmazonGameCircles extends Framework
         {
             agsClient = arg0;
             gameServicesAvaliable = true;
-            //Toast.makeText(activity, "GameServices Ready",Toast.LENGTH_SHORT).show();
         }
+
         @Override
         public void onServiceNotReady(AmazonGamesStatus arg0)
         {
             gameServicesAvaliable = false;
-            //Toast.makeText(activity, "GameServices Not ready",Toast.LENGTH_SHORT).show();
         }
     };
     EnumSet<AmazonGamesFeature> myGameFeatures = EnumSet.of(AmazonGamesFeature.Achievements, AmazonGamesFeature.Leaderboards);
@@ -58,6 +78,7 @@ public class AmazonGameCircles extends Framework
     public void SetActivity(Activity activity)
     {
         this.activity = activity;
+        instance = this;
     }
 
     @Override
@@ -87,7 +108,8 @@ public class AmazonGameCircles extends Framework
     public void submitScoreAmazon(String leaderboardID, int score)
     {
         super.submitScore(leaderboardID, score);
-        if (gameServicesAvaliable)
+        Log.e("Oscar JNI", "SubmitScore Works");
+        if (gameServicesAvaliable == true)
         {
             Log.d("AmazonGameCircle", "Sending LeaderboardID: " + leaderboardID + "with this score: " + Long.toString(score));
             LeaderboardsClient lbClient = agsClient.getLeaderboardsClient();
@@ -102,65 +124,32 @@ public class AmazonGameCircles extends Framework
                     if (result.isError())
                     {
                         // Add optional error
-                    }
-                    else
+                    } else
                     {
                         // continue game flow.
+                        Toast.makeText(activity, "Record updated", Toast.LENGTH_SHORT);
                     }
                 }
             });
-        }
-        else
-        {
-            Log.d("AmazonGameCircles", "Developer mode you need to sign the app first");
-        }
-    }
-    @Override
-    public void submitScoreAmazon(final String leaderboardID, final long score)
-    {
-        super.submitScore(leaderboardID, score);
-        if (gameServicesAvaliable)
-        {
-            Log.d("AmazonGameCircle", "Sending LeaderboardID: " + leaderboardID + "with this score: " + Long.toString(score));
-            LeaderboardsClient lbClient = agsClient.getLeaderboardsClient();
-            AGResponseHandle<SubmitScoreResponse> handle = lbClient.submitScore(leaderboardID, score);
-
-            // Optional callback to receive notification of success/failure
-            handle.setCallback(new AGResponseCallback<SubmitScoreResponse>()
-            {
-                @Override
-                public void onComplete(SubmitScoreResponse result)
-                {
-                    if (result.isError())
-                    {
-                        // Add optional error
-                    }
-                    else
-                    {
-                        // continue game flow.
-                    }
-                }
-            });
-        }
-        else
+        } else
         {
             Log.d("AmazonGameCircles", "Developer mode you need to sign the app first");
         }
     }
 
     @Override
-    public void showLeaderboardAmazon(String leaderboard)
+    public void showLeaderBoardAmazon(String leaderboard)
     {
         Log.d("AmazonGameCircle", "Show LeaderboardID: " + leaderboard);
-        if (gameServicesAvaliable)
+
+        if (gameServicesAvaliable == true)
         {
             LeaderboardsClient lbClient = agsClient.getLeaderboardsClient();
             if (lbClient != null)
             {
                 lbClient.showLeaderboardOverlay(leaderboard);
             }
-        }
-        else
+        } else
             Log.d("AmazonGameCircles", "if you're debugin it will not work you need to create release");
     }
 
@@ -175,8 +164,7 @@ public class AmazonGameCircles extends Framework
             {
                 lbClients.showLeaderboardsOverlay();
             }
-        }
-        else
+        } else
             Log.i("Amazon GameCircle:", "If you're on debug this is normal to appear Game Circles doesn't work in debug mode");
         Log.e("Amazon GameCircle:", "Please check if the app is signed or check your manifest settings");
 
@@ -200,8 +188,7 @@ public class AmazonGameCircles extends Framework
             {
                 aClient.showAchievementsOverlay();
             }
-        }
-        else
+        } else
             Log.i("Amazon GameCircle:", "If you're on debug this is normal to appear Game Circles doesn't work in debug mode");
         Log.e("Amazon GameCircle:", "If you're on debug this is normal to appear");
     }
@@ -219,8 +206,7 @@ public class AmazonGameCircles extends Framework
                 if (result.isError())
                 {
 
-                }
-                else
+                } else
                 {
                     // Continue game flow
                 }
