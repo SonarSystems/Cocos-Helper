@@ -33,14 +33,17 @@ public class SonarFrameworkActivity extends Cocos2dxActivity
 	protected void onCreate(Bundle b) 
 	{
 		super.onCreate(b);
+		boolean somethingFail = false;
         onLoadNativeLibraries();
-		try {
+		try
+		{
 			functions = new SonarFrameworkFunctions(this);
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		functions.onCreate(b);
+
 	}
 
 	@Override
