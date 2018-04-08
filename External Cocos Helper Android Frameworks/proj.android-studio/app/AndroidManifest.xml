@@ -115,7 +115,7 @@
       <action android:name="android.intent.action.VIEW" />
       <category android:name="android.intent.category.DEFAULT" />
       <category android:name="android.intent.category.BROWSABLE" />
-      <data android:host="your.own.package" android:scheme="amzn" />
+      <data android:host="${packageName}" android:scheme="amzn" />
       </intent-filter>
       </activity>
       <activity android:name="com.amazon.ags.html5.overlay.GameCircleAlertUserInterface"
