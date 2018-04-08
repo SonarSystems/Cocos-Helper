@@ -1,12 +1,10 @@
-package sonar.systems.frameworks.amazon;
+package sonar.systems.frameworks.Amazon;
 
 /**
  * Written by: Oscar Leif
  */
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -27,30 +25,23 @@ import sonar.systems.frameworks.BaseClass.Framework;
 
 public class AmazonAds extends Framework
 {
-    private static AmazonAds instance = null;
-    private Activity activity;
-    private static String APP_KEY = "";                               // Sample Application Key. Replace this value with your Application Key.
     private static final String LOG_TAG = "Amazon Ads Plugin"; // Tag used to prefix all log messages.
-
-    private ViewGroup adViewContainer;                            // View group to which the ad view will
-    // be added.
-    private AdLayout adView = null;                                     // The ad that is currently visible to the
-    // user.
-    private InterstitialAd interstitialAd;
-
-    private boolean isInitizalided = false;
-
     public static boolean interstitialAdLoaded = false;
+    private static AmazonAds instance = null;
+    private static String APP_KEY = "";                        // Your Amazon Ads Key ID
+    private Activity activity;
+    private ViewGroup adViewContainer;                         // View group to which the ad view will be added.
+    private AdLayout adView = null;                            // The ad that is currently visible to the user.
+    private InterstitialAd interstitialAd;
+    private boolean IsInitialized = false;
+
 
     public AmazonAds()
     {
-        if (instance == null)
-        {
-            try
-            {
+        if (instance == null) {
+            try {
                 throw new Exception("Object already exist");
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -58,56 +49,72 @@ public class AmazonAds extends Framework
 
     public static AmazonAds getInstance() throws Exception
     {
-        if (instance == null)
-        {
+        if (instance == null) {
             instance = new AmazonAds();
         }
         return instance;
     }
 
+    //Call this first From Cocos via JNI
     public void SetActivity(Activity activity)
     {
         this.activity = activity;
-        instance = this;
+        this.instance = this;
         //TODO Update this the Key should be passed from C++ it will protect the Key
-
-        InitializeAds();
+        this.Init();
     }
 
-    @Override
-    public void onCreate(Bundle b)
+    private void Init()
     {
-        super.onCreate(b);
-    }
-
-    private void InitializeAds()
-    {
-        APP_KEY = "42e4f418e79c4ce1960f9de6ef14bbbd";//activity.getResources().getString(activity.getResources().getIdentifier("amazon_ads_key", "string", activity.getPackageName()));
-        //APP_KEY = "sample-app-v1_pub-2";
+        APP_KEY = "sample-app-v1_pub-2";
         AdLayout adLayout = new AdLayout(activity);
         //adLayout.setTimeout(15000); // 20 seconds This is optionally by Default is 10000
         AdRegistration.enableLogging(true);
-        // For debugging purposes flag all ad requests as tests, but set to
-        // false for production builds.
         AdRegistration.enableTesting(true);
         AdRegistration.setAppKey(APP_KEY);
-        isInitizalided = true;
-
         this.adViewContainer = (FrameLayout) activity.findViewById(android.R.id.content);
-        //this.interstitialAd = new InterstitialAd(activity);
-        //this.interstitialAd.setListener(new InterstitialsAdListener());
+        this.IsInitialized = true;
+        //this.createBanner();
     }
 
+    // Create a Banner
     public void createBanner()
     {
+        // Check if the plugin is initialized
+        if (!IsInitialized) {
+            //Log.d(tag, "Amazon Ad plugin is not initialized yet!");
+            return;
+        }
+        final AmazonAds self = this;
+        // Create the ad view just once
+        if (adView == null) {
+            // Run the thread on Unity activity
+            activity.runOnUiThread(
+                    new Runnable()
+                    {
+                        public void run()
+                        {
 
+                            adViewContainer = self.adViewContainer;
+                            adView = new AdLayout(activity, AdSize.SIZE_AUTO_NO_SCALE);
+                            final ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER);
+                            adView.setLayoutParams(layoutParams);
+                            adView.setListener(new BannerAdListener());
+
+                            adViewContainer.addView(adView);
+                            refresh();
+                        }
+                    });
+        } else {
+            refresh();
+        }
     }
 
     @Override
     public void HideBannerAd()
     {
-        if (adView == null)
-        {
+        if (adView == null) {
             return;
         }
         activity.runOnUiThread(new Runnable()
@@ -123,45 +130,23 @@ public class AmazonAds extends Framework
     @Override
     public void ShowBannerAd()
     {
-
         super.ShowBannerAd();
         // showCurrentAd();
-        if (!isInitizalided)
-        {
+        if (!this.IsInitialized) {
             Log.d(LOG_TAG, "Amazon Ads plugin is not initialized yet!");
             return;
         }
-        if (adView == null)
-        {
-            activity.runOnUiThread(new Runnable()
-            {
-
-                @Override
-                public void run()
-                {
-
-                    adView = new AdLayout(activity, AdSize.SIZE_AUTO_NO_SCALE);
-                    adView.setListener(new CustomAdListener());
-                    final android.widget.FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-                    activity.addContentView(adView, layoutParams);
-                    AdTargetingOptions adOptions = new AdTargetingOptions();
-                    adView.loadAd(adOptions);
-                    //adView.startAnimation(slideUp);
-                    adView.setVisibility(View.VISIBLE);
-                }
-            });
-        } else
-        {
+        if (adView == null) {
+            createBanner();
+        } else {
             refresh();
         }
     }
 
     // Refresh banner for a new ad request
-    //TODO Check this refresh method
     public void refresh()
     {
-        if (adView != null)
-        {
+        if (adView != null) {
             Log.d(LOG_TAG, "Refreshing Amazon Ad banner.");
 
             // Run the thread on Unity activity
@@ -170,19 +155,13 @@ public class AmazonAds extends Framework
                     {
                         public void run()
                         {
+                            adView.setVisibility(View.VISIBLE);
                             AdTargetingOptions adOptions = new AdTargetingOptions();
                             adView.loadAd(adOptions);
-                            if (adView.getVisibility() == View.INVISIBLE)
-                            {
-                                adView.setVisibility(View.VISIBLE);
-                                //adView.startAnimation(slideUp);
-                                return;
-                            }
                         }
                     });
-        } else
-        {
-            Log.d("Amazon Ads", "Amazon Ad plugin is not initialized yet!");
+        } else {
+            Log.d(LOG_TAG, "Amazon Ad plugin is not initialized yet!");
         }
     }
 
@@ -192,8 +171,7 @@ public class AmazonAds extends Framework
     {
         super.HideBannerAd(position);
         //return if there's no ad view
-        if (adView == null)
-        {
+        if (adView == null) {
             return;
         }
 
@@ -202,8 +180,7 @@ public class AmazonAds extends Framework
             @Override
             public void run()
             {
-                if (adView != null)
-                {
+                if (adView != null) {
                     adView.setVisibility(View.GONE);
                 }
             }
@@ -222,10 +199,8 @@ public class AmazonAds extends Framework
             public void run()
             {
                 requestInterstital();
-                if (interstitialAd != null)
-                {
-                    if (AmazonAds.interstitialAdLoaded)
-                    {
+                if (interstitialAd != null) {
+                    if (AmazonAds.interstitialAdLoaded) {
                         interstitialAd.showAd();
                         AmazonAds.interstitialAdLoaded = false;
                     }
@@ -235,7 +210,7 @@ public class AmazonAds extends Framework
 
     }
 
-    // Request interstitials
+    // Request interstitial
     public void requestInterstital()
     {
         activity.runOnUiThread(new Runnable()
@@ -245,23 +220,19 @@ public class AmazonAds extends Framework
             {
                 boolean shouldRequest = true;
 
-                if (interstitialAd != null)
-                {
-                    if (interstitialAd.isLoading())
-                    {
+                if (interstitialAd != null) {
+                    if (interstitialAd.isLoading()) {
                         shouldRequest = false;
                     }
 
-                    if (AmazonAds.interstitialAdLoaded)
-                    {
+                    if (AmazonAds.interstitialAdLoaded) {
                         shouldRequest = false;
                     }
                 }
-                if (shouldRequest)
-                {
-                    Log.d("Amazon Ads", "Requesting Amazon Interstitials");
+                if (shouldRequest) {
+                    Log.d("Amazon Ads", "Requesting Amazon Interstitial");
                     interstitialAd = new com.amazon.device.ads.InterstitialAd(activity);
-                    interstitialAd.setListener(new InterstitialsAdListener());
+                    interstitialAd.setListener(new InterstitialAdListener());
                     AdTargetingOptions adOptions = new AdTargetingOptions();
                     interstitialAd.loadAd(adOptions);
                 }
@@ -276,26 +247,20 @@ public class AmazonAds extends Framework
     public void onDestroy()
     {
         super.onDestroy();
-        if (this.adView != null)
-        {
+        if (this.adView != null) {
             this.adView.destroy();
             this.adView = null;
         }
     }
 
-    /**
-     * Shows the ad that is in the current ad view to the user.
-     */
-    private void showCurrentAd()
-    {
-        this.adViewContainer.addView(this.adView);
-    }
+
+    //region Banner Ad Listener
 
     /**
      * This class is for an event listener that tracks ad life cycle events. It extends DefaultAdListener, so you can override
      * only the methods that you need. This event is called once an ad loads successfully. onAdLoaded.
      */
-    class CustomAdListener extends DefaultAdListener
+    private class BannerAdListener extends DefaultAdListener
     {
         @Override
         public void onAdLoaded(final Ad ad, final AdProperties adProperties)
@@ -303,13 +268,6 @@ public class AmazonAds extends Framework
             Log.i(LOG_TAG, adProperties.getAdType().toString() + " ad loaded successfully.");
             // If there is an ad currently being displayed, swap the ad that just loaded with current ad.
             // Otherwise simply display the ad that just loaded.
-            if (adView != null)
-            {
-
-            } else
-            {
-
-            }
         }
 
         /**
@@ -319,6 +277,12 @@ public class AmazonAds extends Framework
         public void onAdFailedToLoad(final Ad ad, final AdError error)
         {
             Log.w(LOG_TAG, "Ad failed to load. Code: " + error.getCode() + ", Message: " + error.getMessage());
+
+            if (error.getCode() == AdError.ErrorCode.NO_FILL) {
+
+            } else if (error.getCode() == AdError.ErrorCode.INTERNAL_ERROR) {
+
+            }
         }
 
         /**
@@ -341,9 +305,10 @@ public class AmazonAds extends Framework
             // Resume your activity here, if it was paused in onAdExpanded.
         }
     }
+    //endregion
 
-    // Interstitials ad listener
-    private class InterstitialsAdListener extends DefaultAdListener
+    //region Interstitial AdListener
+    private class InterstitialAdListener extends DefaultAdListener
     {
         /**
          * This event is called once an ad loads successfully.
@@ -351,8 +316,7 @@ public class AmazonAds extends Framework
         @Override
         public void onAdLoaded(final Ad ad, final AdProperties adProperties)
         {
-            //UnityPlayer.UnitySendMessage(UnityObjName, "OnAdEvent", "amazon-interstitial-yes");
-            //AdsPlugin.interstitialAdLoaded = true;
+
         }
 
         /**
@@ -361,8 +325,7 @@ public class AmazonAds extends Framework
         @Override
         public void onAdFailedToLoad(final Ad view, final AdError error)
         {
-            //UnityPlayer.UnitySendMessage(UnityObjName, "OnAdEvent", "amazon-interstitial-no");\
-            //AdsPlugin.interstitialAdLoaded = false;
+
         }
 
         /**
@@ -371,11 +334,11 @@ public class AmazonAds extends Framework
         @Override
         public void onAdDismissed(final Ad ad)
         {
-            try
-            {
+            try {
                 AmazonAds.getInstance().requestInterstital();
+            } catch (Exception e) {
             }
-            catch (Exception e){ }
         }
     }
+    //endregion
 }
